@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorate="~{admin/layout/default}">
+
+	<th:block layout:fragment="customContents">
+		<h1 th:text="${contents}">[[${contents}]]</h1>
+		
+	</th:block>
+	
+	<th:block layout:fragment="customJs">
+		<!-- Chart.js -->
+	    <script th:src="@{/admin/vendors/Chart.js/dist/Chart.min.js}"></script>
+	    <!-- gauge.js -->
+	    <script th:src="@{/admin/vendors/gauge.js/dist/gauge.min.js}"></script>
+	    <!-- bootstrap-progressbar -->
+	    <script th:src="@{/admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js}"></script>
+	    <!-- iCheck -->
+	    <script th:src="@{/admin/vendors/iCheck/icheck.min.js}"></script>
+	    <!-- Skycons -->
+	    <script th:src="@{/admin/vendors/skycons/skycons.js}"></script>
+	    <!-- Flot -->
+	    <script th:src="@{/admin/vendors/Flot/jquery.flot.js}"></script>
+	    <script th:src="@{/admin/vendors/Flot/jquery.flot.pie.js}"></script>
+	    <script th:src="@{/admin/vendors/Flot/jquery.flot.time.js}"></script>
+	    <script th:src="@{/admin/vendors/Flot/jquery.flot.stack.js}"></script>
+	    <script th:src="@{/admin/vendors/Flot/jquery.flot.resize.js}"></script>
+	    <!-- Flot plugins -->
+	    <script th:src="@{/admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
+	    <script th:src="@{/admin/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
+	    <script th:src="@{/admin/vendors/flot.curvedlines/curvedLines.js}"></script>
+	    <!-- DateJS -->
+	    <script th:src="@{/admin/vendors/DateJS/build/date.js}"></script>
+	    <!-- JQVMap -->
+	    <script th:src="@{/admin/vendors/jqvmap/dist/jquery.vmap.js}"></script>
+	    <script th:src="@{/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+	    <script th:src="@{/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+	    <!-- bootstrap-daterangepicker -->
+	    <script th:src="@{/admin/vendors/moment/min/moment.min.js}"></script>
+	    <script th:src="@{/admin/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+			
+	</th:block>
+</html>
