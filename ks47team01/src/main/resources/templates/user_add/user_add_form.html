@@ -7,10 +7,14 @@
             <div class="col-md-6 order-md-last d-flex">
                 <form th:action="@{/Uinsert/user_insert_action}" th:object="${urbanfarmer}" method="post"
                       class="bg-white p-5 contact-form">
-                    <div class="form-group">
-                        아이디 <input type="text" id="urbanfarmerInsertId" class="form-control">
-                        	 <button type="button" id"idCheck" style="float:right"> 아이디체크 </button>
-                    
+                        아이디
+                    <div class="row">
+                     <div class="col-10 form-floating mb-3" >
+                         <input type="text" id="floatingInput" class="form-control">
+					 </div>
+					 <div class="col">
+                        	 <button type="button" id"idCheck" style="float:right" class="btn btn-primary py-2 px-4	"> 중복확인 </button>
+                    </div>
                     </div>
                     <div class="form-group" >
                         비밀번호 <input type="password" class="form-control">
