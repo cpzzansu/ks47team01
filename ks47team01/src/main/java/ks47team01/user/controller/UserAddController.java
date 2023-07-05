@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UserAddController {
 
-    @GetMapping("/Uin/user_insert_form")
+    @GetMapping("/userInsert/userInsertForm")
     public String userInsertForm(Model model) {
         model.addAttribute("title", "urbanfarm_회원가입");
         model.addAttribute("urbanfarmer", "1");
