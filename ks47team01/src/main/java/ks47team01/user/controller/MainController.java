@@ -17,7 +17,7 @@ public class MainController {
 	// 메인화면 컨트롤러
 	@GetMapping("/")
 	public String main(Model model) {
-		model.addAttribute("title", "urbanfarm_메이플스토리인화면");
+		model.addAttribute("title", "urbanfarm_메이플스토리화면");
 		return "user/main";
 	}
 }
