@@ -3,6 +3,7 @@ package ks47team01.user.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LoginController {
@@ -18,6 +19,13 @@ public class LoginController {
     public String loginForm(Model model) {
         model.addAttribute("title", "urbanfarm");
         return "user_login/user_login";
+    }
+    
+    @GetMapping("/Ulogin/add_user")
+    public String addForm(Model model) {
+    	
+    	
+    	return "user_add/user_add_form";
     }
 
 }
