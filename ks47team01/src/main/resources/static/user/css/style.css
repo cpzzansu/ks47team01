@@ -10601,6 +10601,23 @@ textarea.form-control {
     .hero-bread2 {
     	background-size: contain;
     }
+    
+   .btn-mypage {
+     font-size: 13px;
+     font-weight: 600;
+   }
+    
+  .td-info {
+  	padding: 0px 0px 0px 20px;
+  }
+  
+  .ul-info {
+  }
+  
+  .thumb {
+  	width: 100px;
+  	height: 100px;
+  }
   
   
   
