@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+    <a th:href="@{'/userVendingMachine/vmSpaceSelect'}">자판기 판매 공간 선택</a>
+</th:block>
 
-</body>
 </html>
