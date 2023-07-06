@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+    <a th:href="@{'/userVendingMachine/vmSpaceCheckList'}">예약 전체보기</a>
+    <a th:href="@{'/userVendingMachine/vmMain'}">홈으로</a>
+</th:block>
+
+</html>
