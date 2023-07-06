@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-    @GetMapping("/Ulogin/user_login_action")
+    @GetMapping("/userLogin/userLoginAction")
     public String userLoginAction(Model model) {
         model.addAttribute("title", "urbanfarm");
         return "user_login/main_login";
     }
 
-    // 로그인화면
-    @GetMapping("/Ulogin/user_login")
+    // 로그인 폼 화면
+    @GetMapping("/userLogin/userLogin")
     public String loginForm(Model model) {
         model.addAttribute("title", "urbanfarm");
         return "user_login/user_login";
