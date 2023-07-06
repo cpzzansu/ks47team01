@@ -20,4 +20,28 @@ public class FindController {
         model.addAttribute("title", "urbanfarm_아이디 찾기");
         return "user_find/user_find_id_form";
     }
+    
+    @GetMapping("/userFind/userFindIdFail")
+    public String userIdFindFail(Model model) {
+        model.addAttribute("title", "urbanfarm_아이디 찾기 실패");
+        return "user_find/user_find_id_fail";
+    }
+    
+    @GetMapping("/userFind/userFindIdSuccess")
+    public String userIdFindSuccess(Model model) {
+        model.addAttribute("title", "urbanfarm_아이디 찾기 성공");
+        return "user_find/user_find_id_success";
+    }
+    
+    @GetMapping("/userFind/userFindPwFail")
+    public String userPwFindFail(Model model) {
+        model.addAttribute("title", "urbanfarm_아이디 찾기 실패");
+        return "user_find/user_find_pw_fail";
+    }
+    
+    @GetMapping("/userFind/userFindPwSuccess")
+    public String userPwFindSuccess(Model model) {
+        model.addAttribute("title", "urbanfarm_아이디 찾기 성공");
+        return "user_find/user_find_pw_success";
+    }
 }
