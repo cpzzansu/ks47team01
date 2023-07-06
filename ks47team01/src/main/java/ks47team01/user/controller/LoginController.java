@@ -15,12 +15,5 @@ public class LoginController {
         model.addAttribute("title", "urbanfarm");
         return "user_login/user_login";
     }
-    
-    @GetMapping("/userLogin/add_user")
-    public String addForm(Model model) {
-    	
-    	
-    	return "user_add/user_add_form";
-    }
 
 }

@@ -14,8 +14,5 @@ public class UserAddController {
         return "user_add/user_add_form";
     }
     
-	@GetMapping("/user/userMyPage")
-	public String myPage(Model model) {
-		return "user_mypage/user_mypage";
-	}
+
 }
