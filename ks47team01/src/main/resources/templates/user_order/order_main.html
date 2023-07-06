@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default_login2}">
+	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
 
 	<body>
@@ -52,7 +52,7 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">주문취소</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1" id="processing">주문취소</a></p>
 											</div>
 										</td>
 										
@@ -79,7 +79,7 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">배송조회</a></p>
+												<p><a href="/" class="btn btn-urban btn-mypage py-1 px-1">배송조회</a></p>
 											</div>
 										</td>
 										
@@ -106,7 +106,7 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">배송조회</a></p>
+												<p><a href="/" class="btn btn-urban btn-mypage py-1 px-1">배송조회</a></p>
 											</div>
 										</td>
 										
@@ -133,7 +133,7 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">배송조회</a></p>
+												<p><a href="/" class="btn btn-urban btn-mypage py-1 px-1">배송조회</a></p>
 											</div>
 										</td>
 										
@@ -160,10 +160,10 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">교환신청</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">교환신청</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">반품신청</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">반품신청</a></p>
 											</div>
 										</td>
 										
@@ -214,7 +214,7 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">교환취소</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">교환취소</a></p>
 											</div>
 										</td>
 										
@@ -265,10 +265,10 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">교환신청</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">교환신청</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">반품신청</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">반품신청</a></p>
 											</div>
 										</td>
 										
@@ -295,7 +295,7 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">반품취소</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">반품취소</a></p>
 											</div>
 										</td>
 										
@@ -346,10 +346,10 @@
 												<p><a href="/userOrder/userOrderDetail" class="btn btn-urban btn-mypage py-1 px-1">주문상세</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">교환신청</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">교환신청</a></p>
 											</div>
 											<div>
-												<p><a href="/userShop/userShopList" class="btn btn-urban btn-mypage py-1 px-1">반품신청</a></p>
+												<p><a href="javascript:orderProcessing()" class="btn btn-urban btn-mypage py-1 px-1">반품신청</a></p>
 											</div>
 										</td>
 										
@@ -362,8 +362,6 @@
 				</div>
 			</div>
 		</section>
-
 	</body>
 </th:block>
-
 </html>
