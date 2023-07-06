@@ -15,7 +15,23 @@ public class PlanController {
 		return "user_plan/plan_main";
 	}
 	
+	@GetMapping("/addPlan")
+	public String addPlan(){
+		
+		return "user_plan/add_plan";
+	}
 	
+	@GetMapping("/modifyPlan")
+	public String modifyPlan(){
+		
+		return "user_plan/modify_plan";
+	}
+	
+	@GetMapping("/removePlan")
+	public String removePlan() {
+		
+		return "user_plan/remove_plan";
+	}
 	
 	@GetMapping("/addCrops")
 	public String addCrops(){
@@ -36,10 +52,17 @@ public class PlanController {
 		return "user_plan/add_kit";
 	}
 	
-	@GetMapping("/addPlan")
-	public String addPlan(){
+	
+	@GetMapping("/modifyKit")
+	public String modifyKit(){
 		
-		return "user_plan/add_plan";
+		return "user_plan/modify_kit";
+	}
+	
+	@GetMapping("/removeKit")
+	public String removeKit(){
+		
+		return "user_plan/remove_kit";
 	}
 	
 	@GetMapping("/cropsPlan")
@@ -48,16 +71,8 @@ public class PlanController {
 		return "user_plan/crops_plan";
 	}
 	
-	@GetMapping("/modifyKit")
-	public String modifyKit(){
-		
-		return "user_plan/modify_kit";
-	}
 	
-	@GetMapping("/modifyPlan")
-	public String modifyPlan(){
-		
-		return "user_plan/modify_plan";
-	}
+	
+	
 
 }
