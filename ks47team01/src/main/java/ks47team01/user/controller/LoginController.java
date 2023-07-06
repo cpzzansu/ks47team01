@@ -9,13 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-    @PostMapping("/userLogin/userLogin")
-    public String userLoginAction(Model model) {
-        model.addAttribute("title", "urbanfarm");
-        return "user_login/main_login";
-    }
 
-    // 로그인화면
     @GetMapping("/userLogin/userLogin")
     public String loginForm(Model model) {
         model.addAttribute("title", "urbanfarm");

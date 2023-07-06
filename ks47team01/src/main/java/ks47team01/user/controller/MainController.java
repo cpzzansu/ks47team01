@@ -20,4 +20,5 @@ public class MainController {
 		model.addAttribute("title", "urbanfarm_메이플스토리화면");
 		return "user/main";
 	}
+
 }

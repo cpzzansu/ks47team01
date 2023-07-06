@@ -10,7 +10,7 @@
 				<span class="oi oi-menu"></span> Menu
 			</button>
 
-			<div th:if="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
+			<div th:if="${session.S_id != null}" class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a th:href="@{'/' + #{#servletContext.contextPath} + '/'}"
 							class="nav-link">플랫폼소개</a></li>
@@ -23,7 +23,7 @@
 					<li class="nav-item"><a th:href="@{/userLogin/userLogin}" class="nav-link">로그인</a></li>
 				</ul>
 			</div>
-			<div th:unless="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
+			<div th:unless="${session.S_id != null}" class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a th:href="@{'/' + #{#servletContext.contextPath} + '/'}"
 							class="nav-link">플랫폼소개</a></li>
@@ -33,7 +33,7 @@
 					<li class="nav-item"><a href="#" class="nav-link">고객센터</a></li>
 					<li class="nav-item cta cta-colored"><a href="cart.jsp" class="nav-link"><span
 								class="icon-shopping_cart"></span>[0]</a></li>
-					<li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+					<li class="nav-item"><a th:href="@{/user/userMyPage}" class="nav-link">마이페이지</a></li>
 					<li class="nav-item"><a th:href="@{/}" class="nav-link">로그아웃</a></li>
 				</ul>
 			</div>
