@@ -303,10 +303,34 @@ button.addEventListener("click", function() {
 	paymentWidget.requestPayment({
 		orderId: "mg4ctn_qNSxuTAjMVHxBv",            // 주문 ID(직접 만들어주세요)
 		orderName: "어반팜 딸기 키트 - 초급자용",           // 주문명
-		successUrl: "http://192.168.10.24:80/Ushop/user_shop_payment_success",  			// 결제에 성공하면 이동하는 페이지(직접 만들어주세요)
-		failUrl: "http://192.168.10.24:80/Ushop/user_shop_payment_fail",										// 결제에 실패하면 이동하는 페이지(직접 만들어주세요)
+		successUrl: "http://192.168.10.24:80/userPayment/userPaymentSuccess",  			// 결제에 성공하면 이동하는 페이지(직접 만들어주세요)
+		failUrl: "http://192.168.10.24:80/userPayment/userPaymentFail",										// 결제에 실패하면 이동하는 페이지(직접 만들어주세요)
 		amount: "1000000000",
 		customerEmail: "customer123@gmail.com",
 		customerName: "김토스"
 	})
 });
+
+// 주문상세 페이지에서 교환, 반품, 취소신청시 팝업
+function orderProcessing() {
+	let width = 600;
+	let height = 600;
+	
+	let left = (window.screen.width/2) - (width/2);
+	let top = (window.screen.height/4);
+	
+	let windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
+	
+	const url = "userOrderProcessing";
+	
+	window.open(url, "hello popup", windowStatus);
+}
+
+// 팝업창 닫기 종합
+
+document.getElementById('windowClose').addEventListener("click", closePopUp());
+
+function closePopUp() {
+	console.log('창닫기');
+	window.close();
+}
