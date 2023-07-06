@@ -303,8 +303,8 @@ button.addEventListener("click", function() {
 	paymentWidget.requestPayment({
 		orderId: "mg4ctn_qNSxuTAjMVHxBv",            // 주문 ID(직접 만들어주세요)
 		orderName: "어반팜 딸기 키트 - 초급자용",           // 주문명
-		successUrl: "http://192.168.10.24:80/Ushop/user_shop_payment_success",  			// 결제에 성공하면 이동하는 페이지(직접 만들어주세요)
-		failUrl: "http://192.168.10.24:80/Ushop/user_shop_payment_fail",										// 결제에 실패하면 이동하는 페이지(직접 만들어주세요)
+		successUrl: "http://192.168.10.24:80/userPayment/userPaymentSuccess",  			// 결제에 성공하면 이동하는 페이지(직접 만들어주세요)
+		failUrl: "http://192.168.10.24:80/userPayment/userPaymentFail",										// 결제에 실패하면 이동하는 페이지(직접 만들어주세요)
 		amount: "1000000000",
 		customerEmail: "customer123@gmail.com",
 		customerName: "김토스"

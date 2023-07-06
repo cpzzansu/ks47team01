@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<div id="header" th:fragment="headerFragment">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{'/' + #{#servletContext.contextPath} + '/'}">UrbanFarm</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div th:if="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a th:href="@{'/' + #{#servletContext.contextPath} + '/'}"
+							class="nav-link">플랫폼소개</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">이용방법</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">야채종합정보</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">공지 및 이벤트</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">고객센터</a></li>
+					<li class="nav-item cta cta-colored"><a href="cart.jsp" class="nav-link"><span
+								class="icon-shopping_cart"></span>[0]</a></li>
+					<li class="nav-item"><a th:href="@{/userLogin/userLogin}" class="nav-link">로그인</a></li>
+				</ul>
+			</div>
+			<div th:unless="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a th:href="@{'/' + #{#servletContext.contextPath} + '/'}"
+							class="nav-link">플랫폼소개</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">이용방법</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">야채종합정보</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">공지 및 이벤트</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">고객센터</a></li>
+					<li class="nav-item cta cta-colored"><a href="cart.jsp" class="nav-link"><span
+								class="icon-shopping_cart"></span>[0]</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">마이페이지</a></li>
+					<li class="nav-item"><a th:href="@{/}" class="nav-link">로그아웃</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="hero-wrap hero-bread" style="background-image: url('/user/images/bg_1.png');">
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<p class="breadcrumbs"><span class="mr-2"><a href="../../static/admin/vendors/bootstrap-daterangepicker/example/amd/index.html"></a></span> <span></span></p>
+					<h1 class="mb-0 bread" th:text="${title}"></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</html>
