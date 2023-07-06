@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default_login2}">
+	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
 
 	<body>
@@ -8,7 +8,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 ftco-animate">
-						<div class="cart-list">
+						<div>
 							<table class="table">
 								<thead class="thead-primary">
 									<tr class="text-center">
@@ -107,7 +107,7 @@
 								<span>64,900원</span>
 							</p>
 						</div>
-						<p><a href="/Ushop/user_shop_payment" class="btn btn-primary py-3 px-4">결제하기</a></p>
+						<p><a href="/userPayment/userPaymentMain" class="btn btn-primary py-3 px-4">결제하기</a></p>
 					</div>
 				</div>
 			</div>
