@@ -34,10 +34,10 @@ public class UserInfoController {
 		return"redirect:/userInfo/updateUserInfo";
 		
 	}
-	@GetMapping("/userInfo/removeUser")
-	public String removeUser() {
+	@PostMapping("/userInfo/removeUserPwCheck")
+	public String postRemoveUser() {
 		
-		return "user_info/remove_user";
+		return "redirect:/index";
 		
 	}
 	
