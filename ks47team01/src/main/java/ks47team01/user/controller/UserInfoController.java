@@ -1,6 +1,7 @@
 package ks47team01.user.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -33,6 +34,17 @@ public class UserInfoController {
 		return"redirect:/userInfo/updateUserInfo";
 		
 	}
+	@GetMapping("/userInfo/removeUser")
+	public String removeUser() {
+		
+		return "user_info/remove_user";
+		
+	}
 	
-	
+	@GetMapping("/userInfo/updateUserInfo")
+	public String updateUserInfo() {
+		
+		return "user_info/update_user_info";
+		
+	}
 }

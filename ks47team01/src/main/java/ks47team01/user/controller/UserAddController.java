@@ -13,6 +13,5 @@ public class UserAddController {
         model.addAttribute("urbanfarmer", "1");
         return "user_add/user_add_form";
     }
-    
 
 }

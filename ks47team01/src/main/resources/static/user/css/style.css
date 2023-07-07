@@ -8030,7 +8030,7 @@ a {
   color: #d4ec70; }
   a:hover, a:focus {
     text-decoration: none;
-    color: #d4ec70; }
+    color: #fff; }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
@@ -10542,7 +10542,7 @@ textarea.form-control {
   
   .hero-bread2 {
   	background-color: #d4ec70;
-    padding: 11em 0;
+    padding: 6em 0;
   }
   
   .hero-wrap2 {
@@ -10611,15 +10611,35 @@ textarea.form-control {
   	padding: 0px 0px 0px 20px;
   }
   
-  .ul-info {
-  }
-  
   .thumb {
   	width: 100px;
   	height: 100px;
   }
   
-  
-  
+  /* 취소/반품/교환 신청 제출 및 창닫기 버튼 */
+  .btn-submit {
+    background: black;
+    border: 1px solid black;
+    color: #fff;
+  }.btn-submit:hover {
+  	color: #222;
+  	background: red;
+  	border: 1px solid red;
+  }
+ 
+ /* 1줄만 가운데 정렬 */
+ .one-col-center{
+   display: flex;
+   justify-content: center; /* 수평 중앙 정렬 */
+   align-items: center; /* 수직 중앙 정렬 */
+   height: 20px; /* div의 높이를 지정. 이 값은 실제 상황에 맞게 조정 */
+   gap: 20px;
+   cursor: pointer;
+   color: #fff;
+ }
+ 
+ #orderNum {
+  font-size: 12px;
+ }
   
   
