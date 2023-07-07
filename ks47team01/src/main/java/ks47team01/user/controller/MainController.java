@@ -15,6 +15,15 @@ public class MainController {
 		return "user/main";
 	}
 	
+	
+	
+	
+	
+	     
+	
+	
+	
+	
 	// 메인화면 컨트롤러
 	@GetMapping("/")
 	public String main(Model model) {

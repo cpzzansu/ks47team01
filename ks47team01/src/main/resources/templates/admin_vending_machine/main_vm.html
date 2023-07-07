@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+    <a th:href="@{'/adminVendingMachine/vmAdd'}">자판기 추가</a>
+    <a th:href="@{'/adminVendingMachine/vmModify'}">자판기 수정</a>
+    <a th:href="@{'/adminVendingMachine/vmRemove'}">자판기 삭제</a>
+     <a th:href="@{'/adminVendingMachine/vmHubMain'}">자판기 사용 메인 가기</a>
+</th:block>
+
+</html>
