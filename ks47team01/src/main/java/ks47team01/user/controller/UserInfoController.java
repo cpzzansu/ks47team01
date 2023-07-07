@@ -13,10 +13,10 @@ public class UserInfoController {
 		return "user_info/user_info_page";
 		
 	}
-	@GetMapping("/userInfo/removeUserPw")
-	public String removeUserPw() {
+	@GetMapping("/userInfo/removeUserPwCheck")
+	public String removeUserPwCheck() {
 		
-		return "user_info/remove_user_pw";
+		return "user_info/remove_user_pw_check";
 		
 	}
 	
@@ -26,23 +26,11 @@ public class UserInfoController {
 		return "user_info/update_user_info_pw";
 		
 	}
-	@PostMapping("/userInfo/removeUserPw")
-	public String postRemoveUserPw() {
-		
-		return"redirect:/userInfo/removeUser";
-		
-	}
 	
 	@PostMapping("/userInfo/updateUserInfoPw")
 	public String postUpdateUserInfoPw() {
 		
 		return"redirect:/userInfo/updateUserInfo";
-		
-	}
-	@GetMapping("/userInfo/removeUser")
-	public String removeUser() {
-		
-		return "user_info/remove_user";
 		
 	}
 	
@@ -53,6 +41,4 @@ public class UserInfoController {
 		
 	}
 	
-	
-				
 }
