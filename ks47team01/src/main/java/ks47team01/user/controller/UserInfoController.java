@@ -34,11 +34,5 @@ public class UserInfoController {
 		
 	}
 	
-	@GetMapping("/userInfo/updateUserInfo")
-	public String updateUserInfo() {
-		
-		return "user_info/update_user_info";
-		
-	}
 	
 }
