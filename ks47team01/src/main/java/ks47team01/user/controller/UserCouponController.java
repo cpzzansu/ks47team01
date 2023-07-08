@@ -5,7 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserCouponController {
-	
+	/** 쿠폰 목록 화면
+	 * 
+	 * @return
+	 */
 	@GetMapping("/user/userCoupon")
 	public String userCoupon() {
 		
@@ -13,7 +16,10 @@ public class UserCouponController {
 		
 		return "user_coupon/coupon_user_list";
 	}
-	
+	/** 쿠폰 등록 화면								
+	 * 
+	 * @return
+	 */
 	@GetMapping("/user/regiUserCoupon")
 	public String regiUserCoupon() {
 
