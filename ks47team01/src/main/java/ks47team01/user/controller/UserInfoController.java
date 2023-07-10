@@ -67,7 +67,11 @@ public class UserInfoController {
 		return "user_info/update_user_info";
 		
 	}
-	
+	/** 유저정보 유저쿠폰 배송지관리를 고르는 화면
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/userInfo/userInfoPage")
 	public String userInfoMain(Model model) {
 		return "user_info/user_info_page";
