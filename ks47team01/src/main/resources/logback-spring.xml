@@ -8,7 +8,7 @@
 -->
 <configuration>
 	<!-- 변수 지정 -->
-    <property name="LOG_DIR" value="src/main/resources/logs" />
+    <property name="LOG_DIR" value="/home/springboot/logs" />
     <property name="LOG_PATH_NAME" value="${LOG_DIR}/application.log" />
 	
 	<!-- ConsoleAppender -->
@@ -24,33 +24,35 @@
 		</encoder>
 	</appender>
 	
-	<!-- Rolling File Appender
+	<!-- Rolling File Appender -->
     <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        	파일 경로
+        	<!--파일 경로-->
         <file>${LOG_PATH_NAME}</file>
-        	출력패턴
+        	<!--출력패턴-->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
-        Rolling 정책
+        <!--Rolling 정책-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/application.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                	파일당 최고 용량 10MB
+                	<!--파일당 최고 용량 10MB-->
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
-            	일자별 로그파일 최대 보관주기(일단위)만약 해당 설정일 이상된 파일은 자동으로 제거
+            	<!--일자별 로그파일 최대 보관주기(일단위)만약 해당 설정일 이상된 파일은 자동으로 제거-->
             <maxHistory>30</maxHistory>
         </rollingPolicy>
-    </appender> -->
+    </appender>
 	
 	<!-- 프로젝트 패키지 안 클래스에 설정된 로그 출력 -->
 	<logger name="ks47team01" level="INFO" additivity="false">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLING_FILE"/>
 	</logger>
 	<!-- 아직 싱글톤 안나가서 하지 않는 것이 맞음 -->
-	<logger name="org.springframework" level="OFF" additivity="false">
+	<logger name="org.springframework" level="INFO" additivity="false">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLING_FILE"/>
 	</logger>
 
 	<!-- log4jdbc 옵션 설정 --> 
@@ -84,11 +86,12 @@
 	</logger> 
 	
 	<!-- SQL 결과 조회된 데이터의 table로 표현하여 로그 출력 --> 
-	<logger name="jdbc.resultsettable" level="INFO" additivity="false">
+	<logger name="jdbc.resultsettable" level="OFF" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
 	<root level="ERROR">
 		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLING_FILE"/>
 	</root>
 </configuration>
