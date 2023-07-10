@@ -67,4 +67,10 @@ public class UserInfoController {
 		return "user_info/update_user_info";
 		
 	}
+	
+	@GetMapping("/userInfo/userInfoPage")
+	public String userInfoMain(Model model) {
+		return "user_info/user_info_page";
+	} 
+	
 }
