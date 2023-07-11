@@ -5,7 +5,7 @@
 
 <mapper namespace="ks47team01.user.mapper.FarmingPlanMapper">
 
-	<resultMap type="ks47team01.user.dto.FarmingPlan" id="farmingPlanResultMap">
+	<resultMap type="FarmingPlan" id="farmingPlanResultMap">
 		<id column="farmer_farming_plan_code" property="farmerFarmingPlanCode"/>
 		<result column="urbanfarmer_id" property="urbanfarmerId"/>
 		<result column="urbanfarm_hub_crew_id" property="urbanfarmHubCrewId"/>
@@ -18,7 +18,7 @@
 		<result column="farmer_farming_plan_end_date" property="farmerFarmingPlanEndDate"/>
 		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
 	</resultMap>
-	<select id="getFarmingPlanList" resultMap="farmingPlanResultMap" parameterType="String">
+	<select id="getFarmingPlanListById" resultMap="farmingPlanResultMap" parameterType="String">
 		SELECT
 			farmer_farming_plan_code,
 			crops_name,

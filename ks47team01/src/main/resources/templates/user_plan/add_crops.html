@@ -4,7 +4,7 @@
 <th:block layout:fragment="customContents">
 
 	<section class="ftco-section">
-	<h1 class="text-center mb-5">add_plan</h1>
+	<h1 class="text-center mb-5">add_crops</h1>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-9 ftco-animate">
@@ -16,9 +16,10 @@
 									<label for="crops">작물 선택</label>
 									<div class="select-wrap">
 										<select name="crops" id="crops" class="form-control">
-											<option value="">작물1</option>
-											<option value="">작물2</option>
-											<option value="">작물3</option>
+											<option value="">-----작물을 선택해주세요-----</option>
+											<option th:each="list :${cropsNameList}" 
+													th:text="${list.cropsName}"
+													th:value="${list.cropsNameCode}"></option>					
 										</select>
 									</div>
 								</div>

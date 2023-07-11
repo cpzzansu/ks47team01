@@ -11,7 +11,7 @@ public interface FarmingPlanMapper {
 	/**
 	 * 사용자별 작물 리스트
 	 * @param userId
-	 * @return farmerFarmingPlanCode, cropsName, farmerFarmingPlanStatus
+	 * @return List<FarmingPlan>: farmerFarmingPlanCode, cropsName, farmerFarmingPlanStatus
 	 */
 	public List<FarmingPlan> getFarmingPlanListById(String userId);
 }
