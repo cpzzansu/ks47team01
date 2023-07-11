@@ -9,18 +9,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
 
-
+	/** 일반회원 로그인 화면								
+	 * 
+	 * @param model
+	 * @return 
+	 */
     @GetMapping("/userLogin/userLogin")
     public String loginForm(Model model) {
         model.addAttribute("title", "urbanfarm");
         return "user_login/user_login";
-    }
-    
-    @GetMapping("/userLogin/add_user")
-    public String addForm(Model model) {
-    	
-    	
-    	return "user_add/user_add_form";
     }
 
 }
