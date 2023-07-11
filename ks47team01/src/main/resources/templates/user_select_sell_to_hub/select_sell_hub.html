@@ -2,6 +2,57 @@
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
+    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+        <div class="container py-6">
+            <div class="row d-flex justify-content-center py-5">
+                <div class="col-md-6 d-flex align-items-center">
+                    <form action="#" class="subscribe-form">
+                        <div class="form-group d-flex">
+                            <input type="text" class="form-control input-border-not-right" placeholder="주소를 입력하세요.">
+                            <input type="submit" value="검색하기" class="submit px-3">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ftco-section ftco-cart">
+        <div class="container col-md-5">
+            <div class="row">
+                <div class="col-md-12 ftco-animate bottom-padding-20 top-padding-10 div-underline">
+                    <div class="text-center">
+                        <div class="row click-to-move">
+                            <div class="col-md-3">
+                                <img class="thumb" src="/user/images/product-2.jpg">
+                            </div>
+                            <div class="col-md-9 prtendard text-left">
+                                <h3>덕진동 허브</h3>
+                                <p>전주시 덕진구 덕진동 덕진</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ftco-animate bottom-padding-20 top-padding-10 div-underline">
+                    <div class="text-center">
+                        <div class="row click-to-move">
+                            <div class="col-md-3">
+                                <img class="thumb" src="/user/images/product-2.jpg">
+                            </div>
+                            <div class="col-md-9 prtendard text-left">
+                                <h3>평화동 허브</h3>
+                                <p>전주시 완산구구 평화동 평화의거리 5-11 1층 </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
     <a style="color: #0b0b0b" th:href="@{'/userVrificationCheck/answerForm'}">자가검증 답 작성 화면</a>
 </th:block>
 
