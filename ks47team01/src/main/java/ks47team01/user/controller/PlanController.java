@@ -1,21 +1,39 @@
 package ks47team01.user.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpSession;
+import ks47team01.user.service.CropsService;
+import ks47team01.user.service.FarmingPlanService;
+import ks47team01.user.dto.CropsName;
+import ks47team01.user.dto.FarmingPlan;
+import lombok.AllArgsConstructor;
 
 @Controller("UserPlanController")
 @RequestMapping("/userPlan")
+@AllArgsConstructor
 public class PlanController {
 	
+	private final FarmingPlanService farmingPlanService;
+	private final CropsService cropsService;
 	/**
 	 * 작물 계획 메인화면
 	 */
 	@GetMapping("/planMain")
-	public String planMain(Model model){
+	public String planMain(Model model, HttpSession session){
+		session.setAttribute("SID", "id003");
+		String userId = (String)session.getAttribute("SID");
+		List<FarmingPlan> farmingPlanList = farmingPlanService.getFarmingPlanListById(userId);
+		
 		model.addAttribute("title", "농사 계획");
+		model.addAttribute("farmingPlanList",farmingPlanList);
 		return "user_plan/plan_main";
 	}
 	
@@ -51,7 +69,10 @@ public class PlanController {
 	 */
 	@GetMapping("/addCrops")
 	public String addCrops(Model model){
+		//작물 이름, 코드 가져오기
+		List<CropsName> cropsNameList = cropsService.getCropsNameList();
 		model.addAttribute("title", "작물등록");
+		model.addAttribute("cropsNameList", cropsNameList);
 		return "user_plan/add_crops";
 	}
 	
@@ -108,7 +129,8 @@ public class PlanController {
 	 * 작물 계획 열람화면
 	 */
 	@GetMapping("/cropsPlan")
-	public String cropsPlan(Model model){
+	public String cropsPlan(@RequestParam(value="farmerFarmingPlanCode")String farmerFarmingPlanCode , 
+							Model model){
 		model.addAttribute("title", "작물 상세보기");
 		return "user_plan/crops_plan";
 	}

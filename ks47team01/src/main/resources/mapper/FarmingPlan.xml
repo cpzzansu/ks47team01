@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks47team01.user.mapper.FarmingPlanMapper">
+
+	<resultMap type="FarmingPlan" id="farmingPlanResultMap">
+		<id column="farmer_farming_plan_code" property="farmerFarmingPlanCode"/>
+		<result column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="urbanfarm_hub_crew_id" property="urbanfarmHubCrewId"/>
+		<result column="crops_name_code" property="cropsNameCode"/>
+		<result column="crops_name" property="cropsName"/>
+		<result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
+		<result column="urban_kit_code" property="urbanKitCode"/>
+		<result column="farmer_farming_plan_reg_date" property="farmerFarmingPlanRegDate"/>
+		<result column="farmer_farming_plan_start_date" property="farmerFarmingPlanStartDate"/>
+		<result column="farmer_farming_plan_end_date" property="farmerFarmingPlanEndDate"/>
+		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
+	</resultMap>
+	<select id="getFarmingPlanListById" resultMap="farmingPlanResultMap" parameterType="String">
+		SELECT
+			farmer_farming_plan_code,
+			crops_name,
+			farmer_farming_plan_status
+		FROM
+			farmer_farming_plan
+		WHERE
+			urbanfarmer_id=#{userId}
+	</select>
+</mapper>
