@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html layout:decorate="~{user_layout/default}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  xmlns:th="http://www.thymeLeaf.org">
+      xmlns:th="http://www.thymeLeaf.org">
 
 <th:block layout:fragment="customContents">
     <div class="container text-center">
-        <h1 class="prtendard upper-padding">판매 작물 선택</h1>
+        <h1 class="prtendard upper-padding text-headline">판매 작물 선택</h1>
     </div>
-	<section class="ftco-section ftco-cart">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 ftco-animate">
-					<div>
-						<table class="table">
-							<tbody>
-                                <tr class="text-center">
-                                    <td class="image-prod col-md-2">
-                                        <div>
-                                            <img class="thumb" src="/user/images/product-2.jpg">
-                                        </div>
-                                    </td>
-                                    <td class="col-md-10">
-                                        <h3>어반팜 피망키트 - 초급자용</h3>
-                                        <p>맛있는 피망</p>
-                                    </td>
-                                </tr><!-- END TR-->
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-    <a style="color: #0b0b0b" th:href="@{'/userSelectselltohub/selectsellHub'}">허브 선택으로 이동</a>
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="text-center">
+                        <div class="row click-to-move">
+                            <div class="col-md-2">
+                                <img class="thumb" src="/user/images/product-2.jpg">
+                            </div>
+                            <div class="col-md-8 prtendard">
+                                <h3>상식이</h3>
+                                <p>맛있는 피망</p>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <p>시작 날짜: <span id="startDate">2023-07-11</span></p>
+                                <p>종료 날짜: <span id="endDate">2023-07-18</span></p>
+                                <p>진행 상태: <span id="progressStatus">완료</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ftco-animate">
+                    <div class="text-center">
+                        <div class="row click-to-move">
+                            <div class="col-md-2">
+                                <img class="thumb" src="/user/images/product-2.jpg">
+                            </div>
+                            <div class="col-md-8 prtendard">
+                                <h3>상식이</h3>
+                                <p>맛있는 피망</p>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <p>시작 날짜: <span id="startDate2">2023-07-11</span></p>
+                                <p>종료 날짜: <span id="endDate2">2023-07-18</span></p>
+                                <p>진행 상태: <span id="progressStatus2">완료</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </th:block>
 <th:block layout:fragment="customJs">
-	<script>
-		$(document).on('click', '.table tr', function () {
-			$(this).css('background-color', 'blue');
-		});
-	</script>
-
+    <script>
+        $(document).on('click', '.click-to-move', function () {
+            location.href = '/userSelectSellToHub/selectSellHub';
+        });
+    </script>
 </th:block>
 
 </html>
