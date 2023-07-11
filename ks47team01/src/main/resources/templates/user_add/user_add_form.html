@@ -1,78 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{user_layout/default}">
-<th:block layout:fragment="customContents">
-    <section class="ftco-section contact-section bg-light">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-6 order-md-last d-flex">
-                <form th:action="@{/Uinsert/user_insert_action}" th:object="${urbanfarmer}" method="post"
-                      class="bg-white p-5 contact-form">
-                    <div class="row"></div>
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserId">
-						    <label for="userId">아이디</label>
-						  </div>
-						  <div class="col">
-			              	<button type="button" id="idCheck" style="float:right" class="btn btn-primary py-3 px-4"> 중복확인 </button>
-			              </div>
-						</div>
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserPw">
-						  	<label for="userId">비밀번호</label>
-						  </div>
-						</div>
-                   	 
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserPwCheck">
-						  	<label for="userId">비밀번호 체크</label>						    
-						  </div>
-						</div>
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserName">
-						  	<label for="userId">이름</label>						    
-						  </div>
-						</div>
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserEmail">
-						  	<label for="userId">이메일</label>						    
-						  </div>
-						</div>
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="-는 생략">
-						  	<label for="userId">휴대번호</label>						    
-						  </div>
-						</div>
-						<div class="input-group mb-3">
-						  <label for="userId">sms수신동의</label>						    
-						  <div class="form-floating col-9">
-						    <input type="radio" name="smsCheck" value="y"> 예
-						    <input type="radio" name="smsCheck" value="n"> 아니오
-						  </div>
-						</div>
-						<div class="input-group mb-3">
-						<label for="userId">이메일수신동의</label>
-						  <div class="form-floating col-9">
-						    <input type="radio" name="emailCheck" value="y"> 예
-						    <input type="radio" name="emailCheck" value="n"> 아니오
-						  </div>
-						</div>
-					<div class="form-group" style="text-align:right">
-                       	<!-- <input type="submit" value="회원가입"
-                               class="btn btn-primary py-3 px-5"> 
-                               기능 구현시 주석 및 a태그 삭제 -->
-                    		 <a class="btn btn-primary py-3 px-5" id="alertInsert">회원가입</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-</th:block>
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
     	// user_insert_form_1 : 회원가입 완료버튼시 팝업 출력, 기능구현시 삭제
@@ -108,5 +36,65 @@
             databaseCheck(urbanfarmerId, $errorMassage);
         })
     </script>
+</th:block>      
+<th:block layout:fragment="customContents">
+    <section class="ftco-section contact-section bg-light">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-6 order-md-last d-flex">
+                <form th:action="@{/Uinsert/userInsertAction}" th:object="${urbanfarmer}" method="post"
+                      class="bg-white p-5 contact-form">
+                      
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userId" name="userId" placeholder="UserId">
+						    <label for="userId">아이디</label>
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userPw" name="userPw" placeholder="UserPw">
+						  	<label for="userPw">비밀번호</label>
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userName" name="userName" placeholder="UserName">
+						  	<label for="userName">이름</label>
+						  </div>
+						</div>						
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="UserEmail">
+						  	<label for="userEmail">이메일</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="-는 생략">
+						  	<label for="userPhone">휴대번호</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <label for="smsCheck">sms수신동의</label>						    
+						  <div class="form-floating col-9">
+						    <input type="radio" name="smsCheck" value="y"> 예
+						    <input type="radio" name="smsCheck" value="n"> 아니오
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						<label for="emailCheck">이메일수신동의</label>
+						  <div class="form-floating col-9">
+						    <input type="radio" name="emailCheck" value="y"> 예
+						    <input type="radio" name="emailCheck" value="n"> 아니오
+						  </div>
+						</div>
+					<div class="form-group" style="text-align:right">
+                    		 <a class="btn btn-info py-3 px-5" id="alertInsert">회원가입</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </th:block>
+
 </html>

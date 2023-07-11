@@ -14,7 +14,7 @@ public class UserAddrController {
 	@GetMapping("/user/userAddrList")
 	public String userAddrList(Model model) {
 		
-		model.addAttribute("title", "urbanfarm");
+		model.addAttribute("title", "배송지 목록");
 		
 		return "user_addr/addr_user_list";
 		
@@ -26,7 +26,7 @@ public class UserAddrController {
 	@GetMapping("/user/addUserAddr")
 	public String addUserAddr(Model model) {
 		
-		model.addAttribute("title", "urbanfarm");
+		model.addAttribute("title", "배송지 등록");
 		
 		return "user_addr/add_user_addr";
 		
@@ -38,7 +38,7 @@ public class UserAddrController {
 	@GetMapping("/user/removeUserAddr")
 	public String removeUserAddr(Model model) {
 		
-		model.addAttribute("title", "urbanfarm");
+		model.addAttribute("title", "배송지 삭제");
 		
 		return "user_addr/remove_user_addr";
 		
@@ -50,7 +50,7 @@ public class UserAddrController {
 	@GetMapping("/user/updateUserAddr")
 	public String updateUserAddr(Model model) {
 		
-		model.addAttribute("title", "urbanfarm");
+		model.addAttribute("title", "배송지 수정");
 		
 		return "user_addr/update_user_addr";
 		

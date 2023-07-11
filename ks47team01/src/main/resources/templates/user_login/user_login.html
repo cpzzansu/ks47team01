@@ -9,27 +9,29 @@
 			<div class="col-md-6 order-md-last d-flex">
 				<form th:action="@{/}"
 					class="urbanfarm_login_form bg-white p-5 contact-form">
+					 <div class="form-floating">
 					<div class="form-group">
-						<input type="text" class="form-control" name="id" placeholder="id를 입력해주세요">
+						<input type="text" class="form-control" name="userId" placeholder="id를 입력해주세요">
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" name="pw" placeholder="**********">
+						<input type="password" class="form-control" name="userPw" placeholder="**********">
 					</div>
 					<div class="form-group" style="text-align: right">
 						<!-- <input type="submit" value="Login" class="btn btn-primary py-3 px-5"> 
 						기능 구현시 주석 및 a태그 삭제 -->
-						<button type="submit" class="btn btn-primary py-2 px-4"> 로그인 </button>
+						<button type="submit" class="btn btn-info py-2 px-4"> 로그인 </button>
 					</div>
 					<div class="form-group">
 						<a class="btn btn-primary urbanfarm_login_form_find_btn py-2 px-4" th:href=@{/userAdd/userAddForm}>
 							회원가입
 						</a>
-						<a class="btn btn-primary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindIdForm}">
+						<a class="btn btn-secondary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindIdForm}">
 							아이디 찾기
 						</a>
-						<a class="btn btn-primary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindPwForm}">
+						<a class="btn btn-success urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindPwForm}">
 							비밀번호 찾기
 						</a>
+					</div>
 					</div>
 				</form>
 			</div>

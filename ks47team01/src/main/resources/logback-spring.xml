@@ -15,13 +15,13 @@
 	<!-- ConsoleAppender -->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%green({HH:mm:ss.SSS}) [%t] %-5level %logger{36} - %msg%n</pattern>
+			<pattern>%green(%d{HH:mm:ss.SSS}) [%t] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>
 	<!--Query ConsoleAppender -->
 	<appender name="QSTDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%green({HH:mm:ss.SSS}) [%t] %-5level %logger{36} %n    %msg%n</pattern>
+			<pattern>%green(%d{HH:mm:ss.SSS}) [%t] %-5level %logger{36} %n    %msg%n</pattern>
 		</encoder>
 	</appender>
 	

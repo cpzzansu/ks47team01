@@ -13,7 +13,7 @@ public class UserCouponController {
 	@GetMapping("/user/userCoupon")
 	public String userCoupon(Model model) {
 		
-		model.addAttribute("title", "urbanfarm");
+		model.addAttribute("title", "쿠폰 목록");
 		
 		return "user_coupon/coupon_user_list";
 	}
@@ -24,7 +24,7 @@ public class UserCouponController {
 	@GetMapping("/user/regiUserCoupon")
 	public String regiUserCoupon(Model model) {
 		
-		model.addAttribute("title", "urbanfarm");
+		model.addAttribute("title", "쿠폰 등록");
 
 		return "user_coupon/regi_user_coupon";
 	}

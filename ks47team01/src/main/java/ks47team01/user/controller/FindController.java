@@ -15,7 +15,7 @@ public class FindController {
 	 */
     @GetMapping("/userFind/userFindPwForm")
     public String userPwFind(Model model) {
-        model.addAttribute("title", "urbanfarm_비밀번호 찾기");
+        model.addAttribute("title", "비밀번호 찾기");
         return "user_find/usert_find_pw_form";
     }
 
@@ -27,7 +27,7 @@ public class FindController {
      */
     @GetMapping("/userFind/userFindIdForm")
     public String userIdFind(Model model) {
-        model.addAttribute("title", "urbanfarm_아이디 찾기");
+        model.addAttribute("title", "아이디 찾기");
         return "user_find/user_find_id_form";
     }
     /** 일반회원 아이디 찾기 아이디 찾기 실패 화면								
@@ -37,7 +37,7 @@ public class FindController {
      */
     @GetMapping("/userFind/userFindIdFail")
     public String userIdFindFail(Model model) {
-        model.addAttribute("title", "urbanfarm_아이디 찾기 실패");
+        model.addAttribute("title", "아이디 찾기 실패");
         return "user_find/user_find_id_fail";
     }
     /** 일반회원 아이디 찾기 아이디 찾기 성공 화면								
@@ -47,7 +47,7 @@ public class FindController {
      */
     @GetMapping("/userFind/userFindIdSuccess")
     public String userIdFindSuccess(Model model) {
-        model.addAttribute("title", "urbanfarm_아이디 찾기 성공");
+        model.addAttribute("title", "아이디 찾기 성공");
         return "user_find/user_find_id_success";
     }
     /** 일반회원 비밀번호 찾기 비밀번호 찾기 실패 화면								
@@ -57,7 +57,7 @@ public class FindController {
      */
     @GetMapping("/userFind/userFindPwFail")
     public String userPwFindFail(Model model) {
-        model.addAttribute("title", "urbanfarm_아이디 찾기 실패");
+        model.addAttribute("title", "아이디 찾기 실패");
         return "user_find/user_find_pw_fail";
     }
     /** 일반회원 비밀번호 찾기 비밀번호 찾기 성공 화면								
@@ -67,7 +67,7 @@ public class FindController {
      */
     @GetMapping("/userFind/userFindPwSuccess")
     public String userPwFindSuccess(Model model) {
-        model.addAttribute("title", "urbanfarm_아이디 찾기 성공");
+        model.addAttribute("title", "아이디 찾기 성공");
         return "user_find/user_find_pw_success";
     }
 }
