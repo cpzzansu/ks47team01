@@ -10,7 +10,7 @@ public class UserVendingMachineController {
 	// 유저 자판기 메인화면
 	@GetMapping("/userVendingMachine/vmMain")
 	public String userVmMain(Model model) {
-		model.addAttribute("title", "자판기 예약하기");
+		model.addAttribute("title", "자판기");
 		return "user_vending_machine/vm_main";
 	}
 	
