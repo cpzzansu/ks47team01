@@ -1,6 +1,7 @@
 package ks47team01.user.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -10,9 +11,9 @@ public class UserCouponController {
 	 * @return
 	 */
 	@GetMapping("/user/userCoupon")
-	public String userCoupon() {
+	public String userCoupon(Model model) {
 		
-		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "user_coupon/coupon_user_list";
 	}
@@ -21,7 +22,9 @@ public class UserCouponController {
 	 * @return
 	 */
 	@GetMapping("/user/regiUserCoupon")
-	public String regiUserCoupon() {
+	public String regiUserCoupon(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 
 		return "user_coupon/regi_user_coupon";
 	}

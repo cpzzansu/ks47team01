@@ -1,35 +1,109 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
+      layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
-
-	<section class="ftco-section contact-section bg-light">
-		<div class="container">
-		</div>
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-6 order-md-last d-flex">
-				<form action="<%= request.getContextPath() %>/Mfind/member_find_pw_update_form.urbanfarm_m"
-					method="post" class="bg-white p-5 contact-form">
-					<div class="form-group">
-						E-MAIL<input type="text" id="find_email" class="form-control" name="find_email"
-							placeholder="E-MAIL을 입력하세요.">
-					</div>
+    <section class="ftco-section contact-section bg-light">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-6 order-md-last d-flex">
+                <form th:action="@{/Uinsert/user_insert_action}" th:object="${urbanfarmer}" method="post"
+                      class="bg-white p-5 contact-form">
+                    <div class="row"></div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserId">
+						    <label for="userId">아이디</label>
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserPw">
+						  	<label for="userId">비밀번호</label>
+						  </div>
+						</div>
+                   	 
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserPwCheck">
+						  	<label for="userId">비밀번호 체크</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserName">
+						  	<label for="userId">이름</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserEmail">
+						  	<label for="userId">이메일</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="-는 생략">
+						  	<label for="userId">휴대번호</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <label for="userId">sms수신동의</label>						    
+						  <div class="form-floating col-9">
+						    <input type="radio" name="smsCheck" value="y"> 예
+						    <input type="radio" name="smsCheck" value="n"> 아니오
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						<label for="userId">이메일수신동의</label>
+						  <div class="form-floating col-9">
+						    <input type="radio" name="emailCheck" value="y"> 예
+						    <input type="radio" name="emailCheck" value="n"> 아니오
+						  </div>
+						</div>
 					<div class="form-group" style="text-align:right">
-						<a href="<%= request.getContextPath() %>/Mfind/member_find_id_pw_action.urbanfarm_m"
-							class="btn btn-primary py-3 px-5" id="email-send-btn">승인번호 전송</a>
-					</div>
-					<div class="form-group">
-						승인번호<input type="text" class="form-control" id="verificationCode" name="pw"
-							placeholder="입력받은 승인번호 6자리를 입력하세요.">
-					</div>
-					<div class="form-group" style="text-align:right">
-						<input type="submit" value="확인" class="btn btn-primary py-3 px-5" id="member-id-pw-find-btn"
-							disabled>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
+                       	<!-- <input type="submit" value="회원가입"
+                               class="btn btn-primary py-3 px-5"> 
+                               기능 구현시 주석 및 a태그 삭제 -->
+                    		 <a class="btn btn-primary py-3 px-5" id="alertInsert">회원수정</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </th:block>
-
+<th:block layout:fragment="customJs">
+    <script type="text/javascript">
+    	// user_insert_form_1 : 회원가입 완료버튼시 팝업 출력, 기능구현시 삭제
+	    $('#alertInsert').click(function(e){
+	    	e.preventDefault();
+	    	alert('회원가입이 완료되었습니다.');
+	    	$(location).attr("href", "http://localhost/userLogin/userLogin");
+	    });
+    	function databaseCheck(item, errorMassage){
+            fetch('/Uin/urbanfarm_id_check',{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({urbanfarmer_id: item})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.exists){
+                        errorMassage.innerText = '아이디가 이미 존재합니다.';
+                        errorMassage.style.color = 'red';
+                    }else{
+                        errorMassage.innerText = '아이디를 사용가능합니다!';
+                        errorMassage.style.color = 'green';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+        document.getElementById('urbanfarmerInsertId').addEventListener("blur", function(){
+            console.log('blur 이벤트 작동');
+            const urbanfarmerId = document.getElementById('urbanfarmerInsertId').value;
+            const $errorMassage = document.getElementById('id_error_message');
+            databaseCheck(urbanfarmerId, $errorMassage);
+        })
+    </script>
+</th:block>
 </html>

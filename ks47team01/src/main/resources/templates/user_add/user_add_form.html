@@ -7,48 +7,62 @@
             <div class="col-md-6 order-md-last d-flex">
                 <form th:action="@{/Uinsert/user_insert_action}" th:object="${urbanfarmer}" method="post"
                       class="bg-white p-5 contact-form">
-                    <div class="row">
-                    		<div class="input-group mb-3">
-							  <span class="input-group-text">id</span>
-							  <div class="form-floating col-9">
-							    <input type="text" class="form-control" id="floatingInput" placeholder="Username">
-							  </div>
-							   <div class="col">
-			                    	<button type="button" id="idCheck" style="float:right" class="btn btn-primary py-3 px-4"> 중복확인 </button>
-			                    </div>
-							</div>
-                    </div>
-                    <div class="form-group" >
-                        비밀번호 <input type="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        비밀번호 확인 <input type="password" id="insert_member_pw_check" class="form-control">
-                    </div>
-                    <div id="error_message" class="error-message"></div>
-                    <div class="form-group">
-                        이름 <input type="text" class="form-control">
-                        <p id="name_error_message"></p>
-                    </div>
-                    <div class="form-group">
-                        이메일 <input type="email" class="form-control">
-                        <p id="email_error_message"></p>
-                    </div>
-                    <div class="form-group">
-                        전화번호 <input type="tel" class="form-control">
-                        <p id="phone_error_message"></p>
-                    </div>
-                    <div>
-                        문자 메세지 수신 <br>
-                        <input name="sms_check" type="radio" value="yes" checked> 예
-                        <input name="sms_check" type="radio" value="no"> 아니오
-                    </div>
-                    <Br>
-                    <div>
-                        이메일 수신 <br>
-                        <input name="email_check" type="radio" value="yes" checked> 예
-                        <input name="email_check" type="radio" value="no"> 아니오
-                    </div>
-                    <div class="form-group" style="text-align:right">
+                    <div class="row"></div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserId">
+						    <label for="userId">아이디</label>
+						  </div>
+						  <div class="col">
+			              	<button type="button" id="idCheck" style="float:right" class="btn btn-primary py-3 px-4"> 중복확인 </button>
+			              </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserPw">
+						  	<label for="userId">비밀번호</label>
+						  </div>
+						</div>
+                   	 
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserPwCheck">
+						  	<label for="userId">비밀번호 체크</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserName">
+						  	<label for="userId">이름</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="UserEmail">
+						  	<label for="userId">이메일</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="floatingInputGroup1" placeholder="-는 생략">
+						  	<label for="userId">휴대번호</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <label for="userId">sms수신동의</label>						    
+						  <div class="form-floating col-9">
+						    <input type="radio" name="smsCheck" value="y"> 예
+						    <input type="radio" name="smsCheck" value="n"> 아니오
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						<label for="userId">이메일수신동의</label>
+						  <div class="form-floating col-9">
+						    <input type="radio" name="emailCheck" value="y"> 예
+						    <input type="radio" name="emailCheck" value="n"> 아니오
+						  </div>
+						</div>
+					<div class="form-group" style="text-align:right">
                        	<!-- <input type="submit" value="회원가입"
                                class="btn btn-primary py-3 px-5"> 
                                기능 구현시 주석 및 a태그 삭제 -->

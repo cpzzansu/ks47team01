@@ -1,6 +1,7 @@
 package ks47team01.admin.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -10,7 +11,9 @@ public class AdminInfoController {
 	 * @return 
 	 */
 	@GetMapping("/adminInfo/adminSearchUser")
-	public String adminSearchUser() {
+	public String adminSearchUser(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_info/search_user_admin";
 	}
@@ -19,7 +22,9 @@ public class AdminInfoController {
 	 * @return 
 	 */
 	@GetMapping("/adminInfo/adminRemoveUsers")
-	public String adminRemoveUser() {
+	public String adminRemoveUser(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_info/remove_user_admin";
 	}
@@ -28,7 +33,9 @@ public class AdminInfoController {
 	 * @return 
 	 */
 	@GetMapping("/adminInfo/adminUpdateInfo")
-	public String adminUpdateInfo() {
+	public String adminUpdateInfo(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_info/update_admin_info";
 	}
@@ -37,7 +44,9 @@ public class AdminInfoController {
 	 * @return 
 	 */
 	@GetMapping("/adminInfo/hubcrewUpdateInfo")
-	public String hubcrewUpdateInfo() {
+	public String hubcrewUpdateInfo(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_info/update_hubcrew_info";
 	}
