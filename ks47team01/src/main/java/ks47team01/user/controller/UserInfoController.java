@@ -12,7 +12,9 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/userInfoMain")
-	public String userInfoPage() {
+	public String userInfoPage(Model model) {
+		
+		model.addAttribute("title", "마이페이지");
 		
 		return "user_info/user_info_main";
 		
@@ -22,7 +24,9 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/removeUserPwCheck")
-	public String removeUserPwCheck() {
+	public String removeUserPwCheck(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "user_info/remove_user_pw_check";
 		
@@ -32,7 +36,9 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/updateUserInfoPwCheck")
-	public String updateUserInfoPw() {
+	public String updateUserInfoPw(Model model) {
+		
+		model.addAttribute("title", "회원정보 비밀번호 확인");
 		
 		return "user_info/update_user_info_pw_check";
 		
@@ -42,7 +48,9 @@ public class UserInfoController {
 	 * @return 회원정보 수정화면으로 리다이렉트
 	 */
 	@PostMapping("/userInfo/updateUserInfoPwCheck")
-	public String postUpdateUserInfoPw() {
+	public String postUpdateUserInfoPw(Model model) {
+		
+		model.addAttribute("title", "회원정보수정");
 		
 		return"redirect:/userInfo/updateUserInfo";
 		
@@ -52,7 +60,9 @@ public class UserInfoController {
 	 * @return 메인화면으로 리다이렉트
 	 */
 	@PostMapping("/userInfo/removeUserPwCheck")
-	public String postRemoveUser() {
+	public String postRemoveUser(Model model) {
+		
+		model.addAttribute("title", "회원탈퇴");
 		
 		return "redirect:/index";
 		
@@ -62,7 +72,9 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/updateUserInfo")
-	public String updateUserInfo() {
+	public String updateUserInfo(Model model) {
+		
+		model.addAttribute("title", "회원정보수정");
 		
 		return "user_info/update_user_info";
 		
@@ -74,6 +86,9 @@ public class UserInfoController {
 	 */
 	@GetMapping("/userInfo/userInfoPage")
 	public String userInfoMain(Model model) {
+		
+		model.addAttribute("title", "회원정보");
+		
 		return "user_info/user_info_page";
 	} 
 	
