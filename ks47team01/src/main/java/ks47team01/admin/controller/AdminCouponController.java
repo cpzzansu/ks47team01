@@ -1,6 +1,7 @@
 package ks47team01.admin.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -11,7 +12,9 @@ public class AdminCouponController {
 	 * @return 
 	 */
 	@GetMapping("/adminCoupon/addAdminCoupon")
-	public String adminAddCoupon() {
+	public String adminAddCoupon(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_coupon/add_admin_coupon";
 	}
@@ -20,7 +23,9 @@ public class AdminCouponController {
 	 * @return 
 	 */
 	@GetMapping("/adminCoupon/adminCouponList")
-	public String adminCouponList() {
+	public String adminCouponList(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_coupon/coupon_admin_list";
 	}
@@ -29,7 +34,9 @@ public class AdminCouponController {
 	 * @return 
 	 */
 	@GetMapping("/adminCoupon/adminDeleteCoupon")
-	public String adminDeleteCoupon() {
+	public String adminDeleteCoupon(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_coupon/delete_admin_coupon";
 	}
@@ -38,7 +45,9 @@ public class AdminCouponController {
 	 * @return 
 	 */
 	@GetMapping("/adminCoupon/adminUpdateCoupon")
-	public String adminUpdateCoupon() {
+	public String adminUpdateCoupon(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_coupon/update_admin_coupon";
 	}

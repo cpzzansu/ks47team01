@@ -1,6 +1,7 @@
 package ks47team01.admin.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -10,7 +11,9 @@ public class AdminAddrController {
 	 * @return 
 	 */
 	@GetMapping("/adminAddr/adminAddrList")
-	public String adminAddrList() {
+	public String adminAddrList(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_addr/addr_admin_list";
 		
@@ -20,7 +23,9 @@ public class AdminAddrController {
 	 * @return 
 	 */
 	@GetMapping("/adminAddr/adminRemoveAddr")
-	public String adminRemoveAddr() {
+	public String adminRemoveAddr(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_addr/remove_admin_addr";
 		
@@ -30,7 +35,9 @@ public class AdminAddrController {
 	 * @return 
 	 */
 	@GetMapping("/adminAddr/adminSearchAddr")
-	public String adminSearchAddr() {
+	public String adminSearchAddr(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_addr/search_admin_addr";
 		
@@ -40,7 +47,9 @@ public class AdminAddrController {
 	 * @return 
 	 */
 	@GetMapping("/adminAddr/adminUpdateAddr")
-	public String adminUpdateAddr() {
+	public String adminUpdateAddr(Model model) {
+		
+		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_addr/update_admin_addr";
 		
