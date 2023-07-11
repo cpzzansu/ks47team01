@@ -10,7 +10,7 @@ public class UserVendingMachineController {
 	// 유저 자판기 메인화면
 	@GetMapping("/userVendingMachine/vmMain")
 	public String userVmMain(Model model) {
-		
+		model.addAttribute("title", "자판기 예약하기");
 		return "user_vending_machine/vm_main";
 	}
 	
@@ -52,7 +52,7 @@ public class UserVendingMachineController {
 	// 자판기 판매공간 선택 예약 확인 화면
 	@GetMapping("/userVendingMachine/vmSpaceCheck")
 	public String userVmSpaceCheck (Model model) {
-		model.addAttribute("title", "선택 확인");
+		model.addAttribute("title", "결제 정보 확인");
 		return "user_vending_machine/vm_space_user_check";
 	}
 	
