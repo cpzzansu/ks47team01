@@ -1,9 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default_login}">
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
 
-<h1>plan_main</h1>
-
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-center">
+						<h2>내 작물</h2>
+					</div>
+					<br>
+					<div>
+						<div class="text-center border-top border-bottom">
+							<div class="row mt-2 mb-2">
+								<div class=" col-2">
+									<h2>
+										<a class="text-dark" th:href="@{/userPlan/cropsPlan}">상추</a>
+									</h2>
+								</div>
+								<div class="col-7">내용</div>
+								<div class="col-3">
+									<a class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a> 
+									<a class="btn btn-danger " th:href="@{#}">작물 삭제</a>
+								</div>
+							</div>
+						</div>
+						<div class="text-center border-top border-bottom">
+							<div class="row mt-2 mb-2">
+								<div class=" col-2">
+									<h2>
+										<a class="text-dark" th:href="@{/userPlan/cropsPlan}">상추</a>
+									</h2>
+								</div>
+								<div class="col-7">내용</div>
+								<div class="col-3">
+									<a class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a> 
+									<a class="btn btn-danger " th:href="@{#}">작물 삭제</a>
+								</div>
+							</div>
+						</div>
+						<!-- END TR-->
+						<div class="text-right mt-5">
+							<a th:href="@{/userPlan/addCrops}" class="btn btn-primary">작물
+								등록하기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
 </th:block>
 </html>
