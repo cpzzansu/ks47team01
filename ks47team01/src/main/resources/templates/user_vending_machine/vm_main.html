@@ -1,8 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{user_layout/default}">
+	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
-    <a th:href="@{'/userVendingMachine/vmLocalSelect'}">허브 지역 선택</a>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row no-gutters ftco-services">
+				<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+					<div class="media block-4 services mb-md-0 mb-4">
+						<div>
+							<img id="urbanfarm_production_icons" src="/user/images/agriculture.png">
+						</div>
+						<div class="media-body">
+							<h3 id="urbanfarm_heading">자판기 예약하기</h3>
+							<span id="urbanfarm_boding">예약 가능 지역을 직접 확인하세요!</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services mb-md-0 mb-4">
+						<div>
+							<img id="urbanfarm_production_icons" src="/user/images/nontoxic.png">
+						</div>
+						<div class="media-body">
+							<h3 id="urbanfarm_heading">자판기 예약 확인</h3>
+							<span id="urbanfarm_boding">예약 근황을 알려드립니다!</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services mb-md-0 mb-4">
+						<div>
+							<img id="urbanfarm_production_icons_ecoicon" src="/user/images/stall.png">
+						</div>
+						<div class="media-body">
+							<h3 id="urbanfarm_heading">자판기란?</h3>
+							<span id="urbanfarm_boding">농부가 직접 판매 할 수 있는 어반팜만의 시스템!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</section>
+
+	<a th:href="@{'/userVendingMachine/vmLocalSelect'}">허브 지역 선택</a>
 </th:block>
+
+<th:block layout:fragment="customJs">
+	<script>
+		$(document).on('click', '.services', function () {
+			$(this).css('background-color', 'skyblue');
+		});
+	</script>
+
+</th:block>
+
 
 </html>
