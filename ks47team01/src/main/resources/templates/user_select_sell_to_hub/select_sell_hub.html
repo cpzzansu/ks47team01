@@ -16,6 +16,9 @@
             </div>
         </div>
     </section>
+    <div class="container text-center">
+        <h1 class="prtendard upper-padding-60 text-headline">판매할 허브를 선택하세요</h1>
+    </div>
     <section class="ftco-section ftco-cart">
         <div class="container col-md-5">
             <div class="row">
@@ -53,7 +56,12 @@
 
 
 
-    <a style="color: #0b0b0b" th:href="@{'/userVrificationCheck/answerForm'}">자가검증 답 작성 화면</a>
 </th:block>
-
+<th:block layout:fragment="customJs">
+    <script>
+        $(document).on('click', '.click-to-move', function () {
+            location.href = '/userVrificationCheck/answerForm';
+        });
+    </script>
+</th:block>
 </html>
