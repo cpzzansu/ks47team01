@@ -10643,6 +10643,31 @@ textarea.form-control {
  }
 
 
- .upper-padding{
+ .upper-padding-60{
    padding-top: 60px;
+ }
+
+
+ .text-headline{
+   font-weight: 1000;
+ }
+
+
+ .input-border-not-right{
+   border-top: 2px solid black;
+   border-left: 2px solid black;
+   border-bottom: 2px solid black;
+ }
+
+
+ .bottom-padding-20{
+   padding-bottom: 20px;
+ }
+
+ .top-padding-10{
+   padding-top: 40px;
+ }
+
+ .div-underline{
+   box-shadow: 0px 2px 0px 0px #ebebeb;
  }
