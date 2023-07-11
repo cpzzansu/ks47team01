@@ -65,6 +65,14 @@ public class UserVendingMachineController {
 		return "user_vending_machine/vm_space_user_check_list";
 	}
 	
+	// 자판기 예약 상세 확인 화면
+	@GetMapping("/userVendingMachine/vmSpaceDetail")
+	public String userVmSpaceDetail (Model model) {
+		
+		model.addAttribute("title", "예약 상세 확인");
+		
+		return "user_vending_machine/vm_space_user_detail";
+	}
 	
 	
 }
