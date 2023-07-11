@@ -1,21 +1,36 @@
 package ks47team01.user.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpSession;
+import ks47team01.admin.service.FarmingPlanService;
+import ks47team01.user.dto.FarmingPlan;
+import lombok.AllArgsConstructor;
+
 @Controller("UserPlanController")
 @RequestMapping("/userPlan")
+@AllArgsConstructor
 public class PlanController {
+	
+	private final FarmingPlanService farmingPlanService;
 	
 	/**
 	 * 작물 계획 메인화면
 	 */
 	@GetMapping("/planMain")
-	public String planMain(Model model){
+	public String planMain(Model model, HttpSession session){
+		session.setAttribute("SID", "id001");
+		String userId = (String)session.getAttribute("SID");
+		List<FarmingPlan> farmingPlanList = farmingPlanService.getFarmingPlanListById(userId);
+		
 		model.addAttribute("title", "농사 계획");
+		model.addAttribute("farmingPlanList",farmingPlanList);
 		return "user_plan/plan_main";
 	}
 	

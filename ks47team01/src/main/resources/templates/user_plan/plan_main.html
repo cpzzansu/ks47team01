@@ -13,7 +13,8 @@
 					</div>
 					<br>
 					<div>
-						<div class="text-center border-top border-bottom">
+						<th:block th:unless="${#lists.isEmpty(farmingPlanList)}">
+							<div class="text-center border-top border-bottom">
 							<div class="row mt-2 mb-2">
 								<div class=" col-2">
 									<h2>
@@ -26,7 +27,10 @@
 									<a class="btn btn-danger " th:href="@{#}">작물 삭제</a>
 								</div>
 							</div>
+						</th:block>
 						</div>
+						
+						
 						<div class="text-center border-top border-bottom">
 							<div class="row mt-2 mb-2">
 								<div class=" col-2">
