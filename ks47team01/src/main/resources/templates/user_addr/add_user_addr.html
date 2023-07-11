@@ -1,23 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
+      layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customJs">
+    <script type="text/javascript">
+    	// user_insert_form_1 : 회원가입 완료버튼시 팝업 출력, 기능구현시 삭제
+	    $('#alertInsert').click(function(e){
+	    	e.preventDefault();
+	    	alert('회원가입이 완료되었습니다.');
+	    	$(location).attr("href", "http://localhost/userLogin/userLogin");
+	    });
+    	function databaseCheck(item, errorMassage){
+            fetch('/Uin/urbanfarm_id_check',{
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({urbanfarmer_id: item})
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.exists){
+                        errorMassage.innerText = '아이디가 이미 존재합니다.';
+                        errorMassage.style.color = 'red';
+                    }else{
+                        errorMassage.innerText = '아이디를 사용가능합니다!';
+                        errorMassage.style.color = 'green';
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+        document.getElementById('urbanfarmerInsertId').addEventListener("blur", function(){
+            console.log('blur 이벤트 작동');
+            const urbanfarmerId = document.getElementById('urbanfarmerInsertId').value;
+            const $errorMassage = document.getElementById('id_error_message');
+            databaseCheck(urbanfarmerId, $errorMassage);
+        })
+    </script>
+</th:block>      
 <th:block layout:fragment="customContents">
-
-	<section class="ftco-section contact-section bg-light">
-		<div class="container">
-		</div>
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-6 order-md-last d-flex">
-				<form action="<%= request.getContextPath() %>/Mfind/member_find_pw_update_form.urbanfarm_m"
-					method="post" class="bg-white p-5 contact-form">
-					<div class="form-group">
-						배송지<input type="text" id="find_email" class="form-control" name="find_email"
-							placeholder="배송지을 입력하세요.">
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
+    <section class="ftco-section contact-section bg-light">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-6 order-md-last d-flex">
+                <form th:action="@{/Uinsert/userInsertAction}" th:object="${urbanfarmer}" method="post"
+                      class="bg-white p-5 contact-form">
+                      
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userId" name="userId" placeholder="UserId">
+						    <label for="userId">배송지 이름</label>
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userPw" name="userPw" placeholder="UserPw">
+						  	<label for="userPw">배송지 주소</label>
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userName" name="userName" placeholder="UserName">
+						  	<label for="userName">배송지 전화번호</label>
+						  </div>
+						</div>						
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="UserEmail">
+						  	<label for="userEmail">배송지 요청사항</label>						    
+						  </div>
+						</div>
+						<div class="input-group mb-3">
+						  <div class="form-floating col-9">
+						    <input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="-는 생략">
+						  	<label for="userPhone">배송지 추가 요청사항</label>						    
+						  </div>
+						</div>
+					<div class="form-group" style="text-align:right">
+                    		 <a class="btn btn-info py-3 px-5" id="alertInsert">배송지 등록</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </th:block>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
 	<meta charset="UTF-8">
 	<title th:text="${title}"></title>
@@ -27,39 +28,47 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/user/css/flaticon.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/user/css/icomoon.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/user/css/style.css}">
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-12 heading-section text-center ftco-animate">
-				<button type="button" id="windowClose">창닫기</button>
-				<h2 class="mb-4">주문 결제가 실패했어요</h2>
+				<hr>
+				<h2 class="mb-4">취소/교환/반품 신청</h2>
 				<hr>
 			</div>
 			<div class="col-xl-5">
-				<div class="row mt-5 pt-3">
-					<div class="col-md-12 d-flex mb-5">
-						<div class="cart-detail cart-total p-3 p-md-4">
-							<br>
-							<p class="d-flex total-price">
-								<span>에러코드</span>
-								<span>0x221</span>
-							</p>
-							<p class="d-flex total-price">
-								<span>메시지</span>
-								<span>잔액이 부족합니다.</span>
+				<form th:action="@{/userOrder/userOrderProcessing}" method="post" enctype="multipart/form-data">
+					<div class="row mt-5 pt-3">
+						<div class="col-md-12 d-flex mb-5">
+							<div class="cart-detail cart-total p-3 p-md-4">
+								<br>
+								<p class="d-flex">
+									<span>신청유형</span>
+								    <span th:text="${innerText}"></span>
+								    <input type="hidden" th:value="${innerText}" name="requestType"/>
+								</p>
+								<p class="d-flex">
+								    <span>신청사유</span>
+								    <textarea rows="4" cols="26" name="requestReason"></textarea>
+								</p>
+								<p class="d-flex">
+								    <span>첨부사진</span>
+								    <input type="file" name="fileName" accept="image/*" style="margin-left: 50px;">
+								</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div style="margin-left: 150px">
-					<p><a href="/userPayment/userPaymentMain" class="btn btn-urban py-3 px-5">확인</a></p>
-				</div>
+					<div class="one-col-center">
+						<button type="submit" class="btn-submit py-1 px-1 orderProcessingSubmit">제출하기</button>
+						<a class="btn-submit py-1 px-1 windowClose">창닫기</a>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
-<!-- 자바스크립트 -->
+	<!-- 자바스크립트 -->
 	<script th:src="@{/user/js/jquery.min.js}"></script>
 	<script th:src="@{/user/js/jquery-migrate-3.0.1.min.js}"></script>
 	<script th:src="@{/user/js/popper.min.js}"></script>
@@ -73,13 +82,10 @@
 	<script th:src="@{/user/js/jquery.animateNumber.min.js}"></script>
 	<script th:src="@{/user/js/bootstrap-datepicker.js}"></script>
 	<script th:src="@{/user/js/scrollax.min.js}"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
-	<script th:src="@{/user/js/google-map.js}"></script>
 	<script th:src="@{/user/js/main.js}"></script>
 	<script th:src="@{/user/js/urban.js}"></script>
+	<script th:src="@{/user/js/urbanApi.js}"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
+
 </html>
