@@ -20,7 +20,7 @@ public class SelectSellHubController {
     @GetMapping ("/userSelectSellToHub/selectSellCrop")
     public String sellCropSelect(Model model){
 
-        model.addAttribute("title","판매 작물 선택");
+        model.addAttribute("title","허브에 작물 판매하기!");
 
         return "user_select_sell_to_hub/select_sell_crop";
     }

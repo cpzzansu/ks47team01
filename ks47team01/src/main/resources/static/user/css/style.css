@@ -10641,5 +10641,8 @@ textarea.form-control {
  #orderNum {
   font-size: 12px;
  }
-  
-  
+
+
+ .upper-padding{
+   padding-top: 60px;
+ }
