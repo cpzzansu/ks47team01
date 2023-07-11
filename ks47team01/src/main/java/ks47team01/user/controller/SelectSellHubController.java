@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SelectSellHubController {
 
     //판매할 허브 선택하기
-    @GetMapping("/userSelectselltohub/selectsellHub")
+    @GetMapping("/userSelectSellToHub/selectSellHub")
     public String selectsellHub(Model model){
 
         model.addAttribute("title","작물을 판매할 허브 선택");
 
-        return "user_select_selltohub/select_sell_hub";
+        return "user_select_sell_to_hub/select_sell_hub";
     }
 
     // 판매할 작물 플랜에서 선택하기
-    @GetMapping ("/userSelectselltohub/selectsellCrop")
+    @GetMapping ("/userSelectSellToHub/selectSellCrop")
     public String sellCropSelect(Model model){
 
-        model.addAttribute("title","판매 작물 선택");
+        model.addAttribute("title","허브에 작물 판매하기!");
 
-        return "user_select_selltohub/select_sell_crop";
+        return "user_select_sell_to_hub/select_sell_crop";
     }
 }
