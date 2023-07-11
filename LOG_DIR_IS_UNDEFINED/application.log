@@ -313,3 +313,45 @@ Identify and stop the process that's listening on port 80 or configure this appl
 01:41:28.426 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.568 seconds (process running for 1.796)
 01:41:39.297 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 01:41:39.298 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+01:48:40.099 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 14815 (/Users/kimjunsu/ks47team01_2/ks47team01_sangwon /ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_2/ks47team01_sangwon )
+01:48:40.100 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+01:48:40.204 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:48:40.204 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:48:40.457 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+01:48:40.463 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
+01:48:40.663 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+01:48:40.692 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 488 ms
+01:48:40.726 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'UserPlanController' defined in file [/Users/kimjunsu/ks47team01_2/ks47team01_sangwon /ks47team01/target/classes/ks47team01/user/controller/PlanController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'farmingPlanService' defined in file [/Users/kimjunsu/ks47team01_2/ks47team01_sangwon /ks47team01/target/classes/ks47team01/user/service/FarmingPlanService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'farmingPlanMapper' defined in file [/Users/kimjunsu/ks47team01_2/ks47team01_sangwon /ks47team01/target/classes/ks47team01/user/mapper/FarmingPlanMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+01:48:40.738 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+01:48:40.745 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+01:49:21.925 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 14996 (/Users/kimjunsu/ks47team01_2/ks47team01_sangwon /ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_2/ks47team01_sangwon )
+01:49:21.926 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+01:49:22.013 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01:49:22.013 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01:49:22.258 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+01:49:22.264 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
+01:49:22.473 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+01:49:22.502 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 489 ms
+01:49:23.310 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+01:49:23.328 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+01:49:23.333 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.597 seconds (process running for 1.838)
