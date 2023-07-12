@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ks47team01.user.dto.CropsName;
+import ks47team01.common.dto.CropsName;
 
 @Mapper
 public interface CropsNameMapper {

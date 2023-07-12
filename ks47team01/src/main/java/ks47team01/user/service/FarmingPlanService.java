@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ks47team01.user.dto.FarmingPlan;
+import ks47team01.common.dto.FarmingPlan;
 import ks47team01.user.mapper.FarmingPlanMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
