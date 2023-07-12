@@ -2,20 +2,19 @@
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
-
 	<section class="ftco-section">
 	<h1 class="text-center mb-5">add_crops</h1>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-9 ftco-animate">
-					<form th:action="@{#}" method="post">
+					<form id="addCropsForm" th:action="@{#}" method="post">
 						<h2 class="mb-4 billing-heading">작물 등록</h2>
 						<div class="row align-items-end">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="crops">작물 선택</label>
+									<label for="cropsNameCode">작물 선택</label>
 									<div class="select-wrap">
-										<select name="crops" id="crops" class="form-control">
+										<select name="cropsNameCode" id="cropsNameCode" class="form-control">
 											<option value="">-----작물을 선택해주세요-----</option>
 											<option th:each="list :${cropsNameList}" 
 													th:text="${list.cropsName}"
@@ -26,9 +25,9 @@
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="kit">키트 선택</label>
+									<label for="urbanKitCode">키트 선택</label>
 									<div class="select-wrap">
-										<select name="kit" id="kit" class="form-control">
+										<select name="urbanKitCode" id="urbanKitCode" class="form-control">
 											<option value="">선택안함</option>
 											<option value="">키트1</option>
 											<option value="">키트2</option>
@@ -38,13 +37,28 @@
 								</div>
 							</div>
 						</div>
-						<div class="mt-4 text-right"><button class="btn btn-primary" type="submit">등록하기</button></div>
+						<div class="mt-4 text-right"><button id="addPlanBtn" class="btn btn-primary" type="button">등록하기</button></div>
 					</form>
 					<!-- END -->
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- .section -->
+	<!-- section -->
+</th:block>
+<th:block layout:fragment="customJs">
+<script type="text/javascript" th:inline="javascript">
+	const $addPlanBtn = document.querySelector('#addPlanBtn');
+	$addPlanBtn.addEventListener('click',function(){
+		const $cropsNameCode = document.querySelector('#cropsNameCode');
+		let value = $cropsNameCode.value;
+		if(value == ''){
+			let test = $(`label[for="${$cropsNameCode.id}"]`).text();
+			alert(`${test}은 필수 입력항목입니다.`);
+			$cropsNameCode.focus();
+		}
+	});
+	
+</script>
 </th:block>
 </html>
