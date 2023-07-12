@@ -1,9 +1,83 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default_login}">
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
+	<section class="ftco-section">
+		<h1 class="text-center mb-5">crops_plan</h1>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-9 ftco-animate">
+					<div class="row align-items-end">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="crops">작물</label>
+								<h2 class="border-top border-bottom">작물1</h2>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="crops">키트</label>
+								<h2 class="border-top border-bottom">키트1</h2>
+							</div>
+						</div>
+					</div>
 
-<h1>crops_plan</h1>
+					<lable>농사계획</lable>
+					<div class="row mb-2 border-top">
+						<h2 class="col-11">1단계</h2>
+						<div class="col-1 text-center mt-2">
+							<button class="btn btn-primary ion-ios-arrow-down"
+								type="button" data-toggle="collapse"
+								data-target="#multiCollapseExample1" aria-expanded="false"
+								aria-controls="multiCollapseExample1"></button>						
+						</div>
+					</div>
+					<div>
+						<div class="collapse multi-collapse mb-3"
+							id="multiCollapseExample1">
+							<div class="card card-body">Anim pariatur cliche
+								reprehenderit, enim eiusmod high life accusamus terry richardson
+								ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+								anderson cred nesciunt sapiente ea proident.</div>
+							<div class="card card-body">Anim pariatur cliche
+								reprehenderit, enim eiusmod high life accusamus terry richardson
+								ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+								anderson cred nesciunt sapiente ea proident.</div>	
+						</div>
+					</div>
+					<div class="row mb-2 border-top">
+						<h2 class="col-11">2단계</h2>
+						<div class="col-1 text-center mt-2">
+							<button class="btn btn-primary ion-ios-arrow-down"
+								type="button" data-toggle="collapse"
+								data-target="#multiCollapseExample2" aria-expanded="false"
+								aria-controls="multiCollapseExample2"></button>						
+						</div>
+					</div>
+					<div>
+						<div class="collapse multi-collapse mb-3"
+							id="multiCollapseExample2">
+							<div class="card card-body">Anim pariatur cliche
+								reprehenderit, enim eiusmod high life accusamus terry richardson
+								ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
+								anderson cred nesciunt sapiente ea proident.</div>
+						</div>
+					</div>
+	
+					<div class="mt-4 text-right">
+						<a th:href="@{/userPlan/planMain}" class="btn btn-primary"
+							type="submit">목록으로</a>
+					</div>
+					<!-- END -->
 
+				</div>
+
+			</div>
+
+
+
+		</div>
+	</section>
 </th:block>
 </html>

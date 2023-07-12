@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{user_layout/default}">
-<th:block layout:fragment="customContents">
-	<section class="ftco-section contact-section bg-light">
-		<div class="container"></div>
-		<div id="urbanfarm_login_heading">로그인</div>
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-6 order-md-last d-flex">
-				<form th:action="@{/}"
-					class="urbanfarm_login_form bg-white p-5 contact-form">
-					<div class="form-group">
-						<input type="text" class="form-control" name="id" placeholder="id를 입력해주세요">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" name="pw" placeholder="**********">
-					</div>
-					<div class="form-group" style="text-align: right">
-						<!-- <input type="submit" value="Login" class="btn btn-primary py-3 px-5"> 
-						기능 구현시 주석 및 a태그 삭제 -->
-						<button type="submit" class="btn btn-primary py-2 px-4"> 로그인 </button>
-					</div>
-					<div class="form-group">
-						<a class="btn btn-primary urbanfarm_login_form_find_btn py-2 px-4" th:href=@{/userAdd/userAddForm}>
-							회원가입
-						</a>
-						<a class="btn btn-primary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindIdForm}">
-							아이디 찾기
-						</a>
-						<a class="btn btn-primary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindPwForm}">
-							비밀번호 찾기
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
-</th:block>
+<th:block layout:fragment="customJs">
+	<script type="text/javascript" th:inline="javascript">
+		let msg = '[[${msg}]]';
+		if(msg != 'null') alert(msg);
+	
+		const validCheck = element => {
+			let data = $(element).val();
+			let eleId = $(element).attr('id');
+			if(typeof data == 'undefined' || data == null || data == '' ){
+				let cate = $(`label[for="${eleId}"]`).text();
+				alert(`${cate} 필수 입력항목입니다.`);
+				$(element).focus();
+				return false;
+			}
+			return true;
+		}
+		
+		$('#loginBtn').click(function(e){
+			e.preventDefault(); // 요소의 기본 이벤트 동작 방지
+			const validateEle = $('#loginForm input');
+			let isSubmit = false;
+			validateEle.each((idx, item) => {    				
+    			isSubmit = validCheck(item);
+    			return isSubmit;
+			})
+			if(isSubmit) $('#loginForm').submit();
+		});
+		
+	
+	</script>
 
+</th:block>
+	<th:block layout:fragment="customContents">
+		<section class="ftco-section contact-section bg-light">
+			<div class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-6 order-md-last d-flex">
+					<form id="loginForm" th:action="@{/userLogin/userLogin}" method="post"
+						class="urbanfarm_login_form bg-white p-5 contact-form">
+						 <div class="form-floating">
+						 <br><br>
+							<div class="form-group">
+								<input type="text" class="form-control" id="urbanfarmerId" name="urbanfarmerId" placeholder="id를 입력해주세요">
+							    <label for="urbanfarmerId">아이디</label>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="urbanfarmerPw" name="urbanfarmerPw" placeholder="**********">
+								<label for="urbanfarmerPw">비밀번호</label>
+							</div>
+							<div class="form-group" style="text-align: right">
+								<button type="submit" class="btn btn-info py-2 px-4" id="loginBtn"> 로그인 </button>
+							</div>
+							<div class="form-group">
+								<a class="btn btn-secondary urbanfarm_login_form_find_btn py-2 px-4" th:href=@{/userAdd/userAddForm}>
+									회원가입
+								</a>
+								<a class="btn btn-secondary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindIdForm}">
+									아이디 찾기
+								</a>
+								<a class="btn btn-secondary urbanfarm_login_form_find_btn py-2 px-4" th:href="@{/userFind/userFindPwForm}">
+									비밀번호 찾기
+								</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</th:block>
 </html>

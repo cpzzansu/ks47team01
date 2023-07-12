@@ -14,19 +14,10 @@ public class MainController {
 		model.addAttribute("isMain", true);
 		return "user/main";
 	}
-	
-	
-	
-	
-	
-	     
-	
-	
-	
-	
+
 	// 메인화면 컨트롤러
 	@GetMapping("/")
-	public String main(Model model) {
+	public String mainPage(Model model) {
 		model.addAttribute("title", "urbanfarm");
 		model.addAttribute("isMain", true);
 		return "user/main";

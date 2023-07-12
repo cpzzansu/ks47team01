@@ -12,7 +12,7 @@ public class PlantPickController {
 	 * 메인화면								
 	 * @return
 	 */
-	@GetMapping("/userPantPick/plantPickMain")
+	@GetMapping("/userPlantPick/plantPickMain")
 	public String userMainPlantPick() {
 		return"user_plantpick/plantpick_main"; 
 	}
@@ -95,10 +95,17 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/searchPlantPick")
-	public String userSearchPlantPICK() {
+	public String userSearchPlantPick() {
 		return "user_plantpick/search_plantpick";
 	}
-	//
+	
+	/**
+	 * 게시물 등록 화면
+	 */
+	@GetMapping("/userPlantPick/addPostPlantPick")
+	public String userAddPostPlantPick() {
+		return "user_plantpick/plantpick_add_post";
+	}
 	
 	
 	

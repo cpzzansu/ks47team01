@@ -4,7 +4,6 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
- 
  @font-face {
     font-family: 'Pretendard-Regular';
     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
@@ -8027,7 +8026,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #d4ec70; }
+  color: #000000; }
   a:hover, a:focus {
     text-decoration: none;
     color: #fff; }
@@ -8037,7 +8036,7 @@ h1, h2, h3, h4, h5,
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
-  font-family: "Poppins", Arial, sans-serif; }
+  font-family: Pretendard-Regular, "Poppins", Arial, sans-serif; }
 
 .text-primary {
   color: #d4ec70 !important; }
@@ -9404,7 +9403,7 @@ textarea.form-control {
       font-size: 15px;
       text-transform: uppercase;
       font-weight: 500;
-      font-family: "Poppins", Arial, sans-serif;
+      font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
       color: #000000; }
     .ftco-services .services .media-body span {
       text-transform: uppercase;
@@ -10540,6 +10539,7 @@ textarea.form-control {
   	right: 5px;
   }
   
+  /* 메인페이지 외 페이지 배너 */
   .hero-bread2 {
   	background-color: #d4ec70;
     padding: 6em 0;

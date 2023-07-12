@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{user_layout/default}">
+	layout:decorate="~{user_layout/default}">
+
 <th:block layout:fragment="customContents">
-    <a th:href="@{'/userVendingMachine/vmSpaceCheck'}">자판기 판매공간 선택 예약 확인 화면</a>
+	<section class="ftco-section">
+
+		<div class="container" style="background-color: lemonchiffon">
+			<div class="col-md-12">
+				<div class="cart-detail p-3 p-md-2">
+					<div id="payment-method"></div>
+					<div id="agreement"></div>
+					<button class="btn-urban-pay" id="toss_payment">결제하기</button>
+					<button class="btn-urban-pay" id="reset">취소</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<a th:href="@{'/userVendingMachine/vmSpaceCheck'}">자판기 결제 확인 및 예약 확인 화면</a>
+</th:block>
+<th:block layout:fragment="customJs">
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
+	<script th:src="@{/user/js/urbanApi.js}"></script>
 </th:block>
 
 </html>

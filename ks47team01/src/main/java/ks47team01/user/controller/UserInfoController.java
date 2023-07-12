@@ -7,59 +7,89 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserInfoController {
-
-	@GetMapping("/userInfo/userInfoPage")
-	public String userInfoPage() {
+	/** 회원 정보 수정과 회원 탈퇴를 고르는 화면(폼)								
+	 * 
+	 * @return
+	 */
+	@GetMapping("/userInfo/userInfoMain")
+	public String userInfoPage(Model model) {
 		
-		return "user_info/user_info_page";
+		model.addAttribute("title", "마이페이지");
 		
-	}
-	@GetMapping("/userInfo/removeUserPw")
-	public String removeUserPw() {
-		
-		return "user_info/remove_user_pw";
-		
-	}
-	
-	@GetMapping("/userInfo/updateUserInfoPw")
-	public String updateUserInfoPw() {
-		
-		return "user_info/update_user_info_pw";
+		return "user_info/user_info_main";
 		
 	}
-	@PostMapping("/userInfo/removeUserPw")
-	public String postRemoveUserPw() {
+	/** 회원 탈퇴를 위한 패스워드 입력화면								
+	 * 
+	 * @return
+	 */
+	@GetMapping("/userInfo/removeUserPwCheck")
+	public String removeUserPwCheck(Model model) {
 		
-		return"redirect:/userInfo/removeUser";
+		model.addAttribute("title", "urbanfarm");
+		
+		return "user_info/remove_user_pw_check";
 		
 	}
-	
-	@PostMapping("/userInfo/updateUserInfoPw")
-	public String postUpdateUserInfoPw() {
+	/** 회원 정보수정을 위한 패스워드 입력화면																
+	 * 
+	 * @return
+	 */
+	@GetMapping("/userInfo/updateUserInfoPwCheck")
+	public String updateUserInfoPw(Model model) {
+		
+		model.addAttribute("title", "회원정보 비밀번호 확인");
+		
+		return "user_info/update_user_info_pw_check";
+		
+	}
+	/** 회원 탈퇴를 위한 패스워드 입력화면								
+	 * 
+	 * @return 회원정보 수정화면으로 리다이렉트
+	 */
+	@PostMapping("/userInfo/updateUserInfoPwCheck")
+	public String postUpdateUserInfoPw(Model model) {
+		
+		model.addAttribute("title", "회원정보수정");
 		
 		return"redirect:/userInfo/updateUserInfo";
 		
 	}
-	@GetMapping("/userInfo/removeUser")
-	public String removeUser() {
+	/** 회원 탈퇴 비밀번호를 확인하는 화면
+	 * 
+	 * @return 메인화면으로 리다이렉트
+	 */
+	@PostMapping("/userInfo/removeUserPwCheck")
+	public String postRemoveUser(Model model) {
 		
-		return "user_info/remove_user";
+		model.addAttribute("title", "회원탈퇴");
+		
+		return "redirect:/index";
 		
 	}
-	
+	/** 회원 정보 수정하는 화면																
+	 * 
+	 * @return
+	 */
 	@GetMapping("/userInfo/updateUserInfo")
-	public String updateUserInfo() {
+	public String updateUserInfo(Model model) {
+		
+		model.addAttribute("title", "회원정보수정");
 		
 		return "user_info/update_user_info";
 		
 	}
-
-	@GetMapping("/user/userMyPage")
-	public String myPage(Model model) {
-
-		return "user_my_page/user_my_page";
-	}
-}
+	/** 유저정보 유저쿠폰 배송지관리를 고르는 화면
+	 * 
+	 * @param model
+	 * @return
+	 */
+	@GetMapping("/userInfo/userInfoPage")
+	public String userInfoMain(Model model) {
+		
+		model.addAttribute("title", "회원정보");
+		
+		return "user_info/user_info_page";
+	} 
 	
-				
-
+}

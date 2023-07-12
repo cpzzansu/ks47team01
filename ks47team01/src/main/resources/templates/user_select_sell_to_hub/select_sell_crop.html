@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html layout:decorate="~{user_layout/default}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeLeaf.org">
+
+<th:block layout:fragment="customContents">
+    <div class="container text-center">
+        <h1 class="prtendard upper-padding-60 text-headline">판매 작물 선택</h1>
+    </div>
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="text-center">
+                        <div class="row click-to-move">
+                            <div class="col-md-2">
+                                <img class="thumb" src="/user/images/product-2.jpg">
+                            </div>
+                            <div class="col-md-8 prtendard">
+                                <h3>상식이</h3>
+                                <p>맛있는 피망</p>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <p>시작 날짜: <span id="startDate">2023-07-11</span></p>
+                                <p>종료 날짜: <span id="endDate">2023-07-18</span></p>
+                                <p>진행 상태: <span id="progressStatus">완료</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 ftco-animate">
+                    <div class="text-center">
+                        <div class="row click-to-move">
+                            <div class="col-md-2">
+                                <img class="thumb" src="/user/images/product-2.jpg">
+                            </div>
+                            <div class="col-md-8 prtendard">
+                                <h3>상식이</h3>
+                                <p>맛있는 피망</p>
+                            </div>
+                            <div class="col-md-2 text-right">
+                                <p>시작 날짜: <span id="startDate2">2023-07-11</span></p>
+                                <p>종료 날짜: <span id="endDate2">2023-07-18</span></p>
+                                <p>진행 상태: <span id="progressStatus2">완료</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+<th:block layout:fragment="customJs">
+    <script>
+        $(document).on('click', '.click-to-move', function () {
+            location.href = '/userSelectSellToHub/selectSellHub';
+        });
+    </script>
+</th:block>
+
+</html>

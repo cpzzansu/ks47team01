@@ -1,125 +1,131 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
+	  layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
 
 	<body>
-		<section class="ftco-section">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-xl-7 ftco-animate">
-						<form action="#" class="billing-form">
-							<h3 class="mb-4 billing-heading">배송지 정보</h3>
-							<div class="row align-items-end">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="country">배송지 선택</label>
-										<div class="select-wrap">
-											<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-											<select name="" id="" class="form-control">
-												<option value="">집</option>
-												<option value="">떡잎상사</option>
-												<option value="">떡잎유치원</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="w-100"></div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="firstname">수령자 이름</label>
-										<input type="text" class="form-control" placeholder="">
-									</div>
-								</div>	
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="firstname">전화번호</label>
-										<input type="text" class="form-control" placeholder="">
-									</div>
-								</div>
-								<div class="w-100"></div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="streetaddress">주소</label>
-										<input type="text" class="form-control"
-											placeholder="주소검색 버튼을 눌러 입력해주세요"
-											id="payment_addr">
-									</div>
-								</div>
-								<div class="col-md-10"></div>
-								<div class="col-md-2">
-									<div>
-										<button class="btn-addr-find" id="payment_addr_find">검색하기</button>
-									</div>
-								</div>
-								<div class="w-100"></div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="streetaddress">상세주소</label>
-										<input type="text" class="form-control" name="payment_addr_detail">
-									</div>
-								</div>
-								<div class="w-100"></div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="towncity">배송 요청사항</label>
-										<input type="text" class="form-control" placeholder="">
-									</div>
-								</div>
-								<div class="w-100"></div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="country">쿠폰</label>
-										<div class="select-wrap">
-											<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-											<select name="" id="" class="form-control">
-												<option value="">회원가입 축하쿠폰 50%</option>
-												<option value="">어반팜 오픈 기념쿠폰 30%</option>
-												<option value="">식목일 쿠폰 90%</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-						</form><!-- END -->
-					</div>
-					<div class="col-xl-5">
-						<div class="row mt-5 pt-3">
-							<div class="col-md-12 d-flex mb-5">
-								<div class="cart-detail cart-total p-3 p-md-4">
-									<h3 class="billing-heading mb-4">영수증</h3>
-									<p class="d-flex">
-										<span>총액</span>
-										<span>118,000원</span>
-									</p>
-									<p class="d-flex">
-										<span>배송비</span>
-										<span>0원</span>
-									</p>
-									<p class="d-flex">
-										<span>할인금액</span>
-										<span>-53,100원</span>
-									</p>
-									<hr>
-									<p class="d-flex total-price">
-										<span>결제할 금액</span>
-										<span>64,900원</span>
-									</p>
-								</div>
-							</div>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-7 ftco-animate">
+					<form action="#" class="billing-form">
+						<h3 class="mb-4 billing-heading">배송지 정보</h3>
+						<div class="row align-items-end">
 							<div class="col-md-12">
-								<div class="cart-detail p-3 p-md-2">
-									<div id="payment-method"></div>
-  									<div id="agreement"></div>
-									<button class="btn-urban-pay" id="toss_payment">결제하기</button>
+								<div class="form-group">
+									<label for="country">배송지 선택</label>
+									<div class="select-wrap">
+										<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+										<select name="" id="" class="form-control">
+											<option value="">집</option>
+											<option value="">떡잎상사</option>
+											<option value="">떡잎유치원</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstname">수령자 이름</label>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstname">전화번호</label>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="streetaddress">주소</label>
+									<input type="text" class="form-control"
+										   placeholder="주소검색 버튼을 눌러 입력해주세요"
+										   id="payment_addr"
+										   disabled="true">
+								</div>
+							</div>
+							<div class="col-md-10"></div>
+							<div class="col-md-2">
+								<div>
+									<button class="btn-addr-find" id="payment_addr_find">검색하기</button>
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="streetaddress">상세주소</label>
+									<input type="text" class="form-control" name="payment_addr_detail">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="towncity">배송 요청사항</label>
+									<input type="text" class="form-control" placeholder="">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="country">쿠폰</label>
+									<div class="select-wrap">
+										<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+										<select name="" id="" class="form-control">
+											<option value="">회원가입 축하쿠폰 50%</option>
+											<option value="">어반팜 오픈 기념쿠폰 30%</option>
+											<option value="">식목일 쿠폰 90%</option>
+										</select>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div> <!-- .col-md-8 -->
+					</form><!-- END -->
 				</div>
+				<div class="col-xl-5">
+					<div class="row mt-5 pt-3">
+						<div class="col-md-12 d-flex mb-5">
+							<div class="cart-detail cart-total p-3 p-md-4">
+								<h3 class="billing-heading mb-4">영수증</h3>
+								<p class="d-flex">
+									<span>총액</span>
+									<span>118,000원</span>
+								</p>
+								<p class="d-flex">
+									<span>배송비</span>
+									<span>0원</span>
+								</p>
+								<p class="d-flex">
+									<span>할인금액</span>
+									<span>-53,100원</span>
+								</p>
+								<hr>
+								<p class="d-flex total-price">
+									<span>결제할 금액</span>
+									<span>64,900원</span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="cart-detail p-3 p-md-2">
+								<div id="payment-method"></div>
+								<div id="agreement"></div>
+								<button class="btn-urban-pay" id="toss_payment">결제하기</button>
+							</div>
+						</div>
+					</div>
+				</div> <!-- .col-md-8 -->
 			</div>
-		</section> <!-- .section -->
+		</div>
+	</section> <!-- .section -->
 	</body>
 </th:block>
 
+<th:block layout:fragment="customJs">
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
+	<script th:src="@{/user/js/urbanApi.js}"></script>
+</th:block>
 </html>
