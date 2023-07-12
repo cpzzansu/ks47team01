@@ -14,7 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 @AllArgsConstructor
 @Transactional
 public class UrbanfarmerService {
@@ -37,15 +36,17 @@ public class UrbanfarmerService {
 	
 	public Map<String, Object> isValidUser(String urbanfarmerId, String urbanfarmerPw) {
 		
-		boolean isValid = false;
 		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+		boolean isValid = false;
 		
 		Urbanfarmer urbanfarmer = urbanfarmerMapper.getUserInfoById(urbanfarmerId);
 		
 		if(urbanfarmer != null) {
 			
-			String checkPw = urbanfarmer.getUrbanfarmerPw();
-			if(checkPw == urbanfarmerPw) {
+			String pwCheck = urbanfarmer.getUrbanfarmerPw();
+			
+			if(urbanfarmer.getUrbanfarmerPw().equals(urbanfarmerPw)) {
 				
 				isValid = true;
 				resultMap.put("urbanfarmerInfo", urbanfarmer);
