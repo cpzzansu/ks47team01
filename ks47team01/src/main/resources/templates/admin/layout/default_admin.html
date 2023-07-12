@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit">
+
+  <title th:text="${title}"></title>
+
+  <!-- Bootstrap -->
+  <link th:href="@{/admin/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link th:href="@{/admin/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+  <!-- NProgress -->
+  <link th:href="@{/admin/vendors/nprogress/nprogress.css}" rel="stylesheet">
+  <!-- iCheck -->
+  <link th:href="@{/admin/vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
+
+  <!-- bootstrap-progressbar -->
+  <link th:href="@{/admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css}" rel="stylesheet">
+  <!-- JQVMap -->
+  <link th:href="@{/admin/vendors/jqvmap/dist/jqvmap.min.css}" rel="stylesheet"/>
+  <!-- bootstrap-daterangepicker -->
+  <link th:href="@{/admin/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link th:href="@{/admin/build/css/custom.min.css}" rel="stylesheet">
+  <link th:href="@{/admin/build/css/urban-admin.css}" rel="stylesheet">
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <!-- aside start -->
+    <div th:replace="~{admin/fragments/aside :: asideFragment}"></div>
+    <!-- aside end -->
+
+    <!-- header start -->
+    <div th:replace="~{admin/fragments/header :: headerFragment}"></div>
+    <!-- header end -->
+
+    <!-- page content start -->
+    <div class="right_col" role="main">
+      <th:block layout:fragment="customContents"></th:block>
+      <!-- page content end -->
+    </div>
+
+    <!-- footer start -->
+    <div th:replace="~{admin/fragments/footer :: footerFragment}"></div>
+    <!-- footer end -->
+  </div>
+</div>
+<!-- 페이지마다 작성될 스크립트 공간 정의 -->
+<th:block layout:fragment="customJs"></th:block>
+<!-- Urban.js -->
+<script th:src="@{/admin/vendors/urbanAdmin/urbanAdmin.js}"></script>
+<script th:src="@{/admin/vendors/urbanAdmin/urbanAdminApi.js}"></script>
+<!-- jQuery -->
+<script th:src="@{/admin/vendors/jquery/dist/jquery.min.js}"></script>
+<!-- Bootstrap -->
+<script th:src="@{/admin/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+<!-- FastClick -->
+<script th:src="@{/admin/vendors/fastclick/lib/fastclick.js}"></script>
+<!-- NProgress -->
+<script th:src="@{/admin/vendors/nprogress/nprogress.js}"></script>
+<!-- Chart.js -->
+<script th:src="@{/admin/vendors/Chart.js/dist/Chart.min.js}"></script>
+<!-- gauge.js -->
+<script th:src="@{/admin/vendors/gauge.js/dist/gauge.min.js}"></script>
+<!-- bootstrap-progressbar -->
+<script th:src="@{/admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js}"></script>
+<!-- iCheck -->
+<script th:src="@{/admin/vendors/iCheck/icheck.min.js}"></script>
+<!-- Skycons -->
+<script th:src="@{/admin/vendors/skycons/skycons.js}"></script>
+<!-- Flot -->
+<script th:src="@{/admin/vendors/Flot/jquery.flot.js}"></script>
+<script th:src="@{/admin/vendors/Flot/jquery.flot.pie.js}"></script>
+<script th:src="@{/admin/vendors/Flot/jquery.flot.time.js}"></script>
+<script th:src="@{/admin/vendors/Flot/jquery.flot.stack.js}"></script>
+<script th:src="@{/admin/vendors/Flot/jquery.flot.resize.js}"></script>
+<!-- Flot plugins -->
+<script th:src="@{/admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
+<script th:src="@{/admin/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
+<script th:src="@{/admin/vendors/flot.curvedlines/curvedLines.js}"></script>
+<!-- DateJS -->
+<script th:src="@{/admin/vendors/DateJS/build/date.js}"></script>
+<!-- JQVMap -->
+<script th:src="@{/admin/vendors/jqvmap/dist/jquery.vmap.js}"></script>
+<script th:src="@{/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+<script th:src="@{/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+<!-- bootstrap-daterangepicker -->
+<script th:src="@{/admin/vendors/moment/min/moment.min.js}"></script>
+<script th:src="@{/admin/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+
+<!-- Custom Theme Scripts -->
+<script th:src="@{/admin/build/js/custom.min.js}"></script>
+
+</body>
+
+</html>
