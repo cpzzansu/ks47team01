@@ -2,15 +2,150 @@
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
-	
-	<a> </a>
-	
-	
-	<br>
-	<br>
-	<a th:href="@{/userPlantPick/plantPickMyMain}">메인으로 이동</a>
-	
-				
-</th:block>
 
+	<body>
+		
+			<div class="col-md-3 left_col plant_pic_sidebar">
+			<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
+				<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
+				<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
+				<li><a th:href="@{/userPlantPick/searchPlantPick}"><img width="30px;" src="/user/images/plant_pic_find.png"></a>검색</li>
+				<li><a th:href="@{/userPlantpick/profile}"><img width="30px;" src="/user/images/plant_pic_compass.png"></a>프로필 </li>
+				<li><a th:href="@{/userPlantPick/addPostPlantPick}"><img width="30px;" src="/user/images/plant_pic_more.png"></a>포스팅</li>
+			</ul>
+		</div>
+		<div class="right_col">
+			<div class="plant_pic_contents">
+				<div class="plant_pic_contents_header">
+					<a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"></a>
+					<a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a>
+					<span id="plant_pic_contents_time_user"> · 1시간</span>
+					<a href="#"><img src="/user/images/plant_pic_ellipsis.png" id="plant_pic_contents_pic_ellipsis"
+							width="35px"></a>
+					&nbsp
+				</div>
+				<div class="plant_pic_contents_main_image">
+					<img src="/user/images/image_6.jpg" id="plant_pic_contents_pic">
+				</div>
+				<div class="plant_pic_contents_footer">
+					<a href="#"><img src="/user/images/plant_pic_heart2.png" width="25px;"
+							id="plant_pic_contents_footer_heart"></a>
+					<a href="#"><img src="/user/images/plant_pic_message.png" width="25px;"
+							id="plant_pic_contents_footer_dm"></a>
+					<a href="#"><img src="/user/images/plant_pic_paper.png" width="25px;"
+							id="plant_pic_contents_footer_paper"></a>
+					<a href="#"><img src="/user/images/plant_pic_bookmark.png" width="25px;"
+							id="plant_pic_contents_footer_bookmark"></a>
+					<a href="#"><span id="plant_pic_contents_footer_love">좋아요 700개</span></a>
+					<a href="#" id="plant_pic_contents_footer_id">jjang.gu</a>
+					<span id="plant_pic_contents_footer_write">즐거운 어반팜 &#x1F604</span>
+					<a href="#" id="plant_pic_contents_footer_hashtag">#어반팜 &nbsp #상추 &nbsp #야채</a>
+					<a href="#" id="plant_pic_contents_footer_comment_id">maeng_gugu</a>
+					<span id="plant_pic_contents_footer_comment">맛있겠다</span>
+					<a href="#" class="plant_pic_contents_footer_comment_button">댓글 70개 모두 보기</a>
+					<input data-emoji="true" type="text" placeholder="댓글 달기..."
+						class="plant_pic_contents_footer_comment_insert">
+					<button class="emoji-btn"></button>
+					<div class="emoji-picker">
+						<span class="emoji">😀</span>
+						<span class="emoji">😁</span>
+						<span class="emoji">😂</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+		<div class="right_col">
+			<div class="plant_pic_contents">
+				<div class="plant_pic_contents_header">
+					<a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"></a>
+					<a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a>
+					<span id="plant_pic_contents_time_user"> · 1시간</span>
+					<a href="#"><img src="/user/images/plant_pic_ellipsis.png" id="plant_pic_contents_pic_ellipsis"
+							width="35px"></a>
+					&nbsp
+				</div>
+				<div class="plant_pic_contents_main_image">
+					<img src="/user/images/image_6.jpg" id="plant_pic_contents_pic">
+				</div>
+				<div class="plant_pic_contents_footer">
+					<a href="#"><img src="/user/images/plant_pic_heart2.png" width="25px;"
+							id="plant_pic_contents_footer_heart"></a>
+					<a href="#"><img src="/user/images/plant_pic_message.png" width="25px;"
+							id="plant_pic_contents_footer_dm"></a>
+					<a href="#"><img src="/user/images/plant_pic_paper.png" width="25px;"
+							id="plant_pic_contents_footer_paper"></a>
+					<a href="#"><img src="/user/images/plant_pic_bookmark.png" width="25px;"
+							id="plant_pic_contents_footer_bookmark"></a>
+					<a href="#"><span id="plant_pic_contents_footer_love">좋아요 700개</span></a>
+					<a href="#" id="plant_pic_contents_footer_id">jjang.gu</a>
+					<span id="plant_pic_contents_footer_write">즐거운 어반팜 &#x1F604</span>
+					<a href="#" id="plant_pic_contents_footer_hashtag">#어반팜 &nbsp #상추 &nbsp #야채</a>
+					<a href="#" id="plant_pic_contents_footer_comment_id">maeng_gugu</a>
+					<span id="plant_pic_contents_footer_comment">맛있겠다</span>
+					<a href="#" class="plant_pic_contents_footer_comment_button">댓글 70개 모두 보기</a>
+					<input data-emoji="true" type="text" placeholder="댓글 달기..."
+						class="plant_pic_contents_footer_comment_insert">
+					<button class="emoji-btn"></button>
+					<div class="emoji-picker">
+						<span class="emoji">😀</span>
+						<span class="emoji">😁</span>
+						<span class="emoji">😂</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+						<span class="emoji">😃</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</th:block>
+<th:block layout:fragment="customJs">
+<script>
+	$(document).ready(function () {
+		$(".emoji-btn").click(function () {
+			$(".emoji-picker").toggle();
+		});
+
+		$(".emoji").click(function () {
+			var emoji = $(this).text();
+			var currentText = $(".plant_pic_contents_footer_comment_insert").val();
+			$(".plant_pic_contents_footer_comment_insert").val(currentText + emoji);
+			$(".emoji-picker").hide();
+		});
+	});
+</script>
+</th:block>
 </html>
