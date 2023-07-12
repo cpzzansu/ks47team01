@@ -17,6 +17,10 @@ import lombok.extern.log4j.Log4j2;
 public class CropsService {
 	private final CropsNameMapper cropsNameMapper;
 	
+	/**
+	 * 작물이름 리스트
+	 * @return List<CropsName>
+	 */
 	public List<CropsName> getCropsNameList(){
 		List<CropsName> cropsNameList = cropsNameMapper.getCropsNameList();
 		log.info("cropsNameList : {}",cropsNameList);
