@@ -4,8 +4,8 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ks47team01.user.mapper.UrbanfarmerMapper">
 	<resultMap type="Urbanfarmer" id="urbanfarmerResultMap">
-		<id column="urbanfarm_id" property="urbanfarmerId"/>
-		<result column="urbanfarm_pw" property="urbanfarmerPw"/>
+		<id column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="urbanfarmer_pw" property="urbanfarmerPw"/>
 		<result column="urbanfarmer_name" property="urbanfarmerName"/>
 		<result column="urbanfarmer_email" property="urbanfarmerEmail"/>
 		<result column="urbanfarmer_phone" property="urbanfarmerPhone"/>

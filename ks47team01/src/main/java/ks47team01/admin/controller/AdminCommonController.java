@@ -18,7 +18,7 @@ public class AdminCommonController {
 
     @GetMapping("/admin")
     public String adminMain(Model model) {
-
+        model.addAttribute("title", "main");
         return "admin/main";
     }
 }
