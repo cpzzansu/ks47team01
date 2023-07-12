@@ -98,7 +98,14 @@ public class PlantPickController {
 	public String userSearchPlantPick() {
 		return "user_plantpick/search_plantpick";
 	}
-	//
+	
+	/**
+	 * 게시물 등록 화면
+	 */
+	@GetMapping("/userPlantPick/addPostPlantPick")
+	public String userAddPostPlantPick() {
+		return "user_plantpick/plantpick_add_post";
+	}
 	
 	
 	
