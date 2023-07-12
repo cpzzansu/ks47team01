@@ -1,0 +1,37 @@
+#minefield {
+    display: inline-grid;
+    grid-template-columns: repeat(10, 20px);
+    grid-gap: 2px;
+}
+.cell {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    text-align: center;
+}
+.mine {
+    background-color: red;
+}
+
+.btn-addr-find {
+    background: #d4ec70;
+    font-size: 14px;
+    width: 75px;
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    border: 1px solid #d4ec70;
+    border-radius: 15px;
+    margin-left: 8px;
+    color: #000000; }
+.btn.btn-black:hover {
+    background: #fff;
+    border: 1px solid #fff;
+    color: #000000; }
+.btn.btn-black.btn-outline-white {
+    border: 1px solid #d4ec70;
+    background: transparent;
+    color: #000000; }
+.btn.btn-black.btn-outline-white:hover {
+    border: 1px solid transparent;
+    background: #d4ec70;
+    color: #000000;
+}
