@@ -60,8 +60,8 @@ public class LoginController {
     		
     		String urbanfarmerName = urbanfarmerInfo.getUrbanfarmerName();
     		
-    		session.setAttribute("SID", urbanfarmerId);
-    		session.setAttribute("SNAME", urbanfarmerName);
+    		session.setAttribute("S_id", urbanfarmerId);
+    		session.setAttribute("S_name", urbanfarmerName);
     		
     		return "redirect:/";
     		
@@ -71,6 +71,14 @@ public class LoginController {
     	
     	return "redirect:/userLogin/userLogin";
     	
+    }
+    
+    @GetMapping("/userLogin/userLogout")
+    public String logoutUser(HttpSession session) {
+    	
+    	session.invalidate();
+    	
+    	return "redirect:/";
     }
     
 
