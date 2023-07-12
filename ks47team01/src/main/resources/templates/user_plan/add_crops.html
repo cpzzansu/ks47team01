@@ -29,9 +29,9 @@
 									<div class="select-wrap">
 										<select name="urbanKitCode" id="urbanKitCode" class="form-control">
 											<option value="">선택안함</option>
-											<option value="">키트1</option>
-											<option value="">키트2</option>
-											<option value="">키트3</option>
+											<option th:each="list : ${urbanKitList}"
+													th:text="${list.urbanKitName}"
+													th:value="${list.urbanKitCode}"></option>
 										</select>
 									</div>
 								</div>
@@ -49,6 +49,7 @@
 <th:block layout:fragment="customJs">
 <script type="text/javascript" th:inline="javascript">
 	const $addPlanBtn = document.querySelector('#addPlanBtn');
+	let isSubmit = true;
 	$addPlanBtn.addEventListener('click',function(){
 		const $cropsNameCode = document.querySelector('#cropsNameCode');
 		let value = $cropsNameCode.value;
@@ -56,8 +57,19 @@
 			let test = $(`label[for="${$cropsNameCode.id}"]`).text();
 			alert(`${test}은 필수 입력항목입니다.`);
 			$cropsNameCode.focus();
+			isSubmit = false;
+		}
+		if(isSubmit){
+			const $addCropsForm = document.querySelector('#addCropsForm');
+			$addCropsForm.submit();
 		}
 	});
+	
+	const $cropsNameCode = document.querySelector('#cropsNameCode');
+	$cropsNameCode.addEventListener('change',function(){
+		isSubmit = true;
+	})
+	
 	
 </script>
 </th:block>

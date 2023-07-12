@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ks47team01.user.mapper.CropsGrowingInfoMapper">
+
+	<resultMap type="CropsGrowingInfo" id="CropsGrowingInfoResultMap">
+		<id column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="crops_name_code" property="cropsNameCode"/>
+		<result column="crops_name" property="cropsName"/>
+		<result column="crops_growing_instructions_content" property="cropsGrowingInstructionsContent"/>
+		<result column="crops_growing_date" property="cropsGrowingDate"/>
+		<result column="crops_growing_info_reg_date" property="cropsGrowingInfoRegDate"/>
+	</resultMap>
+	
+	<select id="getCropsGrowingInfoByCode" parameterType="string" resultMap="CropsGrowingInfoResultMap">
+		/* 작물코드별 작물재배정보 */
+		SELECT
+		*
+		FROM
+			crops_growing_info
+		WHERE
+			crops_name_code = #{CropsNameCode}
+	</select>
+</mapper>
