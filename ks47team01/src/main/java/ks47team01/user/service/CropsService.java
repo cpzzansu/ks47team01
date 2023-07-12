@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ks47team01.user.dto.CropsName;
+import ks47team01.common.dto.CropsName;
 import ks47team01.user.mapper.CropsNameMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;

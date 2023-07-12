@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ks47team01.user.dto.FarmingPlan;
+import ks47team01.common.dto.FarmingPlan;
 
 @Mapper
 public interface FarmingPlanMapper {
