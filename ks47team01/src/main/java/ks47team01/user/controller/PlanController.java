@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
+import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.FarmingPlan;
 import ks47team01.user.service.CropsService;
 import ks47team01.user.service.FarmingPlanService;
-import ks47team01.user.dto.CropsName;
-import ks47team01.user.dto.FarmingPlan;
 import lombok.AllArgsConstructor;
 
 @Controller("UserPlanController")

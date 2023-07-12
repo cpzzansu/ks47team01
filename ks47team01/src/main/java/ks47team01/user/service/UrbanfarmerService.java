@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.annotation.PostConstruct;
-import ks47team01.user.dto.Urbanfarmer;
+import ks47team01.common.dto.Urbanfarmer;
 import ks47team01.user.mapper.UrbanfarmerMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

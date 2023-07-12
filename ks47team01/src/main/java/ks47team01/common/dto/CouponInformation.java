@@ -1,4 +1,4 @@
-package ks47team01.admin.dto;
+package ks47team01.common.dto;
 
 import lombok.Data;
 
