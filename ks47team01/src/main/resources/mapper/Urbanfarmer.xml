@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UrbanfarmerMapper">
+	<resultMap type="Urbanfarmer" id="urbanfarmerResultMap">
+		<id column="urbanfarm_id" property="urbanfarmerId"/>
+		<result column="urbanfarm_pw" property="urbanfarmerPw"/>
+		<result column="urbanfarmer_name" property="urbanfarmerName"/>
+		<result column="urbanfarmer_email" property="urbanfarmerEmail"/>
+		<result column="urbanfarmer_phone" property="urbanfarmerPhone"/>
+		<result column="urbanfarmer_sms_check" property="urbanfarmerSmsCheck"/>
+		<result column="urbanfarmer_email_check" property="urbanfarmerEmailCheck"/>
+		<result column="urbanfarmer_insert_reg_date" property="urbanfarmerInsertRegDate"/>
+		<result column="urbanfarmer_update_reg_date" property="urbanfarmerUpdateRegDate"/>
+		<result column="urbanfarmer_drop_reg_date" property="urbanfarmerDropRegDate"/>
+		<result column="urbanfarmer_drop_classification" property="urbanfarmerDropClassification"/>
+	</resultMap>
+	
+	<select id="getUserInfoById" parameterType="String" resultMap="urbanfarmerResultMap">
+	/* 아이디로 유저정보 가져오기 */
+	SELECT 
+		u.urbanfarmer_id
+	,	u.urbanfarmer_pw
+	,	u.urbanfarmer_name
+	,	u.urbanfarmer_email
+	,	u.urbanfarmer_phone
+	,	u.urbanfarmer_sms_check
+	,	u.urbanfarmer_email_check
+	,	u.urbanfarmer_insert_reg_date
+	,	u.urbanfarmer_update_reg_date
+	,	u.urbanfarmer_drop_reg_date
+	,	u.urbanfarmer_drop_classification
+	FROM
+		urbanfarmer as u
+	WHERE 
+		urbanfarmer_id = #{urbanfarmerId};
+	
+	</select>
+</mapper>
