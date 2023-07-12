@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.CropsName;
 import ks47team01.common.dto.FarmingPlan;
+import ks47team01.common.dto.UrbanKit;
 import ks47team01.user.service.CropsService;
 import ks47team01.user.service.FarmingPlanService;
+import ks47team01.user.service.UrbanKitService;
 import lombok.AllArgsConstructor;
 
 @Controller("UserPlanController")
@@ -21,6 +23,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class PlanController {
 	
+	private final UrbanKitService urbanKitService;
 	private final FarmingPlanService farmingPlanService;
 	private final CropsService cropsService;
 	/**
@@ -71,8 +74,10 @@ public class PlanController {
 	public String addCrops(Model model){
 		//작물 이름, 코드 가져오기
 		List<CropsName> cropsNameList = cropsService.getCropsNameList();
+		List<UrbanKit> urbanKitList = urbanKitService.getUrbanKitList();
 		model.addAttribute("title", "작물등록");
 		model.addAttribute("cropsNameList", cropsNameList);
+		model.addAttribute("urbanKitList", urbanKitList);
 		return "user_plan/add_crops";
 	}
 	
@@ -81,8 +86,10 @@ public class PlanController {
 	 * 처리 후 농사 계획 메인화면으로 이동
 	 */
 	@PostMapping("/addCrops")
-	public String addCrops() {
-		
+	public String addCrops(@RequestParam(value = "cropsNameCode")String cropsNameCode,
+							@RequestParam(value = "urbanKitCode", required = false)String urbanKitCode,
+							Model model, HttpSession session) {
+		farmingPlanService.addCrops(cropsNameCode, urbanKitCode, session);
 		return "redirect:/userPlan/planMain";
 	}
 	

@@ -18,7 +18,30 @@
 		<result column="farmer_farming_plan_end_date" property="farmerFarmingPlanEndDate"/>
 		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
 	</resultMap>
+	
+	<select id="getMinManagementUser" resultType="map">
+		/* 담당자수가 가장 적은 crew 반환 */
+		SELECT
+			p.urbanfarm_hub_crew_id AS min_crew_id,
+			COUNT(p.urbanfarm_hub_crew_id) AS user_count
+		FROM
+			farmer_farming_plan AS p
+		GROUP BY
+			p.urbanfarm_hub_crew_id
+		ORDER BY user_count
+		LIMIT 1
+	</select>
+	
+	<select id="getIncreseFarmingPlanCode" resultType="string">
+		/* code 자동증가된 결과 반환 */
+		SELECT
+			CONCAT('farmer_farming_plan_',MAX(CAST(SUBSTRING_INDEX(farmer_farming_plan_code,'_',-1) AS UNSIGNED))+1) AS auto_code
+		FROM
+			farmer_farming_plan
+	</select>
+	
 	<select id="getFarmingPlanListById" resultMap="farmingPlanResultMap" parameterType="String">
+		/* 사용자별 계획 리스트 */
 		SELECT
 			farmer_farming_plan_code,
 			crops_name,
@@ -28,4 +51,33 @@
 		WHERE
 			urbanfarmer_id=#{userId}
 	</select>
+	
+	<insert id="addCrops" parameterType="FarmingPlan">
+		/* 농사 예정 작물 등록 */
+		
+		INSERT INTO farmer_farming_plan
+			(farmer_farming_plan_code,
+			 urbanfarmer_id, 
+			 urbanfarm_hub_crew_id, 
+			 crops_name_code, 
+			 crops_name, 
+			 crops_growing_info_code,
+			 <if test="urbanKitCode !=null and urbanKitCode != ''">
+				 urban_kit_code, 			 
+			 </if> 
+			 farmer_farming_plan_reg_date,
+			 farmer_farming_plan_status)
+		VALUES 
+			(#{farmerFarmingPlanCode},
+			 #{urbanfarmerId}, 
+			 #{urbanfarmHubCrewId}, 
+			 #{cropsNameCode}, 
+			 #{cropsName}, 
+			 #{cropsGrowingInfoCode},
+			 <if test="urbanKitCode !=null and urbanKitCode != ''">
+				 #{urbanKitCode}, 			 
+			 </if> 
+			 NOW(), 
+			 '시작전')
+	</insert>
 </mapper>
