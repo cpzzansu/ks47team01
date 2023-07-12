@@ -9082,3 +9082,14 @@ Consider the following:
 17:02:48.035 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		192.168.10.24
 17:02:48.036 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
 17:02:48.036 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+22:24:28.474 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 2867 (/Users/kimjunsu/ks47team01_wonyoung/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_wonyoung)
+22:24:28.475 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+22:24:28.582 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+22:24:28.583 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+22:24:28.868 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+22:24:28.876 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+22:24:29.122 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+22:24:29.157 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 573 ms
+22:24:30.016 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+22:24:30.039 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+22:24:30.045 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.781 seconds (process running for 2.077)
