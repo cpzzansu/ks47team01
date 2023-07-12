@@ -1,49 +1,77 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{user_layout/default}">
-      <head>
-      	<style>
-      		.side-padding{
-      			padding-left: 10px;
-      			padding-right: 10px;
-      			margin: 30px;
-      		}
-      		
-      	</style>
-      </head>
+	layout:decorate="~{user_layout/default}">
+
+<head>
+	<style>
+		.side-padding {
+			padding-left: 10px;
+			padding-right: 10px;
+			margin: 40px;
+			align-items: center;
+			justify-content: center;
+		}
+		.vm-btn-size{
+			width: 80px;
+			height: 50px;
+		}
+		.upper-padding{
+			padding-top: 200px;
+		}
+	</style>
+</head>
 <th:block layout:fragment="customContents">
-<section class="ftco-section">
-		<div class="container" style="background-color: rgb(212, 236, 112)" >
+	<section class="ftco-section">
+		<div class="container" style="background-color: rgb(212, 236, 112)">
 			<div class="row no-gutters ftco-services">
-				<div class="col-md-30 text-center d-flex align-self-stretch ftco-animate">
-				<div class="media block-30 services mb-md-0 mb-15">
-		
-					<button type="button" class="btn btn-outline-secondary side-padding">A 1</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 2</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 3</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 4</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 5</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 6</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 7</button>
-					<button type="button" class="btn btn-outline-dark btn-secondary side-padding">A 8</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 1</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 2</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 3</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 4</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 5</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 6</button>
-					<button type="button" class="btn btn-outline-secondary side-padding">A 7</button>
-					<button type="button" class="btn btn-outline-dark btn-secondary side-padding">A 8</button>
-					
-					
-					
+				<div class="col-md-6 text-center d-flex align-self-stretch ftco-animate">
+					<div class="media block-10 services mb-md-0 mb-10" style="background-color: lemonchiffon">
+
+						<button type="button" class="btn btn-outline-secondary side-padding">A 1</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 2</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 3</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 4</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 5</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 6</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 7</button>
+						<button type="button" class="btn btn-outline-dark btn-secondary side-padding">A 8</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 9</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 10</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 11</button>
+						<button type="button" class="btn btn-outline-secondary side-padding">A 12</button>
+						<button type="button" class="btn btn-outline-secondary side-padding vm-btn-size">A 13</button>
+
+
+					</div>
+				</div>
+				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate upper-padding">
+					<div class="media block-6 services mb-md-0 mb-4">
+						<div>
+							<img id="urbanfarm_production_icons_ecoicon" src="/user/images/agile.png">
+						</div>
+						<div class="media-body">
+							<h3 id="urbanfarm_heading">사용할 자판기 공간을 선택 해주세요!</h3>
+							<span id="urbanfarm_boding">실제 자판기의 공간과 동일합니다!</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate upper-padding">
+					<div class="media block-6 services mb-md-0 mb-4">
+						<div>
+							<img id="urbanfarm_production_icons_ecoicon" src="/user/images/vending-machine.png">
+						</div>
+						<div class="media-body">
+							<h3 id="urbanfarm_heading">자판기 홈으로 돌아가기</h3>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>	
-</section>
+		</div>
 
-    <a th:href="@{'/userVendingMachine/vmSpacePayment'}">선택 및 결제</a>
+
+	</section>
+
+	<a th:href="@{'/userVendingMachine/vmSpacePayment'}">선택 및 결제</a>
 	<a th:href="@{'/userVendingMachine/vmMain'}">예약 홈으로 이동</a>
 </th:block>
 

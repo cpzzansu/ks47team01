@@ -49,7 +49,7 @@ public class UserVendingMachineController {
 		return "user_vending_machine/vm_space_payment";
 	}
 	
-	// 자판기 판매공간 선택 예약 확인 화면
+	// 자판기 결제 확인 및 예약 확인 화면
 	@GetMapping("/userVendingMachine/vmSpaceCheck")
 	public String userVmSpaceCheck (Model model) {
 		model.addAttribute("title", "결제 정보 확인");
