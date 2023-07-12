@@ -315,8 +315,8 @@ if($('.orderProcessingBtn').length > 0){
 				let width = 600;
 				let height = 600;
 			
-				let left = (window.screen.width/2) - (width/2);
-				let top = (window.screen.height/4);
+				let left = Math.ceil(( window.screen.width - width )/2);
+				let top = Math.ceil(( window.screen.height - height )/2);
 			
 				let windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
 				
