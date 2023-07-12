@@ -10664,10 +10664,15 @@ textarea.form-control {
    padding-bottom: 20px;
  }
 
- .top-padding-10{
+ .top-padding-40{
    padding-top: 40px;
  }
+
+.top-padding-10{
+  padding-top: 10px;
+}
 
  .div-underline{
    box-shadow: 0px 2px 0px 0px #ebebeb;
  }
+
