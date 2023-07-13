@@ -7,5 +7,7 @@ import ks47team01.common.dto.Urbanfarmer;
 public interface UrbanfarmerMapper {
 	
 	public Urbanfarmer getUserInfoById(String urbanfarmerId);
+	
+	public void addUrbanfarmer();
 
 }

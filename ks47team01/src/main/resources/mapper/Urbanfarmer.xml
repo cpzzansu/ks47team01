@@ -37,4 +37,14 @@
 		urbanfarmer_id = #{urbanfarmerId};
 	
 	</select>
+	
+	<insert id="addUrbanfarmer" parameterType="Urbanfarmer">
+	
+	INSERT INTO urbanfarmer
+		(urbanfarmer_id, urbanfarmer_pw, urbanfarmer_name, urbanfarmer_email, urbanfarmer_phone, urbanfarmer_sms_check, urbanfarmer_email_check, urbanfarmer_insert_reg_date, urbanfarmer_reg_update, urbanfarmer_drop_reg_update, urbanfarmer_drop_classification)
+	VALUES 
+		(#{urbanfarmerId}, #{urbanfarmerPw}, #{urbanfarmerName}, #{urbanfarmerEmail}, #{urbanfarmerPhone}, #{urbanfarmerSmsCheck}, #{urbanfarmerEmailCheck}, CURDATE(), NULL, NULL, '정상');
+	
+	</insert>
+	
 </mapper>

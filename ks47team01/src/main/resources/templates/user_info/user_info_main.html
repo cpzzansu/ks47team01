@@ -4,7 +4,7 @@
 <th:block layout:fragment="customContents">
 	<section class="ftco-section contact-section bg-light">
 		<div class="container"></div>
-		<div id="urbanfarm_login_heading">마이페이지</div>
+		<div id="urbanfarm_login_heading" th:text="${session.S_name} + '님 마이페이지'">  </div>
 		<div class="row no-gutters slider-text align-items-center justify-content-center">
 			<div class="col-md-6 order-md-last d-flex">
 				<form action="/userLogin/userLoginAction" method="post"
