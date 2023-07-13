@@ -9397,3 +9397,1212 @@ Caused by: java.lang.ClassNotFoundException: com.google.zxing.WriterException
 16:24:12.833 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
 16:24:12.833 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
 16:24:12.833 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:31:44.882 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 9210 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+20:31:44.883 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+20:31:44.985 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+20:31:44.985 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+20:31:45.262 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+20:31:45.269 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+20:31:45.504 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+20:31:45.535 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 550 ms
+20:31:46.753 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+20:31:46.776 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+20:31:46.781 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 2.11 seconds (process running for 2.354)
+20:31:57.761 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:31:57.762 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+20:31:57.771 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:31:57.771 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:31:57.772 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:31:57.772 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:31:57.772 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/
+20:31:57.772 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:31:57.772 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:31:57.772 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:31:58.647 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/favicon.ico
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:31:58.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:31:58.658 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:31:58.658 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:31:58.658 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:31:58.659 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:31:58.659 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:31:58.659 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:31:58.659 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:31:58.659 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:32:00.733 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:32:00.734 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:32:00.735 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:32:00.735 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:32:00.735 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:32:00.735 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:32:00.735 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:32:00.735 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:35:37.211 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:35:37.212 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:35:38.952 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:35:38.952 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:35:38.952 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:35:38.952 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:35:38.953 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:35:38.953 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:35:38.953 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:35:38.953 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:36:00.076 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 9497 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+20:36:00.080 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+20:36:00.177 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+20:36:00.177 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+20:36:00.446 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+20:36:00.453 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
+20:36:00.663 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+20:36:00.694 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 516 ms
+20:36:01.505 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+20:36:01.526 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+20:36:01.532 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.647 seconds (process running for 1.889)
+20:36:05.587 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:36:05.588 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+20:36:05.597 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:36:05.597 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:36:05.598 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:36:05.598 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:36:05.598 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:36:05.598 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:36:05.598 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:36:05.598 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:36:05.693 [http-nio-80-exec-1] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-80-exec-1] Exception processing template "user_select_sell_to_hub/select_sell_crop": Error resolving template [user_select_sell_to_hub/select_sell_crop], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user_select_sell_to_hub/select_sell_crop], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+20:36:05.694 [http-nio-80-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user_select_sell_to_hub/select_sell_crop], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user_select_sell_to_hub/select_sell_crop], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:36:05.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:36:07.612 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 4791 class path changes (0 additions, 64 deletions, 4727 modifications)
+20:36:07.837 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 9497 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+20:36:07.837 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+20:36:07.906 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+20:36:07.908 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+20:36:07.943 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+20:36:07.947 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 109 ms
+20:36:08.246 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+20:36:08.253 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+20:36:08.255 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 0.43 seconds (process running for 8.612)
+20:36:08.256 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+20:36:09.968 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 64 class path changes (64 additions, 0 deletions, 0 modifications)
+20:36:10.225 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 9497 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+20:36:10.225 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+20:36:10.290 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+20:36:10.291 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JDBC repository interfaces.
+20:36:10.324 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+20:36:10.328 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 102 ms
+20:36:10.627 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+20:36:10.638 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+20:36:10.640 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 0.435 seconds (process running for 10.998)
+20:36:10.641 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+20:36:42.050 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:36:42.052 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:36:42.053 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:37:01.315 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:37:01.315 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:37:01.315 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:37:01.316 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:37:01.316 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:37:01.316 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:37:01.316 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:37:01.316 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:37:45.256 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:37:45.257 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:37:45.257 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:37:45.257 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:37:45.257 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:37:45.257 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:37:45.258 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:37:45.260 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:37:59.811 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:37:59.812 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:38:06.702 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:38:06.703 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:38:48.063 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:38:48.064 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:38:48.065 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:38:48.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:38:48.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+20:38:48.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:38:48.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:38:48.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:39:09.066 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPantPick/plantPickMain
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:39:10.775 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:39:10.776 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:55.383 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:55.384 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:39:55.385 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:39:55.385 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:39:55.385 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+20:39:55.385 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:39:55.385 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:39:55.385 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:56.625 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:39:56.627 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:39:56.628 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:39:56.628 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:39:56.628 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlantPick/plantPickMain
+20:39:56.628 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:39:56.628 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:39:56.628 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:40:56.802 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlantPick/plantPickMain
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:40:56.803 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:40:58.333 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:40:58.333 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:40:58.333 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:40:58.333 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:40:58.334 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userVendingMachine/vmMain
+20:40:58.334 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:40:58.334 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:40:58.334 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:42:49.985 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:44:14.777 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.778 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:44:14.781 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:44:14.782 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:44:14.789 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.554 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.555 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:53:03.556 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:53:03.556 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:53:03.556 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:53:03.556 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:53:03.556 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:53:03.556 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:53:03.647 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.647 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.647 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:53:03.647 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:53:03.647 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:53:03.648 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:53:03.648 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:53:03.648 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:53:03.648 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:53:03.648 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.647 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:53:03.648 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.858 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.860 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:54:49.860 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:54:49.860 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:54:49.861 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+20:54:49.861 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:54:49.861 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:54:49.861 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:54:49.949 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.962 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:54:49.963 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+20:54:49.972 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+20:54:49.972 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:57.956 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:00:57.957 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:00:58.026 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.035 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.035 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:00:58.035 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:00:58.036 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:00:58.036 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:00:58.036 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:00:58.036 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:00:58.036 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.146 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.146 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:00:58.146 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.146 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:00:58.146 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:00:58.146 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:00:58.146 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:00:58.146 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:00:58.146 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:00:58.147 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:00:58.147 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:00:58.147 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:00:58.147 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:00:58.147 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:00:58.147 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:00:58.147 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.324 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:03:08.325 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.403 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:03:08.404 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:03:08.435 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:03:08.435 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:03:08.450 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.526 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:05:47.529 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.613 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:05:47.614 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:05:47.632 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:05:47.642 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:05:47.642 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:31.871 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:11:31.872 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.086 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:11:32.087 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:11:32.088 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:11:32.090 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:11:32.090 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.420 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:12:37.422 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.504 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:12:37.505 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.518 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:12:37.519 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:12:37.527 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:12:37.527 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.739 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:13:28.746 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:13:28.826 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:13:28.839 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:13:28.839 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:13:28.852 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:17:17.597 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:17:17.680 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:17:17.701 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:17:17.707 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.711 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:17:17.712 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:55.922 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:55.923 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:17:55.923 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:17:55.923 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:17:55.923 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/planMain
+21:17:55.923 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:17:55.924 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:17:55.924 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:17:56.314 [http-nio-80-exec-1] INFO  k.user.service.FarmingPlanService - [FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_3, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_91, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_92, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_93, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_94, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_95, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_96, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_97, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_98, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_99, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null)]
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:18:02.374 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:18:02.375 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.374 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:18:02.376 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:18:02.387 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:19.864 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userLogin/userLoginAction;jsessionid=4E55236A21ADAC9E310CDDA2E4E40460
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:19.865 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:19.866 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userLogin/userLoginAction;jsessionid=4E55236A21ADAC9E310CDDA2E4E40460
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:20.652 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:20.653 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.678 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.678 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.687 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.688 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.690 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.691 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.691 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.692 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.692 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.692 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.692 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.692 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.691 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.697 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.698 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.698 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.699 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.701 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.701 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.701 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.701 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.701 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.701 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.701 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.702 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.702 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.702 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.702 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.702 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.702 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:25.702 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.702 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.702 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:25.702 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:25.702 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:25.702 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.513 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.513 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.513 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.513 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.513 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.513 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.514 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.514 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.516 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.516 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.517 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.517 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.517 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.517 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.517 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.517 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.516 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.517 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.517 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.517 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.517 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.517 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.518 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.518 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.519 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.520 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.520 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.521 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.529 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.529 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.529 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.529 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.529 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.529 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.530 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.530 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.532 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.534 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.536 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.536 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.539 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.540 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:26.563 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:29.613 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:29.663 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:29.675 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:29.686 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:29.686 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.922 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:51.923 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:51.985 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:51.993 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:51.995 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:21:52.014 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/planMain
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:47.529 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.592 [http-nio-80-exec-6] INFO  k.user.service.FarmingPlanService - [FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_3, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_91, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_92, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_93, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_94, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_95, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_96, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_97, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_98, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_99, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null)]
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:47.680 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:47.694 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:47.711 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:47.711 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/planMain
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:47.939 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:47.977 [http-nio-80-exec-7] INFO  k.user.service.FarmingPlanService - [FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_3, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_91, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_92, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_93, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_94, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_95, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_96, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_97, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_98, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_99, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null)]
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:48.070 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.080 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.080 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:48.080 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:48.080 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:48.080 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:48.081 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:48.081 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:48.081 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:48.082 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:48.097 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.771 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:58.772 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:58.869 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:58.884 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:58.886 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.904 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:23:58.905 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:26:22.661 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:26:22.666 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.668 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.668 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:26:22.668 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:26:22.668 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:26:22.668 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:26:22.668 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:26:22.669 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:26:22.669 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+21:26:22.680 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================

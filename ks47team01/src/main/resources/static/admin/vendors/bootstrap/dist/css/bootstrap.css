@@ -6597,7 +6597,7 @@ button.close {
     display: inline-block !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: px) {
   .visible-sm {
     display: block !important;
   }
