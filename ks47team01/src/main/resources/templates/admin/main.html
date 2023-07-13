@@ -2,15 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
   	  layout:decorate="~{admin/layout/default_admin}">
-<th:block layout:fragment="customContents">
+	<th:block layout:fragment="customContents">
 		<h1 th:text="${contents}">[[${contents}]]</h1>
-		<div id="minefield"></div>
-		<div>
-			<button class="btn-addr-find" id="payment_addr_find">검색하기</button>
+		<div class="text_box" data-trigger>
+			<span class="text"></span>
 		</div>
 	</th:block>
 	
 	<th:block layout:fragment="customJs">
-		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	</th:block>
 </html>
