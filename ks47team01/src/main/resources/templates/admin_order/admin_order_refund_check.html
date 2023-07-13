@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
+  <h1 th:text="${contents}">[[${contents}]]</h1>
+  <div>
+    <button class="btn-addr-find" id="payment_addr_find">검색하기</button>
+  </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</th:block>
+</html>
+
+<!-- 이 상태에서 검색하기 버튼 클릭 후 정상 작동되면 레이아웃의 css와 js가 잘 연결된 것이니
+customJS의 스크립트와 customContents의 div 및 button을 삭제해주세요 -->
