@@ -19,6 +19,13 @@
 		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
 	</resultMap>
 	
+	<select id="autoIncreaseCode" resultType="String" parameterType="String">
+		SELECT
+			CONCAT('${tableName}_',MAX(CAST(SUBSTRING_INDEX(${tableName}_code,'_',-1) AS UNSIGNED))+1)
+		FROM
+			${tableName}
+	</select>
+	
 	<select id="getMinManagementUser" resultType="map">
 		/* 담당자수가 가장 적은 crew 반환 */
 		SELECT

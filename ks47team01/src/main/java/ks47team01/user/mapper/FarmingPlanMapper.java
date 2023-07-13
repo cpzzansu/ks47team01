@@ -35,4 +35,11 @@ public interface FarmingPlanMapper {
 	 * @return
 	 */
 	public String getIncreseFarmingPlanCode();
+	
+	/**
+	 * 테이블명을 입력받으면 자동증가된 코드를 반환
+	 * @param tableName
+	 * @return 증가된 코드
+	 */
+	public String autoIncreaseCode(String tableName);
 }

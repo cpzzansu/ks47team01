@@ -58,6 +58,8 @@ public class FarmingPlanService {
 	public List<FarmingPlan> getFarmingPlanListById(String userId){
 		List<FarmingPlan> farmingPlanList = farmingPlanMapper.getFarmingPlanListById(userId);
 		log.info(farmingPlanList);
+		String autoCode = farmingPlanMapper.autoIncreaseCode("farming_detail_plan_action");
+		System.out.println(autoCode);
 		return farmingPlanList;
 	}
 }
