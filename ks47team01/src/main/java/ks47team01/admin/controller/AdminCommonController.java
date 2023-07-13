@@ -21,4 +21,10 @@ public class AdminCommonController {
         model.addAttribute("title", "main");
         return "admin/main";
     }
+
+    @GetMapping("/doNotClick")
+    public String doNotClick() {
+
+        return "admin/doNotClick";
+    }
 }
