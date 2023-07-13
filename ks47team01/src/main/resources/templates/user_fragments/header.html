@@ -11,14 +11,14 @@
 
 			<div th:if="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active  urban_header"><a href="/userLogin/userLoginAction"
+					<li class="nav-item active  urban_header"><a th:href="@{/userLogin/userLoginAction}"
 							class="nav-link">플랫폼소개</a></li>
-					<li class="nav-item urban_header"><a href="/userPlan/planMain" class="nav-link">이동훈</a></li>
-					<li class="nav-item urban_header"><a href="/userSelectSellToHub/selectSellCrop" class="nav-link">김준수</a></li>
-					<li class="nav-item urban_header"><a href="/userShop/userShopList" class="nav-link">키트구매</a></li>
-					<li class="nav-item urban_header"><a href="/userPlantPick/plantPickMain" class="nav-link">김상원</a></li>
-					<li class="nav-item urban_header"><a href="/userVendingMachine/vmMain" class="nav-link">이다야</a></li>
-					<li class="nav-item cta cta-colored urban_header"><a href="/Ushop/user_shop_cart" class="nav-link"><span
+					<li class="nav-item urban_header"><a th:href="@{/userPlan/planMain}" class="nav-link">이동훈</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userSelectSellToHub/selectSellCrop}" class="nav-link">김준수</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">키트구매</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userPantPick/plantPickMain}" class="nav-link">김상원</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">이다야</a></li>
+					<li class="nav-item cta cta-colored urban_header"><a th:href="@{/Ushop/user_shop_cart}" class="nav-link"><span
 								class="icon-shopping_cart"></span>[0]</a></li>
 <!-- 					<li class="nav-item urban_header"><a href="/userInfo/userInfoMain" class="nav-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -27,39 +27,38 @@
 						</svg>
 					마이페이지
 					</a></li> -->
-					<li class="nav-item urban_header"><a href="/userLogin/userLogin" class="nav-link">로그인</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userLogin/userLogin}" class="nav-link">로그인</a></li>
 				</ul>
 			</div>
 			<div th:unless="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active  urban_header"><a href="/userLogin/userLoginAction"
+					<li class="nav-item active  urban_header"><a th:href="@{/userLogin/userLoginAction}"
 							class="nav-link">플랫폼소개</a></li>
-					<li class="nav-item urban_header"><a href="/userPlan/planMain" class="nav-link">이동훈</a></li>
-					<li class="nav-item urban_header"><a href="/userSelectSellToHub/selectSellCrop" class="nav-link">김준수</a></li>
-					<li class="nav-item urban_header"><a href="/userShop/userShopList" class="nav-link">키트구매</a></li>
-					<li class="nav-item urban_header"><a href="/userPantPick/plantPickMain" class="nav-link">김상원</a></li>
-					<li class="nav-item urban_header"><a href="/userVendingMachine/vmMain" class="nav-link">이다야</a></li>
-					<li class="nav-item cta cta-colored urban_header"><a href="/Ushop/user_shop_cart" class="nav-link"><span
-								class="icon-shopping_cart"></span>[0]</a></li>
-					<li class="nav-item urban_header"><a href="/userInfo/userInfoMain" class="nav-link">
+					<li class="nav-item urban_header"><a th:href="@{/userPlan/planMain}" class="nav-link">이동훈</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userSelectSellToHub/selectSellCrop}" class="nav-link">김준수</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">키트구매</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userPantPick/plantPickMain}" class="nav-link">김상원</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">이다야</a></li>
+					<li class="nav-item cta cta-colored urban_header"><a th:href="@{/Ushop/user_shop_cart}" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userInfo/userInfoMain}" class="nav-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-						  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-						  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-						</svg>					
-					마이페이지
+							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+							<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+						</svg>
+						마이페이지
 					</a></li>
-					<li class="nav-item urban_header"><a href="/userLogin/userLogout" class="nav-link">로그아웃</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userLogin/userLogout}" class="nav-link">로그아웃</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	
+
 	<div th:if="${isMain}" class="hero-wrap hero-bread" style="background-image: url('/user/images/bg_1.png');">
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<p class="breadcrumbs"><span class="mr-2"><a href="../../static/admin/vendors/bootstrap-daterangepicker/example/amd/index.html"></a></span> <span></span></p>
-                    <h1 class="mb-0 bread" th:utext="${title}"></h1>
+					<p class="breadcrumbs"><span class="mr-2"><a th:href="@{/static/admin/vendors/bootstrap-daterangepicker/example/amd/index.html}"></a></span> <span></span></p>
+					<h1 class="mb-0 bread" th:utext="${title}"></h1>
 				</div>
 			</div>
 		</div>
@@ -68,7 +67,7 @@
 		<div class="container">
 			<div class="row no-gutters slider-text2 align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<p class="breadcrumbs2"><span class="mr-2"><a href="/userLogin/userLoginAction"></a></span> <span></span></p>
+					<p class="breadcrumbs2"><span class="mr-2"><a th:href="@{/userLogin/userLoginAction}"></a></span> <span></span></p>
 					<h1 class="mb-0 bread2" th:utext="${title}"></h1>
 				</div>
 			</div>
