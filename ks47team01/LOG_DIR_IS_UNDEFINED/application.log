@@ -5106,3 +5106,654 @@ java.sql.SQLException: Field 'urban_kit_code' doesn't have a default value
 17:03:09.878 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
 17:03:09.898 [http-nio-80-exec-4] INFO  k.user.service.FarmingPlanService - [FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_3, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_91, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_92, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_93, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_94, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_95, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_96, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null)]
 17:03:24.566 [RMI TCP Connection(440)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+09:28:37.165 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.7 with PID 5356 (C:\Users\ASUS\git\ks47team01\ks47team01\target\classes started by ASUS in C:\Users\ASUS\git\ks47team01\ks47team01)
+09:28:37.167 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+09:28:37.333 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09:28:37.333 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09:28:37.766 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+09:28:37.778 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
+09:28:38.137 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+09:28:38.193 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 860 ms
+09:28:40.318 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+09:28:40.346 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+09:28:40.352 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 3.516 seconds (process running for 4.023)
+09:28:46.147 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09:28:46.148 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+09:28:46.163 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:46.163 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:46.164 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:46.164 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:28:46.164 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/
+09:28:46.164 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:46.164 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:28:46.164 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:48.414 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userLogin/userLoginAction
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:28:48.415 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:28:48.421 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:50.829 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:50.829 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:50.829 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:50.829 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:28:50.829 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/planMain
+09:28:50.830 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:50.830 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:28:50.830 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:50.938 [http-nio-80-exec-4] INFO  k.user.service.FarmingPlanService - [FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_3, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_91, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_92, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_93, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_94, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_95, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_96, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_97, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_98, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null)]
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/addCrops
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:28:55.326 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:55.367 [http-nio-80-exec-9] INFO  k.user.service.CropsService - cropsNameList : [CropsName(cropsNameCode=crops_name_1, urbanfarmAdminId=admin111, cropsName=상추, cropsNameRegDate=2023-05-01 10:30:00), CropsName(cropsNameCode=crops_name_2, urbanfarmAdminId=admin222, cropsName=쪽파, cropsNameRegDate=2023-05-01 10:30:00)]
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		POST
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/addCrops
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		cropsNameCode : crops_name_1, urbanKitCode : 
+09:28:59.637 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userPlan/planMain
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:28:59.816 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:28:59.840 [http-nio-80-exec-6] INFO  k.user.service.FarmingPlanService - [FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_3, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_91, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_92, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_93, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=완료, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_94, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_95, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_96, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_97, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_98, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=쪽파, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null), FarmingPlan(farmerFarmingPlanCode=farmer_farming_plan_99, urbanfarmerId=null, urbanfarmHubCrewId=null, cropsNameCode=null, cropsName=상추, cropsGrowingInfoCode=null, urbanKitCode=null, farmerFarmingPlanRegDate=null, farmerFarmingPlanStartDate=null, farmerFarmingPlanEndDate=null, farmerFarmingPlanStatus=시작전, urbanKit=null)]
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userLogin/userLoginAction
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:05.254 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:05.257 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:05.257 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:05.258 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:05.258 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:05.258 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:29:05.258 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:05.258 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:05.258 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:07.004 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userSelectSellToHub/selectSellCrop
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:07.005 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:11.101 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:11.102 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:11.395 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:11.396 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:13.683 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:13.683 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:13.684 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:13.684 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:13.684 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userShop/userShopList
+09:29:13.684 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:13.684 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:13.684 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:23.446 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:23.446 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:23.448 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:23.448 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:23.448 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userVendingMachine/vmMain
+09:29:23.448 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:23.448 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:23.448 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:27.620 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userVendingMachine/vmLocalSelect
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:27.621 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userVendingMachine/vmAreaSelect
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:31.364 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:35.798 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userVendingMachine/vmMachineSelect
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:35.799 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userVendingMachine/vmSpaceSelect
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:39.533 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/Ushop/user_shop_cart
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:46.750 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:46.752 [http-nio-80-exec-10] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:49.205 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userLogin/userLogin
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:49.206 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:54.076 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:54.076 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:54.076 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:54.076 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		POST
+09:29:54.076 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userLogin/userLogin
+09:29:54.077 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:54.077 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		urbanfarmerId : id001, urbanfarmerPw : pw001
+09:29:54.077 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:54.136 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:59.917 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:29:59.917 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:29:59.918 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:29:59.918 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:29:59.918 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+09:29:59.918 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:29:59.918 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:29:59.918 [http-nio-80-exec-2] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:30:05.334 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:36:54.363 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:36:54.363 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:36:54.363 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:36:54.363 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:36:54.363 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:36:54.364 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:36:54.364 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:36:54.364 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:26.013 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:26.015 [http-nio-80-exec-9] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-80-exec-9] Exception processing template "user_info/user_info_page": An error happened during template parsing (template: "class path resource [templates/user_info/user_info_page.html]" - line 20, col 65)
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user_info/user_info_page.html]" - line 20, col 65)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: (Line = 20, Column = 65) Malformed markup: Attribute "src" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:275)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+09:39:26.017 [http-nio-80-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user_info/user_info_page.html]" - line 20, col 65)] with root cause
+org.attoparser.ParseException: (Line = 20, Column = 65) Malformed markup: Attribute "src" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:275)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:26.018 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:43.245 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/deleteaccount
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:43.286 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:43.290 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.341 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.341 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:43.341 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:43.341 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:43.341 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:39:43.341 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:43.342 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:43.342 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/deleteaccount
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:43.378 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:39:43.380 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:40:19.851 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:40:19.852 [http-nio-80-exec-6] ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-80-exec-6] Exception processing template "user_info/user_info_page": An error happened during template parsing (template: "class path resource [templates/user_info/user_info_page.html]" - line 20, col 71)
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user_info/user_info_page.html]" - line 20, col 71)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: (Line = 20, Column = 71) Malformed markup: Attribute "src" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:275)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+09:40:19.853 [http-nio-80-exec-6] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/user_info/user_info_page.html]" - line 20, col 71)] with root cause
+org.attoparser.ParseException: (Line = 20, Column = 71) Malformed markup: Attribute "src" appears more than once in element
+	at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549)
+	at org.attoparser.ParsingAttributeSequenceUtil.parseAttributeSequence(ParsingAttributeSequenceUtil.java:275)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:153)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:40:19.853 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:40:49.093 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:41:02.587 [http-nio-80-exec-8] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:41:35.715 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:41:35.716 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:41:40.979 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:45:27.094 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:45:27.094 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:45:27.095 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:45:27.095 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:45:27.095 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+09:45:27.095 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:45:27.095 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:45:27.095 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:45:28.758 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:49:08.524 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:49:09.710 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:50:16.548 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+09:50:16.549 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+10:03:12.796 [http-nio-80-exec-6] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+10:09:24.318 [http-nio-80-exec-3] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+10:09:32.072 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:41.567 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoPage
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+10:09:41.568 [http-nio-80-exec-9] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/userInfo/userInfoMain
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+10:09:45.191 [http-nio-80-exec-5] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+10:09:49.998 [RMI TCP Connection(49)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
