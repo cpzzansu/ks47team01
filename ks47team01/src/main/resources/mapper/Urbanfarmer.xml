@@ -37,4 +37,35 @@
 		urbanfarmer_id = #{urbanfarmerId};
 	
 	</select>
+	
+	<insert id="addUrbanfarmer" parameterType="Urbanfarmer">
+	/* 유저 회원가입 */
+	INSERT INTO urbanfarmer
+		(urbanfarmer_id, urbanfarmer_pw, urbanfarmer_name, urbanfarmer_email, urbanfarmer_phone, urbanfarmer_sms_check, urbanfarmer_email_check, urbanfarmer_insert_reg_date, urbanfarmer_update_reg_date, urbanfarmer_drop_reg_date, urbanfarmer_drop_classification)
+	VALUES 
+		(#{urbanfarmerId}, #{urbanfarmerPw}, #{urbanfarmerName}, #{urbanfarmerEmail}, #{urbanfarmerPhone}, #{urbanfarmerSmsCheck}, #{urbanfarmerEmailCheck}, CURDATE(), NULL, NULL, '정상');
+	
+	</insert>
+	
+	<select id="userInfoList">
+	/* 유저 전체 정보 가져오기 */
+	SELECT 
+		u.urbanfarmer_id
+	,	u.urbanfarmer_pw
+	,	u.urbanfarmer_name
+	,	u.urbanfarmer_email
+	,	u.urbanfarmer_phone
+	,	u.urbanfarmer_sms_check
+	,	u.urbanfarmer_email_check
+	,	u.urbanfarmer_insert_reg_date
+	,	u.urbanfarmer_update_reg_date
+	,	u.urbanfarmer_drop_reg_date
+	,	u.urbanfarmer_drop_classification
+	FROM
+		urbanfarmer as u
+	WHERE
+		u.urbanfarmer_drop_classification = '정상'
+	
+	</select>
+	
 </mapper>
