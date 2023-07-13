@@ -3,7 +3,9 @@ package ks47team01.user.controller;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller()
 public class PlantPickController {
@@ -13,7 +15,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/plantPickMain")
-	public String userMainPlantPick() {
+	public String userMainPlantPick(Model model) {
+		model.addAttribute("title", "plantpick");
 		return"user_plantpick/plantpick_main"; 
 	}
 	
@@ -23,7 +26,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/plantPickMyMain")
-	public String userMyMainPlantPick() {
+	public String userMyMainPlantPick(Model model) {
+		model.addAttribute("title", "my posting");
 		return "user_plantpick/plantpick_my_main";
 	}
 	
@@ -32,7 +36,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/plantPickYouMain")
-	public String userYouMainPlantPick() {
+	public String userYouMainPlantPick(Model model) {
+		model.addAttribute("title","plantpick" );
 		return "user_plantpick/plantpick_you_main";
 	}
 	
@@ -41,7 +46,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/deletePlantPick")
-	public String userDeletePlantPick() {
+	public String userDeletePlantPick(Model model) {
+		model.addAttribute("title" , "delete profile");
 		return "user_plantpick/delete_plantpick";
 	}
 	
@@ -50,7 +56,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/update")
-	public String userUpdateProfile() {
+	public String userUpdateProfile(Model model) {
+		model.addAttribute("title", "profile 수정");
 		return "user_plantpick/update_profile";
 	}
 	
@@ -59,7 +66,9 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantpick/profile")
-	public String userProfile() {
+	public String userProfile(Model model) {
+		model.addAttribute("title" , "myprofile");
+		
 		return "user_plantpick/profile";
 	}
 	
@@ -68,7 +77,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/followList")
-	public String userFollowList() {
+	public String userFollowList(Model model) {
+		model.addAttribute("title" ,"follow list");
 		return "user_plantpick/follow_list";
 	}
 	
@@ -77,7 +87,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/followBanList")
-	public String userFollowBanList() {
+	public String userFollowBanList(Model model) {
+		model.addAttribute("title" , "ban list");
 		return "user_plantpick/follow_ban_list";
 	}
 	
@@ -95,7 +106,8 @@ public class PlantPickController {
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/searchPlantPick")
-	public String userSearchPlantPick() {
+	public String userSearchPlantPick(Model model) {
+		model.addAttribute("title", "seach");
 		return "user_plantpick/search_plantpick";
 	}
 	
@@ -103,7 +115,8 @@ public class PlantPickController {
 	 * 게시물 등록 화면
 	 */
 	@GetMapping("/userPlantPick/addPostPlantPick")
-	public String userAddPostPlantPick() {
+	public String userAddPostPlantPick(Model model) {
+		model.addAttribute("title" , "게시물 등록");
 		return "user_plantpick/plantpick_add_post";
 	}
 	
