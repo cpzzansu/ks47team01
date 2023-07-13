@@ -10546,8 +10546,9 @@ textarea.form-control {
   }
   
   .hero-wrap2 {
-  width: 100%;
-  position: relative; }
+    width: 100%;
+    position: relative;
+    will-change: transform;}
   .hero-wrap2 .overlay2 {
     position: absolute;
     top: 0;
