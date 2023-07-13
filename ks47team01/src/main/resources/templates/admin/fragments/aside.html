@@ -5,7 +5,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>주식회사 어반팜</span></a>
+            <a th:href="@{/admin}" class="site_title"><i class="fa fa-paw"></i> <span>주식회사 어반팜</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -13,7 +13,7 @@
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="../admin/production/images/img.jpg" alt="..." class="img-circle profile_img">
+              <img th:src="@{/admin/production/images/img.jpg}" alt="profile-img" class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>환영합니다,</span>
@@ -31,20 +31,20 @@
               <ul class="nav side-menu">
                     <li><a><i class="fa fa-shopping-cart"></i> 상점관리(이원영) <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a> 상점관리메인 <span class="fa fa-chevron-down"></span></a>
+                        <li><a> 상점상품관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상점관리메인</a></li>
-                            <li><a href="index2.html">상품등록</a></li>
-                            <li><a href="index3.html">상품수정</a></li>
-                            <li><a href="index3.html">상품삭제</a></li>
+                            <li><a th:href="@{/adminShop/adminShopManage}">상점상품관리메인</a></li>
+                            <li><a th:href="@{/adminShop/adminShopAdd}">상품등록</a></li>
+                            <li><a th:href="@{/adminShop/adminShopModify}">상품수정</a></li>
+                            <li><a th:href="@{/adminShop/adminShopRemove}">상품삭제</a></li>
                           </ul>
                         </li>
                         <li><a> 상품라벨관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품라벨관리메인</a></li>
-                            <li><a href="index2.html">상품라벨등록</a></li>
-                            <li><a href="index3.html">상품라벨수정</a></li>
-                            <li><a href="index3.html">상품라벨삭제</a></li>
+                            <li><a th:href="@{/adminShop/adminShopLabelManage}">상품라벨관리메인</a></li>
+                            <li><a th:href="@{/adminShop/adminShopLabelAdd}">상품라벨등록</a></li>
+                            <li><a th:href="@{/adminShop/adminShopLabelModify}">상품라벨수정</a></li>
+                            <li><a th:href="@{/adminShop/adminShopLabelRemove}">상품라벨삭제</a></li>
                           </ul>
                         </li>
                       </ul>
@@ -53,150 +53,129 @@
                       <ul class="nav child_menu">
                         <li><a> 상품재고관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품재고관리메인</a></li>
-                            <li><a href="index2.html">상품재고조회</a></li>
-                            <li><a href="index3.html">상품재고등록(입고)</a></li>
-                            <li><a href="index3.html">상품재고수정</a></li>
-                            <li><a href="index3.html">상품재고삭제</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsManage}">상품재고관리메인</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsCheck}">상품재고조회</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsAdd}">상품재고등록(입고)</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsModify}">상품재고수정</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsRemove}">상품재고삭제</a></li>
                           </ul>
                         </li>
                         <li><a> 상품불량재고관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품불량재고관리메인</a></li>
-                            <li><a href="index2.html">상품불량재고조회</a></li>
-                            <li><a href="index2.html">상품불량재고등록</a></li>
-                            <li><a href="index2.html">상품불량재고수정</a></li>
-                            <li><a href="index2.html">상품불량재고삭제</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureManage}">상품불량재고관리메인</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureCheck}">상품불량재고조회</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureAdd}">상품불량재고등록</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureModify}">상품불량재고수정</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureRemove}">상품불량재고삭제</a></li>
                           </ul>
                         </li>
                         <li><a> 상품불량기준관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품불량기준관리메인</a></li>
-                            <li><a href="index2.html">상품불량기준조회</a></li>
-                            <li><a href="index2.html">상품불량기준등록</a></li>
-                            <li><a href="index2.html">상품불량기준수정</a></li>
-                            <li><a href="index2.html">상품불량기준삭제</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureStandardManage}">상품불량기준관리메인</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureStandardCheck}">상품불량기준조회</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureStandardAdd}">상품불량기준등록</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureStandardModify}">상품불량기준수정</a></li>
+                            <li><a th:href="@{/adminGoods/adminGoodsFailureStandardRemove}">상품불량기준삭제</a></li>
                           </ul>
                         </li>
                       </ul>
                     </li>
                     <li><a><i class="fa fa-file-text-o"></i> 주문관리(이원영) <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a> 상품라벨관리 <span class="fa fa-chevron-down"></span></a>
+                        <li><a> 주문관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품라벨관리메인</a></li>
-                            <li><a href="index2.html">상품라벨등록</a></li>
-                            <li><a href="index3.html">상품라벨수정</a></li>
-                            <li><a href="index3.html">상품라벨삭제</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderManage}">주문관리메인</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderCheck}">주문조회</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderAdd}">주문등록</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderModify}">주문수정</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderRemove}">주문삭제</a></li>
                           </ul>
                         </li>
-                        <li><a> 상품라벨관리 <span class="fa fa-chevron-down"></span></a>
+                        <li><a> 주문취소관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품라벨관리메인</a></li>
-                            <li><a href="index2.html">상품라벨등록</a></li>
-                            <li><a href="index3.html">상품라벨수정</a></li>
-                            <li><a href="index3.html">상품라벨삭제</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderCancelManage}">주문취소메인</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderCancelCheck}">주문취소조회</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderCancelAdd}">주문취소등록</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderCancelModify}">주문취소수정</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderCancelRemove}">주문취소삭제</a></li>
                           </ul>
                         </li>
-                        <li><a> 상품라벨관리 <span class="fa fa-chevron-down"></span></a>
+                        <li><a> 주문반품관리 <span class="fa fa-chevron-down"></span></a>
                           <ul class="nav child_menu">
-                            <li><a href="index.html">상품라벨관리메인</a></li>
-                            <li><a href="index2.html">상품라벨등록</a></li>
-                            <li><a href="index3.html">상품라벨수정</a></li>
-                            <li><a href="index3.html">상품라벨삭제</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderReturnManage}">주문반품메인</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderReturnCheck}">주문반품조회</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderReturnAdd}">주문반품등록</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderReturnModify}">주문반품수정</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderReturnRemove}">주문반품삭제</a></li>
+                          </ul>
+                        </li>
+                        <li><a> 주문교환관리 <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li><a th:href="@{/adminOrder/adminOrderExchangeManage}">주문교환메인</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderExchangeCheck}">주문교환조회</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderExchangeAdd}">주문교환등록</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderExchangeModify}">주문교환수정</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderExchangeRemove}">주문교환삭제</a></li>
+                          </ul>
+                        </li>
+                        <li><a> 주문환불관리 <span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li><a th:href="@{/adminOrder/adminOrderRefundManage}">주문환불메인</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderRefundCheck}">주문환불조회</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderRefundAdd}">주문환불등록</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderRefundModify}">주문환불수정</a></li>
+                            <li><a th:href="@{/adminOrder/adminOrderRefundRemove}">주문환불삭제</a></li>
                           </ul>
                         </li>
                       </ul>
                     </li>
-                    <li><a href="index.html"><i class="fa"></i> 열람금지</a></li>
 
                 <li><a><i class="fa fa-times-circle"></i> 이동훈 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">대시보드</a></li>
-                    <li><a href="index2.html">대시보드2</a></li>
-                    <li><a href="index3.html">대시보드3</a></li>
+                    <li><a th:href="@{/index3}">대시보드</a></li>
+                    <li><a th:href="@{/index3}">대시보드2</a></li>
+                    <li><a th:href="@{/index3}">대시보드3</a></li>
                   </ul>
                 </li>
+
                 <li><a><i class="fa fa-toggle-on"></i> 이다야 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">대시보드</a></li>
-                    <li><a href="index2.html">대시보드2</a></li>
-                    <li><a href="index3.html">대시보드3</a></li>
+                    <li><a th:href="@{/index3}">대시보드</a></li>
+                    <li><a th:href="@{/index3}">대시보드2</a></li>
+                    <li><a th:href="@{/index3}">대시보드3</a></li>
                   </ul>
                 </li>
+
                 <li><a><i class="fa fa-tree"></i> 이지성 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">대시보드</a></li>
-                    <li><a href="index2.html">대시보드2</a></li>
-                    <li><a href="index3.html">대시보드3</a></li>
+                    <li><a th:href="@{/index3}">대시보드</a></li>
+                    <li><a th:href="@{/index3}">대시보드2</a></li>
+                    <li><a th:href="@{/index3}">대시보드3</a></li>
                   </ul>
                 </li>
+
                 <li><a><i class="fa fa-thumbs-o-up"></i> 이상원 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">대시보드</a></li>
-                    <li><a href="index2.html">대시보드2</a></li>
-                    <li><a href="index3.html">대시보드3</a></li>
+                    <li><a th:href="@{/index3}">대시보드</a></li>
+                    <li><a th:href="@{/index3}">대시보드2</a></li>
+                    <li><a th:href="@{/index3}">대시보드3</a></li>
                   </ul>
                 </li>
+
                 <li><a><i class="fa fa-home fa-spinner"></i> 이준수 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">대시보드</a></li>
-                    <li><a href="index2.html">대시보드2</a></li>
-                    <li><a href="index3.html">대시보드3</a></li>
+                    <li><a th:href="@{/index3}">대시보드</a></li>
+                    <li><a th:href="@{/index3}">대시보드2</a></li>
+                    <li><a th:href="@{/index3}">대시보드3</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-edit"></i> 폼 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="form.html">일반 폼</a></li>
-                    <li><a href="form_advanced.html">향상된 폼</a></li>
-                    <li><a href="form_validation.html">폼 확인</a></li>
-                    <li><a href="form_wizards.html">폼 마법사</a></li>
-                    <li><a href="form_upload.html">폼 업로드</a></li>
-                    <li><a href="form_buttons.html">폼 버튼</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-desktop"></i> UI Elements <span
-                        class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="general_elements.html">General Elements</a></li>
-                    <li><a href="media_gallery.html">Media Gallery</a></li>
-                    <li><a href="typography.html">Typography</a></li>
-                    <li><a href="icons.html">Icons</a></li>
-                    <li><a href="glyphicons.html">Glyphicons</a></li>
-                    <li><a href="widgets.html">Widgets</a></li>
-                    <li><a href="invoice.html">Invoice</a></li>
-                    <li><a href="inbox.html">Inbox</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-table"></i> Tables <span
-                        class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="tables.html">Tables</a></li>
-                    <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span
-                        class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="chartjs.html">Chart JS</a></li>
-                    <li><a href="chartjs2.html">Chart JS2</a></li>
-                    <li><a href="morisjs.html">Moris JS</a></li>
-                    <li><a href="echarts.html">ECharts</a></li>
-                    <li><a href="other_charts.html">Other Charts</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-clone"></i>Layouts <span
-                        class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                    <li><a href="fixed_footer.html">Fixed Footer</a></li>
-                  </ul>
-                </li>
+
+                <li><a th:href="@{/doNotClick}"><i class="fa"></i> 열람금지</a></li>
+
               </ul>
             </div>
             <div class="menu_section">
-              <h3>Live On</h3>
+              <h3>메뉴 나누기</h3>
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-bug"></i> Additional Pages <span
                         class="fa fa-chevron-down"></span></a>
@@ -208,37 +187,6 @@
                     <li><a href="profile.html">Profile</a></li>
                   </ul>
                 </li>
-                <li><a><i class="fa fa-windows"></i> Extras <span
-                        class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="page_403.html">403 Error</a></li>
-                    <li><a href="page_404.html">404 Error</a></li>
-                    <li><a href="page_500.html">500 Error</a></li>
-                    <li><a href="plain_page.html">Plain Page</a></li>
-                    <li><a href="login.html">Login Page</a></li>
-                    <li><a href="pricing_tables.html">Pricing Tables</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span
-                        class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="#level1_1">Level One</a>
-                    <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li class="sub_menu"><a href="level2.html">Level Two</a>
-                        </li>
-                        <li><a href="#level2_1">Level Two</a>
-                        </li>
-                        <li><a href="#level2_2">Level Two</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="#level1_2">Level One</a>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span
-                        class="label label-success pull-right">Coming Soon</span></a></li>
               </ul>
             </div>
 

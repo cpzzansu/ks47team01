@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{user_layout/default}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/user/css/junsu.css}">
+</head>
 <th:block layout:fragment="customContents">
     <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
         <div class="container py-6">
@@ -15,15 +18,15 @@
                 </div>
             </div>
         </div>
-    </section>\
-
+    </section>
     <div class="container text-center">
-        <h1 class="prtendard upper-padding-60 text-headline">판매할 허브를 선택하세요</h1>
+        <div class="js-h-blank-70"></div>
+        <h1 class="font-weight-bold js-font-color-small-title">판매할 허브를 선택하세요</h1>
     </div>
     <section class="ftco-section ftco-cart">
         <div class="container col-md-5">
             <div class="row">
-                <div class="col-md-12 ftco-animate bottom-padding-20 top-padding-40 div-underline">
+                <div class="col-md-12 ftco-animate">
                     <div class="text-center">
                         <div class="row click-to-move">
                             <div class="col-md-3">
@@ -36,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 ftco-animate bottom-padding-20 top-padding-40 div-underline">
+                <div class="col-md-12 ftco-animate">
                     <div class="text-center">
                         <div class="row click-to-move">
                             <div class="col-md-3">

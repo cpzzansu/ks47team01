@@ -61,5 +61,31 @@ public class UrbanfarmerService {
 		
 	}
 	
+	public void addUrbanfarmer(Urbanfarmer urbanfarmer) {
+		
+		urbanfarmerMapper.addUrbanfarmer(urbanfarmer);
+		
+	}
+	
+	public List<Urbanfarmer> getUserInfoList() {
+		
+		Map<String, Object> paramMap = null;
+		
+		List<Urbanfarmer> urbanfarmerList = urbanfarmerMapper.getUserInfoList(paramMap);
+		
+		return urbanfarmerList;
+		
+		
+	}
+	
+	public boolean idCheck(String urbanfarmerId) {
+		
+		Urbanfarmer urbanfarmer = urbanfarmerMapper.getUserInfoById(urbanfarmerId);
+		if(urbanfarmer != null) {
+			return true;
+		}
+		return false;
+	}
+	
 
 }

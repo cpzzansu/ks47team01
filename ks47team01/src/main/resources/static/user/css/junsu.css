@@ -1,0 +1,32 @@
+
+.js-h-blank-50{
+    height: 50px;
+}
+.js-h-blank-70{
+    height: 70px;
+}
+.js-h-blank-100{
+    height: 100px;
+}
+.js-font-color-small-title{
+    color: #373737;
+}
+.js-margin-top-10{
+    margin-top: 10px;
+}
+.js-margin-top-15{
+    margin-top: 15px;
+}
+.js-margin-top-30{
+    margin-top: 30px;
+}
+.js-margin-top-50{
+    margin-top: 50px;
+}
+
+.js-margin-left-15{
+    margin-left: 15px;
+}
+.js-under-line{
+    border-bottom: 1px solid #dadada;
+}
