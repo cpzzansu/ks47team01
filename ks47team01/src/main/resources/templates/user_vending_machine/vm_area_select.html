@@ -7,7 +7,7 @@
 		<div class="container">
 			<div class="row no-gutters ftco-services">
 				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-4 services mb-md-0 mb-4">
+					<div class="media block-4 services mb-md-0 mb-4 click-to-move">
 						<div>
 							<img id="urbanfarm_production_icons" src="/user/images/pin_icon.png">
 						</div>
@@ -18,7 +18,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-4 services mb-md-0 mb-4">
+					<div class="media block-4 services mb-md-0 mb-4 click-to-move">
 						<div>
 							<img id="urbanfarm_production_icons" src="/user/images/pin_icon.png">
 						</div>
@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-4 services mb-md-0 mb-4">
+					<div class="media block-4 services mb-md-0 mb-4 click-to-move">
 						<div>
 							<img id="urbanfarm_production_icons" src="/user/images/pin_icon.png">
 						</div>
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services mb-md-0 mb-4">
+					<div class="media block-6 services mb-md-0 mb-4 click-to-home">
 						<div>
 							<img id="urbanfarm_production_icons_ecoicon" src="/user/images/vending-machine.png">
 						</div>
@@ -52,17 +52,19 @@
 			</div>
 		</div>
 
-
-
 	</section>
-	<a th:href="@{'/userVendingMachine/vmMachineSelect'}">자판기 선택</a>
 </th:block>
+
 <th:block layout:fragment="customJs">
 	<script>
-		$(document).on('click', '.services', function () {
-			$(this).css('background-color', 'skyblue');
+		$(document).on('click', '.click-to-move', function () {
+			location.href = '/userVendingMachine/vmMachineSelect';
+		});
+		$(document).on('click', '.click-to-home', function () {
+			location.href = '/userVendingMachine/vmMain';
 		});
 	</script>
 
 </th:block>
+
 </html>
