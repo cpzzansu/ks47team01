@@ -11,28 +11,45 @@ import java.io.IOException;
 
 @AllArgsConstructor
 @Controller
-public class saleReservationController {
+public class SaleReservationController {
 
     private final SaleReservationService saleReservationService;
 
+    /**
+     * 유저-허브 판매 예약 폼 화면 이동
+     * @param model
+     * @return user_sale_hub_reservation/sale_crop_to_hub_reservation_form
+     */
     @GetMapping("/userSaleHubReservation/saleReservationForm")
-    public String saleReservation(Model model) {
+    public String moveSaleReservation(Model model) {
 
         model.addAttribute("title", "허브 판매 예약");
 
         return "user_sale_hub_reservation/sale_crop_to_hub_reservation_form";
     }
 
+    /**
+     * 유저-허브 판매 예약 목록 화면 이동
+     * @param model
+     * @return user_sale_hub_reservation/list_sale_crop_to_hub_reservation
+     */
     @GetMapping("/userSaleHubReservation/listSaleReservation")
-    public String listSaleReservation(Model model) {
+    public String moveListSaleReservation(Model model) {
 
         model.addAttribute("title", "판매예약목록");
 
         return "user_sale_hub_reservation/list_sale_crop_to_hub_reservation";
     }
 
+    /**
+     * 유저-예약 상세 화면 이동
+     * @param model
+     * @return user_sale_hub_reservation/sale_crop_to_hub_reservation_detail
+     * @throws IOException
+     * @throws WriterException
+     */
     @GetMapping("/userSaleHubReservation/saleReservationDetail")
-    public String saleReservationDetail(Model model) throws IOException, WriterException {
+    public String moveSaleReservationDetail(Model model) throws IOException, WriterException {
 
         String qrCodeData = saleReservationService.generateQRCodeImage("Hello World!", 350, 350);
 

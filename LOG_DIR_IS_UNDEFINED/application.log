@@ -8555,7 +8555,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [ks47team01.user.controller.saleReservationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@357e777]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [ks47team01.user.controller.SaleReservationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@357e777]
 	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483)
 	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:449)
@@ -8612,7 +8612,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [ks47team01.user.controller.saleReservationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1ce7f007]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [ks47team01.user.controller.SaleReservationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1ce7f007]
 	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483)
 	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:449)
@@ -14339,3 +14339,115 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [user_
 02:59:20.074 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
 02:59:20.091 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
 02:59:20.096 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.663 seconds (process running for 1.914)
+03:11:36.176 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 18244 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+03:11:36.177 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+03:11:36.275 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+03:11:36.275 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+03:11:36.577 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+03:11:36.585 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+03:11:36.818 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+03:11:36.849 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 573 ms
+03:11:37.802 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+03:11:37.819 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+03:11:37.824 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.844 seconds (process running for 2.076)
+03:18:33.365 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+03:18:33.367 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+03:18:33.383 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:18:33.383 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+03:18:33.384 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+03:18:33.384 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+03:18:33.384 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/
+03:18:33.384 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+03:18:33.384 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+03:18:33.384 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:18:34.477 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:18:34.477 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+03:18:34.477 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+03:18:34.478 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+03:18:34.478 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/favicon.ico
+03:18:34.478 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+03:18:34.478 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+03:18:34.478 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:18:34.486 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:18:34.486 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+03:18:34.486 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+03:18:34.486 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+03:18:34.487 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+03:18:34.487 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+03:18:34.487 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+03:18:34.487 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:19:22.401 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:19:22.402 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+03:19:22.402 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+03:19:22.402 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+03:19:22.403 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/
+03:19:22.403 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+03:19:22.403 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+03:19:22.403 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:25:30.076 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:25:30.077 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+03:25:30.077 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+03:25:30.078 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+03:25:30.078 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/index3
+03:25:30.078 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+03:25:30.078 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+03:25:30.078 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+03:25:30.080 [http-nio-80-exec-4] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+03:39:57.083 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 5 class path changes (5 additions, 0 deletions, 0 modifications)
+03:39:57.368 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 18244 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+03:39:57.368 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+03:39:57.445 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+03:39:57.447 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JDBC repository interfaces.
+03:39:57.489 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+03:39:57.494 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 124 ms
+03:39:57.839 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+03:39:57.853 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+03:39:57.856 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 0.502 seconds (process running for 1702.09)
+03:39:57.858 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+03:43:52.329 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+03:43:52.587 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 18244 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+03:43:52.588 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+03:43:52.656 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+03:43:52.658 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JDBC repository interfaces.
+03:43:52.693 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+03:43:52.697 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 107 ms
+03:43:53.010 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+03:43:53.021 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+03:43:53.024 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 0.454 seconds (process running for 1937.253)
+03:43:53.025 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+03:53:47.784 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 6 class path changes (1 addition, 1 deletion, 4 modifications)
+03:53:48.059 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 18244 (/Users/kimjunsu/ks47team01_kimjunsu/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_kimjunsu)
+03:53:48.059 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+03:53:48.127 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+03:53:48.129 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JDBC repository interfaces.
+03:53:48.162 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+03:53:48.166 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 104 ms
+03:53:48.495 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+03:53:48.509 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+03:53:48.513 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 0.47 seconds (process running for 2532.733)
+03:53:48.514 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+04:04:31.712 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+04:04:31.719 [http-nio-80-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+04:04:33.390 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+04:04:33.390 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+04:04:33.390 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+04:04:33.390 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+04:04:33.391 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/index3
+04:04:33.391 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+04:04:33.391 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+04:04:33.391 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - PORT		    ::::::		80
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ServerName		::::::		localhost
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - HTTPMethod		::::::		GET
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - URI			    ::::::		/error
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
+04:04:33.392 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
