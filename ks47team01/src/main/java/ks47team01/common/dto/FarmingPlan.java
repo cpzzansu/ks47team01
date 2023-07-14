@@ -9,6 +9,7 @@ public class FarmingPlan {
 	private String urbanfarmHubCrewId;
 	private String cropsNameCode;
 	private String cropsName;
+	private String farmerFarmingPlanNickname;
 	private String cropsGrowingInfoCode;
 	private String urbanKitCode;
 	private String farmerFarmingPlanRegDate;

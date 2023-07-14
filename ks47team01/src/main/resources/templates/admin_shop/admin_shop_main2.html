@@ -35,7 +35,6 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="admin-check-box-td"><input type="checkbox" class="admin-check-box"></th>
                         <th>상품키트코드</th>
                         <th>관리자 직원 아이디</th>
                         <th>키트 번호</th>
@@ -45,11 +44,11 @@
                         <th>키트 가격</th>
                         <th>키트 배송가능일</th>
                         <th>등록 시간</th>
+                        <th>&nbsp</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr th:each="l : ${goodsKitList}">
-                        <td class="admin-check-box-td"><input type="checkbox" class="admin-check-box"></td>
+                    <tbody th:each="l : ${goodsKitList}">
+                    <tr>
                         <td th:text="${l.goodsKitCode}"></td>
                         <td th:text="${l.urbanfarmAdminId}"></td>
                         <td th:text="${l.urbanKitCode}"></td>
