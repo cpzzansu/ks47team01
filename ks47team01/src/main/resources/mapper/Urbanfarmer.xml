@@ -95,8 +95,17 @@
 	</trim>		
 	WHERE
 		u.urbanfarmer_id = #{urbanfarmerId};
-		
 	
+	</update>
+	
+	<update id="removeUserInfo">
+	
+	UPDATE
+		urbanfarmer AS u
+	SET
+		u.urbanfarmer_drop_classification = '탈퇴'
+	WHERE
+		u.urbanfarmer_id = 'park01'
 	
 	</update>
 	

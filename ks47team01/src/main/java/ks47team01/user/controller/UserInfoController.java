@@ -87,8 +87,17 @@ public class UserInfoController {
 								, @RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
 								, HttpSession session) {
 		
-		if(urbanfarmerPw.equals(session.getAttribute(urbanfarmerPw))) {
-			return "redirect:/index";
+		String urbanfarmerId = (String) session.getAttribute("S_id");
+		
+		Urbanfarmer urbanfarmerInfo = urbanfarmerService.getUserInfoById(urbanfarmerId);
+		String pwCheck = urbanfarmerInfo.getUrbanfarmerPw();
+		
+		if(urbanfarmerPw.equals(pwCheck)) {
+			
+			urbanfarmerService.removeUserInfo(urbanfarmerId);
+			
+			return "redirect:/userLogin/userLogout";
+			
 		}
 		
 		return "redirect:/userInfo/removeUserPwCheck";
@@ -126,4 +135,13 @@ public class UserInfoController {
 		return "user_info/user_info_page";
 	} 
 	
+	@PostMapping("/userInfo/userInfoPage")
+	public String updateUserInfoMain(Urbanfarmer urbanfarmer) {
+		
+		
+		urbanfarmerService.updateUserInfo(urbanfarmer);
+		
+		
+		return "redirect:/";
+	}
 }

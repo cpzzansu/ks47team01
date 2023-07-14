@@ -26,21 +26,21 @@
     		// 회원아이디 변경 시 이벤트 처리
     		
     		// 회원 가입 버튼 시 이벤트
-    		$('#addUserBtn').click(function(){
-    			const validateEle = $('#addUserForm input');
+    		$('#updateUserBtn').click(function(){
+    			const validateEle = $('#updateUserForm input');
     			let isSubmit = false;
     			validateEle.each((idx, item) => {    				
 	    			isSubmit = validCheck(item);
 	    			return isSubmit;
     			})
-    			if(isSubmit) $('#addUserForm').submit();
+    			if(isSubmit) $('#updateUserForm').submit();
     		});
     		
     		// 입력 취소 버튼 클릭시 이벤트 처리
     		$('#resetBtn').click(function(e){
     			// 태그가 가지고 있는 기본 이벤트 동작 방지
     			e.preventDefault();
-    			$('#addUserForm input').not('#urbanfarmerId').val('');
+    			$('#updateUserForm input').not('#urbanfarmerId').val('');
     		});
     		
     		// 아이디중복버튼 이벤트
@@ -68,7 +68,7 @@
    						
    	    				return false;
    					}else{
-   						$('#addUserForm button').prop('disabled', false);
+   						$('#updateUserForm button').prop('disabled', false);
    						alert('사용 가능한 아이디입니다.');
    					}
 					//console.log(response);
@@ -79,13 +79,20 @@
    				});
     			
     		});
+    		
+    		const autoHyphen2 = (target) => {
+   			 target.value = target.value
+   			   .replace(/[^0-9]/g, '')
+   			  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+   			}
+    		
     	</script>
     </th:block>     
 <th:block layout:fragment="customContents">
     <section class="ftco-section contact-section bg-light">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
-                <form id="addUserForm" th:action="@{/userAdd/userAddForm}" th:object="${urbanfarmer}" method="post"
+                <form id="updateUserForm" th:action="@{/userInfo/userInfoPage}" th:object="${urbanfarmer}" method="post"
                       class="bg-white p-5 contact-form" >
                       
 						<div class="input-group mb-3">
@@ -108,13 +115,14 @@
 						</div>						
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerEmail" name="urbanfarmerEmail" th:value="*{urbanfarmerEmail}">
+						    <input type="email" class="form-control" id="urbanfarmerEmail" name="urbanfarmerEmail" th:value="*{urbanfarmerEmail}">
 						  	<label for="urbanfarmerEmail">이메일</label>						    
 						  </div>
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerPhone" name="urbanfarmerPhone" th:value="*{urbanfarmerPhone}">
+						    <input type="tel" class="form-control" id="urbanfarmerPhone" name="urbanfarmerPhone" th:value="*{urbanfarmerPhone}"
+						    oninput="autoHyphen2(this)">
 						  	<label for="urbanfarmerPhone">휴대번호</label>						    
 						  </div>
 						</div>
@@ -134,7 +142,7 @@
 						</div>
 						
 					<div class="form-group" style="text-align:right">
-                    		 <button id="addUserBtn" type="button" class="btn btn-info py-2 px-4"> 회원수정 </button>
+                    		 <button id="updateUserBtn" type="button" class="btn btn-info py-2 px-4"> 회원수정 </button>
                     		 <button id="resetBtn" type="reset" class="btn btn-info py-2 px-4"> 입력취소 </button>
                     </div>
                 </form>

@@ -87,9 +87,16 @@ public class UrbanfarmerService {
 		return false;
 	}
 	
-	public void updateUserInfo(String urbanfarmerId) {
+	public int updateUserInfo(Urbanfarmer urbanfarmer) {
 		
-		urbanfarmerMapper.updateUserInfo(urbanfarmerId);
+		int result = urbanfarmerMapper.updateUserInfo(urbanfarmer);
+		
+		return result;
+	}
+	
+	public void removeUserInfo(String urbanfarmerId) {
+		
+		urbanfarmerMapper.removeUserInfo(urbanfarmerId);
 		
 	}
 	

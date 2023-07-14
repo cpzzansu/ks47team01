@@ -15,6 +15,8 @@ public interface UrbanfarmerMapper {
 	
 	public List<Urbanfarmer> getUserInfoList(Map<String , Object> paramMap);
 	
-	public int updateUserInfo(String urbanfarmerId);
+	public int updateUserInfo(Urbanfarmer urbanfarmer);
+	
+	public int removeUserInfo(String urbanfarmerId);
 
 }
