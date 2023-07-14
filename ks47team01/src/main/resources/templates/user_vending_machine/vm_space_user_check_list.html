@@ -116,34 +116,21 @@
 						<div class="row mt-5 pt-3">
 							<div class="col-md-12 d-flex mb-5">
 								<div class="cart-detail cart-total p-3 p-md-4">
-									<h3 class="billing-heading mb-4">영수증</h3>
+									<h3 class="billing-heading mb-4">결제금액</h3>
 									<p class="d-flex">
-										<span>총액</span>
-										<span>118,000원</span>
+										<span>총판매금액</span>
+										<span>42,000원</span>
 									</p>
 									<p class="d-flex">
-										<span>판매금액</span>
-										<span>0원</span>
-									</p>
-									<p class="d-flex">
-										<span>할인금액</span>
-										<span>-53,100원</span>
-									</p>
-									<p class="d-flex">
-										<span>사용한 쿠폰</span>
-										<span>어반팜 오픈기념 쿠폰(50%)</span>
-									</p>
-									<hr>
-									<p class="d-flex total-price">
-										<span>결제된 금액</span>
-										<span>64,900원</span>
+										<span>반환금액</span>
+										<span>40,000원</span>
 									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div style="float: left;">
-						<p><a class="btn btn-urban py-3 px-5 windowClose">확인</a></p>
+						<p><a class="btn btn-urban py-3 px-5 windowClose click-to-home">확인</a></p>
 					</div>
 				</div>
 			</div>
@@ -169,8 +156,16 @@
 	</body>
 
 
+</th:block>
 
-    <a th:href="@{'/userVendingMachine/vmMain'}">홈으로</a>
+<th:block layout:fragment="customJs">
+	<script>
+	
+		$(document).on('click', '.click-to-home', function () {
+			location.href = '/userVendingMachine/vmMain';
+		});
+	</script>
+
 </th:block>
 
 </html>

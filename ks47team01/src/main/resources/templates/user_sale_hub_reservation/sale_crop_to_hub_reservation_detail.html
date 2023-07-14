@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html layout:decorate="~{user_layout/default}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeLeaf.org">
 
-</body>
+<head>
+    <style>
+        .upper-padding-60{
+            padding-top: 60px;
+        }
+        .upper-margin-30{
+            margin-top: 50px;
+        }
+        .div-underline{
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .bottom-padding-40{
+            padding-bottom: 40px;
+        }
+        .font-color-gray{
+            color: #919191;
+        }
+        .display_flex_end {
+            margin-left: 30px;
+            color: #4a4a4a;
+        }
+        .blank-90{
+            height: 90px;
+        }
+        .blank-40{
+            height: 40px;
+        }
+        .font-color-white{
+            font-palette: light !important;
+        }
+        .blank-20{
+            height: 20px;
+        }
+
+
+
+    </style>
+
+</head>
+
+<th:block layout:fragment="customContents">
+    <section class="ftco-section">
+        <div class="container">
+            <div>
+                <div class="div-underline">
+                    <h2 class="">이동훈님의 예약번호는 12번입니다.</h2>
+                    <div class="blank-40"></div>
+                </div>
+                <div class="blank-90"></div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h3 class=" font-color-gray">예약허브 :</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="">  덕진동 허브</h3>
+                    </div>
+                    <div class="col-md-2">
+                        <h3 class=" font-color-gray">예약날짜 :</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="">2023년 7월 13일 11시 00분</h3>
+                    </div>
+                </div>
+                <div class="blank-40"></div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4 class="font-color-gray">예약자 :</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="">  이동훈</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="font-color-gray">판매계획 :</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>피순이</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4 class="font-color-gray">예약자 아이디 :</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class="">  id001</h4>
+                    </div>
+                    <div class="col-md-2">
+                        <h4 class="font-color-gray">판매작물 :</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>피망</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="blank-90"></div>
+            <div class="text-center">
+                <img th:src="'data:image/png;base64,'+${qrCode}" />
+            </div>
+            <div class="blank-90"></div>
+            <div class="col-md-12">
+                <button class="col-md-12 btn btn-secondary py-3 px-4 font-color-white" id="reserveListBtn">예약 목록</button>
+            </div>
+            <div class="blank-20"></div>
+            <div class="col-md-12">
+                <button class="col-md-12 btn btn-primary py-3 px-4" id="modifyReserveBtn">예약 수정</button>
+            </div>
+        </div>
+    </section>
+</th:block>
+<th:block layout:fragment="customJs">
+    <script>
+        $(document).on('click', '#reserveListBtn', function () {
+            location.href = '/userSaleHubReservation/listSaleReservation';
+        });
+    </script>
+</th:block>
+
 </html>

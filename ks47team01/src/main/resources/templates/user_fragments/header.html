@@ -12,12 +12,12 @@
 			<div th:if="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active  urban_header"><a th:href="@{/userLogin/userLoginAction}"
-							class="nav-link">플랫폼소개</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userPlan/planMain}" class="nav-link">이동훈</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userSelectSellToHub/selectSellCrop}" class="nav-link">김준수</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">키트구매</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userPantPick/plantPickMain}" class="nav-link">김상원</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">이다야</a></li>
+							class="nav-link">#플랫폼소개</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userPlan/planMain}" class="nav-link">!농부 농사 계획<br>:이동훈</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userSelectSellToHub/selectSellCrop}" class="nav-link">!수확물 판매<br>:김준수</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">!키트구매<br>:이원영</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userPlantPick/plantPickMain}" class="nav-link">!플랜픽<br>:김상원</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">!자판기예약<br>:이다야</a></li>
 					<li class="nav-item cta cta-colored urban_header"><a th:href="@{/Ushop/user_shop_cart}" class="nav-link"><span
 								class="icon-shopping_cart"></span>[0]</a></li>
 <!-- 					<li class="nav-item urban_header"><a href="/userInfo/userInfoMain" class="nav-link">
@@ -27,7 +27,7 @@
 						</svg>
 					마이페이지
 					</a></li> -->
-					<li class="nav-item urban_header"><a th:href="@{/userLogin/userLogin}" class="nav-link">로그인</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userLogin/userLogin}" class="nav-link">!로그인<br>:박지성</a></li>
 				</ul>
 			</div>
 			<div th:unless="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
