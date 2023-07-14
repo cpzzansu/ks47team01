@@ -27,7 +27,7 @@
     		
     		// 회원 가입 버튼 시 이벤트
     		$('#addUserBtn').click(function(){
-    			const validateEle = $('#addUserForm input').not('#urbanfarmerId');
+    			const validateEle = $('#addUserForm input');
     			let isSubmit = false;
     			validateEle.each((idx, item) => {    				
 	    			isSubmit = validCheck(item);
@@ -65,8 +65,11 @@
    						alert('이미 등록된 아이디입니다.');
    						$urbanfarmerId.val('');
    						$urbanfarmerId.focus();
+   						
    	    				return false;
    					}else{
+   						$('#addUserForm button').prop('disabled', false);
+   						alert('사용 가능한 아이디입니다.');
    					}
 					//console.log(response);
    				});
