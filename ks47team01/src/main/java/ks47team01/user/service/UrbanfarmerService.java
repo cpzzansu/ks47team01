@@ -87,5 +87,18 @@ public class UrbanfarmerService {
 		return false;
 	}
 	
+	public int updateUserInfo(Urbanfarmer urbanfarmer) {
+		
+		int result = urbanfarmerMapper.updateUserInfo(urbanfarmer);
+		
+		return result;
+	}
+	
+	public void removeUserInfo(String urbanfarmerId) {
+		
+		urbanfarmerMapper.removeUserInfo(urbanfarmerId);
+		
+	}
+	
 
 }

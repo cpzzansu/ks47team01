@@ -1,12 +1,24 @@
 package ks47team01.user.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.HttpSession;
+import ks47team01.common.dto.Urbanfarmer;
+import ks47team01.user.service.UrbanfarmerService;
+import lombok.AllArgsConstructor;
 
 @Controller
+@AllArgsConstructor
 public class UserInfoController {
+	
+	private final UrbanfarmerService urbanfarmerService;
+	
 	/** 회원 정보 수정과 회원 탈퇴를 고르는 화면(폼)								
 	 * 
 	 * @return
@@ -48,11 +60,22 @@ public class UserInfoController {
 	 * @return 회원정보 수정화면으로 리다이렉트
 	 */
 	@PostMapping("/userInfo/updateUserInfoPwCheck")
-	public String postUpdateUserInfoPw(Model model) {
+	public String postUpdateUserInfoPw(Model model
+									   , @RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
+									   , HttpSession session) {
+		String urbanfarmerId = (String) session.getAttribute("S_id");
 		
-		model.addAttribute("title", "회원정보수정");
+		Urbanfarmer urbanfarmerInfo = urbanfarmerService.getUserInfoById(urbanfarmerId);
+		String pwCheck = urbanfarmerInfo.getUrbanfarmerPw();
 		
-		return"redirect:/userInfo/updateUserInfo";
+		if(urbanfarmerPw.equals(pwCheck)) {
+			
+			return "redirect:/userInfo/updateUserInfo";
+			
+		}
+		
+		
+		return"redirect:/userInfo/updateUserInfoPwCheck";
 		
 	}
 	/** 회원 탈퇴 비밀번호를 확인하는 화면
@@ -60,11 +83,24 @@ public class UserInfoController {
 	 * @return 메인화면으로 리다이렉트
 	 */
 	@PostMapping("/userInfo/removeUserPwCheck")
-	public String postRemoveUser(Model model) {
+	public String postRemoveUser(Model model
+								, @RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
+								, HttpSession session) {
 		
-		model.addAttribute("title", "회원탈퇴");
+		String urbanfarmerId = (String) session.getAttribute("S_id");
 		
-		return "redirect:/index";
+		Urbanfarmer urbanfarmerInfo = urbanfarmerService.getUserInfoById(urbanfarmerId);
+		String pwCheck = urbanfarmerInfo.getUrbanfarmerPw();
+		
+		if(urbanfarmerPw.equals(pwCheck)) {
+			
+			urbanfarmerService.removeUserInfo(urbanfarmerId);
+			
+			return "redirect:/userLogin/userLogout";
+			
+		}
+		
+		return "redirect:/userInfo/removeUserPwCheck";
 		
 	}
 	/** 회원 정보 수정하는 화면																
@@ -72,9 +108,16 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/updateUserInfo")
-	public String updateUserInfo(Model model) {
+	public String updateUserInfo(Model model
+								,HttpSession session) {
+		
+		String urbanfarmerId = (String) session.getAttribute("S_id");
+		
+		Urbanfarmer urbanfarmer = urbanfarmerService.getUserInfoById(urbanfarmerId);
+		urbanfarmer.getUrbanfarmerId();
 		
 		model.addAttribute("title", "회원정보수정");
+		model.addAttribute("urbanfarmer", urbanfarmer);
 		
 		return "user_info/update_user_info";
 		
@@ -92,4 +135,13 @@ public class UserInfoController {
 		return "user_info/user_info_page";
 	} 
 	
+	@PostMapping("/userInfo/userInfoPage")
+	public String updateUserInfoMain(Urbanfarmer urbanfarmer) {
+		
+		
+		urbanfarmerService.updateUserInfo(urbanfarmer);
+		
+		
+		return "redirect:/";
+	}
 }
