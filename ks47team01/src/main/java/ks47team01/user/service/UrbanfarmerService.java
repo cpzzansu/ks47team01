@@ -87,5 +87,11 @@ public class UrbanfarmerService {
 		return false;
 	}
 	
+	public void updateUserInfo(String urbanfarmerId) {
+		
+		urbanfarmerMapper.updateUserInfo(urbanfarmerId);
+		
+	}
+	
 
 }

@@ -14,5 +14,7 @@ public interface UrbanfarmerMapper {
 	public int addUrbanfarmer(Urbanfarmer urbanfarmer);
 	
 	public List<Urbanfarmer> getUserInfoList(Map<String , Object> paramMap);
+	
+	public int updateUserInfo(String urbanfarmerId);
 
 }
