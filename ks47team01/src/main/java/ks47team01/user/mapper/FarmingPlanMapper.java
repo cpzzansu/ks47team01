@@ -28,11 +28,13 @@ public interface FarmingPlanMapper {
 	 * @param cropsNameCode
 	 * @param urbanKitCode
 	 */
-	public void addCrops(FarmingPlan farmingPlan);
+	public void addCrops(Map<String, Object> farmingPlan);
+	
 	
 	/**
-	 * farmer_farming_code 자동 증가한 코드
-	 * @return
+	 * 테이블명을 입력받으면 자동증가된 코드를 반환
+	 * @param tableName
+	 * @return 증가된 코드
 	 */
-	public String getIncreseFarmingPlanCode();
+	public String autoIncreaseCode(String tableName);
 }
