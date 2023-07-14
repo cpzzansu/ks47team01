@@ -74,5 +74,13 @@ public class UserVendingMachineController {
 		return "user_vending_machine/vm_space_user_detail";
 	}
 	
+	// 자판기 예약 결제 실패 화면
+	@GetMapping("/userVendingMachine/vmPaymentFail")
+	public String userVmPaymentFail (Model model) {
+		
+	
+		return "user_vending_machine/vm_payment_fail.html";
+	}
+	
 	
 }
