@@ -3,3 +3,12 @@
     border: black 1px;
     !important;
 }
+
+.admin-check-box {
+    width: 16px;
+    height: 16px;
+}
+
+.admin-check-box-td {
+    text-align: center;
+}
