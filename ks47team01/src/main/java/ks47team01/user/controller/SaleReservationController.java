@@ -20,12 +20,12 @@ public class SaleReservationController {
      * @param model
      * @return user_sale_hub_reservation/sale_crop_to_hub_reservation_form
      */
-    @GetMapping("/userSaleHubReservation/saleReservationForm")
+    @GetMapping("/userSaleHubReservation/saleReservation")
     public String moveSaleReservation(Model model) {
 
         model.addAttribute("title", "허브 판매 예약");
 
-        return "user_sale_hub_reservation/sale_crop_to_hub_reservation_form";
+        return "user_sale_hub_reservation/sale_crop_to_hub_reservation";
     }
 
     /**
@@ -57,6 +57,13 @@ public class SaleReservationController {
         model.addAttribute("qrCode", qrCodeData);
 
         return "user_sale_hub_reservation/sale_crop_to_hub_reservation_detail";
+    }
+
+    @GetMapping("/userSaleHubReservation/modifySaleReservation")
+    public String moveModifyReservation(Model model){
+        model.addAttribute("title","예약 수정 화면");
+
+        return "user_sale_hub_reservation/modify_sale_crop_to_hub_reservation";
     }
 }
 

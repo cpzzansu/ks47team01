@@ -24,13 +24,13 @@ public class SelfVerificationController {
     /**
      * 유저-판매할 작물 자가 검증 질문 답 작성 폼 화면 이동
      * @param model
-     * @return user_self_verification_check/self_verification_answer_form
+     * @return user_self_verification_check/self_verification_answer
      */
-    @GetMapping("/userVerificationCheck/answerForm")
-    public String moveAnswerForm(Model model){
+    @GetMapping("/userVerificationCheck/answer")
+    public String moveAnswer(Model model){
 
         model.addAttribute("title", "자가검증 질문 답 작성");
 
-        return "user_self_verification_check/self_verification_answer_form";
+        return "user_self_verification_check/self_verification_answer";
     }
 }
