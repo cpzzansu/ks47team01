@@ -110,23 +110,22 @@
 	};
 	carousel();
 
-	$('nav .dropdown').hover(function(){
+	$('nav .dropdown').hover(function() {
 		var $this = $(this);
-		// 	 timer;
-		// clearTimeout(timer);
+		// data 메서드에 timeoutId 변수에 이전 실행을 담아 저장하고 hover 이벤트가 발생할 때마다 이전 timeoutId 종료
+		if ($this.data('timeoutId')) clearTimeout($this.data('timeoutId'));
 		$this.addClass('show');
 		$this.find('> a').attr('aria-expanded', true);
-		// $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
 		$this.find('.dropdown-menu').addClass('show');
-	}, function(){
+	}, function() {
 		var $this = $(this);
-			// timer;
-		// timer = setTimeout(function(){
+		var timeoutId = setTimeout(function() {
 			$this.removeClass('show');
 			$this.find('> a').attr('aria-expanded', false);
-			// $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
 			$this.find('.dropdown-menu').removeClass('show');
-		// }, 100);
+		}, 200); // 200ms가 지나면 show 클래스를 제거
+		// timeout을 변수에 담아 data에 저장하고, hover이벤트가 실행될 때 이전의 실행을 취소함.
+		$this.data('timeoutId', timeoutId);
 	});
 
 

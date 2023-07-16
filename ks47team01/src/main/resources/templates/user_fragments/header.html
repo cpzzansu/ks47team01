@@ -12,7 +12,13 @@
 			<div th:if="${session.S_id == null}" class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item urban_header"><a th:href="@{/userPlan/planMain}" class="nav-link">!농부 농사 계획<br>:이동훈</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userSelectSellToHub/selectSellCrop}" class="nav-link">!수확물 판매<br>:김준수</a></li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">!수확물 판매<br>:김준수</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							<a class="dropdown-item urban_header" th:href="@{/userSelectSellToHub/selectSellCrop}">!판매예약하기</a>
+							<a class="dropdown-item urban_header" th:href="@{/userSaleHubReservation/listSaleReservation}">!내판매예약목록</a>
+						</div>
+					</li>
 					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">!키트구매<br>:이원영</a></li>
 					<li class="nav-item urban_header"><a th:href="@{/userPlantPick/plantPickMain}" class="nav-link">!플랜픽<br>:김상원</a></li>
 					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">!자판기예약<br>:이다야</a></li>
