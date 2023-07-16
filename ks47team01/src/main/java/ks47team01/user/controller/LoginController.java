@@ -54,16 +54,19 @@ public class LoginController {
     	
     	boolean isValid = (boolean) validMap.get("isValid");
     	
-    	if(isValid) {
+    	Urbanfarmer urbanfarmer = urbanfarmerService.getUserInfoById(urbanfarmerId);
+    	String isRemove = urbanfarmer.getUrbanfarmerDropClassification();
+    	
+    	if(isValid && isRemove.equals("정상")) {
     		Urbanfarmer urbanfarmerInfo = (Urbanfarmer) validMap.get("urbanfarmerInfo");
     		
     		
     		String urbanfarmerName = urbanfarmerInfo.getUrbanfarmerName();
-    		
-    		session.setAttribute("S_id", urbanfarmerId);
+     		session.setAttribute("S_id", urbanfarmerId);
     		session.setAttribute("S_name", urbanfarmerName);
     		
-    		return "redirect:/";
+    		
+    		return "redirect:/index";
     		
     	} 
     	
@@ -78,7 +81,7 @@ public class LoginController {
     	
     	session.invalidate();
     	
-    	return "redirect:/";
+    	return "redirect:/index";
     }
     
 

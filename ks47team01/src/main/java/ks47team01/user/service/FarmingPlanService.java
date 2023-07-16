@@ -1,5 +1,6 @@
 package ks47team01.user.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,23 +32,20 @@ public class FarmingPlanService {
 	 */
 	public void addCrops(String cropsNameCode, String urbanKitCode, HttpSession session) {
 		String urbanfarmerId = (String)session.getAttribute("SID");
-		String increseCode = farmingPlanMapper.getIncreseFarmingPlanCode();
+		String increseCode = farmingPlanMapper.autoIncreaseCode("farmer_farming_plan");
+		
 		Map<String, Object> crewMap = farmingPlanMapper.getMinManagementUser();
 		String hubCrewId = (String)crewMap.get("min_crew_id");
-		CropsGrowingInfo cropsGrowingInfo = cropsGrowingInfoMapper.getCropsGrowingInfoByCode(cropsNameCode);
-		String cropsName = cropsGrowingInfo.getCropsName();
-		String cropsGrowingInfoCode = cropsGrowingInfo.getCropsGrowingInfoCode();
 		
-		FarmingPlan farmingPlan = new FarmingPlan();
-		farmingPlan.setFarmerFarmingPlanCode(increseCode);
-		farmingPlan.setUrbanfarmerId(urbanfarmerId);
-		farmingPlan.setUrbanKitCode(urbanKitCode);
-		farmingPlan.setUrbanfarmHubCrewId(hubCrewId);
-		farmingPlan.setCropsNameCode(cropsNameCode);
-		farmingPlan.setCropsName(cropsName);
-		farmingPlan.setCropsGrowingInfoCode(cropsGrowingInfoCode);
 		
-		farmingPlanMapper.addCrops(farmingPlan);
+		Map<String, Object> farmingPlanMap = new HashMap();
+		farmingPlanMap.put("farmerFarmingPlanCode", increseCode);
+		farmingPlanMap.put("urbanfarmerId", urbanfarmerId);
+		farmingPlanMap.put("urbanKitCode", urbanKitCode);
+		farmingPlanMap.put("urbanfarmHubCrewId", hubCrewId);
+		farmingPlanMap.put("cropsNameCode", cropsNameCode);
+		farmingPlanMapper.addCrops(farmingPlanMap);
+		
 	}
 	
 	/**
@@ -58,6 +56,8 @@ public class FarmingPlanService {
 	public List<FarmingPlan> getFarmingPlanListById(String userId){
 		List<FarmingPlan> farmingPlanList = farmingPlanMapper.getFarmingPlanListById(userId);
 		log.info(farmingPlanList);
+		String autoCode = farmingPlanMapper.autoIncreaseCode("farming_detail_plan_action");
+		System.out.println(autoCode);
 		return farmingPlanList;
 	}
 }

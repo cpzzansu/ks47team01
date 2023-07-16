@@ -68,4 +68,45 @@
 	
 	</select>
 	
+	<update id="updateUserInfo" parameterType="Urbanfarmer">
+	
+	UPDATE
+		urbanfarmer AS u
+	<trim prefix="SET" prefixOverrides=",">
+	<if test="urbanfarmerPw != null and urbanfarmerPw != ''">	
+		u.urbanfarmer_pw = #{urbanfarmerPw}
+	</if>
+	<if test="urbanfarmerName != null and urbanfarmerName != ''">	
+		,	u.urbanfarmer_name = #{urbanfarmerName}
+	</if>
+	<if test="urbanfarmerEmail != null and urbanfarmerEmail != ''">
+		,	u.urbanfarmer_email = #{urbanfarmerEmail}
+	</if>
+	<if test="urbanfarmerPhone != null and urbanfarmerPhone != ''">
+		,	u.urbanfarmer_phone = #{urbanfarmerPhone}
+	</if>
+	<if test="urbanfarmerSmsCheck != null and urbanfarmerSmsCheck != ''">
+		,	u.urbanfarmer_sms_check = #{urbanfarmerSmsCheck}
+	</if>
+	<if test="urbanfarmerEmailCheck != null and urbanfarmerEmailCheck != ''">
+		,	u.urbanfarmer_email_check = #{urbanfarmerEmailCheck}
+	</if>
+		,	u.urbanfarmer_update_reg_date	= CURDATE()
+	</trim>		
+	WHERE
+		u.urbanfarmer_id = #{urbanfarmerId};
+	
+	</update>
+	
+	<update id="removeUserInfo">
+	
+	UPDATE
+		urbanfarmer AS u
+	SET
+		u.urbanfarmer_drop_classification = '탈퇴'
+	WHERE
+		u.urbanfarmer_id = 'park01'
+	
+	</update>
+	
 </mapper>

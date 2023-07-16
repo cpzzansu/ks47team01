@@ -19,26 +19,35 @@
 		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
 	</resultMap>
 	
+	<select id="autoIncreaseCode" resultType="String" parameterType="String">
+		<![CDATA[
+		SELECT
+			CASE
+				WHEN COUNT(1) < 1 
+				THEN '${tableName}_1'
+			ELSE	
+				CONCAT('${tableName}_',MAX(CAST(SUBSTRING_INDEX(${tableName}_code,'_',-1) AS UNSIGNED))+1)
+			END AS increase_code
+		FROM
+			${tableName}
+		]]>
+	</select>
+	
 	<select id="getMinManagementUser" resultType="map">
 		/* 담당자수가 가장 적은 crew 반환 */
 		SELECT
-			p.urbanfarm_hub_crew_id AS min_crew_id,
-			COUNT(p.urbanfarm_hub_crew_id) AS user_count
+			c.urbanfarm_hub_crew_id AS min_crew_id,
+			COUNT(f.urbanfarm_hub_crew_id) AS num
 		FROM
-			farmer_farming_plan AS p
-		GROUP BY
-			p.urbanfarm_hub_crew_id
-		ORDER BY user_count
-		LIMIT 1
+			urbanfarm_hub_crew AS c
+			LEFT JOIN
+			farmer_farming_plan AS f
+			ON c.urbanfarm_hub_crew_id = f.urbanfarm_hub_crew_id
+		GROUP BY c.urbanfarm_hub_crew_id
+		ORDER BY num
+		LIMIT 1;
 	</select>
 	
-	<select id="getIncreseFarmingPlanCode" resultType="string">
-		/* code 자동증가된 결과 반환 */
-		SELECT
-			CONCAT('farmer_farming_plan_',MAX(CAST(SUBSTRING_INDEX(farmer_farming_plan_code,'_',-1) AS UNSIGNED))+1) AS auto_code
-		FROM
-			farmer_farming_plan
-	</select>
 	
 	<select id="getFarmingPlanListById" resultMap="farmingPlanResultMap" parameterType="String">
 		/* 사용자별 계획 리스트 */
@@ -52,9 +61,17 @@
 			urbanfarmer_id=#{userId}
 	</select>
 	
-	<insert id="addCrops" parameterType="FarmingPlan">
+	<insert id="addCrops" parameterType="Map">
 		/* 농사 예정 작물 등록 */
-		
+		<selectKey keyColumn="crops_name,crops_growing_info_code" keyProperty="cropsName,cropsGrowingInfoCode" resultType="Map" order="BEFORE">
+			SELECT
+				crops_name,
+				crops_growing_info_code
+			FROM
+				crops_growing_info
+			WHERE
+				crops_name_code = #{cropsNameCode}
+		</selectKey>
 		INSERT INTO farmer_farming_plan
 			(farmer_farming_plan_code,
 			 urbanfarmer_id, 
@@ -64,6 +81,9 @@
 			 crops_growing_info_code,
 			 <if test="urbanKitCode !=null and urbanKitCode != ''">
 				 urban_kit_code, 			 
+			 </if> 
+			 <if test="farmerFarmingPlanNickname !=null and farmerFarmingPlanNickname != ''">
+				 farmer_farming_plan_nickname, 			 
 			 </if> 
 			 farmer_farming_plan_reg_date,
 			 farmer_farming_plan_status)
@@ -76,7 +96,10 @@
 			 #{cropsGrowingInfoCode},
 			 <if test="urbanKitCode !=null and urbanKitCode != ''">
 				 #{urbanKitCode}, 			 
-			 </if> 
+			 </if>
+			 <if test="farmerFarmingPlanNickname !=null and farmerFarmingPlanNickname != ''">
+				 #{farmerFarmingPlanNickname}, 			 
+			 </if>  
 			 NOW(), 
 			 '시작전')
 	</insert>
