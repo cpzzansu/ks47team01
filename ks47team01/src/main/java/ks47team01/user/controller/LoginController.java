@@ -66,7 +66,7 @@ public class LoginController {
     		session.setAttribute("S_name", urbanfarmerName);
     		
     		
-    		return "redirect:/";
+    		return "redirect:/index";
     		
     	} 
     	
@@ -81,7 +81,7 @@ public class LoginController {
     	
     	session.invalidate();
     	
-    	return "redirect:/";
+    	return "redirect:/index";
     }
     
 
