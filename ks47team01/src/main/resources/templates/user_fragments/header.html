@@ -44,12 +44,22 @@
 		</div>
 	</nav>
 
-	<div class="hero-wrap hero-bread" style="background-image: url('/user/images/bg_1.png');">
+	<div th:if="${isMain}" class="hero-wrap hero-bread" style="background-image: url('/user/images/bg_1.png');">
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<p class="breadcrumbs"><span class="mr-2"><a th:href="@{/static/admin/vendors/bootstrap-daterangepicker/example/amd/index.html}"></a></span> <span></span></p>
 					<h1 class="mb-0 bread" th:utext="${title}"></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:unless="${isMain}" class="hero-wrap2 hero-bread2" style="background-image: url('/user/images/bg_1.png');">
+		<div class="container">
+			<div class="row no-gutters slider-text2 align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<p class="breadcrumbs2"><span class="mr-2"><a th:href="@{/userLogin/userLoginAction}"></a></span> <span></span></p>
+					<h1 class="mb-0 bread2" th:utext="${title}"></h1>
 				</div>
 			</div>
 		</div>
