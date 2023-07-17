@@ -1,10 +1,81 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
 
-</body>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>자가검증 질문</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>자가검증 질문 등록 <small>등록할 질문 정보를 입력하세요.</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" action="/adminSelfVerification/productGrade/listVerificationProductGrade" data-parsley-validate class="form-horizontal form-label-left">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarm_admin_id">키트 이름</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarm_admin_id" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control">
+                                        <option>키트 없음</option>
+                                        <option>상추 초보자 키트</option>
+                                        <option>피망 초보자 키트</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_grade">상품등급 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="product_grade" name="product_grade" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="high_score" class="control-label col-md-3 col-sm-3 col-xs-12">등급의 최고 상품점수</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="high_score" class="form-control col-md-7 col-xs-12" type="text" name="high_score">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="low_score" class="control-label col-md-3 col-sm-3 col-xs-12">등급의 최저 상품점수</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="low_score" class="form-control col-md-7 col-xs-12" type="text" name="low_score">
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" type="button">돌아가기</button>
+                                    <button class="btn btn-primary" type="reset">다시쓰기</button>
+                                    <button type="submit" class="btn btn-success submitBtn">등록하기</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
+
+</th:block>
 </html>
+
