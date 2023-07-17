@@ -69,7 +69,7 @@
 	</select>
 	
 	<update id="updateUserInfo" parameterType="Urbanfarmer">
-	
+	/* 유저정보수정 */
 	UPDATE
 		urbanfarmer AS u
 	<trim prefix="SET" prefixOverrides=",">
@@ -105,8 +105,43 @@
 	SET
 		u.urbanfarmer_drop_classification = '탈퇴'
 	WHERE
-		u.urbanfarmer_id = 'park01'
+		u.urbanfarmer_id = '#{urbanfarmerId}'
 	
 	</update>
+	
+	
+	<select id="getIssuedCouponInfoById" parameterType="IssuedCoupon">
+	
+	SELECT
+		*
+	FROM
+		issued_coupon AS ic
+	WHERE
+		ic.issued_coupon_id = #{issuedCouponId};
+	
+	</select>
+	
+	<update id="addUrbanfarmerCoupon">
+	UPDATE
+		issued_coupon AS ic
+	SET
+		ic.urbanfarmerId = #{urbanfarmerId} 
+		, ic.coupon_history_date = CURDATE()
+		, ic.coupon_history_del_date = ${couponHistoryDelDate}
+		
+	WHERE
+		ic.issued_coupon_id = #{issuedCouponId}
+	
+	</update>
+	
+	<select id="getCouponInfoValidDays">
+	SELECT
+		ci.coupon_information_valid_days
+	FROM
+		coupon_information AS ci
+	WHERE 
+		ci.coupon_information_code = #{couponInformationCode}
+	</select>
+	
 	
 </mapper>
