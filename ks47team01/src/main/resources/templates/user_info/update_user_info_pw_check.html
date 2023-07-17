@@ -3,11 +3,9 @@
 	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customJs">
 	<script type="text/javascript">
-	if('msg' != null) alert('msg');
-	
-	
+	let msg = '[[${msg}]]';
+	if (msg != 'null') alert(msg);
 	</script>
-
 </th:block>
 <th:block layout:fragment="customContents">
 

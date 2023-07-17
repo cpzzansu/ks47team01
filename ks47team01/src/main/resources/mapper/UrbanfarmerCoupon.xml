@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UrbanfarmerMapper">
+	<resultMap type="IssuedCoupon" id="issuedCouponResultMap">
+		<id column="issued_coupon_id" property="issuedCouponId"/>
+		<result column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="coupon_information_code" property="couponInformationCode"/>
+		<result column="writer_id" property="writerId"/>
+		<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
+		<result column="coupon_history_date" property="couponHistoryDate"/>
+		<result column="coupon_history_del_date" property="couponHistoryDelDate"/>
+		<result column="coupon_history_use_check" property="couponHistoryUseCheck"/>
+	</resultMap>
+	
+	<select id="getIssuedCouponInfoById" parameterType="IssuedCoupon">
+	/* 쿠폰조회 */
+	SELECT
+		*
+	FROM
+		issued_coupon AS ic
+	WHERE
+		ic.issued_coupon_id = #{issuedCouponId};
+	
+	</select>
+	
+	<update id="addUrbanfarmerCoupon">
+	/* 쿠폰등록 */
+	UPDATE
+		issued_coupon AS ic
+	SET
+		ic.urbanfarmerId = #{urbanfarmerId} 
+		, ic.coupon_history_date = CURDATE()
+		, ic.coupon_history_del_date = ${couponHistoryDelDate}
+		
+	WHERE
+		ic.issued_coupon_id = #{issuedCouponId}
+	
+	</update>
+	
+	<select id="getCouponInfoValidDays">
+	/* 쿠폰 유효기간  */
+	SELECT
+		ci.coupon_information_valid_days
+	FROM
+		coupon_information AS ci
+	WHERE 
+		ci.coupon_information_code = #{couponInformationCode}
+		
+	</select>
+	
+</mapper>

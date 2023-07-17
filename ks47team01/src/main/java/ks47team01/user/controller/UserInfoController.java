@@ -56,7 +56,7 @@ public class UserInfoController {
 		return "user_info/update_user_info_pw_check";
 		
 	}
-	/** 회원 탈퇴를 위한 패스워드 입력화면								
+	/** 회원 정보 수정을 위한 패스워드 입력화면								
 	 * 
 	 * @return 회원정보 수정화면으로 리다이렉트
 	 */
