@@ -56,9 +56,9 @@
 }
 .nav-sm ul.nav.child_menu ul,
 .nav-sm .nav.side-menu li.active-sm ul ul {
-    position: static;
-    width: 200px;
-    background: none;
+  position: static;
+  width: 200px;
+  background: none;
 }
 .nav-sm > .nav.side-menu > li.active-sm > a {
   color: #1ABB9C !important;
@@ -900,7 +900,7 @@ legend {
 
 /** Contacts **/
 .profile_details:nth-child(3n){
-    clear:both;
+  clear:both;
 }
 
 .profile_details .profile_view {
@@ -1187,8 +1187,8 @@ table.jambo_table tbody tr.selected td {
 
 table.dataTable th.focus,
 table.dataTable td.focus {
-    outline: 2px solid #1ABB9C !important;
-    outline-offset: -1px;
+  outline: 2px solid #1ABB9C !important;
+  outline-offset: -1px;
 }
 
 table.display {
@@ -4150,7 +4150,7 @@ fieldset {
 }
 
 .progress-bar-success {
-    background-color: #26B99A;
+  background-color: #26B99A;
 }
 
 .progress_summary .progress {
