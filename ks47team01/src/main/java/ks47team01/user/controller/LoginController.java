@@ -55,19 +55,15 @@ public class LoginController {
     	boolean isValid = (boolean) validMap.get("isValid");
     	
     	Urbanfarmer urbanfarmer = urbanfarmerService.getUserInfoById(urbanfarmerId);
-    	String isRemove = urbanfarmer.getUrbanfarmerDropClassification();
     	
-    	if(isValid && isRemove.equals("정상")) {
+    	if(isValid) {
     		Urbanfarmer urbanfarmerInfo = (Urbanfarmer) validMap.get("urbanfarmerInfo");
-    		
     		
     		String urbanfarmerName = urbanfarmerInfo.getUrbanfarmerName();
      		session.setAttribute("S_id", urbanfarmerId);
     		session.setAttribute("S_name", urbanfarmerName);
     		
-    		
     		return "redirect:/index";
-    		
     	} 
     	
     	reAttr.addAttribute("msg", "일치하는 회원의 정보가 없습니다.");

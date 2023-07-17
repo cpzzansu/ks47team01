@@ -29,7 +29,7 @@ public class AdminVendingMachineController {
 	}
 	// 자판기 삭제 화면
 	@GetMapping("/adminVendingMachine/vmRemove")
-	public String adminVmDelete(Model model) {
+	public String adminVmRemove(Model model) {
 		model.addAttribute("title","자판기 삭제");
 		return "admin_vending_machine/remove_vm";
 	}
