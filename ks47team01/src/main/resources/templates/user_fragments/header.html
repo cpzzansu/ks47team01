@@ -21,7 +21,7 @@
 					</li>
 					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">!키트구매<br>:이원영</a></li>
 					<li class="nav-item urban_header"><a th:href="@{/userPlantPick/plantPickMain}" class="nav-link">!플랜픽<br>:김상원</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">!자판기예약<br>:이다야</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">!자판기<br>:이다야</a></li>
 					<li class="nav-item cta cta-colored urban_header"><a th:href="@{/Ushop/user_shop_cart}" class="nav-link"><span
 							class="icon-shopping_cart"></span>[0]</a></li>
 					<li class="nav-item urban_header"><a th:href="@{/userLogin/userLogin}" class="nav-link">!로그인<br>:박지성</a></li>
@@ -33,7 +33,7 @@
 					<li class="nav-item urban_header"><a th:href="@{/userSelectSellToHub/selectSellCrop}" class="nav-link">!수확물 판매<br>:김준수</a></li>
 					<li class="nav-item urban_header"><a th:href="@{/userShop/userShopList}" class="nav-link">!키트구매<br>:이원영</a></li>
 					<li class="nav-item urban_header"><a th:href="@{/userPlantPick/plantPickMain}" class="nav-link">!플랜픽<br>:김상원</a></li>
-					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">!자판기예약<br>:이다야</a></li>
+					<li class="nav-item urban_header"><a th:href="@{/userVendingMachine/vmMain}" class="nav-link">!자판기<br>:이다야</a></li>
 					<li class="nav-item cta cta-colored urban_header"><a th:href="@{/Ushop/user_shop_cart}" class="nav-link"><span
 							class="icon-shopping_cart"></span>[0]</a></li>
 					<li class="nav-item cta cta-colored urban_header"><a th:href="@{/userInfo/userInfoMain}" class="nav-link"><span
@@ -44,22 +44,12 @@
 		</div>
 	</nav>
 
-	<div th:if="${isMain}" class="hero-wrap hero-bread" style="background-image: url('/user/images/bg_1.png');">
+	<div class="hero-wrap hero-bread" style="background-image: url('/user/images/bg_1.png');">
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
 					<p class="breadcrumbs"><span class="mr-2"><a th:href="@{/static/admin/vendors/bootstrap-daterangepicker/example/amd/index.html}"></a></span> <span></span></p>
 					<h1 class="mb-0 bread" th:utext="${title}"></h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div th:unless="${isMain}" class="hero-wrap2 hero-bread2" style="background-image: url('/user/images/bg_1.png');">
-		<div class="container">
-			<div class="row no-gutters slider-text2 align-items-center justify-content-center">
-				<div class="col-md-9 ftco-animate text-center">
-					<p class="breadcrumbs2"><span class="mr-2"><a th:href="@{/userLogin/userLoginAction}"></a></span> <span></span></p>
-					<h1 class="mb-0 bread2" th:utext="${title}"></h1>
 				</div>
 			</div>
 		</div>
