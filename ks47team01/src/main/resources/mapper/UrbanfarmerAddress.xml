@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UrbanfarmerAddressMapper">
+	<resultMap type="UrbanfarmerAddress" id="urbanfarmerAddressResultMap">
+		<id column="urbanfarmer_address_code" property="urbanfarmerAddressCode"/>
+		<result column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="urbanfarmer_address_name" property="urbanfarmerAddressName"/>
+		<result column="urbanfarmer_address" property="urbanfarmerAddress"/>
+		<result column="urbanfarmer_address_phone" property="urbanfarmerAddressPhone"/>
+		<result column="address_delivery_request_code" property="addressDeliveryRequestCode"/>
+		<result column="address_delivery_request_content" property="addressDeliveryRequestContent"/>
+		<result column="address_delivery_request_etc" property="addressDeliveryRequestEtc"/>
+	</resultMap>
+	
+	<insert id="addUrbanfarmerAddress" parameterType="UrbanfarmerAddress">
+	INSERT INTO urbanfarmer_address
+		(urbanfarmer_address_code, urbanfarmer_id, urbanfarmer_address_name
+		,urbanfarmer_address, urbanfarmer_address_phone, address_delivery_request_code
+		,address_delivery_request_content, address_delivery_request_etc)
+	VALUES
+		(#{urbanfarmerAddressCode}, #{urbanfarmerId}, #{urbanfarmerAddressName},
+		#{urbanfarmerAdress}, #{urbanfarmerAddressPhone}, #{addressDeliveryRequestCode},
+		#{addressDeliveryRequestContent}, #{addressDeliveryRequestEtc})
+	</insert>
+	
+	<select id="getAddressDeliveryRequestList" resultType="AddressDeliveryRequest">
+	/* 요청사항 */
+	SELECT
+		adr.address_delivery_request_code as addressDeliveryRequestCode
+	,	adr.address_delivery_request_content as addressDeliveryRequestContent
+	FROM
+		address_delivery_request AS adr;
+	
+	</select>
+	
+	
+	
+</mapper>

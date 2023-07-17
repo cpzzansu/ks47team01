@@ -46,36 +46,47 @@
                       
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userId" name="userId" placeholder="UserId">
-						    <label for="userId">배송지 이름</label>
+						    <input type="text" class="form-control" id="urbanfarmerAddressName" name="urbanfarmerAddressName" placeholder="배송지 이름을 입력해주세요">
+						    <label for="urbanfarmerAddressName">배송지 이름</label>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userPw" name="userPw" placeholder="UserPw">
-						  	<label for="userPw">배송지 주소</label>
+						    <input type="text" class="form-control" id="urbanfarmerAddress" name="urbanfarmerAddress" placeholder="배송지를 입력해주세요">
+						  	<label for="urbanfarmerAddress">배송지 주소</label>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userName" name="userName" placeholder="UserName">
-						  	<label for="userName">배송지 전화번호</label>
+						    <input type="text" class="form-control" id="urbanfarmerAddressPhone" name="urbanfarmerAddressPhone" placeholder="배송지 전화번호를 입력해주세요">
+						  	<label for="urbanfarmerAddressPhone">배송지 전화번호</label>
 						  </div>
 						</div>						
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="UserEmail">
-						  	<label for="userEmail">배송지 요청사항</label>						    
+						  	<select id="addressDeliveryRequestContent" name="addressDeliveryRequestContent" class="form-select px-5 py-2">
+						  <th:block th:unless="${#lists.isEmpty(addressDeliveryRequestList)}"
+						  			th:each="l : ${addressDeliveryRequestList}">
+						  		<option th:value="${l.addressDeliveryRequestCode}">[[${l.addressDeliveryRequestContent}]]</option>
+						  	
+						  </th:block>
+						  <th:block th:if="${#lists.isEmpty(addressDeliveryRequestList)}">
+									<option th:value="">등록된 선택사항이 없습니다</option>
+						  </th:block>
+						  	</select>
+						  	<p>
+						  		<label for="addressDeliveryRequestContent">배송지 요청사항</label>	
+						  	</p>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="-는 생략">
-						  	<label for="userPhone">배송지 추가 요청사항</label>						    
+						    <input type="text" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" placeholder="-는 생략">
+						  	<label for="addressDeliveryRequestEtc">배송지 추가 요청사항</label>						    
 						  </div>
 						</div>
 					<div class="form-group" style="text-align:right">
-                    		 <a class="btn btn-info py-3 px-5" id="alertInsert">배송지 등록</a>
+                    		 <button type="submit">배송지 등록</button>
                     </div>
                 </form>
             </div>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import ks47team01.common.dto.AddressDeliveryRequest;
 import ks47team01.common.dto.IssuedCoupon;
 import ks47team01.common.dto.Urbanfarmer;
 @Mapper
