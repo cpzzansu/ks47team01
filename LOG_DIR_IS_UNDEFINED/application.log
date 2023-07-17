@@ -8980,3 +8980,14 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 10:29:16.570 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
 10:29:16.570 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
 10:29:16.570 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+00:14:45.890 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 32605 (/Users/kimjunsu/ks47team01_2/ks47team01/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_2/ks47team01)
+00:14:45.892 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+00:14:45.998 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+00:14:45.999 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+00:14:46.290 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+00:14:46.297 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+00:14:46.545 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+00:14:46.579 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 579 ms
+00:14:47.622 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+00:14:47.643 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+00:14:47.648 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 2.0 seconds (process running for 2.312)
