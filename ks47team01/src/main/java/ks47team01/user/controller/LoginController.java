@@ -63,8 +63,7 @@ public class LoginController {
      		session.setAttribute("S_id", urbanfarmerId);
     		session.setAttribute("S_name", urbanfarmerName);
     		
-    		return "redirect:/";
-    		
+    		return "redirect:/index";
     	} 
     	
     	reAttr.addAttribute("msg", "일치하는 회원의 정보가 없습니다.");
@@ -78,7 +77,7 @@ public class LoginController {
     	
     	session.invalidate();
     	
-    	return "redirect:/";
+    	return "redirect:/index";
     }
     
 

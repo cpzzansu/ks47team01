@@ -16,7 +16,7 @@ public class MainController {
 		return "user/main";
 	}
 
-	// 메인화면 컨트롤러
+	// 프로젝트 소개 메인 컨트롤러
 	@GetMapping("/")
 	public String mainPage(Model model) {
 
@@ -24,6 +24,15 @@ public class MainController {
 		model.addAttribute("title", "urbanfarm");
 		model.addAttribute("isMain", true);
 
-		return "user/main";
+		return "main/project_main";
+	}
+
+	/**
+	 * 프로젝트 소개 맵핑
+	 * @return
+	 */
+	@GetMapping("/main/projectIntroduce")
+	public String ProjectIntroduce(){
+		return "main/project_introduce";
 	}
 }

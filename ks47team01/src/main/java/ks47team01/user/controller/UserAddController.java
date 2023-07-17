@@ -43,7 +43,7 @@ public class UserAddController {
     	
     	urbanfarmerService.addUrbanfarmer(urbanfarmer);
     	
-    	return "redirect:/";
+    	return "redirect:/index";
     }
     
     @PostMapping("/userAdd/userIdCheck")
