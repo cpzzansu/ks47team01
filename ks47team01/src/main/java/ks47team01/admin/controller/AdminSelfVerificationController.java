@@ -29,7 +29,7 @@ public class AdminSelfVerificationController {
      * @param model title=화면제목
      * @return admin_self_verification_question/list_verification_question
      */
-    @GetMapping("/question/ListVerificationQuestion")
+    @GetMapping("/question/listVerificationQuestion")
     public String moveListQuestion(Model model){
 
         model.addAttribute("title","자가검증 질문 조회");

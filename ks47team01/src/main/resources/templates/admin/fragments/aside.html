@@ -163,10 +163,27 @@
                   </ul>
                 </li>
 
-                <li><a><i class="fa fa-home fa-spinner"></i> 허브에 수확물 팔기 :김준수 <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-home fa-spinner"></i> 자가검증 관리 :김준수 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a th:href="@{/index3}">수확물 판매 예약 목록</a></li>
-                    <li><a th:href="@{/index3}">수확물 판매 예약 등록</a></li>
+                    <li><a>자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a th:href="@{/adminSelfVerification/productGrade/addVerificationProductGrade}">상품등급 등록</a></li>
+                        <li><a th:href="@{/adminSelfVerification/productGrade/listVerificationProductGrade}">상품등급 목록</a></li>
+                      </ul>
+                    </li>
+                    <li><a>자가검증 질문<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a th:href="@{/adminSelfVerification/question/addVerificationQuestion}">상품질문 등록</a></li>
+                        <li><a th:href="@{/adminSelfVerification/question/listVerificationQuestion}">상품질문 목록</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li><a><i class="fa fa-home fa-spinner"></i> 수확물 판매 예약 :김준수 <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a th:href="@{/adminHebReservation/listHubReservation}">수확물 판매 예약 목록</a></li>
+                    <li><a th:href="@{/adminHebReservation/addHubReservation}">수확물 판매 예약 등록</a></li>
                   </ul>
                 </li>
 
