@@ -142,6 +142,6 @@ public class UserInfoController {
 		urbanfarmerService.updateUserInfo(urbanfarmer);
 		
 		
-		return "redirect:/";
+		return "redirect:/index";
 	}
 }

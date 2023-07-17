@@ -12,3 +12,7 @@
 .admin-check-box-td {
     text-align: center;
 }
+
+.loading-hide {
+    display: none;
+}

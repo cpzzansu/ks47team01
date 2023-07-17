@@ -1,3 +1,10 @@
+.js-h-blank-10{
+    height: 10px;
+}
+
+.js-h-blank-20{
+    height: 20px;
+}
 
 .js-h-blank-50{
     height: 50px;
@@ -29,4 +36,108 @@
 }
 .js-under-line{
     border-bottom: 1px solid #dadada;
+}
+.js-font-color-black{
+    color: black;
+}
+.js-form-controll-readonly{
+    font-weight: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    height: 58px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: transparent !important;
+    color: black !important;
+    font-size: 16px;
+    border-radius: 0px;
+    box-shadow: none !important;
+}
+.js-form-controll{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.js-fill-current{
+    fill: currentColor;
+}
+.js-main-icon{
+    font-size: 5rem;
+}
+.js-brown-box{
+    background-color: rgb(250, 241, 211);
+}
+
+.js-callout{
+    height: 100px;
+    width: 100%;
+    background-color: rgba(241, 241, 239, 1);
+}
+.js-callout{
+    height: auto;
+    width: 100%;
+    background-color: rgba(241, 241, 239, 1);
+}
+.js-callout-box-font{
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.js-display-flex-center{
+    display: flex;
+    align-items: center;
+}
+.js-display-flex-justify-center{
+    display: flex;
+    justify-content: center;
+}
+.js-p-margin-0{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.js-icon-x1-5{
+    font-size: 1.5rem;
+}
+.js-icon-x5{
+    font-size: 5rem;
+}
+.js-left-line{
+    border-left: rgba(0, 0, 0, 0.6) solid 5px;
+    margin-right: 10px;
+}
+.js-w-blank-10{
+    padding-right: 30px;
+}
+.js-bottom-line-gray{
+    border-bottom: rgba(241, 241, 239, 1) solid 1px;
+}
+#jsLinkGrayBox{
+    cursor: pointer;
+}
+#projectMain{
+    cursor: pointer;
+}
+.js-project-box{
+    width: 450px;
+    height: 350px;
+    border: 1px solid rgba(241, 241, 239, 1);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0.2, 0.3);
+}
+.js-footer{
+    padding-bottom: 30vh;
+}
+.js-img{
+    width: 100%;
+    height: 347px;
+}
+.js-img-box{
+    width: 450px;
+    height: 347px;
+    border: 1px solid rgba(241, 241, 239, 1);
+    box-shadow: 2px 3px 3px rgba(0, 0, 0.2, 0.3);
+}
+.js-little-title-font{
+    font-size: 25px;
+    margin-left: 50px;
+    margin-right: 50px;
 }

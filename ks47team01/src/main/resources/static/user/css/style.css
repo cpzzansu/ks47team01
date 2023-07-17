@@ -8091,7 +8091,7 @@ h1, h2, h3, h4, h5,
     padding-left: 20px;
     padding-right: 20px;
     font-weight: 400;
-    color: #5e5e5e;
+    color: #4b4b4b;
     font-family: bitbit, "Poppins", Arial, sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -8118,6 +8118,8 @@ h1, h2, h3, h4, h5,
     -ms-border-radius: 0;
     border-radius: 0; }
     .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item {
+      color: #4b4b4b;
+      font-family: bitbit, "Poppins", Arial, sans-serif;
       font-size: 14px; }
       .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item:hover, .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item:focus {
         background: transparent;
@@ -8142,7 +8144,7 @@ h1, h2, h3, h4, h5,
         .ftco-navbar-light .navbar-nav > .nav-item.ftco-seperator:before {
           display: none; } }
   .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
-    color: #000000; }
+     }
     @media (max-width: 767.98px) {
       .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
         padding-left: 15px;
@@ -8152,7 +8154,7 @@ h1, h2, h3, h4, h5,
         color: #fff;
         background: #a9af63; } }
   .ftco-navbar-light .navbar-nav > .nav-item.active > a {
-    color: #000000; }
+     }
     @media (max-width: 1300.98px) {
       .ftco-navbar-light .navbar-nav > .nav-item.active > a {
         color: #fff; } }
@@ -10348,6 +10350,7 @@ textarea.form-control {
     width: 1000px;
     height: 900px;
     font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+
   	
   }
   
