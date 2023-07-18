@@ -28,9 +28,16 @@ public class UserAddrController {
 	 * @return
 	 */
 	@GetMapping("/user/userAddrList")
-	public String userAddrList(Model model) {
+	public String userAddrList(Model model,
+								HttpSession session) {
+		
+		 String urbanfarmerId = (String) session.getAttribute("S_id");
+		
+		List<UrbanfarmerAddress> addressList = urbanfarmerAddressService.getUrbanfarmerAddressListById(urbanfarmerId);
+		
 		
 		model.addAttribute("title", "배송지 목록");
+		model.addAttribute("addressList", addressList);
 		
 		return "user_addr/addr_user_list";
 		

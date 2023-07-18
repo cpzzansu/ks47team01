@@ -13,5 +13,7 @@ public interface UrbanfarmerAddressMapper {
 	public int addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress);
 	
 	public List<AddressDeliveryRequest> getAddressDeliveryRequestList();
+	
+	public List<UrbanfarmerAddress> getUrbanfarmerAddressListById(String urbanfarmerId);
 
 }

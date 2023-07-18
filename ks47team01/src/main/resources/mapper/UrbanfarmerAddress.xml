@@ -53,6 +53,26 @@
 	
 	</select>
 	
+	<select id="getUrbanfarmerAddressListById" resultType="UrbanfarmerAddress">
+	
+		/* 배송지 목록 */
+		SELECT 
+			urbanfarmer_address_code as urbanfarmerAddressCode
+		,	urbanfarmer_id as urbanfarmerId
+		,	urbanfarmer_address_name as urbanfarmerAddressName
+		,	urbanfarmer_address as urbanfarmerAddress
+		,	urbanfarmer_address_phone as urbanfarmerAddressPhone
+		,	address_delivery_request_code as addressDeliveryRequestCode
+		,	address_delivery_request_content as addressDeliveryRequestContent
+		,	address_delivery_request_etc as addressDeliveryRequestEtc
+			
+		FROM 
+			urbanfarmer_address 
+		WHERE
+			urbanfarmer_id = #{urbanfarmerId};	
+	
+	
+	</select>
 	
 	
 </mapper>

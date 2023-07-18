@@ -31,5 +31,13 @@ public class UrbanfarmerAddressService {
 		
 		return addressDeliveryRequestList;
 	}
+	
+	public List<UrbanfarmerAddress> getUrbanfarmerAddressListById(String urbanfarmerId) {
+		
+		List<UrbanfarmerAddress> addressList = urbanfarmerAddressMapper.getUrbanfarmerAddressListById(urbanfarmerId);
+		
+		return addressList;
+		
+	}
 
 }
