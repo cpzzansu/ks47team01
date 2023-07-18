@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.annotation.PostConstruct;
+import ks47team01.common.dto.AddressDeliveryRequest;
+import ks47team01.common.dto.IssuedCoupon;
 import ks47team01.common.dto.Urbanfarmer;
 import ks47team01.user.mapper.UrbanfarmerMapper;
 import lombok.AllArgsConstructor;
@@ -30,7 +32,11 @@ public class UrbanfarmerService {
 		
 		Urbanfarmer urbanfarmerInfo = urbanfarmerMapper.getUserInfoById(urbanfarmerId);
 		
-		return urbanfarmerInfo;
+			
+			return urbanfarmerInfo;
+		
+		
+		
 		
 	}
 	
@@ -41,12 +47,13 @@ public class UrbanfarmerService {
 		boolean isValid = false;
 		
 		Urbanfarmer urbanfarmer = urbanfarmerMapper.getUserInfoById(urbanfarmerId);
+		String isTrue = urbanfarmer.getUrbanfarmerDropClassification();
 		
 		if(urbanfarmer != null) {
 			
 			String pwCheck = urbanfarmer.getUrbanfarmerPw();
 			
-			if(urbanfarmer.getUrbanfarmerPw().equals(urbanfarmerPw)) {
+			if(urbanfarmer.getUrbanfarmerPw().equals(urbanfarmerPw) && isTrue.equals("정상")) {
 				
 				isValid = true;
 				resultMap.put("urbanfarmerInfo", urbanfarmer);
@@ -99,6 +106,32 @@ public class UrbanfarmerService {
 		urbanfarmerMapper.removeUserInfo(urbanfarmerId);
 		
 	}
+	
+	public IssuedCoupon addUrbanfarmerCoupon(String issuedCouponId) {
+		
+		IssuedCoupon issuedCoupon = urbanfarmerMapper.addUrbanfarmerCoupon(issuedCouponId);
+		
+		return issuedCoupon;
+		
+	}
+	
+	public IssuedCoupon getCouponInfo(String IssuedCouponId) {
+		
+		IssuedCoupon issuedCoupon = urbanfarmerMapper.getIssuedCouponInfoById(IssuedCouponId);
+		
+		return issuedCoupon;
+		
+	}
+	
+	public int getCouponInfoValidDays(String couponInformationCode) {
+		
+		int result = urbanfarmerMapper.getCouponInfoValidDays(couponInformationCode);
+		
+		return result;
+		
+	}
+	
+	
 	
 
 }
