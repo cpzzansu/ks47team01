@@ -3,38 +3,36 @@
       layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
-    	// user_insert_form_1 : 회원가입 완료버튼시 팝업 출력, 기능구현시 삭제
-	    $('#alertInsert').click(function(e){
-	    	e.preventDefault();
-	    	alert('회원가입이 완료되었습니다.');
-	    	$(location).attr("href", "http://localhost/userLogin/userLogin");
-	    });
-    	function databaseCheck(item, errorMassage){
-            fetch('/Uin/urbanfarm_id_check',{
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({urbanfarmer_id: item})
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if(data.exists){
-                        errorMassage.innerText = '아이디가 이미 존재합니다.';
-                        errorMassage.style.color = 'red';
-                    }else{
-                        errorMassage.innerText = '아이디를 사용가능합니다!';
-                        errorMassage.style.color = 'green';
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
-        document.getElementById('urbanfarmerInsertId').addEventListener("blur", function(){
-            console.log('blur 이벤트 작동');
-            const urbanfarmerId = document.getElementById('urbanfarmerInsertId').value;
-            const $errorMassage = document.getElementById('id_error_message');
-            databaseCheck(urbanfarmerId, $errorMassage);
-        })
+
+	const validCheck = element => {
+		let data = $(element).val();
+		let eleId = $(element).attr('id');
+		if(typeof data == 'undefined' || data == null || data == '' ){
+			let cate = $(`label[for="${eleId}"]`).text();
+			alert(`[${cate}] 필수 입력항목입니다.`);
+			$(element).focus();
+			return false;
+		}
+		return true;
+	}
+
+	$('#addUserAddrBtn').click(function(){
+		const validateEle = $('#addUserAddrForm select,input');   			
+		let isSubmit = false;
+		validateEle.each((idx, item) => {    				
+			isSubmit = validCheck(item);
+			return isSubmit;
+		})
+		if(isSubmit) $('#addUserAddrForm').submit();
+	})
+		
+    	
+		const autoHyphen2 = (target) => {
+			 target.value = target.value
+			   .replace(/[^0-9]/g, '')
+			  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+			}
+    	
     </script>
 </th:block>      
 <th:block layout:fragment="customContents">
@@ -42,7 +40,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
                 <form th:action="@{/user/addUserAddr}" th:object="${urbanfarmer}" method="post"
-                      class="bg-white p-5 contact-form">
+                      id="addUserAddrForm" class="bg-white p-5 contact-form">
                       
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
@@ -58,17 +56,18 @@
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressPhone" name="urbanfarmerAddressPhone" placeholder="배송지 전화번호를 입력해주세요">
+						    <input type="text" class="form-control" id="urbanfarmerAddressPhone" name="urbanfarmerAddressPhone" placeholder="배송지 전화번호를 입력해주세요"
+						    oninput="autoHyphen2(this)" maxlength="13">
 						  	<label for="urbanfarmerAddressPhone">배송지 전화번호</label>
 						  </div>
 						</div>						
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
 						  	<select id="addressDeliveryRequestCode" name="addressDeliveryRequestCode" class="form-select px-5 py-2">
-						  		<option value="">===선택 사항을 골라주세요===</option>
+						  		<option class="request" value="">===선택 사항을 골라주세요===</option>
 						  <th:block th:unless="${#lists.isEmpty(addressDeliveryRequestList)}"
 						  			th:each="l : ${addressDeliveryRequestList}">
-						  		<option th:value="${l.addressDeliveryRequestCode}">[[${l.addressDeliveryRequestContent}]]</option>
+						  		<option class="request" th:value="${l.addressDeliveryRequestCode}">[[${l.addressDeliveryRequestContent}]]</option>
 						  	
 						  </th:block>
 						  <th:block th:if="${#lists.isEmpty(addressDeliveryRequestList)}">
@@ -87,7 +86,7 @@
 						  </div>
 						</div>
 					<div class="form-group" style="text-align:right">
-                    		 <button type="submit">배송지 등록</button>
+                    		 <button id="addUserAddrBtn" type="button" class="btn btn-info py-2 px-4">배송지 등록</button>
                     </div>
                 </form>
             </div>

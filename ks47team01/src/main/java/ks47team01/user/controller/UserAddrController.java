@@ -76,7 +76,6 @@ public class UserAddrController {
 
 		urbanfarmerAddressService.addUrbanfarmerAddress(urbanfarmerAddress);
 		
-		
 		return "redirect:/user/userAddrList";
 		
 	}
