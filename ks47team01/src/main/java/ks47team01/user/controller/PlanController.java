@@ -1,6 +1,7 @@
 package ks47team01.user.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,14 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.CropsName;
 import ks47team01.common.dto.FarmingPlan;
+import ks47team01.common.dto.FarmingPlanLargeCate;
 import ks47team01.common.dto.UrbanKit;
 import ks47team01.user.service.CropsService;
 import ks47team01.user.service.FarmingPlanService;
 import ks47team01.user.service.UrbanKitService;
+import ks47team01.user.service.UrbanfarmerService;
 import lombok.AllArgsConstructor;
 
 @Controller("UserPlanController")
@@ -26,13 +30,13 @@ public class PlanController {
 	private final UrbanKitService urbanKitService;
 	private final FarmingPlanService farmingPlanService;
 	private final CropsService cropsService;
+	private final UrbanfarmerService urbanfarmerService;
 	/**
 	 * 작물 계획 메인화면
 	 */
 	@GetMapping("/planMain")
 	public String planMain(Model model, HttpSession session){
-		session.setAttribute("SID", "id003");
-		String userId = (String)session.getAttribute("SID");
+		String userId = (String)session.getAttribute("S_id");
 		List<FarmingPlan> farmingPlanList = farmingPlanService.getFarmingPlanListById(userId);
 		
 		model.addAttribute("title", "농사 계획");
@@ -88,8 +92,9 @@ public class PlanController {
 	@PostMapping("/addCrops")
 	public String addCrops(@RequestParam(value = "cropsNameCode")String cropsNameCode,
 							@RequestParam(value = "urbanKitCode", required = false)String urbanKitCode,
+							@RequestParam(value = "farmerFarmingPlanNickname", required = false)String farmerFarmingPlanNickname,
 							Model model, HttpSession session) {
-		farmingPlanService.addCrops(cropsNameCode, urbanKitCode, session);
+		farmingPlanService.addCrops(cropsNameCode, urbanKitCode, farmerFarmingPlanNickname, session);
 		return "redirect:/userPlan/planMain";
 	}
 	
@@ -98,9 +103,30 @@ public class PlanController {
 	 * 키울 작물 삭제화면
 	 */
 	@GetMapping("/removeCrops")
-	public String removeCrops(){
-		
+	public String removeCrops(@RequestParam(value = "farmerFarmingPlanCode")String farmerFarmingPlanCode,
+							  Model model){
+		model.addAttribute("farmerFarmingPlanCode", farmerFarmingPlanCode);
 		return "user_plan/remove_crops";
+	}
+	
+	/**
+	 * 작물 삭제처리
+	 */
+	@PostMapping("/removeCrops")
+	public String removeCrops(@RequestParam(value = "urbanfarmerId")String urbanfarmerId,
+							  @RequestParam(value = "urbanfarmerPw")String urbanfarmerPw,
+							  @RequestParam(value = "farmerFarmingPlanCode")String farmerFarmingPlanCode,
+							  RedirectAttributes reAttr) {
+		
+		Map<String, Object> infoCheck = urbanfarmerService.isValidUser(urbanfarmerId, urbanfarmerPw);
+		boolean isValid = (boolean)infoCheck.get("isValid");
+		
+		if(isValid) {
+			//삭제처리 후 redirect
+		}
+		
+		reAttr.addAttribute("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		return "redirect:/userPlan/removeCrops";
 	}
 	
 	
@@ -138,7 +164,11 @@ public class PlanController {
 	@GetMapping("/cropsPlan")
 	public String cropsPlan(@RequestParam(value="farmerFarmingPlanCode")String farmerFarmingPlanCode , 
 							Model model){
+		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
+		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
 		model.addAttribute("title", "작물 상세보기");
+		model.addAttribute("farmingPlan", farmingPlan);
+		model.addAttribute("farmingPlanLargeCate", farmingPlanLargeCateList);
 		return "user_plan/crops_plan";
 	}
 }

@@ -23,7 +23,7 @@
 									<div class="col-7">내용</div>
 									<div class="col-3">
 										<a class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a>
-										<a class="btn btn-danger " th:href="@{#}">작물 삭제</a>
+										<a class="btn btn-danger " th:href="@{/userPlan/removeCrops(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}">작물 삭제</a>
 									</div>
 								</div>
 						</th:block>
