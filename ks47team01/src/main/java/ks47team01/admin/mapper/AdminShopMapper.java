@@ -11,6 +11,9 @@ public interface AdminShopMapper {
     // 상품관리 상품 목록 조회
     public List<GoodsKit> getGoodsKitList(Map<String, Object> paramMap);
 
+    // 상품관리 상품 목록 삭제
+    public int removeGoodsKitList(List<String> finalCheckedData);
+
 
 
 }
