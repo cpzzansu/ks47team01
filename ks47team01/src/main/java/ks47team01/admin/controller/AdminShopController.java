@@ -42,7 +42,7 @@ public class AdminShopController {
 
         System.out.println(finalCheckedData);
 
-        adminShopService.removeGoodsKitList(finalCheckedData);
+//        adminShopService.removeGoodsKitList(finalCheckedData);
 
         return "admin_shop/admin_shop_label_remove";
     }
@@ -50,10 +50,10 @@ public class AdminShopController {
     @GetMapping("adminShop/adminShopManage")
     public String admin_shop_main(Model model) {
         Map<String, Object> paramMap = new HashMap<String, Object>();
-        List<GoodsKit> goodsKitList = adminShopService.getGoodsKitList(paramMap);
+//        List<GoodsKit> goodsKitList = adminShopService.getGoodsKitList(paramMap);
 
         model.addAttribute("title", "urbanfarm");
-        model.addAttribute("goodsKitList", goodsKitList);
+//        model.addAttribute("goodsKitList", goodsKitList);
         return "admin_shop/admin_shop_main";
     }
 
