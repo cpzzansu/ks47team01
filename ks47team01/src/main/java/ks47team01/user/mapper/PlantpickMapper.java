@@ -6,7 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import ks47team01.common.dto.PlantpickFollowers;
-import ks47team01.common.dto.Urbanfarmer;
+
 @Mapper
 public interface PlantpickMapper {
 	//로그인 이력 조회 

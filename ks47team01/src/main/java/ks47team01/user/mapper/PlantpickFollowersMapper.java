@@ -1,17 +1,19 @@
 package ks47team01.user.mapper;
 
+
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.PlantpickFollowers;
 
 @Mapper
 public interface PlantpickFollowersMapper {
 
 	/**
-	 * 작물의 이름 리스트
+	 * 회원 목록 조회 
 	 * @return List<CropsName>
 	 */
-	public List<CropsName> getCropsNameList();
+	public List<PlantpickFollowers> getPlantpickFollowersList(Map<String,Object>paramMap);
 }

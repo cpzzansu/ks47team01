@@ -7,7 +7,9 @@
 	jdbc.connection : Logs connection open and close events
 -->
 <configuration>
+
 	<property name="LOG_DIR" value="/home/springboot/logs" /> 
+	 
     
     <property name="LOG_PATH_NAME" value="${LOG_DIR}/application.log" />
 	
