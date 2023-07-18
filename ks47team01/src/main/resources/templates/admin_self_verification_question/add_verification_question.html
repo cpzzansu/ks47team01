@@ -24,9 +24,206 @@
                         <form id="demo-form2" action="/adminSelfVerification/productGrade/listVerificationProductGrade" data-parsley-validate class="form-horizontal form-label-left">
 
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarm_admin_id">키트 이름</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kitCode">키트코드</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarm_admin_id" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="kitCode" class="form-control col-md-7 col-xs-12" readonly>
+                                </div>
+                                <!-- 키트 선택 모달 트리거 버튼 -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kitChooseModal">
+                                    키트선택
+                                </button>
+                            </div>
+
+
+                            <!-- 키트 선택 모달창 -->
+                            <div class="modal fade" id="kitChooseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">키트 선택</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-4">
+                                                    <select class="form-control">
+                                                        <option>키트 코드</option>
+                                                        <option>키트 이름</option>
+                                                        <option>작물 이름</option>
+                                                    </select>
+                                                </div>
+                                                <div class="">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-primary">검색</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="x_panel">
+                                                        <div class="x_title">
+                                                            <h2>키트목록</h2>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="x_content">
+
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>키트코드</th>
+                                                                    <th>키트이름</th>
+                                                                    <th>작물명</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td class="kitCode">urban_kit_1</td>
+                                                                    <td class="kitName">상추, 초급자 키트</td>
+                                                                    <td class="cropName">상추</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td class="kitCode">urban_kit_2</td>
+                                                                    <td class="kitName">피망, 초급자 키트</td>
+                                                                    <td class="cropName">피망</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td class="kitCode">urban_kit_3</td>
+                                                                    <td class="kitName">쪽파, 초급자 키트</td>
+                                                                    <td class="cropName">쪽파</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" id="kitChooseCloseBtn" data-dismiss="modal">Close</button>
+                                            <button type="button" id="noKitBtn" class="btn btn-warning">키트 선택 안함</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 키트 선택 모달 끝 -->
+
+                            <!-- 작물 이름 input -->
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cropName">작물이름</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="cropName" class="form-control col-md-7 col-xs-12" readonly>
+                                </div>
+                                <!-- 작물 선택 모달 트리거 버튼 -->
+                                <button type="button" class="btn btn-primary" id="cropChooseBtn" data-toggle="modal" data-target="#cropChooseModal">
+                                    작물선택
+                                </button>
+                            </div>
+
+                            <!-- 작물 선택 모달 -->
+                            <div class="modal fade" id="cropChooseModal" tabindex="-1" role="dialog" aria-labelledby="cropChooseModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cropChooseModalLabel">작물 선택</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-4">
+                                                    <select class="form-control">
+                                                        <option>작물 코드</option>
+                                                        <option>작물 이름</option>
+                                                    </select>
+                                                </div>
+                                                <div class="">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-primary">검색</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="x_panel">
+                                                        <div class="x_title">
+                                                            <h2>작물 목록</h2>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="x_content">
+
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>키트코드</th>
+                                                                    <th>키트이름</th>
+                                                                    <th>작물명</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td class="kitCode">urban_kit_1</td>
+                                                                    <td class="kitName">상추, 초급자 키트</td>
+                                                                    <td class="cropName">상추</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td class="kitCode">urban_kit_2</td>
+                                                                    <td class="kitName">피망, 초급자 키트</td>
+                                                                    <td class="cropName">피망</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td class="kitCode">urban_kit_3</td>
+                                                                    <td class="kitName">쪽파, 초급자 키트</td>
+                                                                    <td class="cropName">쪽파</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" id="kitChooseCloseBtn" data-dismiss="modal">Close</button>
+                                            <button type="button" id="noKitBtn" class="btn btn-warning">키트 선택 안함</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -75,7 +272,29 @@
 </th:block>
 
 <th:block layout:fragment="customJs">
-
+    <script type="text/javascript">
+        let selectKit;
+        let selectCropName;
+        $('#kitChooseModal .kitSelectBtn').click(function() {
+            selectKit = $(this).closest('tr').find('.kitCode').text();
+            selectCropName = $(this).closest('tr').find('.cropName').text();
+            $('#kitChooseModal').modal('hide');
+        });
+        $(document).on('hidden.bs.modal', function(){
+            $('#kitCode').val(selectKit);
+            $('#cropName').val(selectCropName);
+            if(selectKit != null){
+                $('#cropChooseBtn').css('display', 'none');
+            } else {
+                $('#cropChooseBtn').css('display', '');
+            }
+        });
+        $('#noKitBtn').click(function(){
+            selectKit = null;
+            selectCropName = null;
+            $('#kitChooseModal').modal('hide');
+        })
+    </script>
 </th:block>
 </html>
 
