@@ -28,4 +28,8 @@ public class AdminShopService {
         return goodsKitList;
     }
 
+    public void removeGoodsKitList(List<String> finalCheckedData) {
+        adminShopMapper.removeGoodsKitList(finalCheckedData);
+    }
+
 }

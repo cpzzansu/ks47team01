@@ -3,22 +3,32 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ks47team01.admin.mapper.AdminShopMapper">
-<resultMap type="GoodsKit" id="GoodsKitResultMap">
-	<id column="goods_kit_code" property="goodsKitCode"/>
-	<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
-	<result column="urban_kit_code" property="urbanKitCode"/>
-	<result column="urban_kit_name" property="urbanKitName"/>
-	<result column="goods_kit_title" property="goodsKitTitle"/>
-	<result column="goods_kit_contents" property="goodsKitContents"/>
-	<result column="goods_kit_price" property="goodsKitPrice"/>
-	<result column="goods_kit_delivery_date" property="goodsKitDeliveryDate"/>
-	<result column="goods_kit_reg_date" property="goodsKitRegDate"/>
-</resultMap>
+	<resultMap type="GoodsKit" id="GoodsKitResultMap">
+		<id column="goods_kit_code" property="goodsKitCode"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="urban_kit_code" property="urbanKitCode"/>
+		<result column="urban_kit_name" property="urbanKitName"/>
+		<result column="goods_kit_title" property="goodsKitTitle"/>
+		<result column="goods_kit_contents" property="goodsKitContents"/>
+		<result column="goods_kit_price" property="goodsKitPrice"/>
+		<result column="goods_kit_delivery_date" property="goodsKitDeliveryDate"/>
+		<result column="goods_kit_reg_date" property="goodsKitRegDate"/>
+	</resultMap>
 
-<select id="getGoodsKitList" resultMap="GoodsKitResultMap">
-SELECT
-*
-FROM
-	goods_kit
-</select>
+	<select id="getGoodsKitList" resultMap="GoodsKitResultMap">
+	SELECT
+	*
+	FROM
+		goods_kit
+	</select>
+	<delete id="removeGoodsKitList" parameterType="int">
+		DELETE
+		FROM
+			goods_kit
+		WHERE
+			goods_kit_code IN
+			<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+				#{item}
+			</foreach>
+	</delete>
 </mapper>
