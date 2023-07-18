@@ -4,10 +4,12 @@ import ks47team01.admin.service.AdminShopService;
 import ks47team01.common.dto.GoodsKit;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.binding.MapperMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +20,7 @@ import java.util.Map;
 @Controller("adminShopController")
 @AllArgsConstructor
 @Slf4j
-public class AdminShopController {
+public class AdminShopController2 {
 
     private final AdminShopService adminShopService;
 
