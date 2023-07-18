@@ -10,7 +10,7 @@ import ks47team01.common.dto.UrbanfarmerAddress;
 @Mapper
 public interface UrbanfarmerAddressMapper {
 	
-	public UrbanfarmerAddress addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress);
+	public int addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress);
 	
 	public List<AddressDeliveryRequest> getAddressDeliveryRequestList();
 

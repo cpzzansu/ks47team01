@@ -15,14 +15,32 @@
 	</resultMap>
 	
 	<insert id="addUrbanfarmerAddress" parameterType="UrbanfarmerAddress">
-	INSERT INTO urbanfarmer_address
-		(urbanfarmer_address_code, urbanfarmer_id, urbanfarmer_address_name
-		,urbanfarmer_address, urbanfarmer_address_phone, address_delivery_request_code
-		,address_delivery_request_content, address_delivery_request_etc)
-	VALUES
-		(#{urbanfarmerAddressCode}, #{urbanfarmerId}, #{urbanfarmerAddressName},
-		#{urbanfarmerAdress}, #{urbanfarmerAddressPhone}, #{addressDeliveryRequestCode},
-		#{addressDeliveryRequestContent}, #{addressDeliveryRequestEtc})
+		<selectKey resultType="String" keyColumn="newUrbanfarmerAddressCode" keyProperty="urbanfarmerAddressCode" order="BEFORE">
+			/* 상품 자동 증가 코드 */
+			<![CDATA[
+			SELECT 
+				CASE
+				WHEN COUNT(*) = 0 THEN 'urbanfarmer_address_1'
+				WHEN CAST(SUBSTRING_INDEX(urbanfarmer_address_code,'urbanfarmer_address_',-1) AS UNSIGNED) < 10000
+				THEN CONCAT('urbanfarmer_address_',MAX(CAST(SUBSTRING_INDEX(urbanfarmer_address_code,'urbanfarmer_address_',-1) AS UNSIGNED))+1)
+				ELSE
+					CONCAT('urbanfarmer_address_',MAX(CAST(SUBSTRING_INDEX(urbanfarmer_address_code,'urbanfarmer_address_',-1) AS UNSIGNED))+1)	
+				END AS newUrbanfarmerAddressCode
+			FROM 
+				urbanfarmer_address
+			]]>
+		</selectKey>	
+	
+		/* 주소등록 */
+		INSERT INTO urbanfarmer_address
+			(urbanfarmer_address_code, urbanfarmer_id, urbanfarmer_address_name
+			,urbanfarmer_address, urbanfarmer_address_phone, address_delivery_request_code
+			,address_delivery_request_content, address_delivery_request_etc)
+		VALUES
+			(#{urbanfarmerAddressCode}, #{urbanfarmerId}, #{urbanfarmerAddressName},
+			#{urbanfarmerAddress}, #{urbanfarmerAddressPhone}, #{addressDeliveryRequestCode},
+			#{addressDeliveryRequestContent}, #{addressDeliveryRequestEtc})
+			
 	</insert>
 	
 	<select id="getAddressDeliveryRequestList" resultType="AddressDeliveryRequest">

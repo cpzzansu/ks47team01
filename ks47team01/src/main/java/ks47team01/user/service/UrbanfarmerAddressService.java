@@ -17,11 +17,11 @@ public class UrbanfarmerAddressService {
 	
 	private final UrbanfarmerAddressMapper urbanfarmerAddressMapper;
 	
-	public UrbanfarmerAddress addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress) {
+	public void addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress) {
 		
-		UrbanfarmerAddress urbanfarmerAddressInfo = urbanfarmerAddressMapper.addUrbanfarmerAddress(urbanfarmerAddress);
+		urbanfarmerAddressMapper.addUrbanfarmerAddress(urbanfarmerAddress);
 		
-		return urbanfarmerAddressInfo;
+		
 		
 	}
 	

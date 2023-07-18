@@ -41,7 +41,7 @@
     <section class="ftco-section contact-section bg-light">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
-                <form th:action="@{/Uinsert/userInsertAction}" th:object="${urbanfarmer}" method="post"
+                <form th:action="@{/user/addUserAddr}" th:object="${urbanfarmer}" method="post"
                       class="bg-white p-5 contact-form">
                       
 						<div class="input-group mb-3">
@@ -64,7 +64,8 @@
 						</div>						
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						  	<select id="addressDeliveryRequestContent" name="addressDeliveryRequestContent" class="form-select px-5 py-2">
+						  	<select id="addressDeliveryRequestCode" name="addressDeliveryRequestCode" class="form-select px-5 py-2">
+						  		<option value="">===선택 사항을 골라주세요===</option>
 						  <th:block th:unless="${#lists.isEmpty(addressDeliveryRequestList)}"
 						  			th:each="l : ${addressDeliveryRequestList}">
 						  		<option th:value="${l.addressDeliveryRequestCode}">[[${l.addressDeliveryRequestContent}]]</option>
@@ -75,7 +76,7 @@
 						  </th:block>
 						  	</select>
 						  	<p>
-						  		<label for="addressDeliveryRequestContent">배송지 요청사항</label>	
+						  		<label for="addressDeliveryRequestCode">배송지 요청사항</label>	
 						  	</p>
 						  </div>
 						</div>
@@ -90,7 +91,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>z
     </section>
 </th:block>
 
