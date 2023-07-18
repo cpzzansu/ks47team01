@@ -17,11 +17,11 @@ public class UrbanfarmerAddressService {
 	
 	private final UrbanfarmerAddressMapper urbanfarmerAddressMapper;
 	
-	public UrbanfarmerAddress addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress) {
+	public void addUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress) {
 		
-		UrbanfarmerAddress urbanfarmerAddressInfo = urbanfarmerAddressMapper.addUrbanfarmerAddress(urbanfarmerAddress);
+		urbanfarmerAddressMapper.addUrbanfarmerAddress(urbanfarmerAddress);
 		
-		return urbanfarmerAddressInfo;
+		
 		
 	}
 	
@@ -30,6 +30,14 @@ public class UrbanfarmerAddressService {
 		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressMapper.getAddressDeliveryRequestList();
 		
 		return addressDeliveryRequestList;
+	}
+	
+	public List<UrbanfarmerAddress> getUrbanfarmerAddressListById(String urbanfarmerId) {
+		
+		List<UrbanfarmerAddress> addressList = urbanfarmerAddressMapper.getUrbanfarmerAddressListById(urbanfarmerId);
+		
+		return addressList;
+		
 	}
 
 }

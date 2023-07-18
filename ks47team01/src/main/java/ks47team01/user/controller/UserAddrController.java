@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.AddressDeliveryRequest;
 import ks47team01.common.dto.UrbanfarmerAddress;
 import ks47team01.user.service.UrbanfarmerAddressService;
@@ -27,9 +28,16 @@ public class UserAddrController {
 	 * @return
 	 */
 	@GetMapping("/user/userAddrList")
-	public String userAddrList(Model model) {
+	public String userAddrList(Model model,
+								HttpSession session) {
+		
+		 String urbanfarmerId = (String) session.getAttribute("S_id");
+		
+		List<UrbanfarmerAddress> addressList = urbanfarmerAddressService.getUrbanfarmerAddressListById(urbanfarmerId);
+		
 		
 		model.addAttribute("title", "배송지 목록");
+		model.addAttribute("addressList", addressList);
 		
 		return "user_addr/addr_user_list";
 		
@@ -45,6 +53,8 @@ public class UserAddrController {
 		
 		log.info("addressDeliveryRequestList : {}", addressDeliveryRequestList);
 		
+
+		
 		model.addAttribute("title", "배송지 등록");
 		model.addAttribute("addressDeliveryRequestList", addressDeliveryRequestList);
 		
@@ -54,9 +64,24 @@ public class UserAddrController {
 	}
 	
 	@PostMapping("/user/addUserAddr")
-	public String addAddr(UrbanfarmerAddress urbanfarmerAddress) {
+	public String addAddr(UrbanfarmerAddress urbanfarmerAddress
+						,HttpSession session) {
 		
-		UrbanfarmerAddress addAddress = urbanfarmerAddressService.addUrbanfarmerAddress(urbanfarmerAddress);
+		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressService.getAddressDeliveryRequestList();
+		
+		for(int i = 0; i < addressDeliveryRequestList.size(); i+=1) {
+			
+			
+			if(urbanfarmerAddress.getAddressDeliveryRequestCode().equals(addressDeliveryRequestList.get(i).getAddressDeliveryRequestCode())) {
+				
+				String urbanfarmerId = (String) session.getAttribute("S_id");
+				urbanfarmerAddress.setAddressDeliveryRequestContent(addressDeliveryRequestList.get(i).getAddressDeliveryRequestContent()); 
+				urbanfarmerAddress.setUrbanfarmerId(urbanfarmerId);
+			}
+			
+		}
+
+		urbanfarmerAddressService.addUrbanfarmerAddress(urbanfarmerAddress);
 		
 		return "redirect:/user/userAddrList";
 		
