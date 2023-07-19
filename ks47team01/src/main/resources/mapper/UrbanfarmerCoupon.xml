@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UrbanfarmerCouponMapper">
+	<resultMap type="IssuedCoupon" id="issuedCouponResultMap">
+		<id column="issued_coupon_id" property="issuedCouponId"/>
+		<result column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="coupon_information_code" property="couponInformationCode"/>
+		<result column="writer_id" property="writerId"/>
+		<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
+		<result column="coupon_history_date" property="couponHistoryDate"/>
+		<result column="coupon_history_del_date" property="couponHistoryDelDate"/>
+		<result column="coupon_history_use_check" property="couponHistoryUseCheck"/>
+	</resultMap>
+	
+	<select id="getIssuedCouponInfoById" parameterType="map" resultType="map">
+	/* 쿠폰조회 */
+	SELECT
+		issued_coupon_id as issuedCouponId
+	,	coupon_information_name AS couponInformationName
+	,	coupon_information_discount_rate AS couponInformationDiscountRate
+	,	coupon_information_valid_start_days AS couponInformationValidStartDays
+	,	coupon_information_valid_end_days AS couponInformationValidEndDays
+	,	coupon_information_expire_sort AS couponInformationExpireSort
+	,	coupon_information_valid_days AS couponInformationValidDays
+	,	coupon_history_date as couponHistoryDate
+	,	coupon_history_del_date as couponHistoryDelDate
+	,	coupon_history_use_check as couponHistoryUseCheck
+	FROM
+		coupon_information as ci
+		INNER JOIN
+		issued_coupon as ic
+		ON
+		ci.coupon_information_code = ic.coupon_information_code
+	WHERE
+		urbanfarmer_id = #{urbanfarmerId};
+	
+	</select>
+	
+	<select id="getIssuedCouponInfoByCoupon" resultType="IssuedCoupon">
+	/* 발급코드로 쿠폰정보 확인 */
+	SELECT
+		ic.issued_coupon_id
+	,	ic.urbanfarmer_id
+	,	ic.coupon_information_code
+	,	ic.writer_id
+	,	ic.urbanfarm_hub_code
+	,	ic.coupon_history_date
+	,	ic.coupon_history_del_date
+	,	ic.coupon_history_use_check
+	FROM
+		issued_coupon AS ic
+	WHERE
+		issued_coupon_id = '#{issuedCouponId}';
+	
+	</select>
+	
+	<update id="regiCoupon" parameterType="IssuedCoupon">
+	
+		/* 쿠폰 등록 */
+		UPDATE
+			issued_coupon
+		<trim prefix="SET" prefixOverrides=",">
+			urbanfarmer_id = #{urbanfarmerId}
+		,	coupon_history_date = CURDATE()
+		,	coupon_del_date = #{couponDelDate}
+		</trim>	 
+		WHERE
+			urbanfarmer_address_code = #{urbanfarmerAddressCode};		
+	
+	</update>	
+
+	
+</mapper>

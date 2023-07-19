@@ -86,7 +86,7 @@
 	</logger> 
 	
 	<!-- SQL 결과 조회된 데이터의 table로 표현하여 로그 출력 --> 
-	<logger name="jdbc.resultsettable" level="OFF" additivity="false">
+	<logger name="jdbc.resultsettable" level="INFO" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 

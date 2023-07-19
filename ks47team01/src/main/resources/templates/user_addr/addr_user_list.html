@@ -3,23 +3,29 @@
 	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
 
-	<section class="ftco-section contact-section bg-light">
+	<section class="ftco-section contact-section bg-white" style="--bs-columns: 18;">
 		<div class="container">
-		</div>
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-6 order-md-last d-flex">
-				<form action="<%= request.getContextPath() %>/Mfind/member_find_pw_update_form.urbanfarm_m"
-					method="post" class="bg-white p-5 contact-form">
-					<div class="form-group">
-						<a th:href="@{/user/addUserAddr}" style="color: black;"> 배송지 등록 </a>
+			<div class="col-lx row-lx">
+			<h1 class="text-center"> 배송지 목록 </h1>
+				<th:block th:unless="${#lists.isEmpty(addressList)}"
+								  th:each="l : ${addressList}">
+					<div class="row pt-1 mb-1 border-top">
+						<div th:text="${l.urbanfarmerAddressName}" class="col-1"></div>
+						<div th:text="${l.urbanfarmerAddress}" class="col-2"></div>
+						<div th:text="${l.urbanfarmerAddressPhone}" class="col-2"></div>
+						<div th:text="${l.addressDeliveryRequestContent}" class="col-2"></div>
+						<div th:text="${l.addressDeliveryRequestEtc}" class="col-3"></div>
+						<a th:href="@{/user/updateUserAddr(urbanfarmerAddressCode=${l.urbanfarmerAddressCode})}" style="color: black;" class="col-1 btn btn-info"> 수정 </a>	
+						<a th:href="@{/user/removeUserAddr(urbanfarmerAddressCode=${l.urbanfarmerAddressCode})}" style="color: black;" class="col-1 btn btn-info"> 삭제 </a>														
 					</div>
-					<div class="form-group">
-						<a th:href="@{/user/updateUserAddr}" style="color: black;"> 배송지 수정 </a>
+					
+				</th:block>
+					<div class="row pt-1 mb-1 border-top" th:if="${#lists.isEmpty(addressList)}">
+						<div>등록된 배송지가 없습니다.</div>
 					</div>
-					<div class="form-group">
-						<a th:href="@{/user/removeUserAddr}" style="color: black;"> 배송지 삭제 </a>
-					</div>					
-				</form>
+					<div class="text-right">
+						<a th:href="@{/user/addUserAddr}" style="color: black;" class="btn btn-info py-2 px-4"> 배송지 등록 </a>
+					</div>
 			</div>
 		</div>
 	</section>

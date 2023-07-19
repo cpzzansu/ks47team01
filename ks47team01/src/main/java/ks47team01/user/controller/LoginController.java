@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -55,19 +54,15 @@ public class LoginController {
     	boolean isValid = (boolean) validMap.get("isValid");
     	
     	Urbanfarmer urbanfarmer = urbanfarmerService.getUserInfoById(urbanfarmerId);
-    	String isRemove = urbanfarmer.getUrbanfarmerDropClassification();
     	
-    	if(isValid && isRemove.equals("정상")) {
+    	if(isValid) {
     		Urbanfarmer urbanfarmerInfo = (Urbanfarmer) validMap.get("urbanfarmerInfo");
-    		
     		
     		String urbanfarmerName = urbanfarmerInfo.getUrbanfarmerName();
      		session.setAttribute("S_id", urbanfarmerId);
     		session.setAttribute("S_name", urbanfarmerName);
     		
-    		
     		return "redirect:/index";
-    		
     	} 
     	
     	reAttr.addAttribute("msg", "일치하는 회원의 정보가 없습니다.");

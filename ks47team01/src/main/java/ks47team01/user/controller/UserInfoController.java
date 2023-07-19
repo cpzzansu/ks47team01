@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.Urbanfarmer;
@@ -48,23 +49,28 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/updateUserInfoPwCheck")
-	public String updateUserInfoPw(Model model) {
+	public String updateUserInfoPw(Model model
+								  ,@RequestParam(value = "msg", required = false) String msg) {
 		
 		model.addAttribute("title", "회원정보 비밀번호 확인");
+        
+		if(msg != null) {
+        	model.addAttribute("msg", msg);
+        }
+		
 		
 		return "user_info/update_user_info_pw_check";
 		
 	}
-	/** 회원 탈퇴를 위한 패스워드 입력화면								
+	/** 회원 정보 수정을 위한 패스워드 입력화면								
 	 * 
 	 * @return 회원정보 수정화면으로 리다이렉트
 	 */
 	@PostMapping("/userInfo/updateUserInfoPwCheck")
-	public String postUpdateUserInfoPw(Model model
-									   , @RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
+	public String postUpdateUserInfoPw(@RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
+									   , RedirectAttributes reAttr
 									   , HttpSession session) {
 		String urbanfarmerId = (String) session.getAttribute("S_id");
-		
 		Urbanfarmer urbanfarmerInfo = urbanfarmerService.getUserInfoById(urbanfarmerId);
 		String pwCheck = urbanfarmerInfo.getUrbanfarmerPw();
 		
@@ -74,6 +80,7 @@ public class UserInfoController {
 			
 		}
 		
+		reAttr.addAttribute("msg", "비밀번호가 일치하지 않습니다");
 		
 		return"redirect:/userInfo/updateUserInfoPwCheck";
 		

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UrbanfarmerAddressMapper">
+	<resultMap type="UrbanfarmerAddress" id="urbanfarmerAddressResultMap">
+		<id column="urbanfarmer_address_code" property="urbanfarmerAddressCode"/>
+		<result column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="urbanfarmer_address_name" property="urbanfarmerAddressName"/>
+		<result column="urbanfarmer_address" property="urbanfarmerAddress"/>
+		<result column="urbanfarmer_address_phone" property="urbanfarmerAddressPhone"/>
+		<result column="address_delivery_request_code" property="addressDeliveryRequestCode"/>
+		<result column="address_delivery_request_content" property="addressDeliveryRequestContent"/>
+		<result column="address_delivery_request_etc" property="addressDeliveryRequestEtc"/>
+	</resultMap>
+	
+	<insert id="addUrbanfarmerAddress" parameterType="UrbanfarmerAddress">
+		<selectKey resultType="String" keyColumn="newUrbanfarmerAddressCode" keyProperty="urbanfarmerAddressCode" order="BEFORE">
+			/* 상품 자동 증가 코드 */
+			<![CDATA[
+			SELECT 
+				CASE
+				WHEN COUNT(*) = 0 THEN 'urbanfarmer_address_1'
+				WHEN CAST(SUBSTRING_INDEX(urbanfarmer_address_code,'urbanfarmer_address_',-1) AS UNSIGNED) < 10000
+				THEN CONCAT('urbanfarmer_address_',MAX(CAST(SUBSTRING_INDEX(urbanfarmer_address_code,'urbanfarmer_address_',-1) AS UNSIGNED))+1)
+				ELSE
+					CONCAT('urbanfarmer_address_',MAX(CAST(SUBSTRING_INDEX(urbanfarmer_address_code,'urbanfarmer_address_',-1) AS UNSIGNED))+1)	
+				END AS newUrbanfarmerAddressCode
+			FROM 
+				urbanfarmer_address
+			]]>
+		</selectKey>	
+	
+		/* 주소등록 */
+		INSERT INTO urbanfarmer_address
+			(urbanfarmer_address_code, urbanfarmer_id, urbanfarmer_address_name
+			,urbanfarmer_address, urbanfarmer_address_phone, address_delivery_request_code
+			,address_delivery_request_content, address_delivery_request_etc)
+		VALUES
+			(#{urbanfarmerAddressCode}, #{urbanfarmerId}, #{urbanfarmerAddressName},
+			#{urbanfarmerAddress}, #{urbanfarmerAddressPhone}, #{addressDeliveryRequestCode},
+			#{addressDeliveryRequestContent}, #{addressDeliveryRequestEtc})
+			
+	</insert>
+	
+	<select id="getAddressDeliveryRequestList" resultType="AddressDeliveryRequest">
+	/* 요청사항 */
+	SELECT
+		adr.address_delivery_request_code as addressDeliveryRequestCode
+	,	adr.address_delivery_request_content as addressDeliveryRequestContent
+	FROM
+		address_delivery_request AS adr;
+	
+	</select>
+	
+	<select id="getUrbanfarmerAddressListById" resultType="UrbanfarmerAddress">
+	
+		/* 배송지 목록 회원아이디로 찾기*/
+		SELECT 
+			urbanfarmer_address_code as urbanfarmerAddressCode
+		,	urbanfarmer_id as urbanfarmerId
+		,	urbanfarmer_address_name as urbanfarmerAddressName
+		,	urbanfarmer_address as urbanfarmerAddress
+		,	urbanfarmer_address_phone as urbanfarmerAddressPhone
+		,	address_delivery_request_code as addressDeliveryRequestCode
+		,	address_delivery_request_content as addressDeliveryRequestContent
+		,	address_delivery_request_etc as addressDeliveryRequestEtc
+			
+		FROM 
+			urbanfarmer_address 
+		WHERE
+			urbanfarmer_id = #{urbanfarmerId};	
+	
+	
+	</select>
+	
+	<select id="getUrbanfarmerAddressByCode" resultType="UrbanfarmerAddress">
+	
+		/* 배송지 목록 코드로 찾기 */
+		SELECT 
+			urbanfarmer_address_code as urbanfarmerAddressCode
+		,	urbanfarmer_id as urbanfarmerId
+		,	urbanfarmer_address_name as urbanfarmerAddressName
+		,	urbanfarmer_address as urbanfarmerAddress
+		,	urbanfarmer_address_phone as urbanfarmerAddressPhone
+		,	address_delivery_request_code as addressDeliveryRequestCode
+		,	address_delivery_request_content as addressDeliveryRequestContent
+		,	address_delivery_request_etc as addressDeliveryRequestEtc
+			
+		FROM 
+			urbanfarmer_address 
+		WHERE
+			urbanfarmer_address_code = #{urbanfarmerAddressCode};	
+		
+	
+	</select>
+	
+	<update id="updateUrbanfarmerAddressInfo" parameterType="UrbanfarmerAddress">
+	
+		/* 회원 배송지 수정 */
+		UPDATE
+			urbanfarmer_address
+		<trim prefix="SET" prefixOverrides=",">
+		<if test="urbanfarmerAddressName != null and urbanfarmerAddressName != ''">
+			urbanfarmer_address_name = #{urbanfarmerAddressName}
+		</if>
+		<if test="urbanfarmerAddress != null and urbanfarmerAddress != ''">
+		,	urbanfarmer_address = #{urbanfarmerAddress}
+		</if>
+		<if test="urbanfarmerAddressPhone != null and urbanfarmerAddressPhone != ''">
+		,	urbanfarmer_address_phone = #{urbanfarmerAddressPhone}
+		</if>		
+		<if test="addressDeliveryRequestCode != null and addressDeliveryRequestCode != ''">
+		,	address_delivery_request_code = #{addressDeliveryRequestCode}
+		</if>		
+		<if test="addressDeliveryRequestContent != null and addressDeliveryRequestContent != ''">
+		,	address_delivery_request_content = #{addressDeliveryRequestContent}
+		</if>		
+		<if test="addressDeliveryRequestEtc != null and addressDeliveryRequestEtc != ''">
+		,	address_delivery_request_etc = #{addressDeliveryRequestEtc}
+		</if>	
+		</trim>
+			 
+		WHERE
+			urbanfarmer_address_code = #{urbanfarmerAddressCode};		
+	
+	
+	</update>
+	
+	<delete id="deleteUrbanfarmerAddress">
+	/* 배송지 삭제 */
+	
+	DELETE
+	FROM
+		urbanfarmer_address
+	WHERE
+		urbanfarmer_address_code = #{urbanfarmerAddressCode};
+	
+	</delete>
+	
+	<delete id="deleteForUrbanfarmerAddress">
+	/* 배송지 정보 사용하는 내용 삭제 */
+	
+	DELETE
+	FROM
+		goods_kit_order_shipping
+	WHERE
+		urbanfarmer_address_code = #{urbanfarmerAddressCode}	
+	
+	</delete>
+	
+	
+</mapper>

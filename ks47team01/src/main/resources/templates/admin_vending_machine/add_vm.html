@@ -1,8 +1,104 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{user_layout/default}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/layout/default_admin}">
 <th:block layout:fragment="customContents">
-        <a th:href="@{'/adminVendingMachine/vmMain'}">자판기 관리 메인</a>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="x_title">
+					<h2>
+						자판기 관리 <small> 자판기 등록 </small>
+					</h2>
+					<!-- 
+					<ul class="nav navbar-right panel_toolbox">
+						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						</li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-expanded="false"><i class="fa fa-wrench"></i></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Settings 1</a></li>
+								<li><a href="#">Settings 2</a></li>
+							</ul>
+						</li>
+						<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+					</ul>
+					 -->
+
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					<br />
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12">허브 지역 선택</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<select class="form-control">
+									<option value="">--지역을 선택하세요--</option>
+									<option value="seoul">서울</option>
+									<option value="ggd">경기도</option>
+									<option value="junju">전주</option>
+									<option value="gwangju">광주</option>
+									<option value="busan">부산</option>
+									<option value="jejudo">제주도</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12">동네 허브 선택</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<select class="form-control" disabled>
+									<option value="">--동네를 선택하세요--</option>
+									<option value="sb">성북동</option>
+									<option value="da">돈암동</option>
+									<option value="hh">혜화동</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="vmName">자판기 이름 <span
+									class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<input type="text" id="vmName" required="required"
+									class="form-control col-md-7 col-xs-12">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="vmSpace">허브 자판기 칸 사용 수 <span
+									class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<input type="text" id="vmSpace" name="vmSpace" required="required"
+									class="form-control col-md-7 col-xs-12">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12">허브 자판기 칸 최대 수
+								<span class="required">*</span>
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<input id="vmMax" class="date-picker form-control col-md-7 col-xs-12"
+									required="required" type="text">
+							</div>
+						</div>
+						<div class="ln_solid"></div>
+						<div class="form-group">
+							<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+								<button class="btn btn-primary" type="reset">초기화</button>
+								<button type="submit" class="btn btn-success">확인</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</th:block>
+<th:block layout:fragment="customJs">
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </th:block>
 
 </html>

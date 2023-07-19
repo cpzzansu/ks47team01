@@ -1,9 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default_login}">
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-9 ftco-animate">
+				<form id="removeCropsForm" th:action="@{/userPlan/removeCrops}"
+					method="post">
 
-<h1>remove_crops.html</h1>
+					<h2 class="mb-4 billing-heading">작물 삭제</h2>
 
+					<div class="row align-items-end">
+
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="hidden" name="farmerFarmingPlanCode" th:value="${farmerFarmingPlanCode}"/>
+								<label for="urbanfarmerId">아이디</label> <input
+									th:value="${session.S_id}" id="urbanfarmerId"
+									name="urbanfarmerId" type="text" class="form-control"
+									readonly="readonly">
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="urbanfarmerPw">비밀번호</label> <input
+									id="urbanfarmerPw" name="urbanfarmerPw" type="password"
+									class="form-control" placeholder="비밀번호를 입력해주세요">
+							</div>
+						</div>
+					</div>
+					<div class="mt-4 text-right">
+						<button id="removeCropsBtn" class="btn btn-primary" type="button">작물삭제하기</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</th:block>
+<th:block layout:fragment="customJs">
+<script type="text/javascript" th:inline="javascript">
+	const $removeCropsBtn = document.querySelector('#removeCropsBtn');
+	$removeCropsBtn.addEventListener('click',function(){
+		const $removeCropsForm = document.querySelector('#removeCropsForm');
+		$removeCropsForm.submit();
+	})
+</script>
 </th:block>
 </html>

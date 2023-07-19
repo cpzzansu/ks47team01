@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services mb-md-0 mb-4">
+					<div class="media block-4 services mb-md-0 mb-4 click-to-check">
 						<div>
 							<img id="urbanfarm_production_icons" src="/user/images/nontoxic.png">
 						</div>
@@ -51,6 +51,9 @@
 	<script>
 		$(document).on('click', '.click-to-move', function () {
 			location.href = '/userVendingMachine/vmLocalSelect';
+		});
+		$(document).on('click', '.click-to-check', function () {
+			location.href = '/userVendingMachine/vmSpaceCheck';
 		});
 	</script>
 
