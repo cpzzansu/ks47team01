@@ -47,6 +47,9 @@
             <div id="projectMain" class="col-md-4 js-display-flex-justify-center">
                 <div class="js-project-box"><img class="js-img" src="/user/images/urbanfarm_project.png"> </div>
             </div>
+            <div id="projectMain2" class="col-md-4 js-display-flex-justify-center">
+                <div class="js-project-box"><img class="js-img js-cursor" src="/user/images/admin-urbanfarm.png"> </div>
+            </div>
         </div>
         <div class="js-h-blank-100 js-bottom-line-gray"></div>
         <div>
@@ -115,6 +118,11 @@
         $(document).ready(function(){
             $("#projectMain").click(function(){
                 location.href = '/index';
+            })
+        })
+        $(document).ready(function(){
+            $("#projectMain2").click(function(){
+                location.href = '/admin';
             })
         })
     </script>
