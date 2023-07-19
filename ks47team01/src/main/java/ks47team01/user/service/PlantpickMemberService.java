@@ -54,14 +54,6 @@ public class PlantpickMemberService {
 		paramMap.put("startIndex", startIndex);
 		paramMap.put("rowPerPage", startIndex);
 		
-	
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		return paramMap;

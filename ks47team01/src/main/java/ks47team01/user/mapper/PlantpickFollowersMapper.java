@@ -16,4 +16,7 @@ public interface PlantpickFollowersMapper {
 	 * @return List<CropsName>
 	 */
 	public List<PlantpickFollowers> getPlantpickFollowersList(Map<String,Object>paramMap);
+	
+	public List<PlantpickFollowers> getFollowersId(String urbanfarmerId);
+	
 }
