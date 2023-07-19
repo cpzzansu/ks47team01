@@ -1,10 +1,355 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
 
-</body>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>자가검증 질문</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>자가검증 질문 등록 <small>등록할 질문 정보를 입력하세요.</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" action="/adminSelfVerification/question/listVerificationQuestion" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">작성자 아이디</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" value="admin111" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kitCode">키트코드</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="kitCode" class="form-control col-md-7 col-xs-12" readonly>
+                                </div>
+                                <!-- 키트 선택 모달 트리거 버튼 -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kitChooseModal">
+                                    키트선택
+                                </button>
+                            </div>
+
+
+                            <!-- 키트 선택 모달창 -->
+                            <div class="modal fade" id="kitChooseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">키트 선택</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-4">
+                                                    <select class="form-control">
+                                                        <option>키트 코드</option>
+                                                        <option>키트 이름</option>
+                                                        <option>작물 이름</option>
+                                                    </select>
+                                                </div>
+                                                <div class="">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-primary">검색</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="x_panel">
+                                                        <div class="x_title">
+                                                            <h2>키트목록</h2>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="x_content">
+
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>키트코드</th>
+                                                                    <th>키트이름</th>
+                                                                    <th>작물명</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td class="kitCode">urban_kit_1</td>
+                                                                    <td class="kitName">상추, 초급자 키트</td>
+                                                                    <td class="cropName">상추</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td class="kitCode">urban_kit_2</td>
+                                                                    <td class="kitName">피망, 초급자 키트</td>
+                                                                    <td class="cropName">피망</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td class="kitCode">urban_kit_3</td>
+                                                                    <td class="kitName">쪽파, 초급자 키트</td>
+                                                                    <td class="cropName">쪽파</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" id="kitChooseCloseBtn" data-dismiss="modal">Close</button>
+                                            <button type="button" id="noKitBtn" class="btn btn-warning">키트 선택 안함</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 키트 선택 모달 끝 -->
+
+                            <!-- 작물 이름 input -->
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cropName">작물이름</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="cropName" class="form-control col-md-7 col-xs-12" readonly>
+                                </div>
+                                <!-- 작물 선택 모달 트리거 버튼 -->
+                                <button type="button" class="btn btn-primary" id="cropChooseBtn" data-toggle="modal" data-target="#cropChooseModal">
+                                    작물선택
+                                </button>
+                            </div>
+
+                            <!-- 작물 선택 모달 -->
+                            <div class="modal fade" id="cropChooseModal" tabindex="-1" role="dialog" aria-labelledby="cropChooseModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cropChooseModalLabel">작물 선택</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="col-md-4 col-sm-4">
+                                                    <select class="form-control">
+                                                        <option>작물 코드</option>
+                                                        <option>작물 이름</option>
+                                                    </select>
+                                                </div>
+                                                <div class="">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-primary">검색</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="x_panel">
+                                                        <div class="x_title">
+                                                            <h2>작물 목록</h2>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                        <div class="x_content">
+
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>작물 코드</th>
+                                                                    <th>작물 이름</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td class="kitCode">crops_name_1</td>
+                                                                    <td class="cropName">상추</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success cropSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">2</th>
+                                                                    <td class="kitCode">crops_name_2</td>
+                                                                    <td class="cropName">쪽파</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success cropSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">3</th>
+                                                                    <td class="kitCode">crops_name_3</td>
+                                                                    <td class="cropName">피망</td>
+                                                                    <td class="text-right">
+                                                                        <button type="button" class="btn btn-success cropSelectBtn">선택</button>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" id="cropChooseCloseBtn" data-dismiss="modal">닫기</button>
+                                            <button type="button" id="resetBtn" class="btn btn-warning">입력 취소</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="x_panel">
+                                <div id="questionBody" >
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="2" class="ajs-font-30 questionNum">#<span>1</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right ajs-table-label col-md-3">
+                                                자가검증 항목 내역
+                                            </td>
+                                            <td class="col-md-6">
+                                                <input type="hidden" name="cropsSelfCheckCode">
+                                                <div class="form-group">
+                                                    <input class="form-control" id="selfCheckQuestionContent">
+                                                </div>
+                                            </td>
+                                            <td class="col-md-3">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right ajs-table-label col-md-3">
+                                                자가검증 질문의 순서
+                                            </td>
+                                            <td class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="selfCheckQuestionOrder">
+                                                </div>
+                                            </td>
+                                            <td class="col-md-3">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right ajs-table-label col-md-3">
+                                                자가검증 질문 점수
+                                            </td>
+                                            <td class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="selfCheckQuestionScore">
+                                                </div>
+                                            </td>
+                                            <td class="col-md-3">
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-right">
+                                                <button type="button" class="btn btn-success questionAddBtn">추가</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                    <button class="btn btn-primary" type="reset">다시쓰기</button>
+                                    <button type="submit" class="btn btn-success modifyBtn">등록하기</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
+    <script type="text/javascript">
+        let selectKit;
+        let selectCropName;
+        $('#kitChooseModal .kitSelectBtn').click(function() {
+            selectKit = $(this).closest('tr').find('.kitCode').text();
+            selectCropName = $(this).closest('tr').find('.cropName').text();
+            $('#kitChooseModal').modal('hide');
+        });
+        $('#cropChooseModal .cropSelectBtn').click(function(){
+            selectCropName = $(this).closest('tr').find('.cropName').text();
+            $('#cropChooseModal').modal('hide');
+        });
+        $(document).on('hidden.bs.modal', function(){
+            $('#kitCode').val(selectKit);
+            $('#cropName').val(selectCropName);
+            if(selectKit != null){
+                $('#cropChooseBtn').css('display', 'none');
+            } else {
+                $('#cropChooseBtn').css('display', '');
+            }
+        });
+        $('#noKitBtn').click(function(){
+            selectKit = null;
+            selectCropName = null;
+            $('#kitChooseModal').modal('hide');
+        })
+
+
+        // 질문 추가 버튼 액션
+        $(document).on('click', '.questionAddBtn', function(){
+            const addTb = $('.questionAddBtn').closest('table').clone();
+            addTb.find('input').val('');
+            $('#questionBody').append(addTb);
+            const tds = $(addTb).closest('table').prev('table').find('tr').find('td')
+            tds.last().children('button').removeClass('questionAddBtn').removeClass('btn-success')
+                .addClass('btn-danger').addClass('questionRemoveBtn').text('삭제');
+            let questionNum =  $(addTb).closest('table').prev('table').find('tr').first().find('td').find('span').text();
+            let nextNum = parseInt(questionNum) + 1;
+            console.log(nextNum);
+            $(addTb).closest('table').find('tr').first().find('td').find('span').text(nextNum);
+        })
+
+        // 질문 등록 버튼
+        $(document).on('click', '.modifyBtn', function(){
+            location.href = '/adminSelfVerification/question/listVerificationQuestion';
+        })
+    </script>
+</th:block>
 </html>
+
