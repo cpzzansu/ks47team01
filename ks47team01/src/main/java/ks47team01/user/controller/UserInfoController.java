@@ -49,9 +49,15 @@ public class UserInfoController {
 	 * @return
 	 */
 	@GetMapping("/userInfo/updateUserInfoPwCheck")
-	public String updateUserInfoPw(Model model) {
+	public String updateUserInfoPw(Model model
+								  ,@RequestParam(value = "msg", required = false) String msg) {
 		
 		model.addAttribute("title", "회원정보 비밀번호 확인");
+        
+		if(msg != null) {
+        	model.addAttribute("msg", msg);
+        }
+		
 		
 		return "user_info/update_user_info_pw_check";
 		
@@ -61,8 +67,7 @@ public class UserInfoController {
 	 * @return 회원정보 수정화면으로 리다이렉트
 	 */
 	@PostMapping("/userInfo/updateUserInfoPwCheck")
-	public String postUpdateUserInfoPw(Model model
-									   , @RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
+	public String postUpdateUserInfoPw(@RequestParam(value = "urbanfarmerPw")String urbanfarmerPw
 									   , RedirectAttributes reAttr
 									   , HttpSession session) {
 		String urbanfarmerId = (String) session.getAttribute("S_id");

@@ -6,20 +6,23 @@
 	<section class="ftco-section contact-section bg-white" style="--bs-columns: 18;">
 		<div class="container">
 			<div class="col-lx row-lx">
-			<h1 class="text-center"> 회원 목록 </h1>
+			<h1 class="text-center"> 배송지 목록 </h1>
 				<th:block th:unless="${#lists.isEmpty(addressList)}"
 								  th:each="l : ${addressList}">
-					<div class="row pt-1 mb-1 border-top"> 
-						<div th:text="${l.urbanfarmerId}" class="col-1" ></div>	  
+					<div class="row pt-1 mb-1 border-top">
 						<div th:text="${l.urbanfarmerAddressName}" class="col-1"></div>
 						<div th:text="${l.urbanfarmerAddress}" class="col-2"></div>
 						<div th:text="${l.urbanfarmerAddressPhone}" class="col-2"></div>
 						<div th:text="${l.addressDeliveryRequestContent}" class="col-2"></div>
-						<div th:text="${l.addressDeliveryRequestEtc}" class="col-2"></div>
-						<a th:href="@{/user/updateUserAddr=(urbanfarmerId=${l.urbanfarmerId})}" style="color: black;" class="col-1 btn btn-info"> 수정 </a>	
-						<a th:href="@{/user/removeUserAddr=(urbanfarmerId=${l.urbanfarmerId})}" style="color: black;" class="col-1 btn btn-info"> 삭제 </a>														
+						<div th:text="${l.addressDeliveryRequestEtc}" class="col-3"></div>
+						<a th:href="@{/user/updateUserAddr(urbanfarmerAddressCode=${l.urbanfarmerAddressCode})}" style="color: black;" class="col-1 btn btn-info"> 수정 </a>	
+						<a th:href="@{/user/removeUserAddr(urbanfarmerAddressCode=${l.urbanfarmerAddressCode})}" style="color: black;" class="col-1 btn btn-info"> 삭제 </a>														
 					</div>
+					
 				</th:block>
+					<div class="row pt-1 mb-1 border-top" th:if="${#lists.isEmpty(addressList)}">
+						<div>등록된 배송지가 없습니다.</div>
+					</div>
 					<div class="text-right">
 						<a th:href="@{/user/addUserAddr}" style="color: black;" class="btn btn-info py-2 px-4"> 배송지 등록 </a>
 					</div>

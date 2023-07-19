@@ -1,5 +1,8 @@
 package ks47team01.user.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.IssuedCoupon;
+import ks47team01.user.service.UrbanfarmerCouponService;
 import ks47team01.user.service.UrbanfarmerService;
 import lombok.AllArgsConstructor;
 
@@ -15,16 +19,22 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UserCouponController {
 	
-	private final UrbanfarmerService urbanfarmerService;
+	private final UrbanfarmerCouponService urbanfarmerCouponService;
 	
 	/** 쿠폰 목록 화면
 	 * 
 	 * @return
 	 */
 	@GetMapping("/user/userCoupon")
-	public String userCoupon(Model model) {
+	public String userCoupon(Model model
+							,HttpSession session) {
+		
+		String urbanfarmerId = (String) session.getAttribute("S_id");
+		
+		List<Map<String, Object>> urbanfarmerCouponList = urbanfarmerCouponService.getUrbanfarmerCouponInfoById(urbanfarmerId);
 		
 		model.addAttribute("title", "쿠폰 목록");
+		model.addAttribute("urbanfarmerCouponList", urbanfarmerCouponList);
 		
 		return "user_coupon/coupon_user_list";
 	}
@@ -44,21 +54,9 @@ public class UserCouponController {
 	public String regiUserCouponCheck(Model model, 
 									@RequestParam(value = "issuedCouponId") String issuedCouponId,
 									HttpSession session) {
-		
-		IssuedCoupon issuedCoupon = urbanfarmerService.getCouponInfo(issuedCouponId);
-		
-		if(issuedCoupon != null && issuedCoupon.getUrbanfarmerId() == null) {
-			
-			int number = urbanfarmerService.getCouponInfoValidDays(issuedCoupon.getCouponInformationId());
-			String urbanfarmerId = (String) session.getAttribute("S_id");
-			IssuedCoupon couponUpdate = urbanfarmerService.addUrbanfarmerCoupon(issuedCouponId);
-			couponUpdate.setCouponHistoryDelDate("DATE_ADD(CURDATE(), interval " + number + " DAY)");
-			couponUpdate.setUrbanfarmerId(urbanfarmerId);
-			return "redirect:/user/userCoupon";
-		}
-		
-		return("redirect:/user/regiUserCoupon");
+		return null;
 		
 	}
+		
 	
 }
