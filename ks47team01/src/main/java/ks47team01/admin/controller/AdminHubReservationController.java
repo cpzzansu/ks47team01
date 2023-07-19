@@ -30,7 +30,7 @@ public class AdminHubReservationController {
      * @param model
      * @return admin_hub_reservation/add_hub_reservation
      */
-    @GetMapping("addHubReservation")
+    @GetMapping("/addHubReservation")
     public String moveAddReservationForm(Model model){
 
         model.addAttribute("title", "관리자:수확물 판매 예약 등록");
@@ -43,7 +43,7 @@ public class AdminHubReservationController {
      * @param model
      * @return admin_hub_reservation/modify_hub_reservation
      */
-    @GetMapping("modifyHubReservation")
+    @GetMapping("/modifyHubReservation")
     public String moveModifyReservationForm(Model model){
 
         model.addAttribute("title","관리자:수확물 판매 예약 수정");
@@ -56,7 +56,7 @@ public class AdminHubReservationController {
      * @param model
      * @return
      */
-    @GetMapping("removeHubReservation")
+    @GetMapping("/removeHubReservation")
     public String removeReservation(Model model){
 
         return "admin_hub_reservation/remove_hub_reservation";

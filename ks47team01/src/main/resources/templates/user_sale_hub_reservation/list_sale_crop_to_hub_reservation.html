@@ -2,41 +2,21 @@
 <html layout:decorate="~{user_layout/default}" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeLeaf.org">
 
-<head>
-    <style>
-        .upper-padding-60{
-            padding-top: 60px;
-        }
-        .upper-margin-30{
-            margin-top: 50px;
-        }
-        .div-underline{
-            border-bottom: 1px solid #e5e5e5;
-        }
-        .bottom-padding-40{
-            padding-bottom: 40px;
-        }
-        .ftco-section2 {
-            padding: 1em 0;
-            position: relative;
-        }
-
-    </style>
-
-</head>
 
 <th:block layout:fragment="customContents">
-    <div class="container text-center upper-margin-30">
-        <h1 class="prtendard  text-headline">내 예약 목록</h1>
+    <div class="js-h-blank-50"></div>
+    <div class="container text-center">
+        <h1 class="font-weight-bold">내 예약 목록</h1>
     </div>
+    <div class="js-h-blank-70"></div>
     <section class="ftco-section2 ftco-cart">
         <div class="container justify-content-center">
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8 ftco-animate upper-margin-30">
+                <div class="col-md-8 ftco-animate ">
                     <div class="text-center">
-                        <div class="row click-to-move div-underline">
-                            <div class="col-md-4 prtendard">
+                        <div class="row click-to-move js-under-line js-cursor">
+                            <div class="col-md-4 ">
                                 <h3>피순이</h3>
                                 <p>id001 : 이동훈</p>
                             </div>
@@ -51,27 +31,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 bottom-padding-40"></div>
                 <div class="col-md-2"></div>
-                <div class="col-md-8 ftco-animate upper-margin-30">
+            </div>
+            <div class="js-h-blank-50"></div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 ftco-animate">
                     <div class="text-center">
-                        <div class="row click-to-move div-underline">
-                            <div class="col-md-4 prtendard">
+                        <div class="row click-to-move js-under-line js-cursor">
+                            <div class="col-md-4">
                                 <h3>피순이</h3>
                                 <p>id001 : 이동훈</p>
                             </div>
-                            <div class="col-md-4 prtendard">
+                            <div class="col-md-4">
                                 <p>피망</p>
                                 <p>덕진동 허브</p>
                             </div>
-                            <div class="col-md-4 prtendard">
+                            <div class="col-md-4">
                                 <p>예약 시간: <span id="startDate">2023-07-11</span></p>
                                 <p>승인 상태: 승인완료</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 bottom-padding-40"></div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </section>

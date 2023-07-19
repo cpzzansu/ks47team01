@@ -1,10 +1,111 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>판매 예약 리스트<small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Settings 1</a>
+                                </li>
+                                <li><a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
 
-</body>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>예약코드</th>
+                            <th>농부아이디</th>
+                            <th>예약허브코드</th>
+                            <th>자가검증등급</th>
+                            <th>작물이름</th>
+                            <th>농부계획코드</th>
+                            <th>승인상태</th>
+                            <th>승인허브크루</th>
+                            <th>수취여부</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>farmer_sale_reservation_to_hub_1</td>
+                            <td>id001</td>
+                            <td>urbanfarm_hub_1</td>
+                            <td>farmer_farming_plan_1</td>
+                            <td>self_check_crops_grade_1</td>
+                            <td>상추</td>
+                            <td>farmer_farming_plan_1</td>
+                            <td>승인</td>
+                            <td></td>
+                            <td></td>crew111
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
+    <script type="text/javascript">
+        const $modifyBtns = document.querySelectorAll('.modifyBtn');
+
+        $modifyBtns.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                window.location.href = '/adminSelfVerification/productGrade/modifyVerificationProductGrade'
+            })
+        })
+    </script>
+</th:block>
 </html>
+
+
+

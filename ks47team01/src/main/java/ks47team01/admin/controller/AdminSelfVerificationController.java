@@ -25,11 +25,24 @@ public class AdminSelfVerificationController {
     }
 
     /**
+     * 관리자 - 자가검증 질문 등록 상세 화면 이동
+     * @param model
+     * @return admin_self_verification_question/add_verification_question_detail.html
+     */
+    @GetMapping("/question/addVerificationQuestionDetail")
+    public String moveQuestionDetail(Model model){
+
+        model.addAttribute("title", "상세화면");
+
+        return "admin_self_verification_question/add_verification_question_detail";
+    }
+
+    /**
      * 관리자 - 자가검증 질문 목록 화면 이동
      * @param model title=화면제목
      * @return admin_self_verification_question/list_verification_question
      */
-    @GetMapping("/question/ListVerificationQuestion")
+    @GetMapping("/question/listVerificationQuestion")
     public String moveListQuestion(Model model){
 
         model.addAttribute("title","자가검증 질문 조회");
