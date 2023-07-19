@@ -5,11 +5,21 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
 
 @Mapper
 public interface FarmingPlanMapper {
+	
+	/**
+	 * 사용자별 작물별 계획등록
+	 * @param Map<String, Object> paramMap
+	 * urbanfarmerId, farmerFarmingPlanCode, cropsNameCode, urbanKitCode
+	 */
+	public void addPlan(Map<String, Object> paramMap);
+	
+
 	
 	/**
 	 * 담당하는 계획이 가장 적은 crew한명

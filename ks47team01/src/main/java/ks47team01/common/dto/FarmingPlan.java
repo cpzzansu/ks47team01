@@ -16,5 +16,5 @@ public class FarmingPlan {
 	private String farmerFarmingPlanStartDate;
 	private String farmerFarmingPlanEndDate;
 	private String farmerFarmingPlanStatus;
-	private UrbanKit urbanKit;
+	private String urbanKitName;
 }

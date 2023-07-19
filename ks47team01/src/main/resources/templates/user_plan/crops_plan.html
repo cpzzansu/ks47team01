@@ -5,7 +5,8 @@
 <th:block layout:fragment="customContents">
 	<section class="ftco-section">
 		<h1 th:unless="${farmingPlan.farmerFarmingPlanNickname} == null"
-			th:text="${farmingPlan.farmerFarmingPlanNickname}" class="text-center mb-5"></h1>
+			th:text="${farmingPlan.farmerFarmingPlanNickname}"
+			class="text-center mb-5"></h1>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-9 ftco-animate">
@@ -13,59 +14,78 @@
 						<div class="col-md-12">
 							<div class="form-group">
 								<label for="crops">작물</label>
-								<h2 th:text="${farmingPlan.cropsName}" class="border-top border-bottom"></h2>
+								<h2 th:text="${farmingPlan.cropsName}"
+									class="border-top border-bottom"></h2>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<label for="crops">키트</label>
-								<h2 th:if="${farmingPlan.urbanKitCode}==null" class="border-top border-bottom">등록된 키트가 없습니다</h2>
+								<h2 th:if="${farmingPlan.urbanKitCode}==null"
+									class="border-top border-bottom">등록된 키트가 없습니다</h2>
 								<h2 th:unless="${farmingPlan.urbanKitCode}==null"
-									th:text="${farmingPlan.urbanKitCode}" class="border-top border-bottom"></h2>
+									th:text="${farmingPlan.urbanKitName}"
+									class="border-top border-bottom"></h2>
 							</div>
 						</div>
 					</div>
 					<lable>농사계획</lable>
 					<th:block th:unless="${#lists.isEmpty(farmingPlanLargeCateList)}"
-							  th:each="largeCate : ${farmingPlanLargeCateList}">
-					<div class="row mb-2 border-top">
-						<h2 th:text="${largeCate.farmingPlanLargeCateTitle}" class="col-11"></h2>
-						<div class="col-1 text-center mt-2">
-							<button class="btn btn-primary ion-ios-arrow-down"
-								type="button" data-toggle="collapse"
-								data-target="#multiCollapseExample1" aria-expanded="false"
-								aria-controls="multiCollapseExample1"></button>						
+						th:each="largeCate : ${farmingPlanLargeCateList}">
+						<div class="row mb-2 border-top">
+							<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"
+								class="col-11"></h2>
+							<div class="col-1 text-center mt-2">
+								<button class="btn btn-primary ion-ios-arrow-down" type="button"
+									th:data-target="|#${largeCate.farmingPlanLargeCateCode}|"
+									aria-expanded="true"
+									th:aria-controls="${largeCate.farmingPlanLargeCateCode}"></button>
+							</div>
 						</div>
-					</div>
-					<div>
-						<div class="collapse multi-collapse mb-3"
-							id="multiCollapseExample1">
-							<div class="card card-body">Anim pariatur cliche
-								reprehenderit, enim eiusmod high life accusamus terry richardson
-								ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-								anderson cred nesciunt sapiente ea proident.</div>
-							<div class="card card-body">Anim pariatur cliche
-								reprehenderit, enim eiusmod high life accusamus terry richardson
-								ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes
-								anderson cred nesciunt sapiente ea proident.</div>	
+						<div>
+							<div th:id="${largeCate.farmingPlanLargeCateCode}"
+								class="collapse multi-collapse mb-3">
+								<div class="card card-body">Anim pariatur cliche
+									reprehenderit, enim eiusmod high life accusamus terry
+									richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+									labore wes anderson cred nesciunt sapiente ea proident.</div>
+							</div>
 						</div>
-					</div>
-					<div>테스트입니다</div>
 					</th:block>
-	
+
 					<div class="mt-4 text-right">
 						<a th:href="@{/userPlan/planMain}" class="btn btn-primary"
 							type="submit">목록으로</a>
 					</div>
 					<!-- END -->
-
 				</div>
-
 			</div>
-
-
-
 		</div>
 	</section>
+</th:block>
+<th:block layout:fragment="customJs">
+<script type="text/javascript" th:inline="javascript">
+	$('button').click(function(e){
+		let target = e.currentTarget;
+		console.log(target);
+		
+		$(target).attr("data-toggle","collapse");
+		
+		let request = $.ajax({
+			  url: "script.php",
+			  method: "POST",
+			  data: { id : menuId },
+			  dataType: "html"
+			});
+			 
+		request.done(function( msg ) {
+		  $( "#log" ).html( msg );
+		});
+		 
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});
+	})
+</script>
 </th:block>
 </html>

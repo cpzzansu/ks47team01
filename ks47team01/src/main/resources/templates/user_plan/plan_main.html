@@ -17,7 +17,12 @@
 								<div class="row pt-3 mb-1 border-top">
 									<div class=" col-2">
 										<h2>
-											<a class="text-dark" th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" th:text="${list.cropsName}"></a>
+											<a th:if="${list.farmerFarmingPlanNickname}==null" th:text="${list.cropsName}" 
+											   th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" 
+											     class="text-dark" ></a>
+											<a th:unless="${list.farmerFarmingPlanNickname}==null" th:text="${list.farmerFarmingPlanNickname}" 
+											   th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" 
+											     class="text-dark" ></a>
 										</h2>
 									</div>
 									<div class="col-7">내용</div>

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.CropsGrowingInfo;
+import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
 import ks47team01.user.mapper.CropsGrowingInfoMapper;
@@ -33,20 +34,28 @@ public class FarmingPlanService {
 	 */
 	public void addCrops(String cropsNameCode, String urbanKitCode, String farmerFarmingPlanNickname, HttpSession session) {
 		String urbanfarmerId = (String)session.getAttribute("S_id");
-		String increseCode = farmingPlanMapper.autoIncreaseCode("farmer_farming_plan");
+		String farmerFarmingPlanCode = farmingPlanMapper.autoIncreaseCode("farmer_farming_plan");
 		
-		Map<String, Object> crewMap = farmingPlanMapper.getMinManagementUser();
-		String hubCrewId = (String)crewMap.get("min_crew_id");
-		
+		Map<String, Object> paramMap = farmingPlanMapper.getMinManagementUser();
+		String hubCrewId = (String)paramMap.get("min_crew_id");
 		
 		Map<String, Object> farmingPlanMap = new HashMap();
-		farmingPlanMap.put("farmerFarmingPlanCode", increseCode);
+		farmingPlanMap.put("farmerFarmingPlanCode", farmerFarmingPlanCode);
 		farmingPlanMap.put("urbanfarmerId", urbanfarmerId);
 		farmingPlanMap.put("farmerFarmingPlanNickname", farmerFarmingPlanNickname);
 		farmingPlanMap.put("urbanKitCode", urbanKitCode);
 		farmingPlanMap.put("urbanfarmHubCrewId", hubCrewId);
 		farmingPlanMap.put("cropsNameCode", cropsNameCode);
 		farmingPlanMapper.addCrops(farmingPlanMap);
+		
+		paramMap.clear();
+		
+		paramMap.put("urbanfarmerId", urbanfarmerId);
+		paramMap.put("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		paramMap.put("cropsNameCode", cropsNameCode);
+		paramMap.put("urbanKitCode", urbanKitCode);
+		
+		farmingPlanMapper.addPlan(paramMap);
 		
 	}
 	

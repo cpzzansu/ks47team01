@@ -166,9 +166,11 @@ public class PlanController {
 							Model model){
 		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
 		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
+		
+		System.out.println(farmingPlanLargeCateList+"테스트");
 		model.addAttribute("title", "작물 상세보기");
 		model.addAttribute("farmingPlan", farmingPlan);
-		model.addAttribute("farmingPlanLargeCate", farmingPlanLargeCateList);
+		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
 		return "user_plan/crops_plan";
 	}
 }
