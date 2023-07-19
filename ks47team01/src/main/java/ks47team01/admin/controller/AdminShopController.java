@@ -47,13 +47,22 @@ public class AdminShopController {
         return "admin_shop/admin_shop_label_remove";
     }
 
-    @GetMapping("adminShop/adminShopManage")
-    public String admin_shop_main(Model model) {
+    @ResponseBody
+    @GetMapping("/adminShop/adminShopManageData")
+    public List<GoodsKit> admin_shop_data() {
         Map<String, Object> paramMap = new HashMap<String, Object>();
         List<GoodsKit> goodsKitList = adminShopService.getGoodsKitList(paramMap);
 
+        paramMap.put("data", goodsKitList);
+
+        return goodsKitList;
+    }
+
+    @GetMapping("adminShop/adminShopManage")
+    public String admin_shop_main(Model model) {
+
         model.addAttribute("title", "urbanfarm");
-        model.addAttribute("goodsKitList", goodsKitList);
+
         return "admin_shop/admin_shop_main";
     }
 

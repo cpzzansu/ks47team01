@@ -39,5 +39,37 @@ public class UrbanfarmerAddressService {
 		return addressList;
 		
 	}
+	
+	public UrbanfarmerAddress getUrbanfarmerAddressByCode(String urbanfarmerAddressCode) {
+		
+		UrbanfarmerAddress urbanfarmerAddress = urbanfarmerAddressMapper.getUrbanfarmerAddressByCode(urbanfarmerAddressCode);
+		
+		return urbanfarmerAddress;
+		
+	}
+	
+	public int updateUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress) {
+		
+		int result = urbanfarmerAddressMapper.updateUrbanfarmerAddressInfo(urbanfarmerAddress);
+		
+		return result;
+		
+	}
+
+	public int deleteUrbanfarmerAddress(String urbanfarmerAddressCode) {
+		
+		int result = urbanfarmerAddressMapper.deleteUrbanfarmerAddress(urbanfarmerAddressCode);
+		
+		return result;
+		
+	}
+	
+	public int deleteForUrbanfarmerAddress(String urbanfarmerAddressCode) {
+		
+		int result = urbanfarmerAddressMapper.deleteForUrbanfarmerAddress(urbanfarmerAddressCode);
+	
+		return result;
+	}
 
 }
+

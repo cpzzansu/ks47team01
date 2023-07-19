@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.AddressDeliveryRequest;
@@ -92,9 +93,26 @@ public class UserAddrController {
 	 * @return
 	 */
 	@GetMapping("/user/removeUserAddr")
-	public String removeUserAddr(Model model) {
+	public String removeUserAddr(Model model
+								,@RequestParam(value = "urbanfarmerAddressCode") String urbanfarmerAddressCode) {
 		
-		model.addAttribute("title", "배송지 삭제");
+		UrbanfarmerAddress urbanfarmerAddress = urbanfarmerAddressService.getUrbanfarmerAddressByCode(urbanfarmerAddressCode);
+		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressService.getAddressDeliveryRequestList();
+		
+		model.addAttribute("title", "배송지 수정");
+		model.addAttribute("urbanfarmerAddress", urbanfarmerAddress);
+		model.addAttribute("addressDeliveryRequestList", addressDeliveryRequestList);
+		
+		for(int i = 0; i < addressDeliveryRequestList.size(); i+=1) {
+			
+			
+			if(urbanfarmerAddress.getAddressDeliveryRequestCode().equals(addressDeliveryRequestList.get(i).getAddressDeliveryRequestCode())) {
+				
+				urbanfarmerAddress.setAddressDeliveryRequestContent(addressDeliveryRequestList.get(i).getAddressDeliveryRequestContent());
+				
+			}
+			
+		}
 		
 		return "user_addr/remove_user_addr";
 		
@@ -104,11 +122,49 @@ public class UserAddrController {
 	 * @return
 	 */
 	@GetMapping("/user/updateUserAddr")
-	public String updateUserAddr(Model model) {
+	public String updateUserAddr(Model model
+								,@RequestParam(value = "urbanfarmerAddressCode") String urbanfarmerAddressCode) {
+		
+		UrbanfarmerAddress urbanfarmerAddress = urbanfarmerAddressService.getUrbanfarmerAddressByCode(urbanfarmerAddressCode);
+		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressService.getAddressDeliveryRequestList();
 		
 		model.addAttribute("title", "배송지 수정");
+		model.addAttribute("urbanfarmerAddress", urbanfarmerAddress);
+		model.addAttribute("addressDeliveryRequestList", addressDeliveryRequestList);
+		
+		for(int i = 0; i < addressDeliveryRequestList.size(); i+=1) {
+			
+			
+			if(urbanfarmerAddress.getAddressDeliveryRequestCode().equals(addressDeliveryRequestList.get(i).getAddressDeliveryRequestCode())) {
+				
+				urbanfarmerAddress.setAddressDeliveryRequestContent(addressDeliveryRequestList.get(i).getAddressDeliveryRequestContent());
+				
+			}
+			
+		}
 		
 		return "user_addr/update_user_addr";
+		
+	}
+	
+	@PostMapping("/user/updateUserAddr")
+	public String updateUserAddre(UrbanfarmerAddress urbanfarmerAddress) {
+		
+		urbanfarmerAddressService.updateUrbanfarmerAddress(urbanfarmerAddress);
+		
+		return "redirect:/user/userAddrList";
+		
+	}
+	
+	@PostMapping("/user/removeUserAddr")
+	public String deleteUserAddre(UrbanfarmerAddress urbanfarmerAddress) {
+		
+		String Code = urbanfarmerAddress.getUrbanfarmerAddressCode();
+		
+		urbanfarmerAddressService.deleteForUrbanfarmerAddress(Code);
+		urbanfarmerAddressService.deleteUrbanfarmerAddress(Code);
+		
+		return "redirect:/user/userAddrList";
 		
 	}
 	

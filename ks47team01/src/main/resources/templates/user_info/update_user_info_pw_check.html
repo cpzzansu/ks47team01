@@ -2,9 +2,32 @@
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customJs">
-	<script type="text/javascript">
-	let msg = '[[${msg}]]';
-	if (msg != 'null') alert(msg);
+	<script type="text/javascript" th:inline="javascript">
+		let msg = '[[${msg}]]';
+		if (msg != 'null') alert(msg);
+	
+		const validCheck = element => {
+			let data = $(element).val();
+			let eleId = $(element).attr('id');
+			if (typeof data == 'undefined' || data == null || data == '') {
+				let cate = $(`label[for="${eleId}"]`).text();
+				alert(`${cate} 필수 입력항목입니다.`);
+				$(element).focus();
+				return false;
+			}
+			return true;
+		}
+	
+		$('#updateBtn').click(function (e) {
+			e.preventDefault(); // 요소의 기본 이벤트 동작 방지
+			const validateEle = $('#updaterUserPwCheckForm input');
+			let isSubmit = false;
+			validateEle.each((idx, item) => {
+				isSubmit = validCheck(item);
+				return isSubmit;
+			})
+			if (isSubmit) $('#updaterUserPwCheckForm').submit();
+		});
 	</script>
 </th:block>
 <th:block layout:fragment="customContents">
@@ -12,14 +35,14 @@
 	<section class="ftco-section contact-section bg-light">
 		<div class="row no-gutters slider-text align-items-center justify-content-center">
 			<div class="col-md-6 order-md-last d-flex">
-				<form th:action=@{/userInfo/updateUserInfoPwCheck} method="post"
+				<form th:action=@{/userInfo/updateUserInfoPwCheck} method="post" id="updaterUserPwCheckForm"
 					class="bg-white p-5 contact-form">
 					<div class="form-group">
 						<input type="text" id="urbanfarmerPw" class="form-control" name="urbanfarmerPw"
 							placeholder="비밀번호를 입력하세요.">
 					</div>
 					<div class="form-group" style="text-align:right">
-						<button type="submit" class="btn btn-info py-2 px-4"> 확인 </button>					
+						<button type="button" class="btn btn-info py-2 px-4" id="updateBtn"> 확인 </button>					
 					</div>
 				</form>
 			</div>
