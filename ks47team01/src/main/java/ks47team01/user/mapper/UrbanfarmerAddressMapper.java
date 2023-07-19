@@ -15,5 +15,9 @@ public interface UrbanfarmerAddressMapper {
 	public List<AddressDeliveryRequest> getAddressDeliveryRequestList();
 	
 	public List<UrbanfarmerAddress> getUrbanfarmerAddressListById(String urbanfarmerId);
+	
+	public UrbanfarmerAddress getUrbanfarmerAddressByCode(String urbanfarmerAddressCode);
+	
+	public int updateUrbanfarmerAddressInfo(UrbanfarmerAddress urbanfarmerAddress);
 
 }

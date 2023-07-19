@@ -9,13 +9,13 @@
 		let eleId = $(element).attr('id');
 		if(eleId != $('#addressDeliveryRequestEtc')) {
 				
-		if(typeof data == 'undefined' || data == null || data == '' ){
-				let cate = $(`label[for="${eleId}"]`).text();
-				alert(`[${cate}] 필수 입력항목입니다.`);
-				$(element).focus();
-				return false;
-		}
-		return true;
+			if(typeof data == 'undefined' || data == null || data == '' ){
+					let cate = $(`label[for="${eleId}"]`).text();
+					alert(`[${cate}] 필수 입력항목입니다.`);
+					$(element).focus();
+					return false;
+			}
+			return true;
 				
 		}
 	}

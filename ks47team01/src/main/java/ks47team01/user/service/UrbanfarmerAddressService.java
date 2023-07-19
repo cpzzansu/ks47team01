@@ -39,5 +39,21 @@ public class UrbanfarmerAddressService {
 		return addressList;
 		
 	}
+	
+	public UrbanfarmerAddress getUrbanfarmerAddressByCode(String urbanfarmerAddressCode) {
+		
+		UrbanfarmerAddress urbanfarmerAddress = urbanfarmerAddressMapper.getUrbanfarmerAddressByCode(urbanfarmerAddressCode);
+		
+		return urbanfarmerAddress;
+		
+	}
+	
+	public int updateUrbanfarmerAddress(UrbanfarmerAddress urbanfarmerAddress) {
+		
+		int result = urbanfarmerAddressMapper.updateUrbanfarmerAddressInfo(urbanfarmerAddress);
+		
+		return result;
+		
+	}
 
 }

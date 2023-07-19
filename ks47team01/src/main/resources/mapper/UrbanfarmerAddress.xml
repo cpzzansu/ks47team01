@@ -55,7 +55,7 @@
 	
 	<select id="getUrbanfarmerAddressListById" resultType="UrbanfarmerAddress">
 	
-		/* 배송지 목록 */
+		/* 배송지 목록 회원아이디로 찾기*/
 		SELECT 
 			urbanfarmer_address_code as urbanfarmerAddressCode
 		,	urbanfarmer_id as urbanfarmerId
@@ -74,5 +74,57 @@
 	
 	</select>
 	
+	<select id="getUrbanfarmerAddressByCode" resultType="UrbanfarmerAddress">
+	
+		/* 배송지 목록 코드로 찾기 */
+		SELECT 
+			urbanfarmer_address_code as urbanfarmerAddressCode
+		,	urbanfarmer_id as urbanfarmerId
+		,	urbanfarmer_address_name as urbanfarmerAddressName
+		,	urbanfarmer_address as urbanfarmerAddress
+		,	urbanfarmer_address_phone as urbanfarmerAddressPhone
+		,	address_delivery_request_code as addressDeliveryRequestCode
+		,	address_delivery_request_content as addressDeliveryRequestContent
+		,	address_delivery_request_etc as addressDeliveryRequestEtc
+			
+		FROM 
+			urbanfarmer_address 
+		WHERE
+			urbanfarmer_address_code = #{urbanfarmerAddressCode};	
+		
+	
+	</select>
+	
+	<update id="updateUrbanfarmerAddressInfo" parameterType="UrbanfarmerAddress">
+	
+		/* 회원 배송지 수정 */
+		UPDATE
+			urbanfarmer_address
+		<trim prefix="SET" prefixOverrides=",">
+		<if test="urbanfarmerAddressName != null and urbanfarmerAddressName != ''">
+			urbanfarmer_address_name = #{urbanfarmerAddressName}
+		</if>
+		<if test="urbanfarmerAddress != null and urbanfarmerAddress != ''">
+		,	urbanfarmer_address = #{urbanfarmerAddress}
+		</if>
+		<if test="urbanfarmerAddressPhone != null and urbanfarmerAddressPhone != ''">
+		,	urbanfarmer_address_phone = #{urbanfarmerAddressPhone}
+		</if>		
+		<if test="addressDeliveryRequestCode != null and addressDeliveryRequestCode != ''">
+		,	address_delivery_request_code = #{addressDeliveryRequestCode}
+		</if>		
+		<if test="addressDeliveryRequestContent != null and addressDeliveryRequestContent != ''">
+		,	address_delivery_request_content = #{addressDeliveryRequestContent}
+		</if>		
+		<if test="addressDeliveryRequestEtc != null and addressDeliveryRequestEtc != ''">
+		,	address_delivery_request_etc = #{addressDeliveryRequestEtc}
+		</if>	
+		</trim>
+			 
+		WHERE
+			urbanfarmer_address_code = #{urbanfarmerAddressCode};		
+	
+	
+	</update>
 	
 </mapper>
