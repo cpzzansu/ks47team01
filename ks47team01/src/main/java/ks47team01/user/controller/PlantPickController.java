@@ -5,10 +5,22 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import jakarta.servlet.http.HttpSession;
+
+import ks47team01.user.service.PlantPickFollowersService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 
-@Controller()
+@Controller
+@Slf4j
+@AllArgsConstructor
 public class PlantPickController {
+	
+	private final PlantPickFollowersService plantpickFollowersService;
 
 	/**
 	 * 메인화면								
@@ -82,6 +94,19 @@ public class PlantPickController {
 		return "user_plantpick/follow_list";
 	}
 	
+	@PostMapping("/userPlantPick/followList")
+	public String plantpickFollowListAction(@RequestParam MultipartFile[] uploadfile,
+											@RequestParam String userId,
+											@RequestParam String plantpickYn,
+											HttpSession session) {
+		String urbanfarmerId = (String) session.getAttribute("S_id");
+		
+		plantpickFollowersService.getFollowersList(urbanfarmerId);
+		
+		return null;
+		
+	}
+	
 	/**
 	 * 팔로우 차단 목록 화면								
 	 * @return
@@ -119,7 +144,6 @@ public class PlantPickController {
 		model.addAttribute("title" , "게시물 등록");
 		return "user_plantpick/plantpick_add_post";
 	}
-	
 	
 	
 	
