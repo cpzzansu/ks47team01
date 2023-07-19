@@ -19,5 +19,9 @@ public interface UrbanfarmerAddressMapper {
 	public UrbanfarmerAddress getUrbanfarmerAddressByCode(String urbanfarmerAddressCode);
 	
 	public int updateUrbanfarmerAddressInfo(UrbanfarmerAddress urbanfarmerAddress);
+	
+	public int deleteUrbanfarmerAddress(String urbanfarmerAddressCode);
+	
+	public int deleteForUrbanfarmerAddress(String urbanfarmerAddressCode);
 
 }

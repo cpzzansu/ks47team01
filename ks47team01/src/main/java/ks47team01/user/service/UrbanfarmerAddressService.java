@@ -56,4 +56,20 @@ public class UrbanfarmerAddressService {
 		
 	}
 
+	public int deleteUrbanfarmerAddress(String urbanfarmerAddressCode) {
+		
+		int result = urbanfarmerAddressMapper.deleteUrbanfarmerAddress(urbanfarmerAddressCode);
+		
+		return result;
+		
+	}
+	
+	public int deleteForUrbanfarmerAddress(String urbanfarmerAddressCode) {
+		
+		int result = urbanfarmerAddressMapper.deleteForUrbanfarmerAddress(urbanfarmerAddressCode);
+	
+		return result;
+	}
+
 }
+

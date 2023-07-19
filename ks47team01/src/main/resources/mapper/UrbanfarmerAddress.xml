@@ -127,4 +127,27 @@
 	
 	</update>
 	
+	<delete id="deleteUrbanfarmerAddress">
+	/* 배송지 삭제 */
+	
+	DELETE
+	FROM
+		urbanfarmer_address
+	WHERE
+		urbanfarmer_address_code = #{urbanfarmerAddressCode};
+	
+	</delete>
+	
+	<delete id="deleteForUrbanfarmerAddress">
+	/* 배송지 정보 사용하는 내용 삭제 */
+	
+	DELETE
+	FROM
+		goods_kit_order_shipping
+	WHERE
+		urbanfarmer_address_code = #{urbanfarmerAddressCode}	
+	
+	</delete>
+	
+	
 </mapper>
