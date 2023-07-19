@@ -10,6 +10,7 @@
 		<result column="urbanfarmer_id" property="urbanfarmerId"/>
 		<result column="urbanfarm_hub_crew_id" property="urbanfarmHubCrewId"/>
 		<result column="crops_name_code" property="cropsNameCode"/>
+		<result column="farmer_farming_plan_nickname" property="farmerFarmingPlanNickname"/>
 		<result column="crops_name" property="cropsName"/>
 		<result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
 		<result column="urban_kit_code" property="urbanKitCode"/>
@@ -17,6 +18,42 @@
 		<result column="farmer_farming_plan_start_date" property="farmerFarmingPlanStartDate"/>
 		<result column="farmer_farming_plan_end_date" property="farmerFarmingPlanEndDate"/>
 		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
+		<result column="urban_kit_name" property="urbanKitName"/>
+	</resultMap>
+	
+	<resultMap type="FarmingPlanLargeCate" id="farmingPlanLargeCateResultMap">
+		<id column="farming_plan_large_cate_code" property="farmingPlanLargeCateCode"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="crops_name_code" property="cropsNameCode"/>
+		<result column="crops_name" property="cropsName"/>
+		<result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
+		<result column="farming_plan_large_cate_title" property="farmingPlanLargeCateTitle"/>
+		<result column="farming_plan_large_cate_content" property="farmingPlanLargeCateContent"/>
+		<result column="farming_plan_large_cate_sortation" property="farmingPlanLargeCateSortation"/>
+		<result column="farming_plan_large_cate_reqired_period" property="farmingPlanLargeCateReqiredPeriod"/>
+		<result column="farming_plan_large_cate_reg_date" property="farmingPlanLargeCateRegDate"/>
+		<result column="urban_kit_code" property="urbanKitCode"/>
+	</resultMap>
+	
+	<resultMap type="FarmingDetailPlan" id="farmingDetailPlanResultMap">
+		<id column="farmer_farming_detail_plan_code" property="farmerFarmingDetailPlanCode"/>
+		<result column="urbanfarmer_id" property="urbanfamerId"/>	
+		<result column="farmer_farming_plan_code" property="farmerFarmingPlanCode"/>	
+		<result column="crops_name_code" property="cropsNameCode"/>	
+		<result column="crops_name" property="cropsName"/>	
+		<result column="urban_kit_code" property="urbanKitCode"/>	
+		<result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>	
+		<result column="farming_plan_large_cate_code" property="farmingPlanLargeCateCode"/>	
+		<result column="farming_plan_small_cate_code" property="farmingPlanSmallCateCode"/>	
+		<result column="farmer_farming_detail_plan_title" property="farmerFarmingDetailPlanTitle"/>	
+		<result column="farmer_farming_detail_plan_content" property="farmerFarmingDetailPlanContent"/>	
+		<result column="farmer_farming_detail_plan_sortation" property="farmerFarmingDetailPlanSortation"/>	
+		<result column="farmer_farming_detail_plan_reg_date" property="farmerFarmingDetailPlanRegDate"/>	
+		<result column="farmer_farming_detail_plan_status" property="farmerFarmingDetailPlanStatus"/>
+		
+		<result column="farming_plan_small_cate_title" property="farmerFarmingDetailPlanTitle"/>	
+		<result column="farming_plan_small_cate_content" property="farmerFarmingDetailPlanContent"/>	
+		<result column="farming_plan_small_cate_sortation" property="farmerFarmingDetailPlanSortation"/>	
 	</resultMap>
 	
 	<select id="autoIncreaseCode" resultType="String" parameterType="String">
@@ -31,6 +68,102 @@
 		FROM
 			${tableName}
 		]]>
+	</select>
+	
+	<insert id="addPlan" parameterType="map">
+		/* 사용자별 작물별 계획등록 */
+		<selectKey keyColumn="crops_growing_info_code" keyProperty="cropsGrowingInfoCode" order="BEFORE" resultType="String">
+			SELECT
+				crops_growing_info_code
+			FROM
+				crops_growing_info
+			WHERE
+				crops_name_code = #{cropsNameCode}
+		</selectKey>
+		INSERT INTO farmer_farming_detail_plan
+		(
+			farmer_farming_detail_plan_code, 
+			urbanfarmer_id, 
+			farmer_farming_plan_code, 
+			crops_name_code, 
+			crops_name,
+			<if test="urbanKitCode !=null and urbanKitCode != ''">
+				urban_kit_code,
+			</if>
+			crops_growing_info_code, 
+			farming_plan_large_cate_code, 
+			farming_plan_small_cate_code, 
+			farmer_farming_detail_plan_title, 
+			farmer_farming_detail_plan_content, 
+			farmer_farming_detail_plan_sortation, 
+			farmer_farming_detail_plan_reg_date, 
+			farmer_farming_detail_plan_status
+		)
+		SELECT
+		<![CDATA[
+			CONCAT('farmer_farming_detail_plan_', @increaseCd := @increaseCd +1) AS farmer_farming_detail_plan_code
+			,#{urbanfarmerId} AS urbanfarmer_id
+			,#{farmerFarmingPlanCode} AS farmer_farming_plan_code
+			,crops_name_code
+			,crops_name
+		]]>
+			<if test="urbanKitCode !=null and urbanKitCode != ''">
+			,#{urbanKitCode}
+			</if>
+		<![CDATA[
+			,#{cropsGrowingInfoCode} AS crops_growing_info_code
+			,farming_plan_large_cate_code 
+			,farming_plan_small_cate_code
+			,farming_plan_small_cate_title AS farmer_farming_detail_plan_title
+			,farming_plan_small_cate_content AS farmer_farming_detail_plan_content
+			,farming_plan_small_cate_sortation AS farmer_farming_detail_plan_sortation
+			,NOW()
+			,'실행전'
+		FROM
+			farming_plan_small_cate,
+			(SELECT
+				CASE
+					WHEN COUNT(1) < 1 
+					THEN @increaseCd := 0
+				ELSE	
+					@increaseCd := MAX(CAST(SUBSTRING_INDEX(farmer_farming_detail_plan_code,'_',-1) AS UNSIGNED))
+				END AS increase_code
+			FROM
+				farmer_farming_detail_plan) AS cd
+		WHERE
+			crops_name_code = #{cropsNameCode};
+		]]>
+	</insert>
+	
+	<select id="getFarmingLargeCateByCode" parameterType="String" resultMap="farmingPlanLargeCateResultMap">
+		/* 농사 계획코드별 대분류 가져오기 */
+		SELECT
+			c.farming_plan_large_cate_code,
+			c.farming_plan_large_cate_title,
+			c.farming_plan_large_cate_content
+		FROM
+			farmer_farming_plan AS p
+			INNER JOIN 
+			farming_plan_large_cate AS c
+		USING(crops_name_code)
+		WHERE
+			farmer_farming_plan_code= #{farmerFarmingPlanCode}
+		ORDER BY 
+			c.farming_plan_large_cate_sortation;
+	</select>
+	
+	<select id="getFarmingPlanByCode" parameterType="String" resultMap="farmingPlanResultMap">
+		/* 코드별 작농계획 */
+		SELECT
+			*,
+			c.urban_kit_name
+		FROM
+			farmer_farming_plan AS p
+			INNER JOIN
+			urban_kit AS c
+			ON p.urban_kit_code = c.urban_kit_code
+		WHERE
+			farmer_farming_plan_code = #{farmerFarmingPlanCode};
 	</select>
 	
 	<select id="getMinManagementUser" resultType="map">
@@ -54,6 +187,7 @@
 		SELECT
 			farmer_farming_plan_code,
 			crops_name,
+			farmer_farming_plan_nickname,
 			farmer_farming_plan_status
 		FROM
 			farmer_farming_plan

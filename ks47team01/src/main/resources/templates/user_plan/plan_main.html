@@ -17,13 +17,18 @@
 								<div class="row pt-3 mb-1 border-top">
 									<div class=" col-2">
 										<h2>
-											<a class="text-dark" th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" th:text="${list.cropsName}"></a>
+											<a th:if="${list.farmerFarmingPlanNickname}==null" th:text="${list.cropsName}" 
+											   th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" 
+											     class="text-dark" ></a>
+											<a th:unless="${list.farmerFarmingPlanNickname}==null" th:text="${list.farmerFarmingPlanNickname}" 
+											   th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" 
+											     class="text-dark" ></a>
 										</h2>
 									</div>
 									<div class="col-7">내용</div>
 									<div class="col-3">
 										<a class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a>
-										<a class="btn btn-danger " th:href="@{#}">작물 삭제</a>
+										<a class="btn btn-danger " th:href="@{/userPlan/removeCrops(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}">작물 삭제</a>
 									</div>
 								</div>
 						</th:block>
