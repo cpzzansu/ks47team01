@@ -1,50 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{user_layout/default}">
-<th:block layout:fragment="customContents">
-
-	<body>
-		
-			<div class="col-md-3 left_col plant_pic_sidebar">
-			<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
-				<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
-				<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
-				<li><a th:href="@{/userPlantPick/searchPlantPick}"><img width="30px;" src="/user/images/plant_pic_find.png"></a>검색</li>
-				<li><a th:href="@{/userPlantpick/profile}"><img width="30px;" src="/user/images/plant_pic_compass.png"></a>프로필 </li>
-				<li><a th:href="@{/userPlantPick/addPostPlantPick}"><img width="30px;" src="/user/images/plant_pic_more.png"></a>포스팅</li>
-			</ul>
-		</div>	
-	</body>
-</th:block>
 
 
+
+			<!-- 내용 -->
 	<th:block layout:fragment="customContents">
     <section class="ftco-section contact-section bg-light">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
-                <form th:action="@{/Uinsert/userInsertAction}" th:object="${urbanfarmer}" method="post"
+              
+                <form th:action="@{/#}" th:object="${urbanfarmer}" method="post"
                       class="bg-white p-5 contact-form">
                       
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <label for="userId">
-						    	<a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"></a>
-								<a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a>
-						  &nbsp;
-						    </label>
-				
-				
-						   
+							
+							
+								<div>
+									<form action="/file/upload" method="post" enctype="multipart/form-data">
+						   		<div>
+								    <label for="userId">
+								    	<div><a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"></a></div>
+								    	<div><a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a></div>
+										
+										  &nbsp;
+								    </label>
+						   		</div>
+						   		<br>
+								        <input type="file" name="uploadfile" multiple="multiple"/>
+								      <div>사진과 동영상을 여기에 끌어 넣으세요
+								        <button type="submit">업로드</button>
+								      </div>
+								</div>
+								<div>
+								    <input type="text"  style="border:solid 2px #A5A19A; width:400px; heigh:500px;" class="form-control" id="userId" name="userId" placeholder="문구입력....">
+								
+								</div>
 						    
-						   <header >사진과 동영상을 여기에 끌어 넣으세요.
-							   <body>
-							   		<button onlick="selectImage()">컴퓨터에서 선택</button>
-							   		<br>
-							   		<img id="selectedImage" src="#" alt="선택된 이미지" style="display:none;">
-							   </body>
-							</header>
-						    
-						    <input type="text"  style="border:0 solid black;" class="form-control" id="userId" name="userId" placeholder="문구입력....">
 						  </div> 
 						</div>
 			
@@ -52,7 +45,7 @@
 			
 			
 		    	<div class="input-group mb-3">
-						<label for="emailCheck">게시물 공개 여부</label>
+						<label for="plantpickYn">게시물 공개 여부</label>
 						  <div class="form-floating col-9">
 						    <input type="radio" name="emailCheck" value="y"> 예
 						    <input type="radio" name="emailCheck" value="n"> 아니오
@@ -60,38 +53,43 @@
 						</div>
 				
 					<div class="form-group" style="text-align:right">
-                    		 <a class="btn btn-info py-3 px-5" id="alertInsert">포스팅</a>
+                    		<button class="plantpickBtn">
+                    			<a href:href="@{/userPlantPick/plantPickMain}"   class="btn btn-info py-3 px-5" id="alertInsert">포스팅</a>
+                    		</button>
+                    		 
                     </div>		
-						
-						
 				</form>
+								
+						
+				
 			</div>
 		</div>
 	</section>
 	
 </th:block>
+
 <th:block layout:fragment="customJs">
-<script>
-	function selectImage() {
-  var input = document.createElement('input');
-  input.type = 'file';
-
-  input.onchange = function(e) {
-    var file = e.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function(event) {
-      var img = document.getElementById('selectedImage');
-      img.src = event.target.result;
-      img.style.display = 'block';
-    };
-
-    reader.readAsDataURL(file);
-  };
-
-  input.click();
-}
+<script type="text/javascript" th:inline="javascript">
+	const $plantpickBtn = document.querySelector('#plantpickBtn');
+	let isSubmit = true;
+	$plantpickBtn.addEventListener('click',function(){
+		const $plantpickupload = document.querySelector('#plantpickupload');
+		let value = $plantpickupload.value;
+		if(value == ''){
+			let test = $(`label[for="${$plantpickupload.id}"]`).text();
+			alert(`${test}은 필수 입력항목입니다.`);
+			//$plantpickupload.focus();
+			isSubmit = false;
+		}
+	
+	});
+	
+	
+	
+	
+	
 </script>
+</th:block>
 
 
 </html>

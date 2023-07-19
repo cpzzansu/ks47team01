@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customJs">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</th:block>
+<th:block layout:fragment="customContents">
+
+	<section class="ftco-section contact-section bg-white" style="--bs-columns: 18;">
+		<div class="container">
+			<div class="col-lx row-lx">
+			<h1 class="text-center"> 자판기 목록 </h1>
+				<!-- 
+				<th:block th:unless="${#lists.isEmpty(addressList)}"
+								  th:each="l : ${addressList}">
+					<div class="row pt-1 mb-1 border-top"> 
+						<div th:text="${l.urbanfarmerId}" class="col-1" ></div>	  
+						<div th:text="${l.urbanfarmerAddressName}" class="col-1"></div>
+						<div th:text="${l.urbanfarmerAddress}" class="col-2"></div>
+						<div th:text="${l.urbanfarmerAddressPhone}" class="col-2"></div>
+						<div th:text="${l.addressDeliveryRequestContent}" class="col-2"></div>
+						<div th:text="${l.addressDeliveryRequestEtc}" class="col-2"></div>
+						<a th:href="@{/user/updateUserAddr=(urbanfarmerId=${l.urbanfarmerId})}" style="color: black;" class="col-1 btn btn-info"> 수정 </a>	
+						<a th:href="@{/user/removeUserAddr=(urbanfarmerId=${l.urbanfarmerId})}" style="color: black;" class="col-1 btn btn-info"> 삭제 </a>														
+					</div>
+				</th:block>
+				-->
+					<div class="text-right">
+						<a th:href="@{/adminVendingMachine/vmAdd}" style="color: black;" class="btn btn-info py-2 px-4"> 자판기 추가 </a>
+						<a th:href="@{/adminVendingMachine/vmModify}" style="color: black;" class="btn btn-info py-2 px-4"> 자판기 수정 </a>
+						<a th:href="@{/adminVendingMachine/vmRemove}" style="color: black;" class="btn btn-info py-2 px-4"> 자판기 삭제 </a>
+					</div>
+			</div>
+		</div>
+	</section>
+</th:block>
+<th:block layout:fragment="customJs">
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</th:block>
+</html>
