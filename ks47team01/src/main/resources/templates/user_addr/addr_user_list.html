@@ -18,7 +18,11 @@
 						<a th:href="@{/user/updateUserAddr(urbanfarmerAddressCode=${l.urbanfarmerAddressCode})}" style="color: black;" class="col-1 btn btn-info"> 수정 </a>	
 						<a th:href="@{/user/removeUserAddr(urbanfarmerAddressCode=${l.urbanfarmerAddressCode})}" style="color: black;" class="col-1 btn btn-info"> 삭제 </a>														
 					</div>
+					
 				</th:block>
+					<div class="row pt-1 mb-1 border-top" th:if="${#lists.isEmpty(addressList)}">
+						<div>등록된 배송지가 없습니다.</div>
+					</div>
 					<div class="text-right">
 						<a th:href="@{/user/addUserAddr}" style="color: black;" class="btn btn-info py-2 px-4"> 배송지 등록 </a>
 					</div>
