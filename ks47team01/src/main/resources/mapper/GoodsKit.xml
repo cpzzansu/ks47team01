@@ -11,6 +11,8 @@
 		<result column="goods_kit_title" property="goodsKitTitle"/>
 		<result column="goods_kit_contents" property="goodsKitContents"/>
 		<result column="goods_kit_price" property="goodsKitPrice"/>
+		<result column="goods_kit_pic" property="goodsKitPic"/>
+		<result column="goods_kit_detail" property="goodsKitDetail"/>
 		<result column="goods_kit_delivery_date" property="goodsKitDeliveryDate"/>
 		<result column="goods_kit_reg_date" property="goodsKitRegDate"/>
 	</resultMap>
