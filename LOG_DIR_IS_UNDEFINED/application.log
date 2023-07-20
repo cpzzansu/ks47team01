@@ -152,3 +152,14 @@
 02:48:40.028 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
 02:48:40.028 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
 02:48:40.028 [http-nio-80-exec-1] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+02:57:49.579 [restartedMain] INFO  ks47team01.Ks47team01Application - Starting Ks47team01Application using Java 17.0.6 with PID 89416 (/Users/kimjunsu/ks47team01_2/ks47team01_01/ks47team01/target/classes started by kimjunsu in /Users/kimjunsu/ks47team01_2/ks47team01_01)
+02:57:49.580 [restartedMain] INFO  ks47team01.Ks47team01Application - No active profile set, falling back to 1 default profile: "default"
+02:57:49.680 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+02:57:49.680 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+02:57:49.952 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+02:57:49.958 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
+02:57:50.168 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+02:57:50.199 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 517 ms
+02:57:51.159 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+02:57:51.176 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+02:57:51.183 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 1.789 seconds (process running for 2.029)
