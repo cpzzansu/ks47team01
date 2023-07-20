@@ -78,6 +78,34 @@ public class LoginController {
     	
     	return "redirect:/index";
     }
-    
+
+	@GetMapping("/userLogin/fakeLoginUser")
+	public String fakeLoginUser(HttpSession session){
+
+		session.setAttribute("S_id", "id001");
+
+		return "redirect:/index";
+	}
+	@GetMapping("/adminFakeLogin")
+	public String adminFakeLogin(HttpSession session){
+
+		session.setAttribute("S_id", "admin111");
+
+		return "redirect:/admin";
+	}
+	@GetMapping("/hubCrewFakeLogin")
+	public String hubCrewFakeLogin(HttpSession session){
+
+		session.setAttribute("S_id", "crew111");
+
+		return "redirect:/admin";
+	}
+	@GetMapping("/fakeLogOut")
+	public String logoutAdmin(HttpSession session) {
+
+		session.invalidate();
+
+		return "redirect:/admin";
+	}
 
 }
