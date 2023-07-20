@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.justify-content-center {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+.one-col-center{
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 20px; /* div의 높이를 지정. 이 값은 실제 상황에 맞게 조정 */
+    gap: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.py-1 {
+    padding-bottom: 0.25rem !important;
+    padding-top: 0.25rem !important;
+}
+
+.px-1 {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+}
+
+/* 취소/반품/교환 신청 제출 및 창닫기 버튼 */
+.btn-submit {
+    background: black;
+    border: 1px solid black;
+    color: #fff;
+}.btn-submit:hover {
+     color: #222;
+     background: red;
+     border: 1px solid red;
+ }
+
+.mt-5,
+.my-5 {
+    margin-top: 3rem !important;
+}
+
+.pt-3,
+.py-3 {
+    padding-top: 1rem !important;
+}
+
+.mb-5,
+.my-5 {
+    margin-bottom: 3rem !important;
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.p-md-4 {
+    padding: 1.5rem !important;
+}
+
+.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.cart-total {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px; }
+.cart-total h3 {
+    font-size: 16px;
+    margin-bottom: 20px; }
+.cart-total p {
+    width: 100%;
+    display: block; }
+.cart-total p span {
+    display: block;
+    width: 50%; }
+.cart-total p.total-price span {
+    text-transform: uppercase; }
+.cart-total p.total-price span:last-child {
+    color: #000000;
+    font-weight: 600; }
+.cart-total hr {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cart-detail {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.05); }
+.cart-detail.cart-total {
+    border: 1px solid rgba(0, 0, 0, 0.05); }
+.cart-detail .btn-primary {
+    display: block;
+    width: 100%;
+}
+
+.mb-4,
+.my-4 {
+    margin-bottom: 1.5rem !important; }
+
+.container-popup {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto; }
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px; } }
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px; } }
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px; } }
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px; } }
+
+.col-xl-5 {
+    position: relative;
+    width: 100%;
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    padding-right: 15px;
+    padding-left: 15px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 41.66667%;
+    flex: 0 0 41.66667%;
+    max-width: 41.66667%;
+}
+
+body {
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    background: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #000000; }
+
+

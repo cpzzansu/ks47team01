@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit">
+
+    <title th:text="${title}"></title>
+
+    <!-- Bootstrap -->
+    <link th:href="@{/admin/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link th:href="@{/admin/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{/admin/build/css/custom.min.css}" rel="stylesheet">
+    <link th:href="@{/admin/build/css/urban-admin.css}" rel="stylesheet">
+
+
+</head>
+<body>
+
+        <!-- page content start -->
+        <th:block layout:fragment="customContents"></th:block>
+        <!-- page content end -->
+<!-- jQuery -->
+<script th:src="@{/admin/vendors/jquery/dist/jquery.min.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{/admin/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+
+<!-- Custom Theme Scripts -->
+<script th:src="@{/admin/build/js/custom.min.js}"></script>
+
+<!-- Urban.js -->
+<script th:src="@{/admin/vendors/urbanAdmin/urbanAdmin.js}"></script>
+
+<!-- 페이지마다 작성될 스크립트 공간 정의 -->
+<th:block layout:fragment="customJs"></th:block>
+
+</body>
+</html>
