@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UserVmMapper">
+		<resultMap type="VendingMachineSpaceUse" id="VMSpaceSpaceUseResultMap">
+			<id column="vending_machine_space_use_code" property="vendingMachineSpaceUseCode"/>
+				<result column="urbanfarmer_id" property="urbanfarmerId"/>
+				<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
+				<result column="vending_machine_code" property="vendingMachineCode"/>
+				<result column="vending_machine_name" property="vendingMachineName"/>
+				<result column="vendingMachineSpaceCode" property="vendingMachineSpaceCode"/>
+				<result column="vending_machine_space_number" property="vendingMachineSpaceNumber"/>
+				<result column="crops_name_code" property="cropsNameCode"/>
+				<result column="crops_name" property="cropsName"/>
+				<result column="vending_machine_space_use_content" property="vendingMachineSpaceUseContent"/>				
+				<result column="vending_machine_space_use_image_url" property="vendingMachineSpaceUseImageUrl"/>
+				<result column="vending_machine_space_use_start_date" property="vendingMachineSpaceUseStartDate"/>
+				<result column="vending_machine_space_use_end_date" property="vendingMachineSpaceUseEndDate"/>
+		</resultMap>
+		
+		<select id="" resultMap="">
+		
+		</select>
+</mapper>

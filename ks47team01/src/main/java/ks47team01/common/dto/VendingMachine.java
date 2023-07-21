@@ -5,13 +5,13 @@ import lombok.Data;
 @Data
 public class VendingMachine {
 
-	private String vendingMachineId;
+	private String vendingMachineCode;
 	private String urbanfarmHubCrewId;
-	private String urbanfarmHubId;
+	private String urbanfarmHubCode;
 	private String vendingMachineName;
 	private int vendingMachineSpaceUsing;
 	private int vendingMachineSpaceMax;
-	private String vendingMachineStateId;
+	private String vendingMachineStateCode;
 	private String vendingMachineState;
 	private String vendingMachineRegDate;
 }

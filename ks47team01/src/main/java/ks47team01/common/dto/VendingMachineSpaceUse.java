@@ -3,7 +3,7 @@ package ks47team01.common.dto;
 import lombok.Data;
 
 @Data
-public class vendingMachineSpaceUse {
+public class VendingMachineSpaceUse {
 
 	public String vendingMachineSpaceUseCode;
 	public String urbanfarmerId;
