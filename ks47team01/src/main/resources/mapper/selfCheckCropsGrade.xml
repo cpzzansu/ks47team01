@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.admin.mapper.SelfCheckCropsGradeMapper">
+    <resultMap id="selfCheckCropsGradeResultMap" type="SelfCheckCropsGrade">
+        <id column="self_check_crops_grade_code" property="selfCheckCropsGradeCode"/>
+        <result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+        <result column="product_grade" property="productGrade"/>
+        <result column="product_high_grade" property="productHighGrade"/>
+        <result column="product_low_grade" property="productLowGrade"/>
+        <result column="self_check_crops_grade_reg_date" property="selfCheckCropsGradeRegDate"/>
+    </resultMap>
+
+    <select id="autoIncreaseCode" resultType="String" parameterType="String">
+        /* 자동 증가 컬럼 쿼리 */
+        <![CDATA[
+		SELECT
+			CASE
+				WHEN COUNT(1) < 1
+				THEN '${tableName}_1'
+			ELSE
+				CONCAT('${tableName}_',MAX(CAST(SUBSTRING_INDEX(${tableName}_code,'_',-1) AS UNSIGNED))+1)
+			END AS increase_code
+		FROM
+			${tableName}
+		]]>
+    </select>
+
+    <insert id="addCropsGrade" parameterType="SelfCheckCropsGrade">
+        /* 상품 등급 등록 쿼리 */
+
+        INSERT INTO self_check_crops_grade
+        (self_check_crops_grade_code, urbanfarm_admin_id, product_grade,
+        product_high_grade, product_low_grade, self_check_crops_grade_reg_date)
+        VALUES(#{selfCheckCropsGradeCode}, #{urbanfarmAdminId}, #{productGrade}, #{productHighGrade}, #{productLowGrade}, now());
+
+    </insert>
+</mapper>
