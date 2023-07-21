@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="ks47team01.user.mapper.PlantpickMapper">
+	<resultMap type="UrbanFarmer" id="UrbanFarmerResultMap">
+		<id column="urbanfarmer_id" 				 property="urbanfarmerId"/>
+		<result column="urbanfarmer_pw"	 property="urbanfarmerPw"/>
+		<result column="urbanfarmer_name" 	 property="urbanfarmerName"/>
+		<result column="urbanfarmer_email"				 property="urbanfarmerEmail"/>
+		<result column="urbanfarmer_phone" property="urbanfarmerPhone"/>
+		<result column="urbanfarmer_sms_check" property="urbanfarmerSmsCheck"/>
+		<result column="urbanfarmer_email_check" property="urbanfarmerEmailCheck"/>
+		<result column="urbanfarmer_insert_reg_date" property="urbanfarmerInsertRegDate"/>
+		<result column="urbanfarmer_update_reg_date" property="urbanfarmerUpdateRegDate"/>
+		<result column="urbanfarmer_drop_reg_date" property="urbanfarmerDropRegDate"/>
+		<result column="urbanfarmer_drop_classification" property="urbanfarmerDropClassification"/>
+		
+	</resultMap>
+
+	<select id="plantPickUserInfoById" resultType="UrbanFarmer" parameterType="String">
+			SELECT
+				
+			FROM
+				
+			WHERE
+				
+
+	</select>
+	
+</mapper>
