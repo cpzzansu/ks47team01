@@ -30,11 +30,21 @@
     		$('#addUserBtn').click(function(){
     			const validateEle = $('#addUserForm input');
     			let isSubmit = false;
+    			let $phoneSize = $('#urbanfarmerPhone').size
+    			
     			validateEle.each((idx, item) => {    				
 	    			isSubmit = validCheck(item);
 	    			return isSubmit;
     			})
-    			if(isSubmit) $('#addUserForm').submit();
+    			if($('#urbanfarmerPhone').val().length == 10 && isSubmit == true) {
+    					
+    			$('#updateUserForm').submit();
+    				
+    			} else {
+    				alert('전화번호를 제대로 입력해주세요');
+    			}
+    			
+    				
     		});
     		
     		// 입력 취소 버튼 클릭시 이벤트 처리
@@ -85,7 +95,7 @@
     		const autoHyphen2 = (target) => {
     			 target.value = target.value
     			   .replace(/[^0-9]/g, '')
-    			  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+    			  .replace(/^(\d{0,4})(\d{0,4})$/g, "$1-$2").replace(/(\-{1,2})$/g, "");
     			}
     		
     		
@@ -126,13 +136,16 @@
 						  </div>
 						</div>
 						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerPhone" name="urbanfarmerPhone" placeholder="-는 생략" oninput="autoHyphen2(this)"
-						    maxlength="13">
+						  <div class="form-floating col-11">
+						  	<div class="row pt-1 mb-1">
+						  	<select class="form-control col-2"> <option value="010" disabled="disabled" selected="selected"> 010 </option> </select>
+						    <input type="text" class="form-control col-8" id="urbanfarmerPhone" name="urbanfarmerPhone" placeholder="휴대전화번호를 입력해주세요" oninput="autoHyphen2(this)"
+						    maxlength="9">
+						  	</div>
 						  	<label for="urbanfarmerPhone">휴대번호</label>						    
 						  </div>
 						</div>
-						<div class="input-group mb-3">s
+						<div class="input-group mb-3">
 						  <div>SMS수신동의</div>						    
 						  <div class="form-floating col-9">
 						    <input type="radio" name="urbanfarmerSmsCheck" value="y" checked="checked"> 예

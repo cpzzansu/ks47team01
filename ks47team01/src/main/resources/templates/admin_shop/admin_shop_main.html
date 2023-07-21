@@ -7,61 +7,23 @@
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
+                <br>
                 <div class="x_title">
                     <h2>상점상품관리<small>Shop</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <p class="text-muted font-13 m-b-30">
-                        상점관리메인페이지입니다.
-                    </p>
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap loading-hide"
                                cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th class="admin-check-box-td"><input type="checkbox" class="admin-check-box chb-up"></th>
-                                <th>상품키트코드</th>
-                                <th>관리자 직원 아이디</th>
-                                <th>키트 번호</th>
-                                <th>키트 이름</th>
-                                <th>키트 제목</th>
-                                <th>키트 내용</th>
-                                <th>키트 가격</th>
-                                <th>키트 배송가능일</th>
-                                <th>등록 시간</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr th:each="l : ${goodsKitList}">
-                                <td class="admin-check-box-td"><input type="checkbox" class="admin-check-box chb-down"></td>
-                                <td th:text="${l.goodsKitCode}"></td>
-                                <td th:text="${l.urbanfarmAdminId}"></td>
-                                <td th:text="${l.urbanKitCode}"></td>
-                                <td th:text="${l.urbanKitName}"></td>
-                                <td th:text="${l.goodsKitTitle}"></td>
-                                <td th:text="${l.goodsKitContents}"></td>
-                                <td th:text="${l.goodsKitPrice}"></td>
-                                <td th:text="${l.goodsKitDeliveryDate}"></td>
-                                <td th:text="${l.goodsKitRegDate}"></td>
-                            </tr>
-                        </tbody>
                     </table>
+                    <button type="button" class="btn-outline loading-hide chb-up">전체선택</button>
+                    <button type="button" class="btn-outline loading-hide" id="shop-add">등록</button>
+                    <button type="button" class="btn-outline loading-hide" id="shop-modify">수정</button>
+                    <button type="button" class="btn-outline loading-hide" id="shop-remove">삭제</button>
                 </div>
             </div>
         </div>
@@ -69,16 +31,18 @@
 </th:block>
 
 <th:block layout:fragment="customJs">
-    <script>
-
+    <script th:inline="javascript">
 
         // 오름차, 내림차순 정렬 숫자
-        $(document).ready(function () {
+            let $thead = $('#datatable-responsive thead tr');
+            for(let i = 0; i < 12; i++) {
+                $thead.append('<th></th>');
+            }
             function naturalSort(a, b) {
-                var re = /(\d+)/g;
+                let re = /(\d+)/g;
                 a = String(a).split(re);
                 b = String(b).split(re);
-                var anum, bnum;
+                let anum, bnum;
 
                 while (a.length && b.length) {
                     anum = a.shift();
@@ -103,42 +67,209 @@
                     return naturalSort(a, b) * -1;
                 }
             });
-
             if ($.fn.dataTable.isDataTable('#datatable-responsive')) {
                 $('#datatable-responsive').DataTable().destroy();
             }
 
-            // 로딩중 테이블 표시 X
-            $(document).ready(function() {
-                var table = $('#datatable-responsive').DataTable({
-                    "columnDefs": [
-                        {"type": "natural", "targets": [1, 3]}, // 정렬
-                        {"orderable": false, "targets": 0} // 표시X
-                    ],
-                    "order": [
-                        [1, "asc"]
-                    ]
-                });
-
-                table.on('init.dt', function() {
-                    $('#datatable-responsive').removeClass('loading-hide');
-                });
+            // datatables 정의
+            let table = $('#datatable-responsive').DataTable({
+                ajax: {
+                    url: '/adminShop/adminShopManageData', // 데이터를 가져올 URL
+                    method: 'GET', // 사용할 HTTP 메서드, 예: 'GET' 또는 'POST' data: []
+                    dataSrc: '',
+                },
+                columns: [
+                    { data: 'urbanKitName'},
+                    { data: 'goodsKitCode'},
+                    { data: 'urbanfarmAdminId'},
+                    { data: 'urbanKitCode'},
+                    { data: 'urbanKitName'},
+                    { data: 'goodsKitTitle'},
+                    { data: 'goodsKitContents'},
+                    { data: 'goodsKitPrice'},
+                    { data: 'goodsKitDeliveryDate'},
+                    { data: 'goodsKitRegDate'},
+                    { data: 'goodsKitPic'},
+                    { data: 'goodsKitDetail'}
+                ],
+                columnDefs: [
+                    {type: "natural", "targets": [1, 3]}, // 정렬
+                    {
+                        'targets': 0,
+                        'title': '체크',
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta){
+                            return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${full.goodsKitCode}">`;
+                        }
+                    },
+                    {title: '상품키트코드', targets : 1 },
+                    {title: '관리자 직원 아이디', targets : 2 },
+                    {title: '키트 번호', targets : 3 },
+                    {title: '키트 이름', targets : 4 },
+                    {title: '키트 제목', targets : 5 },
+                    {title: '키트 내용', targets : 6 },
+                    {title: '키트 가격', targets : 7 },
+                    {title: '키트 배송가능일', targets : 8 },
+                    {title: '등록 시간', targets : 9 },
+                    {title: '제품 사진', targets : 10 },
+                    {title: '제품 상세', targets : 11 }
+                ],
+                order: [
+                    [2, "asc"]
+                ],
+                colReorder: true,
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: '복사',
+                        titleAttr: '데이터 복사',
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    },
+                    {
+                        extend: 'csv',
+                        text: 'CSV',
+                        titleAttr: 'CSV로 저장',
+                        bom: true,
+                        charset: 'UTF-8',
+                        customize: function(csv) {
+                            return "\uFEFF" + csv;
+                        },
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: 'EXCEL',
+                        titleAttr: 'EXCEL로 저장',
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        text: 'PDF',
+                        titleAttr: 'PDF로 저장',
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        text: 'PRINT',
+                        titleAttr: '프린트하기',
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    },
+                    {
+                        extend: 'colvis',
+                        text: '행선택정렬',
+                        titleAttr: '행선택정렬',
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    },
+                    {
+                        extend: 'pageLength',
+                        text: '데이터량',
+                        titleAttr: '데이터 갯수',
+                        exportOptions: {
+                            columns: ':not(:first-child)'
+                        }
+                    }
+                ]
             });
-        });
+
+        // 로딩중 테이블 표시 X
+        $('#datatable-responsive').removeClass('loading-hide');
+        $('button').removeClass('loading-hide');
 
         // 체크박스 일괄체크
-        $(".chb-up").click(function () {
-            if ($(".chb-up").is(":checked")) $(".chb-down").prop("checked", true);
-            else $(".chb-down").prop("checked", false);
+        $(".chb-up").on('click', function(){
+            let isChecked = $(".chb-down").first().prop("checked");
+
+            if(isChecked) {
+                $(this).text("전체선택");
+                $(".chb-down").prop("checked", false);
+            } else {
+                $(this).text("선택해제");
+                $(".chb-down").prop("checked", true);
+            }
         });
 
-        jQuery(".chb-down").click(function () {
-            var total = $(".chb-down").length;
-            var checked = $(".chb-down:checked").length;
-
-            if (total != checked) $(".chb-up").prop("checked", false);
-            else $(".chb-up").prop("checked", true);
+        // 체크박스 클릭 시 row details 확장 방지
+        $('#datatable-responsive tbody').on('click', 'input[type="checkbox"]', function(e){
+            e.stopPropagation();
         });
+
+        // 등록버튼 클릭시 팝업
+        $('#shop-add').on('click', function(){
+
+            let width = 1000;
+            let height = 700;
+
+            let left = Math.ceil(( window.screen.width - width )/2);
+            let top = Math.ceil(( window.screen.height - height )/2);
+
+            let windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
+
+            const url = "adminShopAdd";
+
+            window.open(url, "상점상품등록", windowStatus);
+        });
+
+        // 수정버튼 클릭시 팝업
+
+
+        // 삭제하기 클릭시 팝업
+        $('#shop-remove').on('click', function (){
+
+            if(confirm('정말로 삭제하시겠습니까?')) {
+                const checkedEle = $('.chb-down:checked');
+                const codeArr = [];
+
+                checkedEle.each(function(idx, item){
+                    console.log(item.dataset);
+                    const goodsKitCode = item.dataset.goodsKitCode;
+                    codeArr.push(goodsKitCode);
+                });
+
+                $.ajax({
+                    url: "adminShopRemove",
+                    data:JSON.stringify({ checkedData: codeArr }),
+                    type: "POST",
+                    contentType: 'application/json',
+                    success: function(response) {
+                        console.log(codeArr);
+                        alert('삭제되었습니다.');
+
+                        table.ajax.reload();
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            } else {
+                return false;
+            }
+        });
+
+        // 신청하기 버튼
+        // ks47team01\src\main\resources\templates\user_order\order_processing.html
+        if($('.orderProcessingSubmit').length > 0){
+            function orderProcessingSubmit() {
+                alert('신청이 완료되었습니다.');
+                window.close();
+            }
+            $('.orderProcessingSubmit').on('click', orderProcessingSubmit);
+        }
     </script>
 </th:block>
 </html>
