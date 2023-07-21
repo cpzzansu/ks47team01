@@ -155,11 +155,11 @@
 	<select id="getFarmingPlanByCode" parameterType="String" resultMap="farmingPlanResultMap">
 		/* 코드별 작농계획 */
 		SELECT
-			*,
+			p.*,
 			c.urban_kit_name
 		FROM
 			farmer_farming_plan AS p
-			INNER JOIN
+			LEFT JOIN
 			urban_kit AS c
 			ON p.urban_kit_code = c.urban_kit_code
 		WHERE
@@ -185,10 +185,7 @@
 	<select id="getFarmingPlanListById" resultMap="farmingPlanResultMap" parameterType="String">
 		/* 사용자별 계획 리스트 */
 		SELECT
-			farmer_farming_plan_code,
-			crops_name,
-			farmer_farming_plan_nickname,
-			farmer_farming_plan_status
+			*
 		FROM
 			farmer_farming_plan
 		WHERE
