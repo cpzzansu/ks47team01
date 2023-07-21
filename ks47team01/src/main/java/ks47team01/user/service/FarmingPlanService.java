@@ -50,6 +50,7 @@ public class FarmingPlanService {
 		
 		paramMap.clear();
 		
+		//등록 버튼을 누르면 계획 복사해 사용자에게 등록
 		paramMap.put("urbanfarmerId", urbanfarmerId);
 		paramMap.put("farmerFarmingPlanCode", farmerFarmingPlanCode);
 		paramMap.put("cropsNameCode", cropsNameCode);

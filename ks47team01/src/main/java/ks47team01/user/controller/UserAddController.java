@@ -40,6 +40,8 @@ public class UserAddController {
     @PostMapping("/userAdd/userAddForm")
     public String userInsertAction(Urbanfarmer urbanfarmer) {
     	
+    	String phone = "010-" + urbanfarmer.getUrbanfarmerPhone();
+    	urbanfarmer.setUrbanfarmerPhone(phone);
     	
     	urbanfarmerService.addUrbanfarmer(urbanfarmer);
     	
