@@ -5,6 +5,28 @@
 <th:block layout:fragment="customContents">
 	<section>
 		<div class="container">
+			<!-- Modal -->
+			<div class="modal fade" id="staticBackdrop" data-backdrop="static"
+				data-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">작물 별명</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">농사시작</button>
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center">
@@ -12,18 +34,27 @@
 					</div>
 					<div>
 						<th:block th:unless="${#lists.isEmpty(farmingPlanList)}"
-						 th:each="list : ${farmingPlanList}">
+							th:each="list : ${farmingPlanList}">
 							<div class="text-center">
 								<div class="row pt-3 mb-1 border-top">
 									<div class=" col-2">
 										<h2>
-											<a class="text-dark" th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}" th:text="${list.cropsName}"></a>
+											<a th:if="${list.farmerFarmingPlanNickname}==null"
+												th:text="${list.cropsName}"
+												th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+												class="text-dark"></a> <a
+												th:unless="${list.farmerFarmingPlanNickname}==null"
+												th:text="${list.farmerFarmingPlanNickname}"
+												th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+												class="text-dark"></a>
 										</h2>
 									</div>
 									<div class="col-7">내용</div>
 									<div class="col-3">
-										<a class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a>
-										<a class="btn btn-danger " th:href="@{#}">작물 삭제</a>
+										<a id="planStartBtn" class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a> <a
+											class="btn btn-danger "
+											th:href="@{/userPlan/removeCrops(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}">작물
+											삭제</a>
 									</div>
 								</div>
 						</th:block>
@@ -36,5 +67,15 @@
 			</div>
 		</div>
 	</section>
+</th:block>
+<th:block layout:fragment="customJs">
+<script type="text/javascript" th:inline="javascript">
+	const $planStartBtn = document.querySelector('#planStartBtn');
+	$planStartBtn.addEventListener('click',function(){
+		console.log('테스트');
+		$('#staticBackdrop').show();
+	})
+	
+</script>
 </th:block>
 </html>

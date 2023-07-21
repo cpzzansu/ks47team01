@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{user_layout/default}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
 <th:block layout:fragment="customContents">
     <a th:href="@{'/adminVendingMachine/vmAddHub'}">자판기 사용 등록</a>
     <a th:href="@{'/adminVendingMachine/vmModifyHub'}">자판기 사용 수정</a>
@@ -9,4 +10,7 @@
   
 </th:block>
 
+<th:block layout:fragment="customJs">
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</th:block>
 </html>

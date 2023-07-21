@@ -23,6 +23,17 @@
 									</div>
 								</div>
 							</div>
+							
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="farmerFarmingPlanNickname">별명</label>
+									<input id="farmerFarmingPlanNickname" 
+										   name="farmerFarmingPlanNickname"
+										   type="text" class="form-control" 
+										   placeholder="별명을 지어주세요">
+								</div>
+							</div>
+							
 							<div class="col-md-12">
 								<div class="form-group">
 									<label for="urbanKitCode">키트 선택</label>
@@ -36,8 +47,9 @@
 									</div>
 								</div>
 							</div>
+							
 						</div>
-						<div class="mt-4 text-right"><button id="addPlanBtn" class="btn btn-primary" type="button">등록하기</button></div>
+						<div class="mt-4 text-right"><button id="addCropsBtn" class="btn btn-primary" type="button">등록하기</button></div>
 					</form>
 					<!-- END -->
 				</div>
@@ -48,9 +60,9 @@
 </th:block>
 <th:block layout:fragment="customJs">
 <script type="text/javascript" th:inline="javascript">
-	const $addPlanBtn = document.querySelector('#addPlanBtn');
+	const $addCropsBtn = document.querySelector('#addCropsBtn');
 	let isSubmit = true;
-	$addPlanBtn.addEventListener('click',function(){
+	$addCropsBtn.addEventListener('click',function(){
 		const $cropsNameCode = document.querySelector('#cropsNameCode');
 		let value = $cropsNameCode.value;
 		if(value == ''){

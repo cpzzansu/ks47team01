@@ -33,28 +33,30 @@ public class AdminVendingMachineController {
 		model.addAttribute("title","자판기 삭제");
 		return "admin_vending_machine/remove_vm";
 	}
-	// 자판기 사용 메인
+	// 자판기 상태 메인
 	@GetMapping("/adminVendingMachine/vmHubMain")
 	public String adminVmHubMain(Model model) {
-		model.addAttribute("title","자판기 사용 메인");
+		model.addAttribute("title","자판기 상태 메인");
 		return "admin_vending_machine/admin_hub_vm_main";
 	}
-	// 자판기 사용 등록
-	@GetMapping("/adminVendingMachine/vmAddHub")
-	public String adminVmAddHub(Model model) {
-		model.addAttribute("title","자판기 사용 등록");
-		return "admin_vending_machine/add_hub_vm";
-	}
-	// 자판기 사용 수정
+	
+	// 자판기 상태 수정
 	@GetMapping("/adminVendingMachine/vmModifyHub")
 	public String adminVmModifyHub(Model model) {
-		model.addAttribute("title","자판기 사용 수정");
+		model.addAttribute("title","자판기 상태 수정");
 		return "admin_vending_machine/modify_hub_vm";
 	}
-	// 자판기 사용 삭제
+	// 자판기 상태 삭제
 	@GetMapping("/adminVendingMachine/vmRemoveHub")
 	public String adminVmRemoveHub(Model model) {
-		model.addAttribute("title","자판기 사용 삭제");
+		model.addAttribute("title","자판기 상태 삭제");
 		return "admin_vending_machine/remove_hub_vm";
+	}
+	
+	// 자판기 리스트 페이지
+	@GetMapping("/adminVendingMachine/vmList")
+	public String adminVmList(Model model) {
+		model.addAttribute("title","자판기 상태 삭제");
+		return "admin_vending_machine/list_vm";
 	}
 }

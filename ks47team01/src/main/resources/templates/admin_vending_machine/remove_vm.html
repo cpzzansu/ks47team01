@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
 <th:block layout:fragment="customContents">
-
-	<section class="ftco-section contact-section bg-light">
+ <section class="ftco-section contact-section bg-light">
 		<div class="container">
 		</div>
 		<div class="row no-gutters slider-text align-items-center justify-content-center">
 			<div class="col-md-6 order-md-last d-flex">
-				<!--  <form action="<%= request.getContextPath() %>/Mfind/member_find_pw_update_form.urbanfarm_m"
-				
-					method="post" class="bg-white p-5 contact-form">	 -->
+				<form action="<%= request.getContextPath() %>/Mfind/member_find_pw_update_form.urbanfarm_m"
+					method="post" class="bg-white p-5 contact-form">
 					<div class="form-group">
-						<a th:href="@{/admin_vending_machine/remove_vm}"> 자판기 삭제 </a>
-					</div>					
+						E-MAIL<input type="text" id="find_email" class="form-control" name="find_email"
+							placeholder="E-MAIL을 입력하세요.">
+					</div>
+					<div class="form-group" style="text-align:right">
+						<a href="<%= request.getContextPath() %>/Mfind/member_find_id_pw_action.urbanfarm_m"
+							class="btn btn-primary py-3 px-5" id="email-send-btn">승인번호 전송</a>
+					</div>
+					<div class="form-group">
+						승인번호<input type="text" class="form-control" id="verificationCode" name="pw"
+							placeholder="입력받은 승인번호 6자리를 입력하세요.">
+					</div>
+					<div class="form-group" style="text-align:right">
+						<input type="submit" value="확인" class="btn btn-primary py-3 px-5" id="member-id-pw-find-btn"
+							disabled>
+					</div>
 				</form>
 			</div>
 		</div>
 	</section>
+<th:block layout:fragment="customJs">
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </th:block>
-
 </html>
+
+<!-- 이 상태에서 검색하기 버튼 클릭 후 정상 작동되면 레이아웃의 css와 js가 잘 연결된 것이니
+customJS의 스크립트와 customContents의 div 및 button을 삭제해주세요 -->
