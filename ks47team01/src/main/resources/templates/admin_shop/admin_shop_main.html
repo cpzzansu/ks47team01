@@ -79,7 +79,7 @@
                     dataSrc: '',
                 },
                 columns: [
-                    { data: null},
+                    { data: 'urbanKitName'},
                     { data: 'goodsKitCode'},
                     { data: 'urbanfarmAdminId'},
                     { data: 'urbanKitCode'},
@@ -90,8 +90,7 @@
                     { data: 'goodsKitDeliveryDate'},
                     { data: 'goodsKitRegDate'},
                     { data: 'goodsKitPic'},
-                    { data: 'goodsKitDetail'},
-
+                    { data: 'goodsKitDetail'}
                 ],
                 columnDefs: [
                     {type: "natural", "targets": [1, 3]}, // 정렬
@@ -102,7 +101,7 @@
                         'orderable': false,
                         'className': 'dt-body-center',
                         'render': function (data, type, full, meta){
-                            return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${data}">`;
+                            return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${full.goodsKitCode}">`;
                         }
                     },
                     {title: '상품키트코드', targets : 1 },
@@ -187,10 +186,10 @@
                     }
                 ]
             });
-            // 로딩중 테이블 표시 X
-            $('#datatable-responsive').removeClass('loading-hide');
-            $('button').removeClass('loading-hide');
 
+        // 로딩중 테이블 표시 X
+        $('#datatable-responsive').removeClass('loading-hide');
+        $('button').removeClass('loading-hide');
 
         // 체크박스 일괄체크
         $(".chb-up").on('click', function(){
@@ -228,6 +227,7 @@
 
         // 수정버튼 클릭시 팝업
 
+
         // 삭제하기 클릭시 팝업
         $('#shop-remove').on('click', function (){
 
@@ -236,6 +236,7 @@
                 const codeArr = [];
 
                 checkedEle.each(function(idx, item){
+                    console.log(item.dataset);
                     const goodsKitCode = item.dataset.goodsKitCode;
                     codeArr.push(goodsKitCode);
                 });
@@ -258,8 +259,6 @@
             } else {
                 return false;
             }
-
-
         });
 
         // 신청하기 버튼
@@ -269,9 +268,7 @@
                 alert('신청이 완료되었습니다.');
                 window.close();
             }
-
             $('.orderProcessingSubmit').on('click', orderProcessingSubmit);
         }
     </script>
 </th:block>
-</html>
