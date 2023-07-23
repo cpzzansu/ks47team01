@@ -2,6 +2,7 @@ package ks47team01.admin.controller;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.admin.service.AdminSelfCheckCropsGradeService;
+import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @AllArgsConstructor
@@ -122,6 +129,20 @@ public class AdminSelfCheckController {
         model.addAttribute("title","자가검증 상품등급 목록");
 
         return "admin_self_check_product_grade/list_verification_product_grade";
+    }
+
+    /**
+     * 관리자 - DataTables 상품등급 리스트
+     * @return DataTables 상품 등급 객체 리스트
+     */
+    @ResponseBody
+    @GetMapping("/productGrade/dataProductGrade")
+    public List<SelfCheckCropsGrade> adminDataProductGrade() {
+
+        // 상품 목록 객체 호출 후 대입 메서드
+        List<SelfCheckCropsGrade> dataProductGrade = adminSelfCheckCropsGradeService.dataProductGrade();
+
+        return dataProductGrade;
     }
 
     /**

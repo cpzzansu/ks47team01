@@ -3,6 +3,8 @@ package ks47team01.admin.mapper;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface SelfCheckCropsGradeMapper {
 
@@ -21,5 +23,10 @@ public interface SelfCheckCropsGradeMapper {
      */
     public int addCropsGrade(SelfCheckCropsGrade selfCheckCropsGrade);
 
+    /**
+     * 상품 등급 목록 리스트 매퍼 메서드
+     * @return 상품 등급 객체 리스트
+     */
+    public List<SelfCheckCropsGrade> dataProductGrade();
 
 }

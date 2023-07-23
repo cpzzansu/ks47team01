@@ -26,62 +26,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>상품등급</th>
-                                <th>등급최고점수</th>
-                                <th>등급최저점수</th>
-                                <th>등록자아이디</th>
-                                <th>등록일자</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>특급</td>
-                            <td>100</td>
-                            <td>90</td>
-                            <td>admin111</td>
-                            <td>2023. 5. 1 오전 10:30:00</td>
-                            <td>
-                                <button type="button" class="btn btn-warning modifyBtn">수정</button>
-                                <button type="button" class="btn btn-danger removeBtn">삭제</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>상급</td>
-                            <td>90</td>
-                            <td>80</td>
-                            <td>admin111</td>
-                            <td>2023. 5. 1 오전 10:30:00</td>
-                            <td>
-                                <button type="button" class="btn btn-warning modifyBtn">수정</button>
-                                <button type="button" class="btn btn-danger removeBtn">삭제</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>일반</td>
-                            <td>80</td>
-                            <td>70</td>
-                            <td>admin111</td>
-                            <td>2023. 5. 1 오전 10:30:00</td>
-                            <td>
-                                <button type="button" class="btn btn-warning modifyBtn">수정</button>
-                                <button type="button" class="btn btn-danger removeBtn">삭제</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-                <div class="x_content">
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap loding-hide"
-                           cellspacing="0" width="100%">
+                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap loading-hide">
                         <thead>
                         <tr>
                         </tr>
@@ -109,7 +54,7 @@
 
         // 오름차, 내림차순 정렬 숫자
         let $thead = $('#datatable-responsive thead tr');
-        for(let i = 0; i < 12; i++) {
+        for(let i = 0; i < 7; i++) {
             $thead.append('<th></th>');
         }
         function naturalSort(a, b) {
@@ -149,47 +94,38 @@
         // datatables 정의
         let table = $('#datatable-responsive').DataTable({
             ajax: {
-                url: '/adminShop/adminShopManageData', // 데이터를 가져올 URL
+                url: '/adminSelfCheck/productGrade/dataProductGrade', // 데이터를 가져올 URL
                 method: 'GET', // 사용할 HTTP 메서드, 예: 'GET' 또는 'POST' data: []
                 dataSrc: '',
             },
             columns: [
-                { data: 'urbanKitName'},
-                { data: 'goodsKitCode'},
+                { data: null, defaultContent: ""},
+                { data: 'selfCheckCropsGradeCode'},
                 { data: 'urbanfarmAdminId'},
-                { data: 'urbanKitCode'},
-                { data: 'urbanKitName'},
-                { data: 'goodsKitTitle'},
-                { data: 'goodsKitContents'},
-                { data: 'goodsKitPrice'},
-                { data: 'goodsKitDeliveryDate'},
-                { data: 'goodsKitRegDate'},
-                { data: 'goodsKitPic'},
-                { data: 'goodsKitDetail'}
+                { data: 'productGrade'},
+                { data: 'productHighGrade'},
+                { data: 'productLowGrade'},
+                { data: 'selfCheckCropsGradeRegDate'}
             ],
             columnDefs: [
-                {type: "natural", targets: [1, 3]}, // 정렬
+                {type: "natural", targets: [1]}, // 정렬
                 {
                     targets: 0,
                     title: '체크',
+                    data: null,
                     searchable: false,
                     orderable: false,
                     className: 'dt-body-center',
                     render: function (data, type, full, meta){
-                        return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${full.goodsKitCode}">`;
+                        return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${full.selfCheckCropsGradeCode}">`;
                     }
                 },
-                {title: '상품키트코드', targets : 1 },
+                {title: '상품등급코드', targets : 1 },
                 {title: '관리자 직원 아이디', targets : 2 },
-                {title: '키트 번호', targets : 3 },
-                {title: '키트 이름', targets : 4 },
-                {title: '키트 제목', targets : 5 },
-                {title: '키트 내용', targets : 6 },
-                {title: '키트 가격', targets : 7 },
-                {title: '키트 배송가능일', targets : 8 },
-                {title: '등록 시간', targets : 9 },
-                {title: '제품 사진', targets : 10 },
-                {title: '제품 상세', targets : 11 }
+                {title: '상품등급', targets : 3 },
+                {title: '등급최고점수', targets : 4 },
+                {title: '등급최저점수', targets : 5 },
+                {title: '등록일자', targets : 6 }
             ],
             order: [
                 [2, "asc"]

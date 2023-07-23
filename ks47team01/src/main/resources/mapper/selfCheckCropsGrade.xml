@@ -36,4 +36,18 @@
         VALUES(#{selfCheckCropsGradeCode}, #{urbanfarmAdminId}, #{productGrade}, #{productHighGrade}, #{productLowGrade}, now());
 
     </insert>
+
+    <select id="dataProductGrade" resultMap="selfCheckCropsGradeResultMap">
+        /* 상품 등급 목록 쿼리 */
+
+        SELECT
+            self_check_crops_grade_code,
+            urbanfarm_admin_id,
+            product_grade,
+            product_high_grade,
+            product_low_grade,
+            self_check_crops_grade_reg_date
+        FROM
+            self_check_crops_grade;
+    </select>
 </mapper>

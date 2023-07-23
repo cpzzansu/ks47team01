@@ -7,6 +7,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Transactional
 @AllArgsConstructor
 @Log4j2
@@ -30,5 +32,17 @@ public class AdminSelfCheckCropsGradeService {
         // 등록 메서드 호출
         selfCheckCropsGradeMapper.addCropsGrade(selfCheckCropsGrade);
 
+    }
+
+    /**
+     * 관리자 - DataTables data 상품 등급 객체 리스트 호출 메서드
+     * @return 상품 등급 객체 리스트
+     */
+    public List<SelfCheckCropsGrade> dataProductGrade(){
+
+        // 상품 등급 목록 리스트
+        List<SelfCheckCropsGrade> dataProductGrade = selfCheckCropsGradeMapper.dataProductGrade();
+
+        return dataProductGrade;
     }
 }
