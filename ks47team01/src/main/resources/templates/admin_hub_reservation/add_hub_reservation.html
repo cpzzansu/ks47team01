@@ -1,10 +1,149 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
 
-</body>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>수확물 판매 예약</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>판매 예약 등록<small></small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" action="/adminSelfVerification/productGrade/listVerificationProductGrade" data-parsley-validate class="form-horizontal form-label-left">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">관리자 아이디</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminId" required="required" class="form-control col-md-7 col-xs-12"
+                                           value="홍01" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmerId">판매하는 농부 아이디<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmerId" name="product_grade" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_grade">판매 예약하는 허브지점<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="product_grade" name="product_grade" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="high_score" class="control-label col-md-3 col-sm-3 col-xs-12">판매 작물명</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="high_score" class="form-control col-md-7 col-xs-12" type="text" name="high_score">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="low_score" class="control-label col-md-3 col-sm-3 col-xs-12">작물 계획 별칭</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="low_score" class="form-control col-md-7 col-xs-12" type="text" name="low_score">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12">연</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control">
+                                                <option>Choose option</option>
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select>
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12">월</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control">
+                                                <option>Choose option</option>
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select>
+                                        </div>
+                                        <label class="control-label col-md-1 col-sm-1 col-xs-12">일</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control">
+                                                <option>Choose option</option>
+                                                <option>Option one</option>
+                                                <option>Option two</option>
+                                                <option>Option three</option>
+                                                <option>Option four</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">시간</label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="form-control">
+                                    <option>Choose option</option>
+                                    <option>Option one</option>
+                                    <option>Option two</option>
+                                    <option>Option three</option>
+                                    <option>Option three</option>
+                                    <option>Option four</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="form-group">
+                                <div class="ajs-h-blank-20"></div>
+                            </div>
+                            <div>
+
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button class="btn btn-primary" type="button">돌아가기</button>
+                                        <button class="btn btn-primary" type="reset">다시쓰기</button>
+                                        <button type="submit" class="btn btn-success submitBtn">등록하기</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
+
+</th:block>
 </html>
+

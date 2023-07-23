@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
+    <div class="js-h-blank-70"></div>
     <div class="container text-center">
-        <h1 class="prtendard upper-padding-60 text-headline">작물 등급 결과</h1>
+        <h1 class="prtendard upper-padding-60 font-weight-bold">작물 등급 결과</h1>
     </div>
     <section class="ftco-section ftco-cart">
         <div class="container col-md-5">
             <div class="row">
-                <div class="col-md-12 ftco-animate bottom-padding-20 top-padding-10 div-underline">
+                <div class="col-md-12 ftco-animate div-underline">
                     <div class="text-center">
-                        <div class="text-left prtendard text-headline h3 bottom-padding-20" id="cropGrade">여기에 작물 등급을 표시합니다.</div>
+                        <div class="text-left h3" id="cropGrade">여기에 작물 등급을 표시합니다.</div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 top-padding-40">
+            <div class="js-h-blank-100 js-under-line"></div>
+            <div class="js-h-blank-100"></div>
+            <div class="col-md-12">
                 <button class="col-md-12 btn btn-primary py-3 px-4" id="startNew">허브에 수확물 판매 예약하러 가기</button>
             </div>
         </div>

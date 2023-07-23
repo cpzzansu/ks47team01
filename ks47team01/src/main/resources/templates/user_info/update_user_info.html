@@ -30,7 +30,6 @@
     			const validateEle = $('#updateUserForm input');
     			let isSubmit = false;
     			
-    			
     			validateEle.each((idx, item) => {    				
 	    			isSubmit = validCheck(item);
 	    			return isSubmit;
@@ -40,19 +39,14 @@
     			
     			if(isSubmit) {
     				
-    				let error = '전화번호';
 
-    				
-    				if($('#urbanfarmerPhone').val().length == 9) {
-    					
-    					error = null;	
-    				$('#updateUserForm').submit();
-    				
-    				}
-    				
-    				if(error != null) alert(error);
-    					
-    				
+					if($('#urbanfarmerPhone').val().length != 9) {
+						alert('전화번호를 제대로 입력해주세요');
+					} 
+					if($('#urbanfarmerPhone').val().length == 9) {
+    					$('#updateUserForm').submit();
+					} 					
+
     			} 
     				
     		});

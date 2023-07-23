@@ -1,20 +1,31 @@
 .js-h-blank-10{
     height: 10px;
 }
-
 .js-h-blank-20{
     height: 20px;
 }
-
+.js-h-blank-40{
+    height: 40px;
+}
 .js-h-blank-50{
     height: 50px;
 }
 .js-h-blank-70{
     height: 70px;
 }
+.js-h-blank-80{
+    height: 80px;
+}
+.js-h-blank-90{
+    height: 90px;
+}
 .js-h-blank-100{
     height: 100px;
 }
+.js-h-blank-150{
+    height: 150px;
+}
+
 .js-font-color-small-title{
     color: #373737;
 }
@@ -105,8 +116,14 @@
     border-left: rgba(0, 0, 0, 0.6) solid 5px;
     margin-right: 10px;
 }
-.js-w-blank-10{
-    padding-right: 30px;
+.js-w-r-blank-10{
+    padding-right: 10px;
+}
+.js-w-r-blank-30{
+    padding-right: 70px;
+}
+.js-w-l-blank{
+    padding-left: 50px;
 }
 .js-bottom-line-gray{
     border-bottom: rgba(241, 241, 239, 1) solid 1px;
@@ -140,4 +157,7 @@
     font-size: 25px;
     margin-left: 50px;
     margin-right: 50px;
+}
+.js-cursor{
+    cursor: pointer;
 }

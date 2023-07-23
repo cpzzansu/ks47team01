@@ -11,6 +11,9 @@ public class GoodsKit {
     private String goodsKitTitle;
     private String goodsKitContents;
     private int goodsKitPrice;
+    private String goodsKitPic;
+    private String goodsKitDetail;
     private String goodsKitDeliveryDate;
     private String goodsKitRegDate;
+
 }

@@ -16,3 +16,22 @@
 .loading-hide {
     display: none;
 }
+
+.justify-content-center {
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+}
+
+.pop-up-submit-center {
+position: relative;
+left: 70%;
+transform: translate(-50%);
+z-index: 1;
+}
+
+.dt-body-center {
+    text-align: center !important;
+}
+
+
