@@ -40,15 +40,18 @@
     			
     			if(isSubmit) {
     				
+    				let error = '전화번호';
+
     				
-    				
-    				if($('#urbanfarmerPhone').val().length > 7) {
+    				if($('#urbanfarmerPhone').val().length == 9) {
     					
+    					error = null;	
     				$('#updateUserForm').submit();
     				
     				}
     				
-    				alert('전화번호를 제대로 입력해주세요')
+    				if(error != null) alert(error);
+    					
     				
     			} 
     				
