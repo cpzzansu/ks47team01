@@ -148,4 +148,50 @@ body {
     font-weight: 400;
     color: #000000; }
 
+/* input type="number"인 태그 숫자조절 버튼 안나오게 */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox  */
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+/* 팝업 제출창 가운데정렬 */
+.pop-up-submit-center {
+    left: 533px;
+}
+
+/* 파일 업로드 */
+.filebox .upload-name {
+    display: inline-block;
+    height: 34px;
+    padding: 6px 12px;
+    vertical-align: middle;
+    line-height: 1.42857143;
+    border: 1px solid #ccc;
+    width: 88%;
+    font-size: 14px;
+    color: #555;
+}
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.file-up-popup {
+    margin-left: 3px;
+    padding: 4px;
+    border: solid 2px black;
+    font-size: 12px;
+}
+
+
 
