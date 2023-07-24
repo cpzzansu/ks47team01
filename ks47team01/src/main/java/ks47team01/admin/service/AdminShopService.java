@@ -1,6 +1,6 @@
 package ks47team01.admin.service;
 
-import ks47team01.admin.mapper.AdminMapper;
+import ks47team01.admin.mapper.UrbanfarmAdminMapper;
 import ks47team01.admin.mapper.AdminShopMapper;
 import ks47team01.common.dto.GoodsKit;
 import lombok.AllArgsConstructor;

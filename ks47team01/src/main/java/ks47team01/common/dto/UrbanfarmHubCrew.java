@@ -3,7 +3,7 @@ package ks47team01.common.dto;
 import lombok.Data;
 
 @Data
-public class UrbanfarmerHubCrew {
+public class UrbanfarmHubCrew {
 	
 	private String urbanfarmHubCrewId;
 	private String urbanfarmerHubId;
