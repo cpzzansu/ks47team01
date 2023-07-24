@@ -16,7 +16,5 @@
 				<result column="vending_machine_space_reg_date" property="vendingMachineSpaceRegDate"/>
 		</resultMap>
 
-		<select id="" resultMap="">
-		
-		</select>
+
 </mapper>

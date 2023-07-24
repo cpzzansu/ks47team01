@@ -3,14 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ks47team01.user.mapper.UserVmMapper">
-		<resultMap type="VendingMachineState" id="VMStateResultMap">
+		<resultMap type="VendingMachineState" id="vmStateResultMap">
 			<id column="vending_machine_space_state_code" property="vendingMachineStateCode"/>
-				<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
-				<result column="vending_machine_state" property="vendingMachineState"/>
-				<result column="vending_machine_state_reg_date" property="vendingMachineStateRegDate"/>
+			<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+			<result column="vending_machine_state" property="vendingMachineState"/>
+			<result column="vending_machine_state_reg_date" property="vendingMachineStateRegDate"/>
 		</resultMap>
 		
-		<select id="" resultMap="">
-		
-		</select>
+
 </mapper>

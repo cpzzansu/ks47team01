@@ -161,3 +161,9 @@
 .js-cursor{
     cursor: pointer;
 }
+.daya-img-icon{
+	position: relative;
+    height: 80px;
+    margin-left: 22px;
+    margin-bottom: 20px;
+}

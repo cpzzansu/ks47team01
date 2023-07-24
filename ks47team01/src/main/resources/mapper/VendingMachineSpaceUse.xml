@@ -19,7 +19,5 @@
 				<result column="vending_machine_space_use_end_date" property="vendingMachineSpaceUseEndDate"/>
 		</resultMap>
 		
-		<select id="" resultMap="">
-		
-		</select>
+
 </mapper>
