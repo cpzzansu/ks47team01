@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="ks47team01.admin.mapper.UrbanfarmHubcrewMapper">
+<mapper namespace="ks47team01.admin.mapper.UrbanfarmHubCrewMapper">
 	<resultMap type="UrbanfarmHubCrew" id="urbanfarmHubCrewResultMap">
 		<id column="urbanfarm_hub_crew_id" property="urbanfarmHubCrewId"/>
 		<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
@@ -15,6 +15,25 @@
 		<result column="urbanfarm_hub_crew_email" property="urbanfarmHubCrewEmail"/>
 		<result column="urbanfarm_hub_crew_reg_date" property="urbanfarmHubCrewRegDate"/>
 	</resultMap>
+	
+	<select id="getHubCrewInfoById" parameterType="UrbanfarmHubCrew">
+	
+		SELECT
+			urbanfarm_hub_crew_id as urbanfarmHubCrewId
+		,	urbanfarm_hub_code as urbanfarmHubCode
+		,	urbanfarm_hub_crew_pw as urbanfarmHubCrewPw
+		,	urbanfarm_hub_crew_name as urbanfarmHubCrewName
+		,	staff_table_type as staffTableType
+		,	urbanfarm_hub_crew_position as urbanfarmHubCrewPosition
+		,	urbanfarm_hub_crew_phone as urbanfarmHubCrewPhone
+		,	urbanfarm_hub_crew_email as urbanfarmHubCrewEmail
+		,	urbanfarm_hub_crew_reg_date as urbanfarmHubCrewRegDate
+		FROM
+			urbanfarm_hub_crew 
+		WHERE
+			urbanfarm_hub_crew_id = #{urbanfarmHubCrewId}	
+	
+	</select>
 	
 	
 </mapper>

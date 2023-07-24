@@ -16,19 +16,19 @@ public class UrbanfarmAdminService {
 	
 	private final UrbanfarmAdminMapper urbanfarmAdminMapper;
 	
-	public Map<String, Object> isValidUser(String urbanfarmerId, String urbanfarmerPw) {
+	public Map<String, Object> isValidUser(String urbanfarmerAdminId, String urbanfarmAdminPw) {
 		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 
 		boolean isValid = false;
 		
-		UrbanfarmAdmin urbanfarmAdmin = urbanfarmAdminMapper.getUrbanfarmAdminInfoById(urbanfarmerPw);
+		UrbanfarmAdmin urbanfarmAdmin = urbanfarmAdminMapper.getUrbanfarmAdminInfoById(urbanfarmerAdminId);
 		
 		if(urbanfarmAdmin != null) {
 			
 			String pwCheck = urbanfarmAdmin.getUrbanfarmAdminPw();
 			
-			if(pwCheck.equals(urbanfarmerPw)) {
+			if(pwCheck.equals(urbanfarmAdminPw)) {
 				
 				isValid = true;
 				resultMap.put("urbanfarmAdminInfo", urbanfarmAdmin);
@@ -41,6 +41,13 @@ public class UrbanfarmAdminService {
 		
 		return resultMap;
 		
+	}
+	
+	public int addUrbanfarmAdmin(UrbanfarmAdmin urbanfarmAdmin) {
+		
+		int result = urbanfarmAdminMapper.addUrbanfarmAdmin(urbanfarmAdmin);
+		
+		return result;
 	}
 	
 }

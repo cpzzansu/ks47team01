@@ -8,5 +8,8 @@ import ks47team01.common.dto.UrbanfarmAdmin;
 public interface UrbanfarmAdminMapper {
 	
 	public UrbanfarmAdmin getUrbanfarmAdminInfoById(String urbanfarmAdminId);
+	
+	public int addUrbanfarmAdmin(UrbanfarmAdmin urbanfarmAdmin); 
+	
 
 }

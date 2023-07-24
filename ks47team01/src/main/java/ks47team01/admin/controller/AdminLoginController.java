@@ -12,8 +12,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import ks47team01.admin.service.UrbanfarmAdminService;
-import ks47team01.admin.service.UrbanfarmHubcrewService;
+import ks47team01.admin.service.UrbanfarmHubCrewService;
 import ks47team01.common.dto.UrbanfarmAdmin;
+import ks47team01.common.dto.UrbanfarmHubCrew;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AdminLoginController {
 	
 	private final UrbanfarmAdminService urbanfarmAdminService;
-	private final UrbanfarmHubcrewService urbanfarmHubcrewService;
+	private final UrbanfarmHubCrewService urbanfarmHubCrewService;
 	
 	
 	@GetMapping("/adminLogin/adminLogin")
@@ -48,15 +49,41 @@ public class AdminLoginController {
 		if(isValid) {
 			
 			UrbanfarmAdmin urbanfarmAdminInfo = (UrbanfarmAdmin) validMap.get("urbanfarmAdminInfo");
-			String adminName = urbanfarmAdminInfo.getUrbanfarmAdminName();
 			session.setAttribute("UA_id",urbanfarmAdminId);
-			session.setAttribute("UA_name", adminName);
+			session.setAttribute("UA_name", urbanfarmAdminInfo.getUrbanfarmAdminName());
 			
 			return "redirect:/admin";
 		}
 		
 		
 		return "redirect:/adminLogin/adminLogin";
+		
+	}
+	
+	@PostMapping("/adminLogin/hubcrewLogin")
+	public String loginHubCrew(@RequestParam(value = "urbanfarmHubCrewId") String urbanfarmHubCrewId,
+			  				   @RequestParam(value = "urbanfarmHubCrewPw") String urbanfarmHubCrewPw,
+			  				   HttpServletRequest request,
+			  				   HttpServletResponse response,
+			  				   HttpSession session,
+			  				   RedirectAttributes reAttr) {
+		
+		Map<String, Object> validMap = urbanfarmHubCrewService.isValidUser(urbanfarmHubCrewId, urbanfarmHubCrewPw);
+		
+		boolean isValid = (boolean) validMap.get("isValid");
+		
+		if(isValid) {
+			
+			UrbanfarmHubCrew hubCrewInfo = (UrbanfarmHubCrew) validMap.get("hubCrewInfo");
+			session.setAttribute("HC_id", hubCrewInfo.getUrbanfarmHubCrewId());
+			session.setAttribute("HC_name", hubCrewInfo.getUrbanfarmHubCrewName());
+			
+			return "redirect:/admin";
+			
+		}
+		
+		
+		return "redirect:/adminLogin/hubcrewLogin";
 		
 	}
 	

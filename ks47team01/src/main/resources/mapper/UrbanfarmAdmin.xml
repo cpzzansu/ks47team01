@@ -15,7 +15,7 @@
 	</resultMap>
 
 	<select id="getUrbanfarmAdminInfoById" parameterType="UrbanfarmAdmin">
-	
+		/* 어드민 아이디로 체크 */
 		SELECT
 			urbanfarm_admin_id as urbanfarmAdminId
 		,	urbanfarm_admin_pw as urbanfarmAdminPw
@@ -30,6 +30,20 @@
 			urbanfarm_admin_id = #{urbanfarmAdminId};
 		
 	</select>
+	
+	<insert id="addUrbanfarmAdmin" parameterType="UrbanfarmAdmin">
+	
+		/* 회원가입 */
+		INSERT INTO urbanfarm_admin AS ua
+			(ua.urbanfarm_admin_id, ua.urbanfarm_admin_pw, ua.urbanfarm_admin_name
+			,ua.staff_table_type, ua.urbanfarm_admin_phone, ua.urbanfarm_admin_email
+			,ua.urbanfarm_admin_reg_date)
+		VALUES
+			(#{urbanfarmAdminId}, #{urbanfarmAdminPw}, #{urbanfarmAdminName},
+			#{staffTableType}, #{urbanfarmAdminPhone}, #{urbanfarmAdminEmail},
+			CURDATE());	
+	
+	</insert>
 	
 	
 </mapper>
