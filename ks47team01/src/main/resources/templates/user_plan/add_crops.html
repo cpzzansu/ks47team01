@@ -83,6 +83,25 @@
 	})
 	
 	
+	$cropsNameCode.addEventListener('change',function(){
+		const cropsNameCode = $cropsNameCode.value
+		const request = $.ajax({
+			url : '/userPlan/ajax/getKitByCode',
+			method : "POST",
+			data : {'cropsNameCode' : cropsNameCode},
+			dataType : "json"
+		});
+
+		request.done(function(response) {
+			console.log(response);
+		
+		});
+
+		request.fail(function(jqXHR, textStatus) {
+			alert("Request failed: " + textStatus);
+		});
+	})
+	
 </script>
 </th:block>
 </html>

@@ -19,9 +19,19 @@
 </resultMap>
 
 <select id="getUrbanKitList" resultMap="urbanKitResultMap">
-SELECT
-*
-FROM
-	urban_kit
+	SELECT
+	*
+	FROM
+		urban_kit
 </select>
+
+<select id="getUrbanKitListByCode" parameterType="String" resultMap="urbanKitResultMap">
+	SELECT
+		*
+	FROM
+		urban_kit
+	WHERE
+		crops_name_code = #{cropsNameCode}
+</select>
+
 </mapper>

@@ -6,16 +6,14 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-xl-9 ftco-animate">
-				<form id="removeCropsForm" th:action="@{/userPlan/removeCrops}"
+				<form class="needs-validation" novalidate id="removeCropsForm" th:action="@{/userPlan/removeCrops}"
 					method="post">
-
 					<h2 class="mb-4 billing-heading">작물 삭제</h2>
-
 					<div class="row align-items-end">
 
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="hidden" name="farmerFarmingPlanCode" th:value="${farmerFarmingPlanCode}"/>
+								<input type="hidden" name="farmerFarmingPlanCode" th:value="${farmerFarmingPlanCode}" required/>
 								<label for="urbanfarmerId">아이디</label> <input
 									th:value="${session.S_id}" id="urbanfarmerId"
 									name="urbanfarmerId" type="text" class="form-control"
@@ -27,7 +25,8 @@
 							<div class="form-group">
 								<label for="urbanfarmerPw">비밀번호</label> <input
 									id="urbanfarmerPw" name="urbanfarmerPw" type="password"
-									class="form-control" placeholder="비밀번호를 입력해주세요">
+									class="form-control" placeholder="비밀번호를 입력해주세요" required/>
+								<div class="invalid-feedback">비밀번호를 입력해주세요</div>
 							</div>
 						</div>
 					</div>
@@ -41,10 +40,38 @@
 </th:block>
 <th:block layout:fragment="customJs">
 <script type="text/javascript" th:inline="javascript">
+
+	let msg = [[${msg}]];
+	if(msg != null){
+		alert(msg);
+	}
+	const validCheck = element => {
+		let data = $(element).val();
+		let eleId = $(element).attr('id');
+		
+		if(typeof data == 'undefined' || data == null || data == '' ){
+			let cate = $(`label[for="${eleId}"]`).text();
+			$(element).addClass('is-invalid')
+			$(element).focus();
+			return false;
+		}
+		return true;
+	}
+	
+	
 	const $removeCropsBtn = document.querySelector('#removeCropsBtn');
 	$removeCropsBtn.addEventListener('click',function(){
-		const $removeCropsForm = document.querySelector('#removeCropsForm');
-		$removeCropsForm.submit();
+		let isSubmit = true;
+		const inputEles = $('form input');
+		$(inputEles).each(function(idx,item){
+			isSubmit = validCheck(item);
+			return isSubmit;
+		});
+		
+		if(isSubmit){
+			const $removeCropsForm = document.querySelector('#removeCropsForm');
+			$removeCropsForm.submit();		
+		}
 	})
 </script>
 </th:block>

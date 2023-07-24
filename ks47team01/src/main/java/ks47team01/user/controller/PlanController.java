@@ -75,6 +75,20 @@ public class PlanController {
 	}
 	
 	/**
+	 * 농사 시작
+	 */
+	@GetMapping("/startPlan")
+	public String startPlan(@RequestParam(value = "farmerFarmingPlanCode") String farmerFarmingPlanCode) {
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		farmingPlanService.startPlan(paramMap);
+		
+		return "redirect:/userPlan/planMain";
+	}
+	
+	
+	
+	/**
 	 * 키울 작물 등록화면
 	 */
 	@GetMapping("/addCrops")
@@ -86,6 +100,19 @@ public class PlanController {
 		model.addAttribute("cropsNameList", cropsNameList);
 		model.addAttribute("urbanKitList", urbanKitList);
 		return "user_plan/add_crops";
+	}
+	
+	
+	/**
+	 * ajax, 코드별 키트정보
+	 * @param urbanKitCode
+	 * @return
+	 */
+	@PostMapping("/ajax/getKitByCode")
+	@ResponseBody
+	public List<UrbanKit> getKitByCode(@RequestParam(value = "cropsNameCode") String cropsNameCode){
+		List<UrbanKit> kitList = urbanKitService.getUrbanKitListByCode(cropsNameCode);
+		return kitList;
 	}
 	
 	/**
@@ -101,14 +128,17 @@ public class PlanController {
 		return "redirect:/userPlan/planMain";
 	}
 	
+	/**
+	 * 작물 한개 정보
+	 * @param farmerFarmingPlanCode
+	 * @return 
+	 */
 	@PostMapping("/ajax/getCropsInfo")
 	@ResponseBody
-	public Map getCropsInfo(@RequestBody String farmerFarmingPlanCode) {
-		System.out.println("테스트");
-		Map<String, Object> resultMap = new HashMap<>();
-		resultMap.put("id", "12");
-		resultMap.put("pw", "as");
-		return resultMap;
+	public Map getCropsInfo(@RequestBody Map<String, Object> farmerFarmingPlanCode) {
+		System.out.println("ddd"+farmerFarmingPlanCode);
+		Map<String, Object> cropsInfoMap = farmingPlanService.getCropsInfo(farmerFarmingPlanCode);
+		return cropsInfoMap;
 	}
 	
 	/**
@@ -116,8 +146,10 @@ public class PlanController {
 	 */
 	@GetMapping("/removeCrops")
 	public String removeCrops(@RequestParam(value = "farmerFarmingPlanCode")String farmerFarmingPlanCode,
+							  @RequestParam(value = "msg", required = false) String msg,
 							  Model model){
 		model.addAttribute("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		model.addAttribute("msg", msg);
 		return "user_plan/remove_crops";
 	}
 	
@@ -135,9 +167,14 @@ public class PlanController {
 		
 		if(isValid) {
 			//삭제처리 후 redirect
+			farmingPlanService.deleteFarmerFarmingPlanByPlanCode(farmerFarmingPlanCode);
+			return "redirect:/userPlan/planMain";
 		}
 		
+		//아이디 불일치 시 다시
+		String msg = "입력을확인해주세요"; 
 		reAttr.addAttribute("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		reAttr.addAttribute("msg", msg);
 		return "redirect:/userPlan/removeCrops";
 	}
 	

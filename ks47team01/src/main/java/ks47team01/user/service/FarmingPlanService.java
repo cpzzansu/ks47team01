@@ -27,6 +27,28 @@ public class FarmingPlanService {
 	private final FarmingPlanMapper farmingPlanMapper;
 	private final CropsGrowingInfoMapper cropsGrowingInfoMapper;
 	
+	
+	/**
+	 * farmerFarmingPlanCode별 FarmerFarmingPlan
+	 * @param farmerFarmingPlanCode
+	 */
+	public void deleteFarmerFarmingPlanByPlanCode(String farmerFarmingPlanCode) {
+		farmingPlanMapper.deleteFarmingDetailPlanActionByPlanCode(farmerFarmingPlanCode);
+		farmingPlanMapper.deleteFarmerFarmingDetailPlanByPlanCode(farmerFarmingPlanCode);
+		farmingPlanMapper.deleteFarmerSaleReservationToHubByPlanCode(farmerFarmingPlanCode);
+		farmingPlanMapper.deleteFarmerFarmingPlanByPlanCode(farmerFarmingPlanCode);
+	}
+	
+	/**
+	 * 작물 한개 정보
+	 * @param farmerFarmingPlanCode
+	 * @return Map<String, Object> cropsName, farmerFarmingPlanNickname, 
+	 */
+	public Map<String, Object> getCropsInfo(Map<String, Object> farmerFarmingPlanCode){
+		Map<String, Object> cropsInfoMap= farmingPlanMapper.getCropsInfo(farmerFarmingPlanCode);
+		return cropsInfoMap;
+	}
+	
 	/**
 	 * 사용자의 작물 등록
 	 * @param cropsNameCode
@@ -58,6 +80,14 @@ public class FarmingPlanService {
 		
 		farmingPlanMapper.addPlan(paramMap);
 		
+	}
+	
+	/**
+	 *  농사 시작
+	 * @param farmerFarmingPlanCode
+	 */
+	public void startPlan(Map<String, Object> farmerFarmingPlanCode) {
+		farmingPlanMapper.startPlan(farmerFarmingPlanCode);
 	}
 	
 	/**
