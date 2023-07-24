@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
+
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>회원 가입</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2> 신규회원 <small>가입을 선택해주세요</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br/>
+                        <form id="demo-form2" th:action="@{/adminLogin/hubcrewLogin}" class="form-horizontal form-label-left" method="post">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <a class="btn btn-primary" href="/adminAdd/adminAddForm">어드민 회원가입</a>
+                                    <a class="btn btn-primary" href="/adminAdd/hubcrewAddForm">허브크루 회원가입</a>
+                                    <a class="btn btn-primary" href="/login/mailConfirm">실험</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<body>
+
+</body>
+</th:block>
+
+<th:block layout:fragment="customJs">
+    <script type="text/javascript">
+ // 이메일 인증번호
+    
+    </script>
+</th:block>
+</html>
+

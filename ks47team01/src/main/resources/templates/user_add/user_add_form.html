@@ -36,12 +36,22 @@
 	    			isSubmit = validCheck(item);
 	    			return isSubmit;
     			})
-    			if($('#urbanfarmerPhone').val().length == 10 && isSubmit == true) {
-    					
-    			$('#updateUserForm').submit();
+    			if(isSubmit) {
     				
-    			} else {
-    				alert('전화번호를 제대로 입력해주세요');
+    				let error = '전화번호를 입력해주세요';
+
+    				
+    				if($('#urbanfarmerPhone').val().length == 9) {
+    					
+    					error = null;
+    					
+    				$('#updateUserForm').submit();
+    				
+    				}
+    				
+    				if(error != null) alert(error);
+    					
+    				
     			}
     			
     				
