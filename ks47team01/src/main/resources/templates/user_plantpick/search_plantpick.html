@@ -16,20 +16,42 @@
 		</div>
 		
 	
-	
+	<!--   -->
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
-	
-		
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userId" name="userId" placeholder="UserId">
-						    <label for="userId">검색 id</label>
-						  </div>
+				<div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="plantsearchselect">아이디/이름 검색</label>
+									<div class="select-wrap">
+										<select name="plantsearchselect" id="plantsearchselect" class="form-control">
+											<option value="">-----아이디/이름을 선택해주세요-----</option>
+											<option value="urbanfarmerId" ></option>		
+											<option value="urbanfarmerName" ></option>						
+										</select>
+									</div>
+								</div>
+							</div>
+						
+						
+						
+						
+						<div class="col-md-12">
+							<div class="form-group">
+							
+							    <form action="{% url 'pystagram:pn_search' %}" method="GET" enctype="multipart/form-data">
+							  		<lable>
+							  		검색
+							  		</lable>
+							        	<input type="text" name="keyword" placeholder="user id" style="text-align: left">
+							    </form>
+						   
+							</div>
 						</div>
-		
-		</div>
-		</div>
+								
+					</div>
+				</div>
+			</div>
 		</section>
 	</body>
 </th:block>

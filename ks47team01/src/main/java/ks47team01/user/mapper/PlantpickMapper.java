@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import ks47team01.common.dto.PlantpickFollowers;
+import ks47team01.common.dto.Urbanfarmer;
 
 @Mapper
 public interface PlantpickMapper {
@@ -16,4 +17,6 @@ public interface PlantpickMapper {
 	public int getLoginCnt();
 	
 	public List<PlantpickFollowers> getMemberList(Map<String,Object>paramMap);
+	
+	public Urbanfarmer plantPickUserInfoById(String urbanfarmerId);
 }

@@ -1,9 +1,90 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default_login}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
 <th:block layout:fragment="customContents">
 
-<h1>plantpick_user_list_update</h1>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>회원리스트 수정</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>회원리스트 정보 수정 <small>수정할 정보를 입력하세요.</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" action="/adminSelfVerification/productGrade/listVerificationProductGrade" data-parsley-validate class="form-horizontal form-label-left">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarm_admin_id">회원 아이디</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarm_admin_id" required="required" class="form-control col-md-7 col-xs-12"
+                                           value="홍01" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product_grade">회원이름 <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="product_grade" name="product_grade" required="required" class="form-control col-md-7 col-xs-12"
+                                           value="홍길동">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="high_score" class="control-label col-md-3 col-sm-3 col-xs-12">회원등급</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="high_score" class="form-control col-md-7 col-xs-12" type="text" name="high_score"
+                                           value="100">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="low_score" class="control-label col-md-3 col-sm-3 col-xs-12">???</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="low_score" class="form-control col-md-7 col-xs-12" type="text" name="low_score"
+                                           value="90">
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" type="button">돌아가기</button>
+                                    <button class="btn btn-primary" type="reset">다시쓰기</button>
+                                    <button type="submit" class="btn btn-success">수정하기</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
 
 </th:block>
 </html>
+

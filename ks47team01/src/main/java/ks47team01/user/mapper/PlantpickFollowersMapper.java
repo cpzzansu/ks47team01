@@ -15,7 +15,7 @@ public interface PlantpickFollowersMapper {
 	 * 회원 목록 조회 
 	 * @return List<CropsName>
 	 */
-	public List<PlantpickFollowers> getPlantpickFollowersList(Map<String,Object>paramMap);
+	public List<PlantpickFollowers> getPlantpickFollowersList(Map<String,Object> paramMap);
 	
 	public List<PlantpickFollowers> getFollowersId(String urbanfarmerId);
 	

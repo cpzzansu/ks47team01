@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import jakarta.servlet.http.HttpSession;
-
-import ks47team01.user.service.PlantPickFollowersService;
+import ks47team01.common.dto.PlantpickFollowers;
+import ks47team01.user.service.PlantPickService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @AllArgsConstructor
 public class PlantPickController {
 	
-	private final PlantPickFollowersService plantpickFollowersService;
+	private final PlantPickService plantpickFollowersService;
 
 	/**
 	 * 메인화면								
@@ -98,8 +98,11 @@ public class PlantPickController {
 	public String plantpickFollowListAction(@RequestParam MultipartFile[] uploadfile,
 											@RequestParam String userId,
 											@RequestParam String plantpickYn,
-											HttpSession session) {
+											HttpSession session,
+											Model model) {
 		String urbanfarmerId = (String) session.getAttribute("S_id");
+		model.addAttribute("userId", userId);
+		model.addAttribute("plantpickYn" , plantpickYn);
 		
 		plantpickFollowersService.getFollowersList(urbanfarmerId);
 		
@@ -133,6 +136,7 @@ public class PlantPickController {
 	@GetMapping("/userPlantPick/searchPlantPick")
 	public String userSearchPlantPick(Model model) {
 		model.addAttribute("title", "seach");
+		PlantpickFollowers plantpickFollowers;
 		return "user_plantpick/search_plantpick";
 	}
 	
