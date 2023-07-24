@@ -16,9 +16,40 @@
     <!-- Font Awesome -->
     <link th:href="@{/admin/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
 
+    <!-- NProgress -->
+    <link th:href="@{/admin/vendors/nprogress/nprogress.css}" rel="stylesheet">
+
+    <!-- iCheck -->
+    <link th:href="@{/admin/vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link th:href="@{/admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css}" rel="stylesheet">
+
+    <!-- JQVMap -->
+    <link th:href="@{/admin/vendors/jqvmap/dist/jqvmap.min.css}" rel="stylesheet"/>
+
+    <!-- bootstrap-daterangepicker -->
+    <link th:href="@{/admin/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
+
+    <!-- Datatables -->
+    <link th:href="@{/admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-1.13.5/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/b-print-2.4.1/cr-1.7.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rr-1.4.1/sc-2.2.0/sr-1.3.0/datatables.min.css" rel="stylesheet"/>
+
+    <!-- Summernote -->
+    <link th:href="@{/admin/vendors/summernote/summernote-lite.css}" rel="stylesheet">
+
+    <!-- Bootstrap Datetimepicker -->
+    <link th:href="@{/admin/vendors/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css}" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link th:href="@{/admin/build/css/custom.min.css}" rel="stylesheet">
-    <link th:href="@{/admin/build/css/urban-admin.css}" rel="stylesheet">
+    <link th:href="@{/admin/build/css/urban-admin-popup.css}" rel="stylesheet">
+    <link th:href="@{/admin/build/css/admin-js.css}" rel="stylesheet">
+
 
 
 </head>
@@ -27,20 +58,96 @@
         <!-- page content start -->
         <th:block layout:fragment="customContents"></th:block>
         <!-- page content end -->
-<!-- jQuery -->
-<script th:src="@{/admin/vendors/jquery/dist/jquery.min.js}"></script>
 
-<!-- Bootstrap -->
-<script th:src="@{/admin/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
+        <!-- jQuery -->
+        <script th:src="@{/admin/vendors/jquery/dist/jquery.min.js}"></script>
 
-<!-- Custom Theme Scripts -->
-<script th:src="@{/admin/build/js/custom.min.js}"></script>
+        <!-- Bootstrap -->
+        <script th:src="@{/admin/vendors/bootstrap/dist/js/bootstrap.min.js}"></script>
 
-<!-- Urban.js -->
-<script th:src="@{/admin/vendors/urbanAdmin/urbanAdmin.js}"></script>
+        <!-- FastClick -->
+        <script th:src="@{/admin/vendors/fastclick/lib/fastclick.js}"></script>
 
-<!-- 페이지마다 작성될 스크립트 공간 정의 -->
-<th:block layout:fragment="customJs"></th:block>
+        <!-- NProgress -->
+        <script th:src="@{/admin/vendors/nprogress/nprogress.js}"></script>
+
+        <!-- Chart.js -->
+        <script th:src="@{/admin/vendors/Chart.js/dist/Chart.min.js}"></script>
+
+        <!-- gauge.js -->
+        <script th:src="@{/admin/vendors/gauge.js/dist/gauge.min.js}"></script>
+
+        <!-- bootstrap-progressbar -->
+        <script th:src="@{/admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js}"></script>
+
+        <!-- iCheck -->
+        <script th:src="@{/admin/vendors/iCheck/icheck.min.js}"></script>
+
+        <!-- Skycons -->
+        <script th:src="@{/admin/vendors/skycons/skycons.js}"></script>
+
+        <!-- Flot -->
+        <script th:src="@{/admin/vendors/Flot/jquery.flot.js}"></script>
+        <script th:src="@{/admin/vendors/Flot/jquery.flot.pie.js}"></script>
+        <script th:src="@{/admin/vendors/Flot/jquery.flot.time.js}"></script>
+        <script th:src="@{/admin/vendors/Flot/jquery.flot.stack.js}"></script>
+        <script th:src="@{/admin/vendors/Flot/jquery.flot.resize.js}"></script>
+
+        <!-- Flot plugins -->
+        <script th:src="@{/admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
+        <script th:src="@{/admin/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
+        <script th:src="@{/admin/vendors/flot.curvedlines/curvedLines.js}"></script>
+
+        <!-- DateJS -->
+        <script th:src="@{/admin/vendors/DateJS/build/date.js}"></script>
+
+        <!-- JQVMap -->
+        <script th:src="@{/admin/vendors/jqvmap/dist/jquery.vmap.js}"></script>
+        <script th:src="@{/admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+        <script th:src="@{/admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+
+        <!-- bootstrap-daterangepicker -->
+        <script th:src="@{/admin/vendors/moment/min/moment.min.js}"></script>
+        <script th:src="@{/admin/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+
+        <!-- Datatables -->
+        <script th:src="@{/admin/vendors/datatables.net/js/jquery.dataTables.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-buttons/js/buttons.flash.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-buttons/js/buttons.html5.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-buttons/js/buttons.print.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js}"></script>
+        <script th:src="@{/admin/vendors/datatables.net-scroller/js/dataTables.scroller.min.js}"></script>
+        <script th:src="@{/admin/vendors/jszip/dist/jszip.min.js}"></script>
+        <script th:src="@{/admin/vendors/pdfmake/build/pdfmake.min.js}"></script>
+        <script th:src="@{/admin/vendors/pdfmake/build/vfs_fonts.js}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-1.13.5/b-2.4.1/b-colvis-2.4.1/b-html5-2.4.1/b-print-2.4.1/cr-1.7.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rr-1.4.1/sc-2.2.0/sr-1.3.0/datatables.min.js"></script>
+
+        <!-- Summernote -->
+        <script th:src="@{/admin/vendors/summernote/summernote-lite.js}"></script>
+        <script th:src="@{/admin/vendors/summernote/summernote-ko-KR.js}"></script>
+
+        <!-- Bootstrap Datetimepicker -->
+        <script th:src="@{/admin/vendors/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js}"></script>
+
+        <!-- Moment -->
+        <script th:src="@{/admin/vendors/moment/moment.js}"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script th:src="@{/admin/build/js/custom.min.js}"></script>
+
+        <!-- Urban.js -->
+        <script th:src="@{/admin/vendors/urbanAdmin/urbanAdmin.js}"></script>
+
+        <!-- 페이지마다 작성될 스크립트 공간 정의 -->
+        <th:block layout:fragment="customJs"></th:block>
 
 </body>
 </html>
