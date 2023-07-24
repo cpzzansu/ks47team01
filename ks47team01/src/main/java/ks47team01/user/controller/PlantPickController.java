@@ -98,8 +98,11 @@ public class PlantPickController {
 	public String plantpickFollowListAction(@RequestParam MultipartFile[] uploadfile,
 											@RequestParam String userId,
 											@RequestParam String plantpickYn,
-											HttpSession session) {
+											HttpSession session,
+											Model model) {
 		String urbanfarmerId = (String) session.getAttribute("S_id");
+		model.addAttribute("userId", userId);
+		model.addAttribute("plantpickYn" , plantpickYn);
 		
 		plantpickFollowersService.getFollowersList(urbanfarmerId);
 		
