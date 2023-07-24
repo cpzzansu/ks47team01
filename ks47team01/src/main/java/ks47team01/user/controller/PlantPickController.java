@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class PlantPickController {
 	
 	private final PlantPickService plantpickFollowersService;
-
+	
 	/**
 	 * 메인화면								
 	 * @return
@@ -85,14 +85,19 @@ public class PlantPickController {
 	}
 	
 	/**
-	 * 팔로우 목록 화면								
+	 * 팔로우 목록 화면 ( Stirng -> 수정)				
 	 * @return
 	 */
 	@GetMapping("/userPlantPick/followList")
-	public String userFollowList(Model model) {
+	public String userFollowList(Model model ,String plantpicProfileImageUrl ) {
 		model.addAttribute("title" ,"follow list");
+		plantpickFollowersService.plantPickprofileImage(plantpicProfileImageUrl);
+		
 		return "user_plantpick/follow_list";
 	}
+	
+	
+	
 	
 	@PostMapping("/userPlantPick/followList")
 	public String plantpickFollowListAction(@RequestParam MultipartFile[] uploadfile,

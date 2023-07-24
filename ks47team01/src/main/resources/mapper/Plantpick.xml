@@ -20,15 +20,47 @@
 		<result column="urbanfarmer_drop_classification" property="urbanfarmerDropClassification"/>
 		
 	</resultMap>
+	
 
 	<select id="plantPickUserInfoById" resultType="UrbanFarmer" parameterType="String">
-			SELECT
-				
-			FROM
-				
-			WHERE
-				
+		SELECT
+			*
+		FROM
+			UrbanFarmer 
+		WHERE
+			urbanfarmer_id
+			or
+			urbanfarmer_name;
+	
+
 
 	</select>
 	
+	
+	<resultMap type="PlantpickProfile" id="PlantpickProfileResultMap">	
+		<id column="plantpic_profile_code"	property="plantpicProfileCode"/>
+		<result	column="urbanfarmer_id" property="urbanfarmerId"/>
+		<result column="plantpic_profile_image_url" property="plantpicProfileImageUrl"/>
+		<result column="plantpic_bookmark_reg_date" property="plantpicBookmarkRegDate"/>		
+	</resultMap>
+	
+	<select id="plantPickprofileImage" resultType="PlantpickProfile" parameterType="String">
+	
+			SELECT
+				*
+			FROM
+				plantpick_image
+			WHERE
+				plantpic_profile_image_url = #{plantpicProfileImageUrl}
+
+	
+	</select>
+		
+		
+		
+		
+		
+		
+		
+		
 </mapper>
