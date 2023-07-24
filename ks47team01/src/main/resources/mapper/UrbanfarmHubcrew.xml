@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ks47team01.admin.mapper.UrbanfarmHubcrewMapper">
+	<resultMap type="UrbanfarmHubCrew" id="urbanfarmHubCrewResultMap">
+		<id column="urbanfarm_hub_crew_id" property="urbanfarmHubCrewId"/>
+		<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
+		<result column="urbanfarm_hub_crew_pw" property="urbanfarmHubCrewPw"/>
+		<result column="urbanfarm_hub_crew_name" property="urbanfarmHubCrewName"/>
+		<result column="staff_table_type" property="staffTableType"/>
+		<result column="urbanfarm_hub_crew_position" property="urbanfarmHubCrewPosition"/>
+		<result column="urbanfarm_hub_crew_phone" property="urbanfarmHubCrewPhone"/>
+		<result column="urbanfarm_hub_crew_email" property="urbanfarmHubCrewEmail"/>
+		<result column="urbanfarm_hub_crew_reg_date" property="urbanfarmHubCrewRegDate"/>
+	</resultMap>
+	
+	
+</mapper>

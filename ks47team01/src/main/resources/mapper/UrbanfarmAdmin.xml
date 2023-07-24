@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ks47team01.admin.mapper.UrbanfarmAdminMapper">
+	<resultMap type="UrbanfarmAdmin" id="urbanfarmAdminResultMap">
+		<id column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="urbanfarm_admin_pw" property="urbanfarmAdminPw"/>
+		<result column="urbanfarm_admin_name" property="urbanfarmAdminName"/>
+		<result column="staff_table_type" property="staffTableType"/>
+		<result column="urbanfarm_admin_phone" property="urbanfarmAdminPhone"/>
+		<result column="urbanfarm_admin_email" property="urbanfarmAdminEmail"/>
+		<result column="urbanfarm_admin_reg_date" property="urbanfarmAdminRegDate"/>
+	</resultMap>
+
+	<select id="getUrbanfarmAdminInfoById" parameterType="UrbanfarmAdmin">
+	
+		SELECT
+			urbanfarm_admin_id as urbanfarmAdminId
+		,	urbanfarm_admin_pw as urbanfarmAdminPw
+		,	urbanfarm_admin_name as urbanfarmAdminName
+		,	staff_table_type as staffTableType
+		,	urbanfarm_admin_phone as urbanfarmAdminPhone
+		,	urbanfarm_admin_email as urbanfarmAdminEmail
+		,	urbanfarm_admin_reg_date as urbanfarmAdminRegDate
+		FROM
+			urbanfarm_admin 
+		WHERE
+			urbanfarm_admin_id = #{urbanfarmAdminId};
+		
+	</select>
+	
+	
+</mapper>
