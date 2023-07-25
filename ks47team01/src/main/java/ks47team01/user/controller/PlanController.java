@@ -18,6 +18,7 @@ import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.CropsName;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
+import ks47team01.common.dto.FarmingPlanSmallCate;
 import ks47team01.common.dto.UrbanKit;
 import ks47team01.user.service.CropsService;
 import ks47team01.user.service.FarmingPlanService;
@@ -221,5 +222,12 @@ public class PlanController {
 		model.addAttribute("farmingPlan", farmingPlan);
 		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
 		return "user_plan/crops_plan";
+	}
+	
+	@GetMapping("/ajax/getSmallCate")
+	@ResponseBody
+	public List<FarmingPlanSmallCate> getSmallCateList(){
+		
+		return null;
 	}
 }

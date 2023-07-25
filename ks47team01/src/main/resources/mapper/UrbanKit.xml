@@ -27,7 +27,8 @@
 
 <select id="getUrbanKitListByCode" parameterType="String" resultMap="urbanKitResultMap">
 	SELECT
-		*
+		urban_kit_code,
+		urban_kit_name
 	FROM
 		urban_kit
 	WHERE

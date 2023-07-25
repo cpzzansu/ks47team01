@@ -29,30 +29,31 @@
 							</div>
 						</div>
 					</div>
-					<lable>농사계획</lable>
-					<th:block th:unless="${#lists.isEmpty(farmingPlanLargeCateList)}"
-						th:each="largeCate : ${farmingPlanLargeCateList}">
-						<div class="row mb-2 border-top">
-							<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"
-								class="col-11"></h2>
-							<div class="col-1 text-center mt-2">
-								<button class="btn btn-primary ion-ios-arrow-down" type="button"
-									th:data-target="|#${largeCate.farmingPlanLargeCateCode}|"
-									aria-expanded="true"
-									th:aria-controls="${largeCate.farmingPlanLargeCateCode}"></button>
+					<th:block th:unless="${#lists.isEmpty(farmingPlanLargeCateList)}">
+						<lable>농사계획</lable>
+						<th:block th:each="largeCate : ${farmingPlanLargeCateList}">
+							<div class="row mb-2 border-top">
+								<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"
+									class="col-11"></h2>
+								<div class="col-1 text-center mt-2">
+									<button th:id="${largeCate.farmingPlanLargeCateCode}" 
+											class="btn btn-primary ion-ios-arrow-down" type="button"
+											th:data-target="|#${largeCate.farmingPlanLargeCateCode}Btn|"
+											aria-expanded="true"
+											th:aria-controls="${largeCate.farmingPlanLargeCateCode}"></button>
+								</div>
 							</div>
-						</div>
-						<div>
-							<div th:id="${largeCate.farmingPlanLargeCateCode}"
-								class="collapse multi-collapse mb-3">
-								<div class="card card-body">Anim pariatur cliche
-									reprehenderit, enim eiusmod high life accusamus terry
-									richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-									labore wes anderson cred nesciunt sapiente ea proident.</div>
+							<div>
+								<div th:id="|${largeCate.farmingPlanLargeCateCode}Btn|"
+									class="collapse multi-collapse mb-3">
+									<div class="card card-body">Anim pariatur cliche
+										reprehenderit, enim eiusmod high life accusamus terry
+										richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+										labore wes anderson cred nesciunt sapiente ea proident.</div>
+								</div>
 							</div>
-						</div>
+						</th:block>
 					</th:block>
-
 					<div class="mt-4 text-right">
 						<a th:href="@{/userPlan/planMain}" class="btn btn-primary"
 							type="submit">목록으로</a>
@@ -67,11 +68,14 @@
 <script type="text/javascript" th:inline="javascript">
 	$('button').click(function(e){
 		let target = e.currentTarget;
-		console.log(target);
+		let categoryCode = target.id;
+		
+		let url = `/userPlan/ajax/getSmallCate?farmingPlanSmallCateCode=${categoryCode}`;
+		
 		
 		$(target).attr("data-toggle","collapse");
 		
-		let request = $.ajax({
+		/* let request = $.ajax({
 			  url: "script.php",
 			  method: "POST",
 			  data: { id : menuId },
@@ -84,7 +88,7 @@
 		 
 		request.fail(function( jqXHR, textStatus ) {
 		  alert( "Request failed: " + textStatus );
-		});
+		}); */
 	})
 </script>
 </th:block>
