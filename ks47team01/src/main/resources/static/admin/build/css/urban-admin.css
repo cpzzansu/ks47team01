@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
 .text {
     font-size: xxx-large;
     border: black 1px;
@@ -32,6 +39,17 @@ z-index: 1;
 
 .dt-body-center {
     text-align: center !important;
+}
+
+/* 게시글 폰트 */
+.shop-main-title {
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    width: 100%;
+    font-weight: bold;
+    font-size: 36px;
+    color: #ff6741;
+    line-height: 140%;
+    margin: 100px auto 20px;
 }
 
 
