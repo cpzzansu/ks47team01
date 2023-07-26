@@ -57,6 +57,24 @@
 		<result column="farming_plan_small_cate_sortation" property="farmerFarmingDetailPlanSortation"/>	
 	</resultMap>
 	
+	<select id="getFarmingPlanSmallCateListByLargeCateCode" parameterType="Map" resultMap="farmingDetailPlanResultMap">
+		/* farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList */
+		SELECT
+			farmer_farming_detail_plan_code,
+			farmer_farming_detail_plan_title,
+			farmer_farming_detail_plan_content,
+			farmer_farming_detail_plan_sortation,
+			farmer_farming_detail_plan_status
+		FROM
+			farmer_farming_detail_plan
+		WHERE
+			farming_plan_large_cate_code = #{farmingPlanLargeCateCode}
+			AND 
+			farmer_farming_plan_code = #{farmerFarmingPlanCode}
+		ORDER BY
+			farmer_farming_detail_plan_sortation
+	</select>
+	
 	<delete id="deleteFarmingDetailPlanActionByPlanCode" parameterType="String">
 		/* farmerFarmingPlanCode별 FarmingDetailPlanAction 삭제 */
 		DELETE

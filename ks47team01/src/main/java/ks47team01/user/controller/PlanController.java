@@ -215,19 +215,24 @@ public class PlanController {
 	public String cropsPlan(@RequestParam(value="farmerFarmingPlanCode")String farmerFarmingPlanCode , 
 							Model model){
 		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
+		
 		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
 		
-		System.out.println(farmingPlanLargeCateList+"테스트");
 		model.addAttribute("title", "작물 상세보기");
 		model.addAttribute("farmingPlan", farmingPlan);
 		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
 		return "user_plan/crops_plan";
 	}
 	
-	@GetMapping("/ajax/getSmallCate")
+	/**
+	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
+	 * @param paramMap
+	 * @return
+	 */
+	@PostMapping("/ajax/getSmallCate")
 	@ResponseBody
-	public List<FarmingPlanSmallCate> getSmallCateList(){
-		
-		return null;
+	public List<FarmingPlanSmallCate> getSmallCateList(@RequestBody Map paramMap){
+		List<FarmingPlanSmallCate> smallCateList = farmingPlanService.getFarmingPlanSmallCateListByLargeCateCode(paramMap);
+		return smallCateList;
 	}
 }

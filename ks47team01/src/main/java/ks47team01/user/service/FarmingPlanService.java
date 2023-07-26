@@ -12,6 +12,7 @@ import ks47team01.common.dto.CropsGrowingInfo;
 import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
+import ks47team01.common.dto.FarmingPlanSmallCate;
 import ks47team01.user.mapper.CropsGrowingInfoMapper;
 import ks47team01.user.mapper.CropsNameMapper;
 import ks47team01.user.mapper.FarmingPlanMapper;
@@ -27,6 +28,16 @@ public class FarmingPlanService {
 	private final FarmingPlanMapper farmingPlanMapper;
 	private final CropsGrowingInfoMapper cropsGrowingInfoMapper;
 	
+	
+	/**
+	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
+	 * @param farmingPlanLargeCateCode
+	 * @return List<FarmingPlanSmallCate>
+	 */
+	public List<FarmingPlanSmallCate> getFarmingPlanSmallCateListByLargeCateCode(Map paramMap){
+		List<FarmingPlanSmallCate> smallCateList = farmingPlanMapper.getFarmingPlanSmallCateListByLargeCateCode(paramMap);
+		return smallCateList;
+	};
 	
 	/**
 	 * farmerFarmingPlanCode별 FarmerFarmingPlan

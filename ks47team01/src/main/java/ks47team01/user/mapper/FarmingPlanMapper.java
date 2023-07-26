@@ -8,9 +8,17 @@ import org.apache.ibatis.annotations.Mapper;
 import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
+import ks47team01.common.dto.FarmingPlanSmallCate;
 
 @Mapper
 public interface FarmingPlanMapper {
+	
+	/**
+	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
+	 * @param farmingPlanLargeCateCode
+	 * @return List<FarmingPlanSmallCate>
+	 */
+	public List<FarmingPlanSmallCate> getFarmingPlanSmallCateListByLargeCateCode(Map paramMap);
 	
 	/**
 	 * farmerFarmingPlanCode별 FarmingDetailPlanAction 삭제
