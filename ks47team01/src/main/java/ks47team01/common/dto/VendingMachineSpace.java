@@ -4,14 +4,14 @@ import lombok.Data;
 
 @Data
 public class VendingMachineSpace {
-	private final String vending_machine_space_code;
-	private final String urbanfarm_hub_crew_id;
-	private final String urbanfarm_hub_code;
-	private final String vending_machine_code;
-	private final String vending_machine_name;
-	private final int vending_machine_space_number;
-	private final int vending_machine_space_price;
-	private final String vending_machine_space_state_code;
-	private final String vending_machine_space_reg_date;
-	private final String vending_machine_space_state;
+	private final String vendingMachineSpaceCode;
+	private final String urbanfarmHubCrewId;
+	private final String urbanfarmHubCode;
+	private final String vendingMachineCode;
+	private final String vendingMachineName;
+	private final int vendingMachineSpaceNumber;
+	private final int vendingMachineSpacePrice;
+	private final String vendingMachineSpaceStateCode;
+	private final String vendingMachineSpaceRegDate;
+	private final String vendingMachineSpaceState;
 }

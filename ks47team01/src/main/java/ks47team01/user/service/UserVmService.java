@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ks47team01.common.dto.HubLargeCate;
 import ks47team01.common.dto.HubMidCateFinal;
 import ks47team01.common.dto.VendingMachine;
+import ks47team01.common.dto.VendingMachineSpace;
 import ks47team01.user.mapper.UserVmMapper;
 import lombok.AllArgsConstructor;
 
@@ -31,11 +32,16 @@ public class UserVmService {
 		return getAreaList;
 	}
 	
-	public List<VendingMachine> getVmList(String vendingMachine){
+	public List<VendingMachine> getVmList(String hubMidCateFinalCode){
 		
-		List<VendingMachine> getVmList = userVmMapper.getVmList(vendingMachine);
+		List<VendingMachine> getVmList = userVmMapper.getVmList(hubMidCateFinalCode);
 		
 		return getVmList;
+	}
+
+	public List<VendingMachineSpace> getSpaceSelect(String vendingMachineSpaceNumber) {
+		// TODO Auto-generated method stub
+		return getSpaceSelect(null);
 	}
 	
 	

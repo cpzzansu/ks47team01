@@ -11,11 +11,13 @@
 			align-items: center;
 			justify-content: center;
 		}
-		.vm-btn-size{
+
+		.vm-btn-size {
 			width: 80px;
 			height: 50px;
 		}
-		.upper-padding{
+
+		.upper-padding {
 			padding-top: 200px;
 		}
 	</style>
@@ -27,20 +29,64 @@
 				<div class="col-md-6 text-center d-flex align-self-stretch ftco-animate">
 					<div class="media block-10 services mb-md-0 mb-10" style="background-color: lemonchiffon">
 
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 1</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 2</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 3</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 4</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 5</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 6</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 7</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 8</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 9</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 10</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 11</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 12</button>
-						<button type="button" class="btn btn-outline-secondary side-padding vm-btn-size click-to-move">A 13</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 1</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 2</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 3</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 4</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 5</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 6</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 7</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 8</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 9</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 10</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 11</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding click-to-move">A 12</button>
+						<button onclick="checkInfo()" th:text="Check Info" type="button"
+							class="btn btn-outline-secondary side-padding vm-btn-size click-to-move">A 13</button>
 
+						<th:block th:if="${isNull}">
+							<p>예약 가능한 좌석입니다.</p>
+						</th:block>
+						<th:block th:unless="${isNull}">
+							<p>예약 불가능한 좌석입니다.</p>
+						</th:block>
+
+
+						<script>
+							function checkInfo() {
+								var userId;
+
+								// Fetch API를 이용하여 서버로 Ajax 요청을 보냅니다.
+								fetch('/checkinfo?userId=' + userId)
+									.then(response => response.json())
+									.then(data => {
+										if (data.isNull) {
+											// 서버로부터 정보를 받아서 th:block를 보여줍니다.
+											document.querySelector('[th\\:if]').style.display = 'block';
+											document.querySelector('[th\\:unless]').style.display = 'none';
+										} else {
+											// 서버로부터 정보를 받아서 th:block를 보여줍니다.
+											document.querySelector('[th\\:if]').style.display = 'none';
+											document.querySelector('[th\\:unless]').style.display = 'block';
+										}
+									})
+									.catch(error => {
+										console.error('Error:', error);
+									});
+							}
+						</script>
 
 					</div>
 				</div>
@@ -83,4 +129,5 @@
 	</script>
 
 </th:block>
+
 </html>

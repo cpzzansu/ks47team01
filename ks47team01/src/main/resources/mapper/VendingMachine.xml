@@ -52,8 +52,24 @@
 			WHERE
 				hub_large_cate_code = #{hubMidCateFinal}
 					
-			
 		</select>
-		
+
+		<select id="getVmList" resultMap="vmResultMap" parameterType="String">
+		/* 허브 자판기 가져오기 */
+			SELECT 
+				vending_machine_code
+			,	vending_machine_name
+			,	vending_machine_space_using
+			,	vending_machine_state
+			FROM
+				vending_machine as vm
+				LEFT JOIN
+				urbanfarm_hub as uh
+				ON
+				vm.urbanfarm_hub_code = uh.urbanfarm_hub_code
+			WHERE 
+				uh.hub_mid_cate_fanal_code = #{hubMidCateFinalCode};
+				
+		</select>
 
 </mapper>

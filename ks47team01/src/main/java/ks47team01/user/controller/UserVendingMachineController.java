@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ks47team01.common.dto.HubLargeCate;
 import ks47team01.common.dto.HubMidCateFinal;
 import ks47team01.common.dto.VendingMachine;
+import ks47team01.common.dto.VendingMachineSpace;
 import ks47team01.user.service.UserVmService;
 import lombok.AllArgsConstructor;
 
@@ -60,8 +61,11 @@ public class UserVendingMachineController {
 	
 	// 자판기 판매공간 선택 화면
 	@GetMapping("/userVendingMachine/vmSpaceSelect")
-	public String userVmSpaceSelect (Model model) {
+	public String userVmSpaceSelect (Model model,
+									@RequestParam(value = "vendingMachineSpaceNumber")String vendingMachineSpaceNumber) {
+		List<VendingMachineSpace> getSpaceSelect = userVmService.getSpaceSelect(vendingMachineSpaceNumber);
 		model.addAttribute("title", "판매 공간 선택");
+		model.addAttribute("getSpaceSelect", getSpaceSelect);
 		return "user_vending_machine/vm_space_select";
 	}
 	
