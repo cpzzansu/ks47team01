@@ -17,6 +17,14 @@
 		<result column="goods_kit_reg_date" property="goodsKitRegDate"/>
 	</resultMap>
 
+	<select id="getGoodsKitObj" resultMap="GoodsKitResultMap" parameterType="String">
+		SELECT
+			*
+		FROM
+			goods_kit
+		WHERE
+			goods_kit_code = #{finalCheckedData}
+	</select>
 	<select id="getGoodsKitList" resultMap="GoodsKitResultMap">
 	SELECT
 	*

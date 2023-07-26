@@ -19,8 +19,16 @@ public class AdminShopService {
 
     private final AdminShopMapper adminShopMapper;
 
+    public GoodsKit getGoodsKitObj(String finalCheckedData) {
+        GoodsKit goodsKitObj = adminShopMapper.getGoodsKitObj(finalCheckedData);
+
+        return goodsKitObj;
+    }
+
     /**
      * 상품관리메인화면 키트상품목록 조회
+     * @param paramMap
+     * @return
      */
     public List<GoodsKit> getGoodsKitList(Map<String, Object> paramMap) {
         List<GoodsKit> goodsKitList = adminShopMapper.getGoodsKitList(paramMap);
@@ -28,6 +36,10 @@ public class AdminShopService {
         return goodsKitList;
     }
 
+    /**
+     * 상품관리메인화면 키트상품목록 삭제
+     * @param finalCheckedData
+     */
     public void removeGoodsKitList(List<String> finalCheckedData) {
         adminShopMapper.removeGoodsKitList(finalCheckedData);
     }
