@@ -127,5 +127,8 @@
             crops_name as cn
             on
             uk.crops_name_code = cn.crops_name_code
+        ORDER BY
+            CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
     </select>
+
 </mapper>

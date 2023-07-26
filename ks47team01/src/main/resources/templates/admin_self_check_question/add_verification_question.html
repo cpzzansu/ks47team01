@@ -41,32 +41,34 @@
 
 
                             <!-- 키트 선택 모달창 -->
-                            <div class="modal fade" id="kitChooseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="kitChooseModal" tabindex="-1" role="dialog" aria-labelledby="kitChooseModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">키트 선택</h5>
+                                            <h5 class="modal-title" id="kitChooseModalLabel">키트 선택</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <div class="col-md-4 col-sm-4">
-                                                    <select class="form-control">
-                                                        <option>키트 코드</option>
-                                                        <option>키트 이름</option>
-                                                        <option>작물 이름</option>
-                                                    </select>
-                                                </div>
-                                                <div class="">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control">
-                                                        <span class="input-group-btn">
-                                                            <button type="button" class="btn btn-primary">검색</button>
-                                                        </span>
+                                                <form id="kitSearchForm">
+                                                    <div class="col-md-4 col-sm-4">
+                                                        <select id="kitSearchColumn" class="form-control">
+                                                            <option value="urbanKitCode">키트 코드</option>
+                                                            <option value="urbanKitName">키트 이름</option>
+                                                            <option value="cropsName">작물 이름</option>
+                                                        </select>
                                                     </div>
-                                                </div>
+                                                    <div class="">
+                                                        <div class="input-group">
+                                                            <input id="kitSearchValue" type="text" class="form-control">
+                                                            <span class="input-group-btn">
+                                                            <button id="kitSearchBtn" type="button" class="btn btn-primary">검색</button>
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -87,12 +89,12 @@
                                                                     <th></th>
                                                                 </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                <tbody id="kitTable">
                                                                 <tr>
-                                                                    <th scope="row">1</th>
-                                                                    <td class="kitCode">urban_kit_1</td>
-                                                                    <td class="kitName">상추, 초급자 키트</td>
-                                                                    <td class="cropName">상추</td>
+                                                                    <th scope="row"></th>
+                                                                    <td class="urbanKitCode"></td>
+                                                                    <td class="urbanKitName"></td>
+                                                                    <td class="cropsName"></td>
                                                                     <td class="text-right">
                                                                         <button type="button" class="btn btn-success kitSelectBtn">선택</button>
                                                                     </td>
@@ -226,6 +228,20 @@
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
+
+        // 유효성검사 함수
+        const validCheck = element => {
+            let data = $(element).val();
+            let eleId = $(element).attr('id');
+
+            if(typeof data == 'undefined' || data == null || data == '' ){
+                alert('검색어는 필수입력 항목입니다.')
+
+                return false;
+            }
+            return true;
+        }
+
         $('#kitChooseModal').on('show.bs.modal', function(){
             $.ajax({
                 url: '/adminSelfCheck/question/listKit',
@@ -233,12 +249,55 @@
                 contentType: 'application/json',
                 success: function(response){
                     console.log(response);
+                    response.forEach(function(item, index){
+                        const $lastTr = $('#kitTable').find('tr').last();
+                        $lastTr.find('th').text(index + 1);
+                        $lastTr.find('td.urbanKitCode').text(item.urbanKitCode);
+                        $lastTr.find('td.urbanKitName').text(item.urbanKitName);
+                        $lastTr.find('td.cropsName').text(item.cropsName);
+                        if(index < response.length - 1){
+                            const $cloneTr = $lastTr.clone();
+                            $('#kitTable').append($cloneTr);
+                        }
+                    })
                 },
                 fail:function(jqXHR, textStatus, errorThrown) {
                     alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
                 }
             })
         });
+
+        $('#kitSearchBtn').on('click', function (){
+            const validateEle = []
+            validateEle.push($('#kitSearchColumn'));
+            validateEle.push($('#kitSearchValue'));
+            console.log(validateEle);
+            let isSubmit = false;
+            const searchData = {}
+
+            $(validateEle).each((idx, item) => {
+                isSubmit = validCheck(item);
+                        let id = $(item).attr('id');
+                        searchData[id] = $(item).val();
+                        return isSubmit;
+                    })
+
+            if(isSubmit){
+                $.ajax({
+                    url: '/adminSelfCheck/question/kitSearch',
+                    type: 'POST',
+                    data: searchData,
+                    contentType: 'application/json',
+                    success: function (){
+
+                    },
+                    fail:function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            }
+        })
+
 
         // let selectKit;
         // let selectCropName;
