@@ -137,7 +137,6 @@
 								</li>
 							</ul>
 						</li>
-
 						<li><a><i class="fa fa-times-circle"></i> #이동훈 <span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
 								<li><a th:href="@{/index3}">대시보드</a></li>
@@ -145,7 +144,6 @@
 								<li><a th:href="@{/index3}">대시보드3</a></li>
 							</ul>
 						</li>
-
 						<li><a><i class="fa fa-toggle-on"></i> 자판기 관리 <span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
 								<li><a> 자판기 관리 <span class="fa fa-chevron-down"></span></a>
@@ -160,33 +158,36 @@
 										<li><a th:href="@{/adminVendingMachine/vmModifyHub}">자판기 상태 수정</a></li>
 									</ul>
 								</li>
-
 								<li><a th:href="@{/adminVendingMachine/vmList}">자판기 리스트</a></li>
 							</ul>
-
 						<li><a><i class="fa fa-tree"></i> #이지성 <span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
-								<li><a th:href="@{/index3}">대시보드</a></li>
-								<li><a th:href="@{/index3}">대시보드2</a></li>
-								<li><a th:href="@{/index3}">대시보드3</a></li>
+								<li><a th:href="@{/adminInfo/adminSearchUser}">회원관리</a></li>
+								<li><a th:href="@{/adminCoupon/addAdminCoupon}">쿠폰관리</a></li>
+								<li><a th:href="@{/adminAddr/adminAddrList}">주소관리</a></li>
 							</ul>
 						</li>
-                <li><a><i class="fa fa-home fa-spinner"></i> !자가검증 관리 :김준수 <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a>!자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a th:href="@{/adminSelfCheck/productGrade/addVerificationProductGrade}">상품등급 등록</a></li>
-                        <li><a th:href="@{/adminSelfCheck/productGrade/listVerificationProductGrade}">상품등급 목록</a></li>
-                      </ul>
-                    </li>
-                    <li><a>!자가검증 질문<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a th:href="@{/adminSelfCheck/question/addVerificationQuestion}">상품질문 등록</a></li>
-                        <li><a th:href="@{/adminSelfCheck/question/listVerificationQuestion}">상품질문 목록</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
+						<li><a><i class="fa fa-home fa-spinner"></i> !자가검증 관리 :김준수 <span
+									class="fa fa-chevron-down"></span></a>
+							<ul class="nav child_menu">
+								<li><a>!자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a th:href="@{/adminSelfCheck/productGrade/addVerificationProductGrade}">상품등급
+												등록</a></li>
+										<li><a th:href="@{/adminSelfCheck/productGrade/listVerificationProductGrade}">상품등급
+												목록</a></li>
+									</ul>
+								</li>
+								<li><a>!자가검증 질문<span class="fa fa-chevron-down"></span></a>
+									<ul class="nav child_menu">
+										<li><a th:href="@{/adminSelfCheck/question/addVerificationQuestion}">상품질문 등록</a>
+										</li>
+										<li><a th:href="@{/adminSelfCheck/question/listVerificationQuestion}">상품질문
+												목록</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
 						<li><a><i class="fa fa-home fa-spinner"></i> !자가검증 관리 :김준수 <span
 									class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
@@ -210,7 +211,6 @@
 								</li>
 							</ul>
 						</li>
-
 						<li><a><i class="fa fa-home fa-spinner"></i> !수확물 판매 예약 :김준수 <span
 									class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
@@ -218,9 +218,7 @@
 								<li><a th:href="@{/adminHebReservation/addHubReservation}">!수확물 판매 예약 등록</a></li>
 							</ul>
 						</li>
-
 						<li><a th:href="@{/doNotClick}"><i class="fa"></i> 열람금지</a></li>
-
 					</ul>
 				</div>
 				<div class="menu_section">

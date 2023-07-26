@@ -1,10 +1,89 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin}">
+<th:block layout:fragment="customContents">
 
-</body>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>회원가입</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>어드민 회원가입<small>회원정보를 입력해주세요</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br/>
+                        <form id="demo-form2" th:action="@{/adminLogin/adminLogin}" class="form-horizontal form-label-left" method="post">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">아이디</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminId">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPw">비밀번호</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminPw" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPw">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminName">이름</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminName" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="staffTableType">회원타입</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="staffTableType" class="form-control col-md-7 col-xs-12" name="staffTableType">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPhone">휴대전화</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminPhone" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPhone">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminEmail">이메일</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminEmail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminEmail">이메일</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmAdminEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminEmail">
+                                </div>
+                            </div>
+                                                                                                                                                
+                                                        
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button class="btn btn-primary" type="button">아이디찾기</button>
+                                    <button class="btn btn-primary" type="button">비밀번호찾기</button>
+                                    <button type="submit" class="btn btn-success submitBtn" id="loginBtn" >로그인</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="customJs">
+    <script type="text/javascript">
+    </script>
+</th:block>
 </html>
+

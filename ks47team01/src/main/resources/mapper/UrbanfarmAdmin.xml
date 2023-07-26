@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="ks47team01.admin.mapper.UrbanfarmAdminMapper">
+	<resultMap type="UrbanfarmAdmin" id="urbanfarmAdminResultMap">
+		<id column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="urbanfarm_admin_pw" property="urbanfarmAdminPw"/>
+		<result column="urbanfarm_admin_name" property="urbanfarmAdminName"/>
+		<result column="staff_table_type" property="staffTableType"/>
+		<result column="urbanfarm_admin_phone" property="urbanfarmAdminPhone"/>
+		<result column="urbanfarm_admin_email" property="urbanfarmAdminEmail"/>
+		<result column="urbanfarm_admin_reg_date" property="urbanfarmAdminRegDate"/>
+	</resultMap>
+
+	<select id="getUrbanfarmAdminInfoById" parameterType="UrbanfarmAdmin">
+		/* 어드민 아이디로 체크 */
+		SELECT
+			urbanfarm_admin_id as urbanfarmAdminId
+		,	urbanfarm_admin_pw as urbanfarmAdminPw
+		,	urbanfarm_admin_name as urbanfarmAdminName
+		,	staff_table_type as staffTableType
+		,	urbanfarm_admin_phone as urbanfarmAdminPhone
+		,	urbanfarm_admin_email as urbanfarmAdminEmail
+		,	urbanfarm_admin_reg_date as urbanfarmAdminRegDate
+		FROM
+			urbanfarm_admin 
+		WHERE
+			urbanfarm_admin_id = #{urbanfarmAdminId};
+		
+	</select>
+	
+	<insert id="addUrbanfarmAdmin" parameterType="UrbanfarmAdmin">
+	
+		/* 회원가입 */
+		INSERT INTO urbanfarm_admin AS ua
+			(ua.urbanfarm_admin_id, ua.urbanfarm_admin_pw, ua.urbanfarm_admin_name
+			,ua.staff_table_type, ua.urbanfarm_admin_phone, ua.urbanfarm_admin_email
+			,ua.urbanfarm_admin_reg_date)
+		VALUES
+			(#{urbanfarmAdminId}, #{urbanfarmAdminPw}, #{urbanfarmAdminName},
+			#{staffTableType}, #{urbanfarmAdminPhone}, #{urbanfarmAdminEmail},
+			CURDATE());	
+	
+	</insert>
+	
+	
+</mapper>
