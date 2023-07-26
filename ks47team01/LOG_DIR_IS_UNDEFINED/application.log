@@ -15787,3 +15787,4 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 17:09:33.300 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
 17:09:33.302 [restartedMain] INFO  ks47team01.Ks47team01Application - Started Ks47team01Application in 0.552 seconds (process running for 4832.801)
 17:09:33.303 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+17:17:34.608 [RMI TCP Connection(135)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
