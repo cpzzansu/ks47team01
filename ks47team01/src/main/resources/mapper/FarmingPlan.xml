@@ -142,12 +142,16 @@
 		SELECT
 			p.crops_name AS cropsName,
 			p.farmer_farming_plan_nickname AS farmerFarmingPlanNickname,
-			k.urban_kit_name AS urbanKitName
+			k.urban_kit_name AS urbanKitName,
+			i.crops_growing_date AS cropsGrowingDate
 		FROM
 			farmer_farming_plan AS p
 			LEFT JOIN
 			urban_kit AS k
 			ON p.urban_kit_code = k.urban_kit_code
+			INNER JOIN
+			crops_growing_info AS i
+			ON p.crops_name_code = i.crops_name_code
 		WHERE
 			p.farmer_farming_plan_code = #{farmerFarmingPlanCode}
 	</select>

@@ -61,8 +61,22 @@ public class PlanController {
 	 * 작물 게획 수정화면
 	 */
 	@GetMapping("/modifyPlan")
-	public String modifyPlan(){
+	public String modifyPlan(@RequestParam(value = "farmerFarmingPlanCode")String farmerFarmingPlanCode,
+							 Model model){
 		
+		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
+		String cropsNameCode= farmingPlan.getCropsNameCode();
+		
+		List<CropsName> cropsNameList = cropsService.getCropsNameList();
+		List<UrbanKit> urbanKitList = urbanKitService.getUrbanKitListByCode(cropsNameCode);
+		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
+		
+		
+		model.addAttribute("title", "계획수정");
+		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
+		model.addAttribute("cropsNameList", cropsNameList);
+		model.addAttribute("urbanKitList", urbanKitList);
+		model.addAttribute("farmingPlan", farmingPlan);
 		return "user_plan/modify_plan";
 	}
 	
@@ -149,6 +163,7 @@ public class PlanController {
 	public String removeCrops(@RequestParam(value = "farmerFarmingPlanCode")String farmerFarmingPlanCode,
 							  @RequestParam(value = "msg", required = false) String msg,
 							  Model model){
+		model.addAttribute("title", "작물삭제");
 		model.addAttribute("farmerFarmingPlanCode", farmerFarmingPlanCode);
 		model.addAttribute("msg", msg);
 		return "user_plan/remove_crops";
