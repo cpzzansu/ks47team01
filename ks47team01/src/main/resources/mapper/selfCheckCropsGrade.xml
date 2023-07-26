@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ks47team01.admin.mapper.SelfCheckCropsGradeMapper">
+    <!--  SelfCheckCropsGrade DTO ResultMap  -->
     <resultMap id="selfCheckCropsGradeResultMap" type="SelfCheckCropsGrade">
         <id column="self_check_crops_grade_code" property="selfCheckCropsGradeCode"/>
         <result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
@@ -10,6 +11,22 @@
         <result column="product_high_grade" property="productHighGrade"/>
         <result column="product_low_grade" property="productLowGrade"/>
         <result column="self_check_crops_grade_reg_date" property="selfCheckCropsGradeRegDate"/>
+    </resultMap>
+    <!--  UrbanKit DTO ResultMap  -->
+    <resultMap type="UrbanKit" id="urbanKitResultMap">
+        <id column="urban_kit_code" property="urbanKitCode"/>
+        <result column="urban_kit_name" property="urbanKitName"/>
+        <result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
+        <result column="writer_id" property="writerId"/>
+        <result column="staff_table_type" property="staffTableType"/>
+        <result column="urbanfarm_hub_id" property="urbanfarmHubId"/>
+        <result column="urban_kit_cost" property="urbanKitCost"/>
+        <result column="urban_kit_price" property="urbanKitPrice"/>
+        <result column="urban_kit_propit" property="urbanKitPropit"/>
+        <result column="urban_kit_content" property="urbanKitContent"/>
+        <result column="urban_kit_pic" property="urbanKitPic"/>
+        <result column="urban_kit_reg_date" property="urbanKitRegDate"/>
+        <result column="crops_name" property="cropsName"/>
     </resultMap>
 
     <select id="autoIncreaseCode" resultType="String" parameterType="String">
@@ -96,4 +113,19 @@
             #{item}
         </foreach>
     </delete>
+
+    <select id="getKitList" resultMap="urbanKitResultMap">
+        /* 키트 리스트 + 작물 이름 */
+        SELECT
+            uk.urban_kit_code,
+            uk.urban_kit_name,
+            uk.crops_name_code,
+            cn.crops_name
+        FROM
+            urban_kit as uk
+            LEFT JOIN
+            crops_name as cn
+            on
+            uk.crops_name_code = cn.crops_name_code
+    </select>
 </mapper>
