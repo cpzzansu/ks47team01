@@ -58,4 +58,9 @@ public class AdminSelfCheckCropsGradeService {
         selfCheckCropsGradeMapper.updateProductGrade(selfCheckCropsGrade);
 
     }
+
+    public void deleteProductGrade(List<String> deleteCodeList){
+
+        selfCheckCropsGradeMapper.deleteProductGrade(deleteCodeList);
+    }
 }

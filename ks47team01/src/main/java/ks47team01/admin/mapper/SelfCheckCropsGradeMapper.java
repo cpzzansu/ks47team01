@@ -33,5 +33,7 @@ public interface SelfCheckCropsGradeMapper {
 
     public void updateProductGrade(SelfCheckCropsGrade selfCheckCropsGrade);
 
+    public void deleteProductGrade(List<String> deleteCodeList);
+
 
 }

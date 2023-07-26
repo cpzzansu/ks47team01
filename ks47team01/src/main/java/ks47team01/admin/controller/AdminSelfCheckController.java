@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Log4j2
 @Controller
@@ -165,11 +166,11 @@ public class AdminSelfCheckController {
      * @param model
      * @return redirect!
      */
-    @GetMapping("/productGrade/removeProductGrade")
-    public String removeProductGrade(Model model){
+    @PostMapping("/productGrade/removeProductGrade")
+    @ResponseBody
+    public void deleteProductGrade(@RequestBody List<String> deleteList){
+        log.info("deleteProductGrade Controller {}", deleteList);
 
-        model.addAttribute("title","자가검증 상품등급 삭제");
-
-        return "admin_self_check_product_grade/list_verification_product_grade";
+        adminSelfCheckCropsGradeService.deleteProductGrade(deleteList);
     }
 }

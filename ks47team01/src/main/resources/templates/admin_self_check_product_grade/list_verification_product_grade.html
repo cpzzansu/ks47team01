@@ -384,6 +384,38 @@
             }
         })
 
+        // 삭제버튼(removeBtn) 클릭시 콜백함수
+        $('#removeBtn').on('click', function (){
+            if(confirm('정말로 삭제하시겠습니까?')) {
+                const checkedEle = $('.chb-down:checked');
+                const codeArr = [];
+
+                checkedEle.each(function (idx, item) {
+                    console.log(item.dataset);
+                    const selfCheckCropsGradeCode = item.dataset.selfCheckCropsGradeCode;
+                    console.log(selfCheckCropsGradeCode);
+                    codeArr.push(selfCheckCropsGradeCode);
+                });
+
+                $.ajax({
+                    url: "/adminSelfCheck/productGrade/removeProductGrade",
+                    data:JSON.stringify(codeArr),
+                    type: "POST",
+                    contentType: 'application/json',
+                    success: function(response) {
+                        console.log(codeArr);
+                        alert('삭제되었습니다.');
+
+                        table.ajax.reload();
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            } else {
+                return false;
+            }
+        });
 
 
         // 삭제하기 클릭시 팝업
@@ -395,7 +427,7 @@
 
                 checkedEle.each(function(idx, item){
                     console.log(item.dataset);
-                    const goodsKitCode = item.dataset.goodsKitCode;
+                    const goodsKitCode = item.find('tr')
                     codeArr.push(goodsKitCode);
                 });
 

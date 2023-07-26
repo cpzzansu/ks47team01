@@ -69,7 +69,7 @@
 
     <update id="updateProductGrade" parameterType="SelfCheckCropsGrade">
         /* 상품등급 수정 */
-
+        deleteProductGrade
         UPDATE self_check_crops_grade
         <trim prefix="SET" suffixOverrides=",">
             <if test="productGrade != null and productGrade != ''">
@@ -84,6 +84,16 @@
         </trim>
         WHERE
         self_check_crops_grade_code= #{selfCheckCropsGradeCode};
-
     </update>
+
+    <delete id="deleteProductGrade" parameterType="java.util.List">
+        /* 상품등급 삭제 처리 쿼리 */
+        DELETE FROM
+            self_check_crops_grade
+        WHERE
+            self_check_crops_grade_code IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>
