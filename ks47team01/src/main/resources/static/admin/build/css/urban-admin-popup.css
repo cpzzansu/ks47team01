@@ -193,5 +193,16 @@ input[type='number'] {
     font-size: 12px;
 }
 
+/* 우측에 텍스트 정렬 */
+.right-text{
+    float: right;
+    margin-top: 9px;
+}
+
+/* 팝업만 좌우 스크롤 없애기 */
+html{
+    overflow-x: hidden;
+}
+
 
 

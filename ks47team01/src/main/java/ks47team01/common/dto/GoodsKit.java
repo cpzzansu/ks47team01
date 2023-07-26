@@ -16,4 +16,5 @@ public class GoodsKit {
     private String goodsKitDeliveryDate;
     private String goodsKitRegDate;
 
+
 }

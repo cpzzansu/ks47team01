@@ -6,7 +6,8 @@
     <div class="col-md-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h4>상점상품수정</h4>
+                <h4 style="display: inline-block;">상점상품수정</h4>
+                <span class="right-text" id="pop-up-today"></span>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -15,57 +16,60 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">상품 키트 코드</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" disabled="disabled"
-                                   placeholder="선택된 상품 키트 코드 자동으로 들어와야 함" maxlength="50">
+                            <input type="text" class="form-control" disabled="disabled" id="idGoodsKitCode" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">관리자 직원 아이디</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" disabled="disabled"
-                                   placeholder="선택된 상품 키트 코드의 관리자 직원 아이디 자동으로 들어와야 함" maxlength="50">
+                            <input type="text" class="form-control" disabled="disabled" id="idUrbanfarmAdminId" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 코드</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <input type="text" class="form-control" disabled="disabled"
-                                   placeholder="선택된 상품 키트 코드의 키트 코드 자동으로 들어와야 함" maxlength="50">
+                                   id="idUrbanKitCode" placeholder="선택된 상품 키트 코드의 키트 코드 자동으로 들어와야 함" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 이름</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <input type="text" class="form-control"
-                                   placeholder="선택된 상품 키트 코드의 키트 이름 자동으로 들어와야 함" maxlength="50">
+                                   id="idUrbanKitName" placeholder="선택된 상품 키트 코드의 키트 이름 자동으로 들어와야 함" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 내용</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control"
-                                   placeholder="선택된 상품 키트 코드의 키트 내용 자동으로 들어와야 함" maxlength="50">
+                            <input type="text" class="form-control" id="idGoodsKitContents" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 가격</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="number" class="form-control"
-                                   placeholder="선택된 상품 키트 코드의 키트 가격 자동으로 들어와야 함" maxlength="50">
+                            <input type="text" class="form-control kit-price" id="idGoodsKitPrice" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 배송 가능일</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="date" class="form-control" placeholder="선택된 상품 키트 코드의 키트 가격 자동으로 들어와야 함">
+                            <input type="text" class="form-control kit-price"
+                                   id="idGoodsKitDeliveryDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 등록일</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control kit-price" id="idGoodsKitRegDate" disabled="disabled">
                         </div>
                     </div>
                     <div class="form-group filebox">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">사진 첨부</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input class="upload-name" placeholder="선택된 상품 키트 코드의 사진 경로가 자동으로 들어와야 함">
+                            <input class="upload-name" id="idPic" readonly>
                             <label for="file" class="file-up-popup">사진첨부</label>
-                            <input type="file" id="file">
+                            <input type="file" id="file" accept="image/gif, image/jpeg, image/png, image/jpg">
                         </div>
                     </div>
                     <div class="form-group">
@@ -73,12 +77,14 @@
                         <div class="col-md-9 col-sm-9 col-xs-12" id="upload-img-thumb">
                         </div>
                     </div>
-                    <br>
-                    <div class="x_title">
-                        <h4>제품 상세</h4>
-                        <div class="clearfix"></div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 제목</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control"
+                                   id="idGoodsKitTitle" maxlength="50">
+                        </div>
                     </div>
-                    <br>
                     <div class="x_content">
                         <textarea id="summernote"></textarea>
                     </div>
@@ -98,6 +104,32 @@
 </th:block>
 <th:block layout:fragment="customJs">
     <script th:inline="javascript">
+
+        // 정규표현식을 이용한 키트가격 입력 input에 입력한 문자 감지 및 삭제
+        $(document).ready(function() {
+            $(".kit-price").keyup(function() {
+                let input_val = $(this).val();
+                let nonNumberPattern = /[^-0-9]/g;
+
+                if(nonNumberPattern.test(input_val)) {
+                    alert('숫자만 입력해주세요');
+                    let replace_text = input_val.replace(nonNumberPattern, '');
+                    $(this).val(replace_text);
+                }
+            });
+        });
+
+        // 시계
+        $(document).ready(function() {
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000);
+        });
+
+        function updateCurrentTime() {
+            let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+            $('#pop-up-today').text(currentTime);
+        }
+
         // 팝업창 닫기
         if($('.windowClose').length > 0){
             function closePopUp() {
@@ -109,14 +141,14 @@
 
         // 업로드한 파일 이름, 사진 썸네일 표시
         $("#file").on('change',function(){
-            var fileName = $("#file").val();
+            let fileName = $("#file").val();
             $(".upload-name").val(fileName);
             $('#upload-img-thumb').find('img').remove();
             const fileObj = new FileReader();
 
             fileObj.onload = e => {
                 console.log(e.target.result)
-                const $img = $('<img />', {src: e.target.result}).css({width: 100, height: 100});
+                const $img = $('<img />', {src: e.target.result}).css({width: 200, height: 200});
                 $('#upload-img-thumb').append($img);
             }
             fileObj.readAsDataURL(this.files[0]);
@@ -173,14 +205,62 @@
                 height: 500,                 // 에디터 높이
                 minHeight: null,             // 최소 높이
                 maxHeight: null,             // 최대 높이
-                focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+                focus: false,                  // 에디터 로딩후 포커스를 맞출지 여부
                 lang: "ko-KR",					// 한글 설정
-                placeholder: 'detail 사진, 내용 자동으로 들어와야 함'	//placeholder 설정
             });
+            function extractValueFromUrl(urlString) {
+                const url = new URL(urlString);
+                const searchParams = new URLSearchParams(url.search);
+
+                // 첫 번째 값을 가져옵니다. 만약 여러 값이 있는 경우에는 이 부분을 수정해야 합니다.
+                let extractedValue = "";
+                for (let value of searchParams.values()) {
+                    extractedValue = value;
+                    break;
+                }
+
+                return extractedValue;
+            }
+
+            // 예제
+            const urlString = window.location.href;  // 현재 페이지의 URL
+            const checkedData = extractValueFromUrl(urlString);
+            console.log('checkedData ->', checkedData); // 쿼리 파라미터의 첫 번째 값을 출력
+
+            $.ajax({
+                url: "adminShopUpdate",
+                data: {checkedData: checkedData},
+                type: "POST",
+                success: function(response) {
+                    console.log('response ->', response);
+                    $('#idGoodsKitCode').val(response.goodsKitCode);
+                    $('#idUrbanfarmAdminId').val(response.urbanfarmAdminId);
+                    $('#idUrbanKitCode').val(response.urbanKitCode);
+                    $('#idUrbanKitName').val(response.urbanKitName);
+                    $('#idGoodsKitTitle').val(response.goodsKitTitle);
+                    $('#idGoodsKitContents').val(response.goodsKitContents);
+                    $('#idGoodsKitPrice').val(response.goodsKitPrice);
+                    $('#idGoodsKitDeliveryDate').val(response.goodsKitDeliveryDate);
+                    $('#idGoodsKitRegDate').val(response.goodsKitRegDate);
+
+                    $('#summernote').summernote('code', response.goodsKitDetail);
+
+                    $('#upload-img-thumb').html(response.goodsKitPic);
+
+                    let match = response.goodsKitPic.match(/src="([^"]+)"/);
+                    if (match && match[1]) {
+                        let imgUrl = match[1];
+                        // imgUrl을 idPic의 value로 설정
+                        $('#idPic').val(imgUrl);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                }
+            });
+
+
         });
     </script>
 </th:block>
 </html>
-
-<!-- 이 상태에서 검색하기 버튼 클릭 후 정상 작동되면 레이아웃의 css와 js가 잘 연결된 것이니
-customJS의 스크립트와 customContents의 div 및 button을 삭제해주세요 -->

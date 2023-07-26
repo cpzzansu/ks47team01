@@ -225,20 +225,32 @@
         });
 
         // 수정버튼 클릭시 팝업
-        $('#shop-modify').on('click', function(){
+        $('#shop-modify').on('click', function() {
+            // 체크된 요소의 id값 가져옴
+            const checkedEle = $('.chb-down:checked');
+            if (checkedEle.length === 0) {
+                alert('수정할 항목을 선택해주세요.');
+                return;
+            } else if (checkedEle.length >= 2) {
+                alert('1개만 선택해주세요.')
+                checkedEle.prop('checked', false);
+                return;
+            }
+            const goodsKitCode = checkedEle.data('goodsKitCode');
+            console.log('goodsKitCode ->', goodsKitCode);
 
             let width = 800;
             let height = 900;
 
-            let left = Math.ceil(( window.screen.width - width )/2);
-            let top = Math.ceil(( window.screen.height - height )/2);
+            let left = Math.ceil((window.screen.width - width) / 2);
+            let top = Math.ceil((window.screen.height - height) / 2);
 
-            let windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
+            let windowStatus = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
 
-            const url = "adminShopModify";
-
+            const url = "adminShopModify?goodsKitCode=" + goodsKitCode;
             window.open(url, "상점상품수정", windowStatus);
         });
+
 
         // 삭제하기 클릭시 팝업
         $('#shop-remove').on('click', function (){
