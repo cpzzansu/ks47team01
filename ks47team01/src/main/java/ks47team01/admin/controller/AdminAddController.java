@@ -65,7 +65,7 @@ public class AdminAddController {
 	@GetMapping("/login/mailConfirm") 
 	String mail(Model model) {
 		
-		return "admin_add/NewFile";
+		return "admin_add/admin_send_mail";
 		
 	}
 

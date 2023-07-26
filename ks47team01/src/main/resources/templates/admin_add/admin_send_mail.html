@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{admin/layout/default_admin}">
+<body>
+<th:block layout:fragment="customContents">
+	<th:block th:insert="~{mail/send_mail :: sendFragment}"></th:block>
+
+</th:block>
+</body>
+</html>
