@@ -83,6 +83,34 @@
 	})
 	
 	
+	$cropsNameCode.addEventListener('change',function(){
+		const cropsNameCode = $cropsNameCode.value
+		const request = $.ajax({
+			url : '/userPlan/ajax/getKitByCode',
+			method : "POST",
+			data : {'cropsNameCode' : cropsNameCode},
+			dataType : "json"
+		});
+
+		request.done(function(response) {
+			console.log(response);
+			
+			$('#urbanKitCode option').not('[value=""]').remove();
+			
+			$(response).each(function(idx, item){
+				let urbanKitCode = item.urbanKitCode;
+				let urbanKitName = item.urbanKitName;
+				
+				let $option = $(`<option value=${item.urbanKitCode}>${urbanKitName}</option>`);
+				$('#urbanKitCode').append($option);
+			})
+		});
+
+		request.fail(function(jqXHR, textStatus) {
+			alert("Request failed: " + textStatus);
+		});
+	})
+	
 </script>
 </th:block>
 </html>

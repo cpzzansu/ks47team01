@@ -23,4 +23,14 @@ public class UrbanKitService {
 		List<UrbanKit> urbanKitList = urbanKitMapper.getUrbanKitList();
 		return urbanKitList;
 	}
+	
+	/**
+	 * 코드별 키트 리스트
+	 * @param cropsNameCode
+	 * @return
+	 */
+	public List<UrbanKit> getUrbanKitListByCode(String cropsNameCode){
+		List<UrbanKit> urbanKitList = urbanKitMapper.getUrbanKitListByCode(cropsNameCode);
+		return urbanKitList;
+	}
 }
