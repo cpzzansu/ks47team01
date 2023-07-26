@@ -21,5 +21,6 @@ public class UrbanKit {
 	private String urbanKitRegDate;
 	
 	private List<FarmingPlan> farmingPlanList;
+	private String cropsName;
 
 }

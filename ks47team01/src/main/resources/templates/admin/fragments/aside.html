@@ -150,9 +150,9 @@
 
                 <li><a><i class="fa fa-tree"></i> #이지성 <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a th:href="@{/index3}">대시보드</a></li>
-                    <li><a th:href="@{/index3}">대시보드2</a></li>
-                    <li><a th:href="@{/index3}">대시보드3</a></li>
+                    <li><a th:href="@{/adminInfo/adminSearchUser}">회원관리</a></li>
+                    <li><a th:href="@{/adminCoupon/addAdminCoupon}">쿠폰관리</a></li>
+                    <li><a th:href="@{/adminAddr/adminAddrList}">주소관리</a></li>
                   </ul>
                 </li>
 
@@ -168,14 +168,14 @@
                   <ul class="nav child_menu">
                     <li><a>!자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a th:href="@{/adminSelfVerification/productGrade/addVerificationProductGrade}">상품등급 등록</a></li>
-                        <li><a th:href="@{/adminSelfVerification/productGrade/listVerificationProductGrade}">상품등급 목록</a></li>
+                        <li><a th:href="@{/adminSelfCheck/productGrade/addVerificationProductGrade}">상품등급 등록</a></li>
+                        <li><a th:href="@{/adminSelfCheck/productGrade/listVerificationProductGrade}">상품등급 목록</a></li>
                       </ul>
                     </li>
                     <li><a>!자가검증 질문<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a th:href="@{/adminSelfVerification/question/addVerificationQuestion}">상품질문 등록</a></li>
-                        <li><a th:href="@{/adminSelfVerification/question/listVerificationQuestion}">상품질문 목록</a></li>
+                        <li><a th:href="@{/adminSelfCheck/question/addVerificationQuestion}">상품질문 등록</a></li>
+                        <li><a th:href="@{/adminSelfCheck/question/listVerificationQuestion}">상품질문 목록</a></li>
                       </ul>
                     </li>
                   </ul>

@@ -121,6 +121,8 @@ public class UserInfoController {
 		String urbanfarmerId = (String) session.getAttribute("S_id");
 		
 		Urbanfarmer urbanfarmer = urbanfarmerService.getUserInfoById(urbanfarmerId);
+		String phone = urbanfarmer.getUrbanfarmerPhone().substring(4, 13);
+		urbanfarmer.setUrbanfarmerPhone(phone);
 		urbanfarmer.getUrbanfarmerId();
 		
 		model.addAttribute("title", "회원정보수정");
@@ -145,6 +147,8 @@ public class UserInfoController {
 	@PostMapping("/userInfo/userInfoPage")
 	public String updateUserInfoMain(Urbanfarmer urbanfarmer) {
 		
+    	String phone = "010-" + urbanfarmer.getUrbanfarmerPhone();
+    	urbanfarmer.setUrbanfarmerPhone(phone);
 		
 		urbanfarmerService.updateUserInfo(urbanfarmer);
 		
