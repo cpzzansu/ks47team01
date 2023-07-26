@@ -52,33 +52,18 @@ $("#checkEmail").click(function() {
 <th:block layout:fragment="customContents">
 			<!-- <span>이메일 </span> -->
 				<div th:fragment="sendFragment">
-                            <div class="form-group">
 					<div class="form-group last mb-4 email_input">
-                                <label for="memail" id="mailTxt" class="control-label col-md-3 col-sm-3 col-xs-12">이메일을 입력해주세요</label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input type="text" class="form-control" name="memail" id="memail">
-                                </div>
-						<button class="btn btn-outline-primary" type="button" id="checkEmail">인증번호 요청</button>
+						<label for="memail" id="mailTxt">이메일을 입력해주세요</label> 
+						<input type="text" class="form-control" name="memail" id="memail">
 					</div>
-				</div>				
-						
-							
-						
-
 								<!-- <span>이메일 인증번호</span> -->
+						<button class="btn btn-outline-primary" type="button" id="checkEmail">인증번호</button>
 	
-                            <div class="form-group">
-					<div class="form-group last mb-4 check_input" >
-                                <label for="emailCode" id="emailCodeTxt" class="control-label col-md-3 col-sm-3 col-xs-12">인증번호를 입력해주세요</label>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input type="text" class="form-control" id="emailCode" name="emailCode">
-                                </div>
-                                <button class="btn btn-outline-primary" type="submit" id="confirmBtn"> 인증번호 확인 </button>
-                            </div>
-                            </div>				
-						
-						
-						
+	
+					<div class="form-group last mb-4 check_input">
+						<label for="memailconfirm" id="memailconfirmTxt">인증번호를 입력해주세요</label> 
+						<input type="text" class="form-control" id="memailconfirm">
+					</div>
 				</div>
 </th:block>
 </body>

@@ -35,5 +35,16 @@
 	
 	</select>
 	
+	<select id="getUrbanfarmHubCrewEmailList" parameterType="String">
+		/* 허브 직원 이메일 목록 조회 */
+		SELECT
+			urbanfarm_hub_crew_email
+		FROM
+			urbanfarm_hub_crew 
+		WHERE
+			urbanfarm_hub_crew_email = #{urbanfarmHubCrewEmail}
+	
+	</select>
+	
 	
 </mapper>

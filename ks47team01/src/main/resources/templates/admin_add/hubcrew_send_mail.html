@@ -22,7 +22,7 @@
                     </div>
                     <div class="x_content">
                         <br/>			
-			<form id="demo-form2" th:action="@{/adminAdd/emailCodeCheck}" class="form-horizontal form-label-left" method="post">
+			<form id="demo-form2" th:action="@{/hubCrewAdd/emailCodeCheck}" class="form-horizontal form-label-left" method="post">
 					<th:block th:insert="~{mail/send_mail :: sendFragment}"></th:block>
 			</form>
 			</div>
@@ -38,7 +38,7 @@
 $("#checkEmail").click(function() {
    $.ajax({
       type : "POST",
-      url : "/adminAdd/emailCheck",
+      url : "/hubCrewAdd/emailCheck",
       data : {"email" : $("#memail").val()},
       
       success : function(data){

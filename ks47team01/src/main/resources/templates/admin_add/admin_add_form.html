@@ -49,7 +49,8 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPhone">휴대전화</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select class="control-label col-md-1 col-sm-1 col-xs-1"> <option disabled="disabled" selected="selected">010</option> </select>
+                                <div class="col-md-5 col-sm-5 col-xs-6">
                                     <input type="text" id="urbanfarmAdminPhone" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPhone">
                                 </div>
                             </div>
@@ -74,6 +75,114 @@
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
+	/*
+	const $idCheckBtn = document.querySelector('#idCheck');
+	$idCheckBtn.addEventListener('click', e => {
+		alert('test');
+	});
+	*/
+	// 유효성검사 함수
+	const validCheck = element => {
+		let data = $(element).val();
+		let eleId = $(element).attr('id');
+		
+		if(typeof data == 'undefined' || data == null || data == '' ){
+			let cate = $(`label[for="${eleId}"]`).text();
+			alert(`${cate} 필수 입력항목입니다.`);
+			$(element).focus();
+			return false;
+		}
+		return true;
+	}
+	
+	// 회원아이디 변경 시 이벤트 처리
+	
+	// 회원 가입 버튼 시 이벤트
+	$('#addUserBtn').click(function(){
+		const validateEle = $('#addUserForm input');
+		let isSubmit = false;
+		let $phoneSize = $('#urbanfarmerPhone').size
+		
+		validateEle.each((idx, item) => {    				
+			isSubmit = validCheck(item);
+			return isSubmit;
+		})
+		if(isSubmit) {
+			
+			let error = '전화번호를 입력해주세요';
+
+			
+			if($('#urbanfarmerPhone').val().length == 9) {
+				
+				error = null;
+				
+			$('#addUserForm').submit();
+			
+			}
+			
+			if(error != null) alert(error);
+				
+			
+		}
+		
+			
+	});
+	
+	// 입력 취소 버튼 클릭시 이벤트 처리
+	$('#resetBtn').click(function(e){
+		// 태그가 가지고 있는 기본 이벤트 동작 방지
+		e.preventDefault();
+		$('#addUserForm input').not('#urbanfarmerId').val('');
+	});
+	
+	// 아이디중복버튼 이벤트
+	$('#idCheck').click(function(){
+		const $urbanfarmerId = $('#urbanfarmerId');
+		let urbanfarmerId = $urbanfarmerId.val();
+		
+		// 유효성검사
+		let valid = validCheck($urbanfarmerId);
+		if(!valid) return false;
+		
+		// ajax 호출
+		const request = $.ajax({
+			url: '/userAdd/userIdCheck',
+			method: 'POST',
+			data: { 'urbanfarmerId' : urbanfarmerId },
+			dataType: 'text'
+			});
+			 
+			request.done(function( response ) {
+				if(response == 'true'){
+					alert('이미 등록된 아이디입니다.');
+					$urbanfarmerId.val('');
+					$urbanfarmerId.focus();
+					
+   				return false;
+				}else{
+					$('#addUserForm button').prop('disabled', false);
+					alert('사용 가능한 아이디입니다.');
+				}
+			//console.log(response);
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+			});
+		
+	});
+	
+	
+	const autoHyphen2 = (target) => {
+		 target.value = target.value
+		   .replace(/[^0-9]/g, '')
+		  .replace(/^(\d{0,4})(\d{0,4})$/g, "$1-$2").replace(/(\-{1,2})$/g, "");
+		}
+	    
+    
+    
+    
+    
     </script>
 </th:block>
 </html>

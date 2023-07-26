@@ -1,6 +1,7 @@
 package ks47team01.admin.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -43,5 +44,13 @@ public class UrbanfarmHubCrewService {
 		return resultMap;
 		
 	} 
+	
+	public List<String> getEmailList(String urbanfarmHubEmail) {
+		
+		List<String> emailList = urbanfarmHubcrewMapper.getUrbanfarmHubCrewEmailList(urbanfarmHubEmail);
+	
+		return emailList;
+		
+	}
 
 }

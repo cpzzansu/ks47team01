@@ -1,6 +1,7 @@
 package ks47team01.admin.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
@@ -49,5 +50,14 @@ public class UrbanfarmAdminService {
 		
 		return result;
 	}
+	
+	public List<UrbanfarmAdmin> getUrbanfarmAdminEmailList(String urbanfarmAdminEmail) {
+		
+		List<UrbanfarmAdmin> EmailList = urbanfarmAdminMapper.getUrbanfarmAdminEmail(urbanfarmAdminEmail);
+		
+		return EmailList;
+		
+	}
+
 	
 }

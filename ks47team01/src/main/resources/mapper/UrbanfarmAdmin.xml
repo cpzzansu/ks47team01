@@ -45,5 +45,21 @@
 	
 	</insert>
 	
+	<select id="getUrbanfarmAdminEmail" parameterType="UrbanfarmAdmin">
+		SELECT
+			urbanfarm_admin_id as urbanfarmAdminId
+		,	urbanfarm_admin_pw as urbanfarmAdminPw
+		,	urbanfarm_admin_name as urbanfarmAdminName
+		,	staff_table_type as staffTableType
+		,	urbanfarm_admin_phone as urbanfarmAdminPhone
+		,	urbanfarm_admin_email as urbanfarmAdminEmail
+		,	urbanfarm_admin_reg_date as urbanfarmAdminRegDate
+		FROM
+			urbanfarm_admin 
+		WHERE
+			urbanfarm_admin_email = #{urbanfarmAdminEmail}
+	
+	</select>
+	
 	
 </mapper>
