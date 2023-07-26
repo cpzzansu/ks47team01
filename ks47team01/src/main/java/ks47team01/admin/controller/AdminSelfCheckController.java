@@ -2,21 +2,16 @@ package ks47team01.admin.controller;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.admin.service.AdminSelfCheckCropsGradeService;
-import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+@Log4j2
 @Controller
 @AllArgsConstructor
 @RequestMapping("/adminSelfCheck")
@@ -145,17 +140,24 @@ public class AdminSelfCheckController {
         return dataProductGrade;
     }
 
-    /**
-     * 관리자 - 자가검증 상품등급 수정화면 이동
-     * @param model
-     * @return admin_self_check_product_grade/modify_verification_product_grade
-     */
-    @GetMapping("/productGrade/modifyVerificationProductGrade")
-    public String moveModifyProductGrade(Model model){
+    @ResponseBody
+    @PostMapping("/productGrade/modifyProductGradeData")
+    public SelfCheckCropsGrade modifyProductGradeModal(@RequestBody String selfCheckCropsGrade){
+        log.info("selfCheckCropsGrade: {}", selfCheckCropsGrade);
 
-        model.addAttribute("title","자가검증 상품등급 수정");
+        String selfCheckCropsGradeCode = selfCheckCropsGrade;
+        SelfCheckCropsGrade result = adminSelfCheckCropsGradeService.getProductGradeByCode(selfCheckCropsGradeCode);
 
-        return "admin_self_check_product_grade/modify_verification_product_grade";
+        return result;
+    }
+
+
+    @ResponseBody
+    @PostMapping("/productGrade/modifyUpdateProductGrade")
+    public void modifyUpdateProductGradeModal(@RequestBody SelfCheckCropsGrade selfCheckCropsGrade){
+
+        adminSelfCheckCropsGradeService.updateProductGrade(selfCheckCropsGrade);
+
     }
 
     /**
@@ -163,7 +165,7 @@ public class AdminSelfCheckController {
      * @param model
      * @return redirect!
      */
-    @GetMapping("/productGrade/removeVerificationProductGrade")
+    @GetMapping("/productGrade/removeProductGrade")
     public String removeProductGrade(Model model){
 
         model.addAttribute("title","자가검증 상품등급 삭제");

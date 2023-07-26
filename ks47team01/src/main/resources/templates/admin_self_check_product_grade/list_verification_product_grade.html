@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html layout:decorate="~{admin/layout/default_admin}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{admin/layout/default_admin}">
+      xmlns:th="http://www.thymeleaf.org">
 <th:block layout:fragment="customContents">
     <div class="row">
         <div class="col-md-12">
@@ -12,7 +12,7 @@
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fa fa-wrench"></i></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Settings 1</a>
                                 </li>
@@ -26,106 +26,79 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <table id="product-grade-table" class="table table-striped table-bordered dt-responsive nowrap loading-hide">
+                    <table class="table table-striped table-bordered dt-responsive nowrap loading-hide" id="product-grade-table">
                         <thead>
                         <tr>
                         </tr>
                         </thead>
                     </table>
-                    <button type="button" class="btn-outline loading-hide chb-up">전체선택</button>
-                    <button type="button" class="btn-outline loading-hide" id="shop-add">등록</button>
-                    <button type="button" class="btn-outline loading-hide" id="shop-modify">수정</button>
-                    <button type="button" class="btn-outline loading-hide" id="shop-remove">삭제</button>
+                    <button class="btn-outline loading-hide chb-up" type="button">전체선택</button>
+                    <button class="btn-outline loading-hide" id="removeBtn" type="button">삭제</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- 키트 선택 모달창 -->
-    <div class="modal fade" id="kitChooseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div aria-hidden="true" aria-labelledby="modifyModalLabel" class="modal fade" id="modifyModal" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">키트 선택</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                    <h5 class="modal-title" id="modifyModalLabel">상품등급수정</h5>
+
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <div class="col-md-4 col-sm-4">
-                            <select class="form-control">
-                                <option>키트 코드</option>
-                                <option>키트 이름</option>
-                                <option>작물 이름</option>
-                            </select>
-                        </div>
-                        <div class="">
-                            <div class="input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn">
-                                                            <button type="button" class="btn btn-primary">검색</button>
-                                                        </span>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>키트목록</h2>
+                                    <h2 id="selfCheckCropsGradeCode"></h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
+                                    <br />
+                                    <form action="/adminSelfCheck/productGrade/listVerificationProductGrade" class="form-horizontal form-label-left" data-parsley-validate id="demo-form2">
 
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>키트코드</th>
-                                            <th>키트이름</th>
-                                            <th>작물명</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td class="kitCode">urban_kit_1</td>
-                                            <td class="kitName">상추, 초급자 키트</td>
-                                            <td class="cropName">상추</td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-success kitSelectBtn">선택</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td class="kitCode">urban_kit_2</td>
-                                            <td class="kitName">피망, 초급자 키트</td>
-                                            <td class="cropName">피망</td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-success kitSelectBtn">선택</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td class="kitCode">urban_kit_3</td>
-                                            <td class="kitName">쪽파, 초급자 키트</td>
-                                            <td class="cropName">쪽파</td>
-                                            <td class="text-right">
-                                                <button type="button" class="btn btn-success kitSelectBtn">선택</button>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">관리자 아이디</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control col-md-9 col-xs-12" id="urbanfarmAdminId" readonly required="required" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productGrade">상품등급 <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control col-md-9 col-xs-12" id="productGrade" name="productGrade" required="required" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productHighGrade">등급 최고 상품점수<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control col-md-7 col-xs-12" id="productHighGrade" name="productHighGrade" required="required" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productLowGrade">등급 최저 상품점수<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input class="form-control col-md-9 col-xs-12" id="productLowGrade" name="productLowGrade" required="required" type="text">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="kitChooseCloseBtn" data-dismiss="modal">Close</button>
-                    <button type="button" id="noKitBtn" class="btn btn-warning">키트 선택 안함</button>
+                    <button class="btn btn-secondary" id="rollBackBtn" type="button">다시쓰기</button>
+                    <button class="btn btn-secondary" id="modifyCancleBtn" type="button">수정취소</button>
+                    <button class="btn btn-success" id="modifyBtn" type="button">수정하기</button>
                 </div>
             </div>
         </div>
@@ -134,13 +107,11 @@
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
-        const $modifyBtns = document.querySelectorAll('.modifyBtn');
-
-        $modifyBtns.forEach(function(btn){
-            btn.addEventListener('click', function(){
-                window.location.href = '/adminSelfCheck/productGrade/modifyVerificationProductGrade'
-            })
-        })
+        let selfCheckCropsGradeCode;
+        let urbanfarmAdminId;
+        let db_productGrade;
+        let db_productHighGrade;
+        let db_productLowGrade;
 
         // 오름차, 내림차순 정렬 숫자
         let $thead = $('#product-grade-table thead tr');
@@ -198,6 +169,7 @@
                 { data: 'selfCheckCropsGradeRegDate'}
             ],
             columnDefs: [
+                { "className": "modal-show", "targets": [1,2,3,4,5,6] },
                 {type: "natural", targets: [1]}, // 정렬
                 {
                     targets: 0,
@@ -207,7 +179,7 @@
                     orderable: false,
                     className: 'dt-body-center',
                     render: function (data, type, full, meta){
-                        return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${full.selfCheckCropsGradeCode}">`;
+                        return `<input type="checkbox" class="chb-down admin-check-box-td" data-self-check-crops-grade-code="${full.selfCheckCropsGradeCode}">`;
                     }
                 },
                 {title: '상품등급코드', targets : 1 },
@@ -326,7 +298,92 @@
             window.open(url, "상점상품등록", windowStatus);
         });
 
-        // 수정버튼 클릭시 팝업
+        // 수정 모달 띄우기
+        $(document).on('click','.modal-show', function(){
+            let selfCropsGradeCode = $(this).closest('tr').find('.chb-down').data('self-check-crops-grade-code');
+            console.log(selfCropsGradeCode);
+
+            $.ajax({
+                url: "/adminSelfCheck/productGrade/modifyProductGradeData",
+                data:selfCropsGradeCode,
+                type: "POST",
+                contentType: 'text/plain',
+                success: function(response) {
+                    selfCheckCropsGradeCode = response.selfCheckCropsGradeCode;
+                    urbanfarmAdminId = response.urbanfarmAdminId;
+                    db_productGrade = response.productGrade;
+                    db_productHighGrade = response.productHighGrade;
+                    db_productLowGrade = response.productLowGrade;
+
+                    $('#selfCheckCropsGradeCode').text(selfCheckCropsGradeCode);
+                    $('#urbanfarmAdminId').val(urbanfarmAdminId);
+                    $('#productGrade').val(db_productGrade);
+                    $('#productHighGrade').val(db_productHighGrade);
+                    $('#productLowGrade').val(db_productLowGrade);
+                    $('#modifyModal').modal('show');
+                },
+                fail: function(jqXHR, textStatus, errorThrown) {
+                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                }
+            })
+        })
+
+        // 수정모달 다시쓰기 버튼 실행
+        $('#rollBackBtn').on('click', function(){
+            $('#urbanfarmAdminId').val(urbanfarmAdminId);
+            $('#productGrade').val(db_productGrade);
+            $('#productHighGrade').val(db_productHighGrade);
+            $('#productLowGrade').val(db_productLowGrade);
+        })
+
+        // 수정모달 수정취소 버튼
+        $('#modifyCancleBtn').on('click', function(){
+            $('#modifyModal').modal('hide');
+        })
+
+        // 수정모달 수정하기 버튼
+        $(document).on('click', '#modifyBtn', function (){
+            let productGrade = $('#productGrade').val();
+            let productHighGrade = $('#productHighGrade').val();
+            let productLowGrade = $('#productLowGrade').val();
+
+            const data = {};
+
+            // 요소 중 값 변한 요소 있는지 체크 후 ajax 실행
+            if(productGrade != db_productGrade){
+                data.productGrade = productGrade;
+            };
+            if(productHighGrade != db_productHighGrade){
+                data.productHighGrade = productHighGrade;
+            }
+            if(productLowGrade != db_productLowGrade){
+                data.productLowGrade = productLowGrade;
+            }
+
+            data.selfCheckCropsGradeCode = selfCheckCropsGradeCode;
+
+            if(Object.keys(data).length > 1){
+                $.ajax({
+                    url: "/adminSelfCheck/productGrade/modifyUpdateProductGrade",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: 'application/json',
+                    success: function(response){
+                        alert('수정되었습니다.');
+
+                        table.ajax.reload();
+
+                        $('#modifyModal').modal('hide');
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            } else {
+                alert('변경된 내용이 없습니다.');
+            }
+        })
+
 
 
         // 삭제하기 클릭시 팝업
@@ -343,7 +400,7 @@
                 });
 
                 $.ajax({
-                    url: "adminShopRemove",
+                    url: "/adminSelfCheck/productGrade/removeProductGrade",
                     data:JSON.stringify({ checkedData: codeArr }),
                     type: "POST",
                     contentType: 'application/json',

@@ -45,4 +45,17 @@ public class AdminSelfCheckCropsGradeService {
 
         return dataProductGrade;
     }
+
+    public SelfCheckCropsGrade getProductGradeByCode(String selfCheckCropsGradeCode) {
+
+        SelfCheckCropsGrade selfCheckCropsGrade = selfCheckCropsGradeMapper.getProductGradeByCode(selfCheckCropsGradeCode);
+
+        return selfCheckCropsGrade;
+    }
+
+    public void updateProductGrade(SelfCheckCropsGrade selfCheckCropsGrade){
+
+        selfCheckCropsGradeMapper.updateProductGrade(selfCheckCropsGrade);
+
+    }
 }

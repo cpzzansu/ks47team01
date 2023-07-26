@@ -50,4 +50,40 @@
         FROM
             self_check_crops_grade;
     </select>
+
+    <select id="getProductGradeByCode" parameterType="String" resultMap="selfCheckCropsGradeResultMap">
+        /* 상품 등급 코드별 상품 등급 정보 */
+
+        SELECT
+            self_check_crops_grade_code,
+            urbanfarm_admin_id,
+            product_grade,
+            product_high_grade,
+            product_low_grade,
+            self_check_crops_grade_reg_date
+        FROM
+            self_check_crops_grade
+        WHERE
+            self_check_crops_grade_code = #{selfCheckCropsGradeCode}
+    </select>
+
+    <update id="updateProductGrade" parameterType="SelfCheckCropsGrade">
+        /* 상품등급 수정 */
+
+        UPDATE self_check_crops_grade
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productGrade != null and productGrade != ''">
+                product_grade = #{productGrade},
+            </if>
+            <if test="productHighGrade != null and productHighGrade != ''">
+                product_high_grade = #{productHighGrade},
+            </if>
+            <if test="productLowGrade != null and productLowGrade != ''">
+                product_low_grade = #{productLowGrade},
+            </if>
+        </trim>
+        WHERE
+        self_check_crops_grade_code= #{selfCheckCropsGradeCode};
+
+    </update>
 </mapper>

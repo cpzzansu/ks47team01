@@ -29,4 +29,9 @@ public interface SelfCheckCropsGradeMapper {
      */
     public List<SelfCheckCropsGrade> dataProductGrade();
 
+    public SelfCheckCropsGrade getProductGradeByCode(String selfCheckCropsGradeCode);
+
+    public void updateProductGrade(SelfCheckCropsGrade selfCheckCropsGrade);
+
+
 }
