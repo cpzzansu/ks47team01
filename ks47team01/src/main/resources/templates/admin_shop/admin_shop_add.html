@@ -6,7 +6,8 @@
     <div class="col-md-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h4>상점상품등록</h4>
+                <h4 style="display: inline-block;">상점상품등록</h4>
+                <span class="right-text" id="pop-up-today"></span>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -55,23 +56,16 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 가격</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="number" class="form-control"
-                                   maxlength="50">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">등록 날짜</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
                             <input type="text" class="form-control"
-                                   maxlength="50" id="pop-up-today">
+                                   maxlength="50" id="kit-price">
                         </div>
                     </div>
                     <div class="form-group filebox">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">사진 첨부</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input class="upload-name">
+                            <input class="upload-name" readonly>
                             <label for="file" class="file-up-popup">사진첨부</label>
-                            <input type="file" id="file">
+                            <input type="file" id="file" accept="image/gif, image/jpeg, image/png, image/jpg">
                         </div>
                     </div>
                     <div class="form-group">
@@ -79,14 +73,16 @@
                         <div class="col-md-9 col-sm-9 col-xs-12" id="upload-img-thumb">
                         </div>
                     </div>
-                    <br>
-                    <div class="x_title">
-                        <h4>제품 상세</h4>
-                        <div class="clearfix"></div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 제목</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control"
+                                   id="idGoodsKitTitle" maxlength="50">
+                        </div>
                     </div>
                     <div class="x_content">
-                    <br>
-                    <textarea id="summernote"></textarea>
+                        <textarea id="summernote"></textarea>
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">
@@ -105,12 +101,30 @@
 <th:block layout:fragment="customJs">
     <script th:inline="javascript">
 
-        moment().format('YYYY MMMM Do, hh:mm:ss');
+        // 정규표현식을 이용한 키트가격 입력 input에 입력한 문자 감지 및 삭제
+        $(document).ready(function() {
+            $(".kit-price").keyup(function() {
+                let input_val = $(this).val();
+                let nonNumberPattern = /[^-0-9]/g;
 
-        // 등록 날짜
-        $document.ready(function (){
-            $('#pop-up-today').attr('value', "");
+                if(nonNumberPattern.test(input_val)) {
+                    alert('숫자만 입력해주세요');
+                    let replace_text = input_val.replace(nonNumberPattern, '');
+                    $(this).val(replace_text);
+                }
+            });
         });
+
+        // 시계
+        $(document).ready(function() {
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000);
+        });
+
+        function updateCurrentTime() {
+            let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+            $('#pop-up-today').text(currentTime);
+        }
 
         // 팝업창 닫기
         if($('.windowClose').length > 0){
@@ -187,13 +201,10 @@
                 height: 500,                 // 에디터 높이
                 minHeight: null,             // 최소 높이
                 maxHeight: null,             // 최대 높이
-                focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+                focus: false,                  // 에디터 로딩후 포커스를 맞출지 여부
                 lang: "ko-KR",					// 한글 설정
             });
         });
     </script>
 </th:block>
 </html>
-
-<!-- 이 상태에서 검색하기 버튼 클릭 후 정상 작동되면 레이아웃의 css와 js가 잘 연결된 것이니
-customJS의 스크립트와 customContents의 div 및 button을 삭제해주세요 -->

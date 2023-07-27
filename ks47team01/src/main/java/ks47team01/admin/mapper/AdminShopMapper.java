@@ -8,6 +8,8 @@ import java.util.Map;
 
 @Mapper
 public interface AdminShopMapper {
+    public GoodsKit getGoodsKitObj(String finalCheckedData);
+
     // 상품관리 상품 목록 조회
     public List<GoodsKit> getGoodsKitList(Map<String, Object> paramMap);
 

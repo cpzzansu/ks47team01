@@ -8,14 +8,58 @@ import org.apache.ibatis.annotations.Mapper;
 import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
+import ks47team01.common.dto.FarmingPlanSmallCate;
 
 @Mapper
 public interface FarmingPlanMapper {
 	
 	/**
+	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
+	 * @param farmingPlanLargeCateCode
+	 * @return List<FarmingPlanSmallCate>
+	 */
+	public List<FarmingPlanSmallCate> getFarmingPlanSmallCateListByLargeCateCode(Map paramMap);
+	
+	/**
+	 * farmerFarmingPlanCode별 FarmingDetailPlanAction 삭제
+	 * @param farmerFarmingPlanCode
+	 */
+	public void deleteFarmingDetailPlanActionByPlanCode(String farmerFarmingPlanCode);
+	
+	/**
+	 * farmerFarmingPlanCode별 FarmerFarmingDetailPlan 삭제
+	 * @param farmerFarmingPlanCode
+	 */
+	public void deleteFarmerFarmingDetailPlanByPlanCode(String farmerFarmingPlanCode);	
+	
+	/**
+	 * farmerFarmingPlanCode별 deleteFarmerSaleReservationToHub 삭제
+	 * @param farmerFarmingPlanCode
+	 */
+	public void deleteFarmerSaleReservationToHubByPlanCode(String farmerFarmingPlanCode);
+	
+	/**
+	 * farmerFarmingPlanCode별 FarmerFarmingPlan 삭제
+	 * @param farmerFarmingPlanCode
+	 */
+	public void deleteFarmerFarmingPlanByPlanCode(String farmerFarmingPlanCode);
+	/**
+	 * 농사 시작
+	 * @param farmerFarmingPlanCode
+	 */
+	public void startPlan(Map<String, Object> farmerFarmingPlanCode);
+	
+	/**
+	 * 작물 한개 정보
+	 * @param farmerFarmingPlanCode
+	 * @return Map<String, Object> cropsName, farmerFarmingPlanNickname, 
+	 */
+	public Map<String, Object> getCropsInfo(Map<String, Object> farmerFarmingPlanCode);
+	
+	/**
 	 * 사용자별 작물별 계획등록
 	 * @param Map<String, Object> paramMap
-	 * urbanfarmerId, farmerFarmingPlanCode, cropsNameCode, urbanKitCode
+	 * urbanfarmerId, farmerFarmingPlanCode, cropsNameCode, urbanKitCode,urbanKitName
 	 */
 	public void addPlan(Map<String, Object> paramMap);
 	
