@@ -11,11 +11,13 @@
 			align-items: center;
 			justify-content: center;
 		}
-		.vm-btn-size{
+
+		.vm-btn-size {
 			width: 80px;
 			height: 50px;
 		}
-		.upper-padding{
+
+		.upper-padding {
 			padding-top: 200px;
 		}
 	</style>
@@ -27,20 +29,25 @@
 				<div class="col-md-6 text-center d-flex align-self-stretch ftco-animate">
 					<div class="media block-10 services mb-md-0 mb-10" style="background-color: lemonchiffon">
 
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 1</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 2</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 3</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 4</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 5</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 6</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 7</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 8</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 9</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 10</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 11</button>
-						<button type="button" class="btn btn-outline-secondary side-padding click-to-move">A 12</button>
-						<button type="button" class="btn btn-outline-secondary side-padding vm-btn-size click-to-move">A 13</button>
 
+						<th:block th:each="l,stat : ${getSpaceSelect}">
+							
+							<th:block th:unless="${stat.last}">
+								<a th:href="@{/userVendingMachine/vmSpacePayment(vendingMachineSpaceCode=${l.vendingMachineSpaceCode})}"><button type="button"
+									th:disabled="${l.vendingMachineSpaceStateCode}!='vending_machine_space_state_1'"
+									class="btn btn-outline-secondary side-padding"
+									th:text="|A ${l.vendingMachineSpaceNumber}|"></button></a>
+
+							</th:block>
+							
+							<th:block th:if="${stat.last}">
+								<a th:href="@{/userVendingMachine/vmSpacePayment(vendingMachineSpaceCode=${l.vendingMachineSpaceCode})}"><button type="button"
+									th:disabled="${l.vendingMachineSpaceStateCode}!='vending_machine_space_state_1'"
+									class="btn btn-outline-secondary side-padding vm-btn-size"
+									th:text="|A ${l.vendingMachineSpaceNumber}|"></button></a>
+							</th:block>
+						
+						</th:block>
 
 					</div>
 				</div>
@@ -68,7 +75,6 @@
 			</div>
 		</div>
 
-
 	</section>
 
 </th:block>
@@ -80,7 +86,9 @@
 		$(document).on('click', '.click-to-home', function () {
 			location.href = '/userVendingMachine/vmMain';
 		});
+
 	</script>
 
 </th:block>
+
 </html>
