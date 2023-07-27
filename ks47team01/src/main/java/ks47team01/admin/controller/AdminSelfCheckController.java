@@ -36,6 +36,29 @@ public class AdminSelfCheckController {
     }
 
     /**
+     *
+     * @param searchData
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/question/kitSearch")
+    public List<UrbanKit> searchKitList(@RequestBody Map<String, Object> searchData){
+
+        log.info(searchData);
+
+        String searchColumn = (String) searchData.get("kitSearchColumn");
+        String searchValue = (String) searchData.get("kitSearchValue");
+        searchValue = "%" + searchValue + "%";
+
+        log.info(searchColumn);
+        log.info(searchValue);
+
+        List<UrbanKit> kitList = adminSelfCheckCropsGradeService.searchKitList(searchColumn, searchValue);
+
+        return kitList;
+    }
+
+    /**
      * 전체 키트 리스트 반환하는 메서드
      * @return 전체 키트 리스트
      */
