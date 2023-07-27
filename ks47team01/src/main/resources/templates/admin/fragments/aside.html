@@ -31,7 +31,7 @@
 					<h3>메뉴</h3>
 					<ul class="nav side-menu">
 						<li><a><i class="fa fa-shopping-cart"></i> !상점관리(이원영) <span
-									class="fa fa-chevron-down"></span></a>
+								class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
 								<li><a> 상점상품관리 <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
@@ -52,7 +52,7 @@
 							</ul>
 						</li>
 						<li><a><i class="fa fa-shopping-basket"></i> !상품관리(이원영) <span
-									class="fa fa-chevron-down"></span></a>
+								class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
 								<li><a> !상품재고관리 <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
@@ -75,15 +75,11 @@
 								</li>
 								<li><a> !상품불량기준관리 <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardManage}">!상품불량기준관리메인</a>
-										</li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardCheck}">!상품불량기준조회</a>
-										</li>
+										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardManage}">!상품불량기준관리메인</a></li>
+										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardCheck}">!상품불량기준조회</a></li>
 										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardAdd}">!상품불량기준등록</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardModify}">!상품불량기준수정</a>
-										</li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardRemove}">!상품불량기준삭제</a>
-										</li>
+										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardModify}">!상품불량기준수정</a></li>
+										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardRemove}">!상품불량기준삭제</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -168,51 +164,24 @@
 							</ul>
 						</li>
 						<li><a><i class="fa fa-home fa-spinner"></i> !자가검증 관리 :김준수 <span
-									class="fa fa-chevron-down"></span></a>
+								class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
-								<li><a>!자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
+								<li><a>자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a th:href="@{/adminSelfCheck/productGrade/addVerificationProductGrade}">상품등급
-												등록</a></li>
-										<li><a th:href="@{/adminSelfCheck/productGrade/listVerificationProductGrade}">상품등급
-												목록</a></li>
+										<li><a th:href="@{/adminSelfCheck/productGrade/addVerificationProductGrade}">상품등급 등록</a></li>
+										<li><a th:href="@{/adminSelfCheck/productGrade/listVerificationProductGrade}">상품등급 목록</a></li>
 									</ul>
 								</li>
 								<li><a>!자가검증 질문<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
-										<li><a th:href="@{/adminSelfCheck/question/addVerificationQuestion}">상품질문 등록</a>
-										</li>
-										<li><a th:href="@{/adminSelfCheck/question/listVerificationQuestion}">상품질문
-												목록</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li><a><i class="fa fa-home fa-spinner"></i> !자가검증 관리 :김준수 <span
-									class="fa fa-chevron-down"></span></a>
-							<ul class="nav child_menu">
-								<li><a>!자가검증 상품등급<span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a
-												th:href="@{/adminSelfVerification/productGrade/addVerificationProductGrade}">상품등급
-												등록</a></li>
-										<li><a
-												th:href="@{/adminSelfVerification/productGrade/listVerificationProductGrade}">상품등급
-												목록</a></li>
-									</ul>
-								</li>
-								<li><a>!자가검증 질문<span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminSelfVerification/question/addVerificationQuestion}">상품질문
-												등록</a></li>
-										<li><a th:href="@{/adminSelfVerification/question/listVerificationQuestion}">상품질문
-												목록</a></li>
+										<li><a th:href="@{/adminSelfCheck/question/addVerificationQuestion}">상품질문 등록</a></li>
+										<li><a th:href="@{/adminSelfCheck/question/listVerificationQuestion}">상품질문 목록</a></li>
 									</ul>
 								</li>
 							</ul>
 						</li>
 						<li><a><i class="fa fa-home fa-spinner"></i> !수확물 판매 예약 :김준수 <span
-									class="fa fa-chevron-down"></span></a>
+								class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
 								<li><a th:href="@{/adminHebReservation/listHubReservation}">!수확물 판매 예약 목록</a></li>
 								<li><a th:href="@{/adminHebReservation/addHubReservation}">!수확물 판매 예약 등록</a></li>
