@@ -17,6 +17,7 @@
         <id column="urban_kit_code" property="urbanKitCode"/>
         <result column="urban_kit_name" property="urbanKitName"/>
         <result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
+        <result column="crops_name_code" property="cropsNameCode"/>
         <result column="writer_id" property="writerId"/>
         <result column="staff_table_type" property="staffTableType"/>
         <result column="urbanfarm_hub_id" property="urbanfarmHubId"/>
