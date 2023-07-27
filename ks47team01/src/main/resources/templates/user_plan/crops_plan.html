@@ -20,7 +20,7 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="crops">키트</label>
+								<label>키트</label>
 								<h2 th:if="${farmingPlan.urbanKitCode}==null"
 									class="border-top border-bottom">등록된 키트가 없습니다</h2>
 								<h2 th:unless="${farmingPlan.urbanKitCode}==null"
@@ -32,9 +32,11 @@
 					<th:block th:unless="${#lists.isEmpty(farmingPlanLargeCateList)}">
 						<lable>농사계획</lable>
 						<th:block th:each="largeCate : ${farmingPlanLargeCateList}">
+							
 							<div class="row mb-2 border-top">
-								<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"
-									class="col-11"></h2>
+							<label class="col-11" th:for="${largeCate.farmingPlanLargeCateCode}">
+								<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"></h2>
+								</label>
 								<div class="col-1 text-center mt-2">
 									<button th:id="${largeCate.farmingPlanLargeCateCode}" 
 											class="btn btn-primary ion-ios-arrow-down" type="button"
@@ -51,9 +53,11 @@
 									</div>
 								</div>
 							</div>
+							
 						</th:block>
 					</th:block>
 					<div class="mt-4 text-right">
+						<a th:href="@{/userPlan/modifyCrops(farmerFarmingPlanCode=${farmingPlan.farmerFarmingPlanCode})}" class="mr-2 btn btn-warning">작물 변경하기</a>
 						<a th:href="@{/userPlan/planMain}" class="btn btn-primary"
 							type="submit">목록으로</a>
 					</div>

@@ -10,6 +10,7 @@ public class UrbanKit {
 	private String urbanKitCode;
 	private String urbanKitName;
 	private String cropsGrowingInfoCode;
+	private String cropsNameCode;
 	private String writerId;
 	private String staffTableType;
 	private String urbanfarmHubId;

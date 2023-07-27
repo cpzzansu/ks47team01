@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.user.mapper.UserVmMapper"> 
+	<resultMap type="VendingMachine" id="vmResultMap">
+		<id column="vending_machine_code" property="vendingMachineCode"/>
+			<result column="urbanfarm_hub_crew_id" property="urbanfarmHubCrewId"/>
+			<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
+			<result column="vending_machine_name" property="vendingMachineName"/>
+			<result column="vending_machine_space_using" property="vendingMachineSpaceUsing"/>
+			<result column="vending_machine_space_max" property="vendingMachineSpaceMax"/>
+			<result column="vending_machine_state_code" property="vendingMachineStateCode"/>
+			<result column="vending_machine_space_state" property="vendingMachineState"/>
+			<result column="vending_machine_space_reg_date" property="vendingMachineRegDate"/>
+	</resultMap>
+	
+	<resultMap type="HubLargeCate" id="hubLCateResultMap">
+		<id column="hub_large_cate_code" property="hubLargeCateCode"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="hub_large_cate_area" property="hubLargeCateArea"/>
+		<result column="hub_large_cate_reg_date" property="hubLargeCateRegDate"/>
+	</resultMap>
+	
+	<resultMap type="HubMidCateFinal" id="hubMCateFinalResultMap">
+		<id column="hub_mid_cate_final_code" property="hubMidCateFinalCode"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="hub_large_cate_code" property="hubLargeCateCode"/>
+		<result column="hub_mid_cate_final_city" property="hubMidCateFinalCity"/>
+		<result column="hub_mid_cate_final_reg_date" property="hubMidCateFinalRegDate"/>
+	</resultMap>
+
+		<select id="getHubList" resultMap="hubLCateResultMap">
+		/* 허브 지역 가져오기 */
+			SELECT 
+				hub_large_cate_code
+			,	urbanfarm_admin_id
+			,	hub_large_cate_area
+			,	hub_large_cate_reg_date
+			
+			FROM
+				hub_large_cate
+		</select>
+		
+		<select id="getAreaList" resultMap="hubMCateFinalResultMap">
+		/* 허브 동네 가져오기 */
+			SELECT 
+				hub_mid_cate_final_code
+			,	hub_mid_cate_final_city
+			FROM
+				hub_mid_cate_final
+			WHERE
+				hub_large_cate_code = #{hubMidCateFinal}
+					
+		</select>
+
+		<select id="getVmList" resultMap="vmResultMap" parameterType="String">
+		/* 허브 자판기 가져오기 */
+			SELECT 
+				vending_machine_code
+			,	vending_machine_name
+			,	vending_machine_space_using
+			,	vending_machine_state
+			FROM
+				vending_machine as vm
+				LEFT JOIN
+				urbanfarm_hub as uh
+				ON
+				vm.urbanfarm_hub_code = uh.urbanfarm_hub_code
+			WHERE 
+				uh.hub_mid_cate_fanal_code = #{hubMidCateFinalCode};
+				
+		</select>
+
+</mapper>

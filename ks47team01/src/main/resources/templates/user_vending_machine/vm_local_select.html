@@ -5,46 +5,35 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row no-gutters ftco-services">
-				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-4 services mb-md-0 mb-4 click-to-move">
-						<div>
-							<img id="urbanfarm_production_icons" src="/user/images/route.png">
-						</div>
-						<div class="media-body">
-							<h3 id="urbanfarm_heading">서울 허브</h3>
-							<span id="urbanfarm_boding">서울에서 예약 할 동네 선택!</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-4 services mb-md-0 mb-4 click-to-move">
-						<div>
-							<img id="urbanfarm_production_icons" src="/user/images/route.png">
-						</div>
-						<div class="media-body">
-							<h3 id="urbanfarm_heading">경기도 허브</h3>
-							<span id="urbanfarm_boding">경기도에서 예약 할 동네 선택!</span>
+				
+				<th:block th:unless="${#lists.isEmpty(getHubList)}"
+								  th:each="l : ${getHubList}">
+					<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+						<div class="mb-4 services">
+								<a th:href="@{/userVendingMachine/vmAreaSelect(hubLargeCateCode=${l.hubLargeCateCode})}">
+											<img class="daya-img-icon" src="/user/images/route.png"></a>
+								
+							<div class="text-center">
+								<div>
+									<h3 id="urbanfarm_heading" th:text="|${l.hubLargeCateArea}허브|" data-large-cate-code="${l.hubLargeCateCode}"></h3>
+								</div>
+								<div>
+									<span class="urbanfarm_boding" th:text="|${l.hubLargeCateArea}에서 예약 할 동네 선택!|"></span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-4 services mb-md-0 mb-4 click-to-move">
-						<div>
-							<img id="urbanfarm_production_icons" src="/user/images/route.png">
-						</div>
-						<div class="media-body">
-							<h3 id="urbanfarm_heading">전주 선택</h3>
-							<span id="urbanfarm_boding">전주에서 예약 할 동네 선택!</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
+				</th:block>
+				<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
 					<div class="media block-6 services mb-md-0 mb-4 click-to-home">
 						<div>
 							<img id="urbanfarm_production_icons_ecoicon" src="/user/images/vending-machine.png">
 						</div>
 						<div class="media-body">
-							<h3 id="urbanfarm_heading">자판기 홈으로 돌아가기</h3>
+							<h3 id="urbanfarm_heading">자판기 홈</h3>
+						</div>
+						<div>
+							<span class="urbanfarm_boding">자판기 홈으로 돌아가기!</span>
 						</div>
 					</div>
 				</div>
@@ -59,9 +48,7 @@
 
 <th:block layout:fragment="customJs">
 	<script>
-		$(document).on('click', '.click-to-move', function () {
-			location.href = '/userVendingMachine/vmAreaSelect';
-		});
+
 		$(document).on('click', '.click-to-home', function () {
 			location.href = '/userVendingMachine/vmMain';
 		});

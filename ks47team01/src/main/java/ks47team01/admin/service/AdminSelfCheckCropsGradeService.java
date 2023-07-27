@@ -88,4 +88,19 @@ public class AdminSelfCheckCropsGradeService {
 
         return kitList;
     }
+
+    /**
+     * 검색한 키트 리스트를 가져오는 메서드
+     * @param searchColumn 검색한 열
+     * @param searchValue 검색한 값
+     * @return 검색된 키트 객체 리스트
+     */
+    public List<UrbanKit> searchKitList(String searchColumn, String searchValue){
+
+        List<UrbanKit> searchKitList = selfCheckCropsGradeMapper.searchKitList(searchColumn, searchValue);
+
+        return searchKitList;
+    }
+
+
 }
