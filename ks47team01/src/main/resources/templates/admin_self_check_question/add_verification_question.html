@@ -34,7 +34,7 @@
                                     <input type="text" id="kitCode" class="form-control col-md-7 col-xs-12" readonly>
                                 </div>
                                 <!-- 키트 선택 모달 트리거 버튼 -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#kitChooseModal">
+                                <button id="kitModalBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#kitChooseModal">
                                     키트선택
                                 </button>
                             </div>
@@ -93,24 +93,6 @@
                                                                     <td class="kitCode">urban_kit_1</td>
                                                                     <td class="kitName">상추, 초급자 키트</td>
                                                                     <td class="cropName">상추</td>
-                                                                    <td class="text-right">
-                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">2</th>
-                                                                    <td class="kitCode">urban_kit_2</td>
-                                                                    <td class="kitName">피망, 초급자 키트</td>
-                                                                    <td class="cropName">피망</td>
-                                                                    <td class="text-right">
-                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">3</th>
-                                                                    <td class="kitCode">urban_kit_3</td>
-                                                                    <td class="kitName">쪽파, 초급자 키트</td>
-                                                                    <td class="cropName">쪽파</td>
                                                                     <td class="text-right">
                                                                         <button type="button" class="btn btn-success kitSelectBtn">선택</button>
                                                                     </td>
@@ -244,31 +226,45 @@
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
-        let selectKit;
-        let selectCropName;
-        $('#kitChooseModal .kitSelectBtn').click(function() {
-            selectKit = $(this).closest('tr').find('.kitCode').text();
-            selectCropName = $(this).closest('tr').find('.cropName').text();
-            $('#kitChooseModal').modal('hide');
+        $('#kitChooseModal').on('show.bs.modal', function(){
+            $.ajax({
+                url: '/adminSelfCheck/question/listKit',
+                type: 'GET',
+                contentType: 'application/json',
+                success: function(response){
+                    console.log(response);
+                },
+                fail:function(jqXHR, textStatus, errorThrown) {
+                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                }
+            })
         });
-        $('#cropChooseModal .cropSelectBtn').click(function(){
-           selectCropName = $(this).closest('tr').find('.cropName').text();
-           $('#cropChooseModal').modal('hide');
-        });
-        $(document).on('hidden.bs.modal', function(){
-            $('#kitCode').val(selectKit);
-            $('#cropName').val(selectCropName);
-            if(selectKit != null){
-                $('#cropChooseBtn').css('display', 'none');
-            } else {
-                $('#cropChooseBtn').css('display', '');
-            }
-        });
-        $('#noKitBtn').click(function(){
-            selectKit = null;
-            selectCropName = null;
-            $('#kitChooseModal').modal('hide');
-        })
+
+        // let selectKit;
+        // let selectCropName;
+        // $('#kitChooseModal .kitSelectBtn').click(function() {
+        //     selectKit = $(this).closest('tr').find('.kitCode').text();
+        //     selectCropName = $(this).closest('tr').find('.cropName').text();
+        //     $('#kitChooseModal').modal('hide');
+        // });
+        // $('#cropChooseModal .cropSelectBtn').click(function(){
+        //    selectCropName = $(this).closest('tr').find('.cropName').text();
+        //    $('#cropChooseModal').modal('hide');
+        // });
+        // $(document).on('hidden.bs.modal', function(){
+        //     $('#kitCode').val(selectKit);
+        //     $('#cropName').val(selectCropName);
+        //     if(selectKit != null){
+        //         $('#cropChooseBtn').css('display', 'none');
+        //     } else {
+        //         $('#cropChooseBtn').css('display', '');
+        //     }
+        // });
+        // $('#noKitBtn').click(function(){
+        //     selectKit = null;
+        //     selectCropName = null;
+        //     $('#kitChooseModal').modal('hide');
+        // })
     </script>
 </th:block>
 </html>
