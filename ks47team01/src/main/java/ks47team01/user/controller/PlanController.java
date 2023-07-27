@@ -57,11 +57,12 @@ public class PlanController {
 		return "user_plan/add_plan";
 	}
 	
+	
 	/**
-	 * 작물 게획 수정화면
+	 * 등록한 작물 수정화면
 	 */
-	@GetMapping("/modifyPlan")
-	public String modifyPlan(@RequestParam(value = "farmerFarmingPlanCode")String farmerFarmingPlanCode,
+	@GetMapping("/modifyCrops")
+	public String modifyCrops(@RequestParam(value = "farmerFarmingPlanCode") String farmerFarmingPlanCode,
 							 Model model){
 		
 		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
@@ -69,19 +70,42 @@ public class PlanController {
 		
 		List<CropsName> cropsNameList = cropsService.getCropsNameList();
 		List<UrbanKit> urbanKitList = urbanKitService.getUrbanKitListByCode(cropsNameCode);
-		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
 		
-		
-		model.addAttribute("title", "계획수정");
-		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
+		model.addAttribute("title", "작물변경");
 		model.addAttribute("cropsNameList", cropsNameList);
 		model.addAttribute("urbanKitList", urbanKitList);
 		model.addAttribute("farmingPlan", farmingPlan);
+		return "user_plan/modify_crops";
+	}
+	
+	
+	@PostMapping("/modifyCrops")
+	public String modifyCrops(FarmingPlan farmingPlan,HttpSession session) {
+		System.out.println("테스트"+farmingPlan);
+		
+		// 기존 계획 삭제 후 작물 변경
+		farmingPlanService.updateCrops(farmingPlan,session);
+
+		
+		return "redirect:/userPlan/planMain";
+	}
+	
+	
+	
+	
+	
+	/**
+	 * 작물 계획 수정화면
+	 */
+	@GetMapping("/modifyPlan")
+	public String modifyPlan(){
+		
+		
 		return "user_plan/modify_plan";
 	}
 	
 	/**
-	 * 작물 게획 삭제화면
+	 * 작물 계획 삭제화면
 	 */
 	@GetMapping("/removePlan")
 	public String removePlan() {

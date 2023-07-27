@@ -14,6 +14,12 @@ import ks47team01.common.dto.FarmingPlanSmallCate;
 public interface FarmingPlanMapper {
 	
 	/**
+	 * 작물 변경
+	 * @param farmingPlan
+	 */
+	public void updateCrops(FarmingPlan farmingPlan);
+	
+	/**
 	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
 	 * @param farmingPlanLargeCateCode
 	 * @return List<FarmingPlanSmallCate>

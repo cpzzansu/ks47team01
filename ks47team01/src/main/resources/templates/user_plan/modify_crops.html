@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+	<section class="ftco-section">
+		<h1 th:unless="${farmingPlan.farmerFarmingPlanNickname} == null"
+			th:text="${farmingPlan.farmerFarmingPlanNickname}"
+			class="text-center mb-5"></h1>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-9 ftco-animate">
+					<form id="modifyCropsForm" th:action="@{/userPlan/modifyCrops}"
+						method="post">
+						<div class="row align-items-end">
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="hidden" name="farmerFarmingPlanCode" th:value="${farmingPlan.farmerFarmingPlanCode}"/>
+									<label for="cropsNameCode">작물 선택</label>
+									<div class="select-wrap">
+										<select name="cropsNameCode" id="cropsNameCode"
+											class="form-control">
+											<option th:each="list :${cropsNameList}"
+												th:selected="${list.cropsNameCode}==${farmingPlan.cropsNameCode}"
+												th:text="${list.cropsName}" th:value="${list.cropsNameCode}"></option>
+										</select>
+										<input type="hidden" name="cropsName" id="cropsName" />
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="farmerFarmingPlanNickname">별명</label> <input
+										id="farmerFarmingPlanNickname"
+										name="farmerFarmingPlanNickname"
+										th:value="${farmingPlan.farmerFarmingPlanNickname}"
+										type="text" class="form-control" placeholder="별명을 지어주세요">
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="urbanKitCode">키트 선택</label>
+									<div class="select-wrap">
+										<select name="urbanKitCode" id="urbanKitCode"
+											class="form-control">
+											<option value="">선택안함</option>
+											<option th:each="list : ${urbanKitList}"
+												th:selected="${list.urbanKitCode}==${farmingPlan.urbanKitCode}"
+												th:text="${list.urbanKitName}"
+												th:value="${list.urbanKitCode}"></option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="mt-4 text-right">
+							<button id="modifyCropsBtn" class="btn btn-primary" type="button">등록하기</button>
+						</div>
+					</form>
+					<!-- END -->
+				</div>
+			</div>
+		</div>
+	</section>
+</th:block>
+<th:block layout:fragment="customJs">
+	<script type="text/javascript" th:inline="javascript">
+	
+		const $cropsNameCode = document.querySelector('#cropsNameCode');
+		
+		//작물 변경시 키트 목록 변경
+		$cropsNameCode.addEventListener('change',function(e){
+			let cropsNameCode = $cropsNameCode.value
+			let cropsName = $(`option[value="${cropsNameCode}"]`).text();
+			
+			console.log(cropsNameCode);
+			const $cropsName = document.querySelector('#cropsName');
+			$cropsName.setAttribute('value',cropsName);
+			
+			
+			const request = $.ajax({
+				url : '/userPlan/ajax/getKitByCode',
+				method : "POST",
+				data : {'cropsNameCode' : cropsNameCode},
+				dataType : "json"
+			});
+
+			request.done(function(response) {
+			
+				$('#urbanKitCode option').not('[value=""]').remove();
+				$(response).each(function(idx, item){
+					let urbanKitCode = item.urbanKitCode;
+					let urbanKitName = item.urbanKitName;
+					
+					let $option = $(`<option value=${item.urbanKitCode}>${urbanKitName}</option>`);
+					$('#urbanKitCode').append($option);
+				})
+			});
+
+			request.fail(function(jqXHR, textStatus) {
+				alert("Request failed: " + textStatus);
+			});
+		})
+		
+		
+		const $modifyCropsBtn = document.querySelector('#modifyCropsBtn');
+		
+		$modifyCropsBtn.addEventListener('click',function(){
+			if($('#cropsNameCode').val() == [[${farmingPlan.cropsNameCode}]]){
+				$('#cropsNameCode').attr('disabled','disabled');
+				$('#cropsName').attr('disabled','disabled');
+			}
+			if($('#farmerFarmingPlanNickname').val() == [[${farmingPlan.farmerFarmingPlanNickname}]]){
+				$('#farmerFarmingPlanNickname').attr('disabled','disabled');
+			}
+			if($('#farmerFarmingPlanNickname').val() == ''){
+				$('#farmerFarmingPlanNickname').attr('disabled','disabled');
+			}
+			if($('#urbanKitCode').val() == [[${farmingPlan.urbanKitCode}]] || $('#urbanKitCode').val() ==''){
+				$('#urbanKitCode').attr('disabled','disabled');
+			}
+			
+			const $modifyCropsForm = document.querySelector('#modifyCropsForm');
+			$modifyCropsForm.submit();
+		})
+	</script>
+</th:block>
+</html>
