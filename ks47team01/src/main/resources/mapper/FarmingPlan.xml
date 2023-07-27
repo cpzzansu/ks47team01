@@ -57,6 +57,27 @@
 		<result column="farming_plan_small_cate_sortation" property="farmerFarmingDetailPlanSortation"/>	
 	</resultMap>
 	
+	<update id="updateCrops" parameterType="FarmingPlan">
+		/* 작물수정 */
+		UPDATE farmer_farming_plan
+			<set>
+				<if test="cropsNameCode != null">
+					crops_name_code=#{cropsNameCode},				
+				</if>
+				<if test="farmerFarmingPlanNickname !=null">
+					farmer_farming_plan_nickname=#{farmerFarmingPlanNickname},
+				</if>
+				<if test="cropsName !=null">
+					crops_name=#{cropsName},		
+				</if>
+				<if test="urbanKitCode !=null">
+					urban_kit_code=#{urbanKitCode}
+				</if>
+			</set>
+			WHERE farmer_farming_plan_code= #{farmerFarmingPlanCode}
+	</update>
+	
+	
 	<select id="getFarmingPlanSmallCateListByLargeCateCode" parameterType="Map" resultMap="farmingDetailPlanResultMap">
 		/* farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList */
 		SELECT
@@ -142,12 +163,16 @@
 		SELECT
 			p.crops_name AS cropsName,
 			p.farmer_farming_plan_nickname AS farmerFarmingPlanNickname,
-			k.urban_kit_name AS urbanKitName
+			k.urban_kit_name AS urbanKitName,
+			i.crops_growing_date AS cropsGrowingDate
 		FROM
 			farmer_farming_plan AS p
 			LEFT JOIN
 			urban_kit AS k
 			ON p.urban_kit_code = k.urban_kit_code
+			INNER JOIN
+			crops_growing_info AS i
+			ON p.crops_name_code = i.crops_name_code
 		WHERE
 			p.farmer_farming_plan_code = #{farmerFarmingPlanCode}
 	</select>
@@ -232,20 +257,22 @@
 	</insert>
 	
 	<select id="getFarmingLargeCateByCode" parameterType="String" resultMap="farmingPlanLargeCateResultMap">
-		/* 농사 계획코드별 대분류 가져오기 */
+		/* 농사 계획코드별 대분류 가져오기 */	
 		SELECT
-			c.farming_plan_large_cate_code,
-			c.farming_plan_large_cate_title,
-			c.farming_plan_large_cate_content
+			p.farming_plan_large_cate_code,
+			l.farming_plan_large_cate_title,
+			l.farming_plan_large_cate_content
 		FROM
-			farmer_farming_plan AS p
-			INNER JOIN 
-			farming_plan_large_cate AS c
-		USING(crops_name_code)
+			farmer_farming_detail_plan AS p
+			INNER JOIN
+			farming_plan_large_cate AS l
+			USING(farming_plan_large_cate_code)
 		WHERE
-			farmer_farming_plan_code= #{farmerFarmingPlanCode}
+			p.farmer_farming_plan_code = #{farmerFarmingPlanCode}
+		GROUP BY 
+			p.farming_plan_large_cate_code
 		ORDER BY 
-			c.farming_plan_large_cate_sortation;
+			l.farming_plan_large_cate_sortation
 	</select>
 	
 	<select id="getFarmingPlanByCode" parameterType="String" resultMap="farmingPlanResultMap">

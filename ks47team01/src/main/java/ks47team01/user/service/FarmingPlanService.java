@@ -28,6 +28,39 @@ public class FarmingPlanService {
 	private final FarmingPlanMapper farmingPlanMapper;
 	private final CropsGrowingInfoMapper cropsGrowingInfoMapper;
 	
+	/**
+	 * 작물 수정
+	 * @param farmingPlan
+	 */
+	public void updateCrops(FarmingPlan farmingPlan,HttpSession session) {
+		String farmerFarmingPlanCode = farmingPlan.getFarmerFarmingPlanCode();
+		String cropsNameCode = farmingPlan.getCropsNameCode();
+		String nickName = farmingPlan.getFarmerFarmingPlanNickname();
+		String urbanKitCode = farmingPlan.getUrbanKitCode();
+		
+		// 작물or키트 변경시 계획 삭제
+		farmingPlanMapper.deleteFarmerFarmingDetailPlanByPlanCode(farmerFarmingPlanCode);
+		
+		//작물 수정
+		if(cropsNameCode ==null && nickName == null && urbanKitCode == null) return;
+		farmingPlanMapper.updateCrops(farmingPlan);	
+		
+		//변경한 작물의 계획 등록
+		String urbanfarmerId = (String)session.getAttribute("S_id");
+		
+		//등록 버튼을 누르면 계획 복사해 사용자에게 등록
+		if(cropsNameCode == null) {
+			FarmingPlan getFarmingPlan = farmingPlanMapper.getFarmingPlanByCode(farmerFarmingPlanCode);
+			cropsNameCode = getFarmingPlan.getCropsNameCode();
+		}
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("urbanfarmerId", urbanfarmerId);
+		paramMap.put("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		paramMap.put("cropsNameCode", cropsNameCode);
+		paramMap.put("urbanKitCode", urbanKitCode);
+		
+		farmingPlanMapper.addPlan(paramMap);
+	}
 	
 	/**
 	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
@@ -40,7 +73,8 @@ public class FarmingPlanService {
 	};
 	
 	/**
-	 * farmerFarmingPlanCode별 FarmerFarmingPlan
+	 * 작농 계획 삭제
+	 * farmerFarmingPlanCode별 FarmerFarmingPlan삭제
 	 * @param farmerFarmingPlanCode
 	 */
 	public void deleteFarmerFarmingPlanByPlanCode(String farmerFarmingPlanCode) {

@@ -26,6 +26,7 @@
 </select>
 
 <select id="getUrbanKitListByCode" parameterType="String" resultMap="urbanKitResultMap">
+	/* 작물명 코드별 키트리스트 */
 	SELECT
 		urban_kit_code,
 		urban_kit_name
