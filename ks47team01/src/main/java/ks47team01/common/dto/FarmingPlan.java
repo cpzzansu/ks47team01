@@ -16,5 +16,6 @@ public class FarmingPlan {
 	private String farmerFarmingPlanStartDate;
 	private String farmerFarmingPlanEndDate;
 	private String farmerFarmingPlanStatus;
+	private int fewDays;
 	private String urbanKitName;
 }

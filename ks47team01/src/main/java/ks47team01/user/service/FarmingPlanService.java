@@ -12,6 +12,7 @@ import ks47team01.common.dto.CropsGrowingInfo;
 import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
+import ks47team01.common.dto.FarmingPlanSmallCate;
 import ks47team01.user.mapper.CropsGrowingInfoMapper;
 import ks47team01.user.mapper.CropsNameMapper;
 import ks47team01.user.mapper.FarmingPlanMapper;
@@ -26,6 +27,72 @@ public class FarmingPlanService {
 	private final CropsNameMapper cropsNameMapper;
 	private final FarmingPlanMapper farmingPlanMapper;
 	private final CropsGrowingInfoMapper cropsGrowingInfoMapper;
+	
+	/**
+	 * 작물 수정
+	 * @param farmingPlan
+	 */
+	public void updateCrops(FarmingPlan farmingPlan,HttpSession session) {
+		String farmerFarmingPlanCode = farmingPlan.getFarmerFarmingPlanCode();
+		String cropsNameCode = farmingPlan.getCropsNameCode();
+		String nickName = farmingPlan.getFarmerFarmingPlanNickname();
+		String urbanKitCode = farmingPlan.getUrbanKitCode();
+		
+		// 작물or키트 변경시 계획 삭제
+		farmingPlanMapper.deleteFarmerFarmingDetailPlanByPlanCode(farmerFarmingPlanCode);
+		
+		//작물 수정
+		if(cropsNameCode ==null && nickName == null && urbanKitCode == null) return;
+		farmingPlanMapper.updateCrops(farmingPlan);	
+		
+		//변경한 작물의 계획 등록
+		String urbanfarmerId = (String)session.getAttribute("S_id");
+		
+		//등록 버튼을 누르면 계획 복사해 사용자에게 등록
+		if(cropsNameCode == null) {
+			FarmingPlan getFarmingPlan = farmingPlanMapper.getFarmingPlanByCode(farmerFarmingPlanCode);
+			cropsNameCode = getFarmingPlan.getCropsNameCode();
+		}
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("urbanfarmerId", urbanfarmerId);
+		paramMap.put("farmerFarmingPlanCode", farmerFarmingPlanCode);
+		paramMap.put("cropsNameCode", cropsNameCode);
+		paramMap.put("urbanKitCode", urbanKitCode);
+		
+		farmingPlanMapper.addPlan(paramMap);
+	}
+	
+	/**
+	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
+	 * @param farmingPlanLargeCateCode
+	 * @return List<FarmingPlanSmallCate>
+	 */
+	public List<FarmingPlanSmallCate> getFarmingPlanSmallCateListByLargeCateCode(Map paramMap){
+		List<FarmingPlanSmallCate> smallCateList = farmingPlanMapper.getFarmingPlanSmallCateListByLargeCateCode(paramMap);
+		return smallCateList;
+	};
+	
+	/**
+	 * 작농 계획 삭제
+	 * farmerFarmingPlanCode별 FarmerFarmingPlan삭제
+	 * @param farmerFarmingPlanCode
+	 */
+	public void deleteFarmerFarmingPlanByPlanCode(String farmerFarmingPlanCode) {
+		farmingPlanMapper.deleteFarmingDetailPlanActionByPlanCode(farmerFarmingPlanCode);
+		farmingPlanMapper.deleteFarmerFarmingDetailPlanByPlanCode(farmerFarmingPlanCode);
+		farmingPlanMapper.deleteFarmerSaleReservationToHubByPlanCode(farmerFarmingPlanCode);
+		farmingPlanMapper.deleteFarmerFarmingPlanByPlanCode(farmerFarmingPlanCode);
+	}
+	
+	/**
+	 * 작물 한개 정보
+	 * @param farmerFarmingPlanCode
+	 * @return Map<String, Object> cropsName, farmerFarmingPlanNickname, 
+	 */
+	public Map<String, Object> getCropsInfo(Map<String, Object> farmerFarmingPlanCode){
+		Map<String, Object> cropsInfoMap= farmingPlanMapper.getCropsInfo(farmerFarmingPlanCode);
+		return cropsInfoMap;
+	}
 	
 	/**
 	 * 사용자의 작물 등록
@@ -58,6 +125,14 @@ public class FarmingPlanService {
 		
 		farmingPlanMapper.addPlan(paramMap);
 		
+	}
+	
+	/**
+	 *  농사 시작
+	 * @param farmerFarmingPlanCode
+	 */
+	public void startPlan(Map<String, Object> farmerFarmingPlanCode) {
+		farmingPlanMapper.startPlan(farmerFarmingPlanCode);
 	}
 	
 	/**

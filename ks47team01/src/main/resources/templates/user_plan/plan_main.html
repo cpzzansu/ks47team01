@@ -12,7 +12,7 @@
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="staticBackdropLabel">작물 별명</h5>
+							<h5 class="modal-title" id="staticBackdropLabel">키울 작물</h5>
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -20,7 +20,7 @@
 						</div>
 						<div class="modal-body"></div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary">농사시작</button>
+							<a id="modalStratBtn" class="btn btn-primary" href="#">농사시작</a>
 							<button type="button" class="btn btn-secondary"
 								data-dismiss="modal">취소</button>
 						</div>
@@ -36,27 +36,72 @@
 						<th:block th:unless="${#lists.isEmpty(farmingPlanList)}"
 							th:each="list : ${farmingPlanList}">
 							<div class="text-center">
-								<div class="row pt-3 mb-1 border-top">
-									<div class=" col-2">
-										<h2>
-											<a th:if="${list.farmerFarmingPlanNickname}==null"
-												th:text="${list.cropsName}"
-												th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
-												class="text-dark"></a> <a
-												th:unless="${list.farmerFarmingPlanNickname}==null"
-												th:text="${list.farmerFarmingPlanNickname}"
-												th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
-												class="text-dark"></a>
-										</h2>
+
+								<th:block th:unless="${list.farmerFarmingPlanStatus}==시작전">
+									<div class="row pt-3 mb-1 border-top">
+										<div class="col-2">
+											<h2>
+												<th:block th:if="${list.farmerFarmingPlanNickname}==null">
+													<a th:text="${list.cropsName}"
+														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														class="text-danger"></a>
+												</th:block>
+
+												<th:blcok
+													th:unless="${list.farmerFarmingPlanNickname}==null">
+													<a th:text="${list.farmerFarmingPlanNickname}"
+														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														class="text-danger"></a>
+												</th:blcok>
+
+												<h6 th:text="|${list.fewDays}일차|"></h6>
+											</h2>
+										</div>
+
+										<div class="col-7">
+											<div class="text-right"
+												th:text="|시작 날짜 : ${list.farmerFarmingPlanStartDate}|"></div>
+											<div class="text-right"
+												th:text="|예상 종료 날짜 : ${list.farmerFarmingPlanEndDate}|"></div>
+										</div>
+
+										<div th:id="${list.farmerFarmingPlanCode}" class="col-3">
+											<a class="btn btn-danger "
+												th:href="@{/userPlan/removeCrops(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}">작물
+												삭제</a>
+										</div>
 									</div>
-									<div class="col-7">내용</div>
-									<div class="col-3">
-										<a id="planStartBtn" class="btn btn-primary mr-1" th:href="@{#}">농사 시작</a> <a
-											class="btn btn-danger "
-											th:href="@{/userPlan/removeCrops(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}">작물
-											삭제</a>
+								</th:block>
+
+								<th:block th:if="${list.farmerFarmingPlanStatus}==시작전">
+									<div class="row pt-3 mb-1 border-top">
+										<div class="col-2">
+											<h2>
+												<th:block th:if="${list.farmerFarmingPlanNickname}==null">
+													<a th:text="${list.cropsName}"
+														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														class="text-dark"></a>
+												</th:block>
+
+												<th:blcok
+													th:unless="${list.farmerFarmingPlanNickname}==null">
+													<a th:text="${list.farmerFarmingPlanNickname}"
+														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														class="text-dark"></a>
+												</th:blcok>
+											</h2>
+										</div>
+										<div class="col-7"></div>
+
+										<div th:id="${list.farmerFarmingPlanCode}" class="col-3">
+											<button class="btn btn-primary mr-1 planStartBtn"
+												type="button">농사 시작</button>
+											<a class="btn btn-danger "
+												th:href="@{/userPlan/removeCrops(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}">작물
+												삭제</a>
+										</div>
 									</div>
-								</div>
+								</th:block>
 						</th:block>
 					</div>
 					<div class="text-right border-top pt-3">
@@ -69,13 +114,53 @@
 	</section>
 </th:block>
 <th:block layout:fragment="customJs">
-<script type="text/javascript" th:inline="javascript">
-	const $planStartBtn = document.querySelector('#planStartBtn');
-	$planStartBtn.addEventListener('click',function(){
-		console.log('테스트');
-		$('#staticBackdrop').show();
-	})
-	
-</script>
+	<script type="text/javascript" th:inline="javascript">
+		//농사 시작버튼 누르면 ajax로 정보받아와 모달창 띄우기
+		const $planStartBtn = document.querySelectorAll('.planStartBtn');
+		$($planStartBtn).click(function(e) {
+							const target = e.currentTarget;
+							const farmerFarmingPlanCode = $(target).closest('div').attr('id');
+							console.log(farmerFarmingPlanCode);
+							const url = `/userPlan/ajax/getCropsInfo`;
+
+							console.log(url);
+							const menuId = $("ul.nav").first().attr("id");
+							const request = $.ajax({
+										url : `${url}`,
+										method : "POST",
+										data : JSON.stringify({'farmerFarmingPlanCode' : farmerFarmingPlanCode}),
+										contentType : "application/json"
+									});
+							
+							//성공시 모달에 정보 입력
+							request.done(function(response) {
+										const $modalBody = document.querySelector('.modal-body');
+										let cropsNickname = '별명없음';
+										let cropsName = response.cropsName;
+										let kitName = '키트없음';
+										let growingDate = response.cropsGrowingDate;
+
+										if (response.farmerFarmingPlanNickname) {
+											cropsNickname = response.farmerFarmingPlanNickname;
+										}
+										if (response.urbanKitName) {
+											kitName = response.urbanKitName;
+										}
+										$modalBody.textContent = '';
+										$modalBody.innerHTML = `작물명 : ${cropsName} <br>별명 : ${cropsNickname} <br>키트 : ${kitName} <br>예상 소요기간 : ${growingDate}일`;
+
+										//모달창 시작버튼 주소
+										const $modalStratBtn = document.querySelector('#modalStratBtn');
+										$modalStratBtn.href = `/userPlan/startPlan?farmerFarmingPlanCode=${farmerFarmingPlanCode}`;
+
+										//모달창 열기
+										$('#staticBackdrop').modal('show');
+									});
+
+							request.fail(function(jqXHR, textStatus) {
+								alert("Request failed: " + textStatus);
+							});
+						})
+	</script>
 </th:block>
 </html>

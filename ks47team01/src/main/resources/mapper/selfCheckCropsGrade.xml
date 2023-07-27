@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.admin.mapper.SelfCheckCropsGradeMapper">
+    <!--  SelfCheckCropsGrade DTO ResultMap  -->
+    <resultMap id="selfCheckCropsGradeResultMap" type="SelfCheckCropsGrade">
+        <id column="self_check_crops_grade_code" property="selfCheckCropsGradeCode"/>
+        <result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+        <result column="product_grade" property="productGrade"/>
+        <result column="product_high_grade" property="productHighGrade"/>
+        <result column="product_low_grade" property="productLowGrade"/>
+        <result column="self_check_crops_grade_reg_date" property="selfCheckCropsGradeRegDate"/>
+    </resultMap>
+    <!--  UrbanKit DTO ResultMap  -->
+    <resultMap type="UrbanKit" id="urbanKitResultMap">
+        <id column="urban_kit_code" property="urbanKitCode"/>
+        <result column="urban_kit_name" property="urbanKitName"/>
+        <result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
+        <result column="crops_name_code" property="cropsNameCode"/>
+        <result column="writer_id" property="writerId"/>
+        <result column="staff_table_type" property="staffTableType"/>
+        <result column="urbanfarm_hub_id" property="urbanfarmHubId"/>
+        <result column="urban_kit_cost" property="urbanKitCost"/>
+        <result column="urban_kit_price" property="urbanKitPrice"/>
+        <result column="urban_kit_propit" property="urbanKitPropit"/>
+        <result column="urban_kit_content" property="urbanKitContent"/>
+        <result column="urban_kit_pic" property="urbanKitPic"/>
+        <result column="urban_kit_reg_date" property="urbanKitRegDate"/>
+        <result column="crops_name" property="cropsName"/>
+    </resultMap>
+
+    <select id="autoIncreaseCode" resultType="String" parameterType="String">
+        /* 자동 증가 컬럼 쿼리 */
+        <![CDATA[
+		SELECT
+			CASE
+				WHEN COUNT(1) < 1
+				THEN '${tableName}_1'
+			ELSE
+				CONCAT('${tableName}_',MAX(CAST(SUBSTRING_INDEX(${tableName}_code,'_',-1) AS UNSIGNED))+1)
+			END AS increase_code
+		FROM
+			${tableName}
+		]]>
+    </select>
+
+    <insert id="addCropsGrade" parameterType="SelfCheckCropsGrade">
+        /* 상품 등급 등록 쿼리 */
+
+        INSERT INTO self_check_crops_grade
+        (self_check_crops_grade_code, urbanfarm_admin_id, product_grade,
+        product_high_grade, product_low_grade, self_check_crops_grade_reg_date)
+        VALUES(#{selfCheckCropsGradeCode}, #{urbanfarmAdminId}, #{productGrade}, #{productHighGrade}, #{productLowGrade}, now());
+
+    </insert>
+
+    <select id="dataProductGrade" resultMap="selfCheckCropsGradeResultMap">
+        /* 상품 등급 목록 쿼리 */
+
+        SELECT
+            self_check_crops_grade_code,
+            urbanfarm_admin_id,
+            product_grade,
+            product_high_grade,
+            product_low_grade,
+            self_check_crops_grade_reg_date
+        FROM
+            self_check_crops_grade;
+    </select>
+
+    <select id="getProductGradeByCode" parameterType="String" resultMap="selfCheckCropsGradeResultMap">
+        /* 상품 등급 코드별 상품 등급 정보 */
+
+        SELECT
+            self_check_crops_grade_code,
+            urbanfarm_admin_id,
+            product_grade,
+            product_high_grade,
+            product_low_grade,
+            self_check_crops_grade_reg_date
+        FROM
+            self_check_crops_grade
+        WHERE
+            self_check_crops_grade_code = #{selfCheckCropsGradeCode}
+    </select>
+
+    <update id="updateProductGrade" parameterType="SelfCheckCropsGrade">
+        /* 상품등급 수정 */
+        deleteProductGrade
+        UPDATE self_check_crops_grade
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productGrade != null and productGrade != ''">
+                product_grade = #{productGrade},
+            </if>
+            <if test="productHighGrade != null and productHighGrade != ''">
+                product_high_grade = #{productHighGrade},
+            </if>
+            <if test="productLowGrade != null and productLowGrade != ''">
+                product_low_grade = #{productLowGrade},
+            </if>
+        </trim>
+        WHERE
+        self_check_crops_grade_code= #{selfCheckCropsGradeCode};
+    </update>
+
+    <delete id="deleteProductGrade" parameterType="java.util.List">
+        /* 상품등급 삭제 처리 쿼리 */
+        DELETE FROM
+            self_check_crops_grade
+        WHERE
+            self_check_crops_grade_code IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="getKitList" resultMap="urbanKitResultMap">
+        /* 키트 리스트 + 작물 이름 */
+        SELECT
+            uk.urban_kit_code,
+            uk.urban_kit_name,
+            uk.crops_name_code,
+            cn.crops_name
+        FROM
+            urban_kit as uk
+            LEFT JOIN
+            crops_name as cn
+            on
+            uk.crops_name_code = cn.crops_name_code
+        ORDER BY
+            CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
+    </select>
+
+    <select id="searchKitList" resultMap="urbanKitResultMap">
+        /* 검색 키트 리스트 */
+        SELECT
+            uk.urban_kit_code,
+            uk.urban_kit_name,
+            uk.crops_name_code,
+            cn.crops_name
+        FROM
+            urban_kit as uk
+        LEFT JOIN
+            crops_name as cn
+        ON
+            uk.crops_name_code = cn.crops_name_code
+        <where>
+            <if test="searchColumn == 'urban_kit_code'">
+                uk.urban_kit_code LIKE #{searchValue}
+            </if>
+            <if test="searchColumn == 'urban_kit_name'">
+                uk.urban_kit_name LIKE #{searchValue}
+            </if>
+            <if test="searchColumn == 'crops_name'">
+                cn.crops_name LIKE #{searchValue}
+            </if>
+        </where>
+        ORDER BY
+            CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
+    </select>
+
+</mapper>

@@ -14,4 +14,11 @@ public interface UrbanKitMapper {
 	 * @return List<UrbanKit>
 	 */
 	public List<UrbanKit> getUrbanKitList();
+	
+	/**
+	 * 작물 코드별 키트리스트
+	 * @param cropsNameCode
+	 * @return
+	 */
+	public List<UrbanKit> getUrbanKitListByCode(String cropsNameCode);
 }
