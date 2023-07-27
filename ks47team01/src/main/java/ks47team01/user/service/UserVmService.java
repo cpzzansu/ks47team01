@@ -39,9 +39,11 @@ public class UserVmService {
 		return getVmList;
 	}
 
-	public List<VendingMachineSpace> getSpaceSelect(String vendingMachineSpaceNumber) {
-		// TODO Auto-generated method stub
-		return getSpaceSelect(null);
+	public List<VendingMachineSpace> getSpaceSelect(String vendingMachineCode) {
+		
+		List<VendingMachineSpace> getSpaceSelect = userVmMapper.getSpaceSelect(vendingMachineCode);
+		
+		return getSpaceSelect;
 	}
 	
 	

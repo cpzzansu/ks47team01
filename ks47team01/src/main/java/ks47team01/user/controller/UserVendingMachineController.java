@@ -62,8 +62,8 @@ public class UserVendingMachineController {
 	// 자판기 판매공간 선택 화면
 	@GetMapping("/userVendingMachine/vmSpaceSelect")
 	public String userVmSpaceSelect (Model model,
-									@RequestParam(value = "vendingMachineSpaceNumber")String vendingMachineSpaceNumber) {
-		List<VendingMachineSpace> getSpaceSelect = userVmService.getSpaceSelect(vendingMachineSpaceNumber);
+									@RequestParam(value = "vendingMachineCode")String vendingMachineCode) {
+		List<VendingMachineSpace> getSpaceSelect = userVmService.getSpaceSelect(vendingMachineCode);
 		model.addAttribute("title", "판매 공간 선택");
 		model.addAttribute("getSpaceSelect", getSpaceSelect);
 		return "user_vending_machine/vm_space_select";

@@ -9,7 +9,7 @@
 				<result column="urbanfarm_hub_code" property="urbanfarmHubCode"/>
 				<result column="vending_machine_code" property="vendingMachineCode"/>
 				<result column="vending_machine_name" property="vendingMachineName"/>
-				<result column="vendingMachineSpaceCode" property="vendingMachineSpaceCode"/>
+				<result column="vending_machine_space_code" property="vendingMachineSpaceCode"/>
 				<result column="vending_machine_space_number" property="vendingMachineSpaceNumber"/>
 				<result column="crops_name_code" property="cropsNameCode"/>
 				<result column="crops_name" property="cropsName"/>

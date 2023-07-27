@@ -16,5 +16,24 @@
 				<result column="vending_machine_space_reg_date" property="vendingMachineSpaceRegDate"/>
 		</resultMap>
 
+	<select id="getSpaceSelect" parameterType="String" resultMap="VMSpaceResultMap">
+		SELECT
+			vending_machine_space_code,
+			urbanfarm_hub_crew_id,
+			urbanfarm_hub_code,
+			vending_machine_code,
+			vending_machine_name,
+			vending_machine_space_number,
+			vending_machine_space_price,
+			vending_machine_space_state_code,
+			vending_machine_space_state,
+			vending_machine_space_reg_date
+		FROM
+			vending_machine_space
+		WHERE
+			vending_machine_code = #{vendingMachineCode}
+			order BY vending_machine_space_number
+			
+	</select>
 
 </mapper>

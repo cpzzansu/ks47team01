@@ -18,6 +18,6 @@ public interface UserVmMapper {
 
 	public List<VendingMachine> getVmList(String hubMidCateFinalCode);
 	
-	public List<VendingMachineSpace> getSpaceSelect(String vendingMachineSpaceNumber);
+	public List<VendingMachineSpace> getSpaceSelect(String vendingMachineCode);
 	
 }
