@@ -131,4 +131,32 @@
             CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
     </select>
 
+    <select id="searchKitList" resultMap="urbanKitResultMap">
+        /* 검색 키트 리스트 */
+        SELECT
+            uk.urban_kit_code,
+            uk.urban_kit_name,
+            uk.crops_name_code,
+            cn.crops_name
+        FROM
+            urban_kit as uk
+        LEFT JOIN
+            crops_name as cn
+        ON
+            uk.crops_name_code = cn.crops_name_code
+        <where>
+            <if test="searchColumn == 'urban_kit_code'">
+                uk.urban_kit_code LIKE #{searchValue}
+            </if>
+            <if test="searchColumn == 'urban_kit_name'">
+                uk.urban_kit_name LIKE #{searchValue}
+            </if>
+            <if test="searchColumn == 'crops_name'">
+                cn.crops_name LIKE #{searchValue}
+            </if>
+        </where>
+        ORDER BY
+            CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
+    </select>
+
 </mapper>

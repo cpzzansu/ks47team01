@@ -52,12 +52,12 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <form id="kitSearchForm">
+                                                <div id="kitSearchForm">
                                                     <div class="col-md-4 col-sm-4">
                                                         <select id="kitSearchColumn" class="form-control">
-                                                            <option value="urbanKitCode">키트 코드</option>
-                                                            <option value="urbanKitName">키트 이름</option>
-                                                            <option value="cropsName">작물 이름</option>
+                                                            <option value="urban_kit_code">키트 코드</option>
+                                                            <option value="urban_kit_name">키트 이름</option>
+                                                            <option value="crops_name">작물 이름</option>
                                                         </select>
                                                     </div>
                                                     <div class="">
@@ -68,7 +68,7 @@
                                                         </span>
                                                         </div>
                                                     </div>
-                                                </form>
+                                                </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -228,7 +228,7 @@
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
-
+        const $cloneTr = $('#kitTable').find('tr').last().clone();
         // 유효성검사 함수
         const validCheck = element => {
             let data = $(element).val();
@@ -281,15 +281,28 @@
                         searchData[id] = $(item).val();
                         return isSubmit;
                     })
-
+            console.log(searchData);
             if(isSubmit){
                 $.ajax({
                     url: '/adminSelfCheck/question/kitSearch',
                     type: 'POST',
-                    data: searchData,
+                    data: JSON.stringify(searchData),
                     contentType: 'application/json',
-                    success: function (){
+                    success: function (response){
 
+                        $('#kitTable').empty();
+                        $('#kitTable').append($cloneTr);
+                        response.forEach(function(item, index){
+                            const $lastTr = $('#kitTable').find('tr').last();
+                            $lastTr.find('th').text(index + 1);
+                            $lastTr.find('td.urbanKitCode').text(item.urbanKitCode);
+                            $lastTr.find('td.urbanKitName').text(item.urbanKitName);
+                            $lastTr.find('td.cropsName').text(item.cropsName);
+                            if(index < response.length - 1){
+                                const $cloneTr = $lastTr.clone();
+                                $('#kitTable').append($cloneTr);
+                            }
+                        })
                     },
                     fail:function(jqXHR, textStatus, errorThrown) {
                         alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
@@ -298,6 +311,11 @@
             }
         })
 
+        //키트 선택 버튼 클릭시
+
+        $(document).on('click', '.kitSelectBtn', function (){
+            console.log('hi!');
+        })
 
         // let selectKit;
         // let selectCropName;

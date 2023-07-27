@@ -55,5 +55,13 @@ public interface SelfCheckCropsGradeMapper {
      */
     public List<UrbanKit> getKitList();
 
+    /**
+     * 검색해서 키트 리스트 가져오는 메서드
+     * @param searchColumn 검색할 열
+     * @param searchValue 검색할 값
+     * @return
+     */
+    public List<UrbanKit> searchKitList(String searchColumn, String searchValue);
+
 
 }
