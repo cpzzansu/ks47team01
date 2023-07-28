@@ -264,6 +264,21 @@ public class PlanController {
 	}
 	
 	/**
+	 * 진행중인 작물 계획 열람화면
+	 */
+	@GetMapping("/cropsPlanProceed")
+	public String cropsPlanProceed(@RequestParam(value="farmerFarmingPlanCode")String farmerFarmingPlanCode , 
+							Model model){
+		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
+		
+		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
+		
+		model.addAttribute("title", "진행중 작물 상세보기");
+		model.addAttribute("farmingPlan", farmingPlan);
+		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
+		return "user_plan/crops_plan_proceed";
+	}
+	/**
 	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
 	 * @param paramMap
 	 * @return

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+	<section class="ftco-section">
+		<h1 th:unless="${farmingPlan.farmerFarmingPlanNickname} == null"
+			th:text="${farmingPlan.farmerFarmingPlanNickname}"
+			class="text-center mb-5"></h1>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-9 ftco-animate">
+					<div class="row align-items-end">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="crops">작물</label>
+								<h2 th:text="${farmingPlan.cropsName}"
+									class="border-top border-bottom"></h2>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>키트</label>
+								<h2 th:if="${farmingPlan.urbanKitCode}==null"
+									class="border-top border-bottom">등록된 키트가 없습니다</h2>
+								<h2 th:unless="${farmingPlan.urbanKitCode}==null"
+									th:text="${farmingPlan.urbanKitName}"
+									class="border-top border-bottom"></h2>
+							</div>
+						</div>
+					</div>
+					<th:block th:unless="${#lists.isEmpty(farmingPlanLargeCateList)}">
+						<lable>농사계획</lable>
+						<th:block th:each="largeCate : ${farmingPlanLargeCateList}">
+							
+							<div class="row mb-2 border-top">
+							<label class="col-11" th:for="${largeCate.farmingPlanLargeCateCode}">
+								<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"></h2>
+								</label>
+								<div class="col-1 text-center mt-2">
+									<button th:id="${largeCate.farmingPlanLargeCateCode}" 
+											class="btn btn-primary ion-ios-arrow-down" type="button"
+											th:data-target="|#${largeCate.farmingPlanLargeCateCode}Card|"
+											aria-expanded="true"
+											th:aria-controls="${largeCate.farmingPlanLargeCateCode}"></button>
+								</div>
+							</div>
+							<div>
+								<div th:id="|${largeCate.farmingPlanLargeCateCode}Card|"
+									class="collapse multi-collapse mb-3">
+									<div class="mb-2 card card-body">
+										<div>계획이 없습니다</div>
+									</div>
+								</div>
+							</div>
+							
+						</th:block>
+					</th:block>
+					<div class="mt-4 text-right">
+						<a th:href="@{/userPlan/modifyCrops(farmerFarmingPlanCode=${farmingPlan.farmerFarmingPlanCode})}" class="mr-2 btn btn-warning">작물 변경하기</a>
+						<a th:href="@{/userPlan/planMain}" class="btn btn-primary"
+							type="submit">목록으로</a>
+					</div>
+					<!-- END -->
+				</div>
+			</div>
+		</div>
+	</section>
+</th:block>
+<th:block layout:fragment="customJs">
+<script type="text/javascript" th:inline="javascript">
+
+	//버튼 누르면 해당 카테고리 일자별 계획
+	$('button').click(function(e){
+		let target = e.currentTarget;
+		let categoryCode = target.id;
+		
+		const $card = document.querySelector(`#${categoryCode}Card`);
+		let $cardBody = $card.firstElementChild.cloneNode();
+		
+		//처음 눌렀을때만 통신후 값 삽입
+		if(typeof $($cardBody).attr('id')=='undefined'){
+			let planCode = [[${farmingPlan.farmerFarmingPlanCode}]];
+			$(target).attr("data-toggle","collapse");
+			let request = $.ajax({
+				  url: '/userPlan/ajax/getSmallCate',
+				  method: "POST",
+				  data: JSON.stringify({'farmingPlanLargeCateCode': categoryCode, 'farmerFarmingPlanCode': planCode}),
+				  dataType: "JSON",
+				  contentType : "application/json"
+				});
+
+			request.done(function( response ) {
+				if(response.length > 0){
+					$card.firstElementChild.remove();
+					
+					response.forEach(function(item,idx){
+						clonecardBody = $cardBody.cloneNode();
+						clonecardBody.setAttribute('id',item.farmerFarmingDetailPlanCode);
+						const day = document.createElement('h4');
+						const title = document.createElement('h4');
+						const content = document.createElement('div');
+						
+						day.textContent = `${item.farmerFarmingDetailPlanSortation}일차`;
+						title.textContent = '계획없음';
+						
+						if(item.farmerFarmingDetailPlanTitle){
+							title.textContent = item.farmerFarmingDetailPlanTitle;
+						}
+						content.textContent = '';
+						if(item.farmerFarmingDetailPlanContent){
+							content.textContent = item.farmerFarmingDetailPlanContent;
+						}
+						
+						clonecardBody.append(day);
+						clonecardBody.append(title);
+						clonecardBody.append(content);
+						
+						$card.append(clonecardBody);
+						
+					})	
+				}	
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+		}
+	})
+</script>
+</th:block>
+</html>

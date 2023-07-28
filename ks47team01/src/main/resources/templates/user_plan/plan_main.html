@@ -43,14 +43,14 @@
 											<h2>
 												<th:block th:if="${list.farmerFarmingPlanNickname}==null">
 													<a th:text="${list.cropsName}"
-														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														th:href="@{/userPlan/cropsPlanProceed(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
 														class="text-danger"></a>
 												</th:block>
 
 												<th:blcok
 													th:unless="${list.farmerFarmingPlanNickname}==null">
 													<a th:text="${list.farmerFarmingPlanNickname}"
-														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														th:href="@{/userPlan/cropsPlanProceed(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
 														class="text-danger"></a>
 												</th:blcok>
 

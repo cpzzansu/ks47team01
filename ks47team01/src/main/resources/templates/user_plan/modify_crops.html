@@ -90,6 +90,7 @@
 			request.done(function(response) {
 			
 				$('#urbanKitCode option').not('[value=""]').remove();
+				$('#urbanKitCode').val('""');
 				$(response).each(function(idx, item){
 					let urbanKitCode = item.urbanKitCode;
 					let urbanKitName = item.urbanKitName;
@@ -118,9 +119,7 @@
 			if($('#farmerFarmingPlanNickname').val() == ''){
 				$('#farmerFarmingPlanNickname').attr('disabled','disabled');
 			}
-			if($('#urbanKitCode').val() == [[${farmingPlan.urbanKitCode}]] || $('#urbanKitCode').val() ==''){
-				$('#urbanKitCode').attr('disabled','disabled');
-			}
+		
 			
 			const $modifyCropsForm = document.querySelector('#modifyCropsForm');
 			$modifyCropsForm.submit();

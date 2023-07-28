@@ -70,9 +70,14 @@
 				<if test="cropsName !=null">
 					crops_name=#{cropsName},		
 				</if>
-				<if test="urbanKitCode !=null">
-					urban_kit_code=#{urbanKitCode}
-				</if>
+				<choose>
+					<when test="urbanKitCode !=null and urbanKitCode !=''">
+						urban_kit_code=#{urbanKitCode}
+					</when>
+					<otherwise>
+						urban_kit_code = NULL
+					</otherwise>
+				</choose>
 			</set>
 			WHERE farmer_farming_plan_code= #{farmerFarmingPlanCode}
 	</update>
@@ -225,23 +230,26 @@
 			CONCAT('farmer_farming_detail_plan_', @increaseCd := @increaseCd +1) AS farmer_farming_detail_plan_code
 			,#{urbanfarmerId} AS urbanfarmer_id
 			,#{farmerFarmingPlanCode} AS farmer_farming_plan_code
-			,crops_name_code
-			,crops_name
+			,s.crops_name_code
+			,s.crops_name
 		]]>
 			<if test="urbanKitCode !=null and urbanKitCode != ''">
 			,#{urbanKitCode}
 			</if>
 		<![CDATA[
 			,#{cropsGrowingInfoCode} AS crops_growing_info_code
-			,farming_plan_large_cate_code 
-			,farming_plan_small_cate_code
-			,farming_plan_small_cate_title AS farmer_farming_detail_plan_title
-			,farming_plan_small_cate_content AS farmer_farming_detail_plan_content
-			,farming_plan_small_cate_sortation AS farmer_farming_detail_plan_sortation
+			,s.farming_plan_large_cate_code 
+			,s.farming_plan_small_cate_code
+			,s.farming_plan_small_cate_title AS farmer_farming_detail_plan_title
+			,s.farming_plan_small_cate_content AS farmer_farming_detail_plan_content
+			,s.farming_plan_small_cate_sortation AS farmer_farming_detail_plan_sortation
 			,NOW()
 			,'실행전'
 		FROM
-			farming_plan_small_cate,
+			farming_plan_small_cate AS s
+			INNER JOIN
+			farming_plan_large_cate AS l
+			USING(farming_plan_large_cate_code),
 			(SELECT
 				CASE
 					WHEN COUNT(1) < 1 
@@ -251,9 +259,19 @@
 				END AS increase_code
 			FROM
 				farmer_farming_detail_plan) AS cd
-		WHERE
-			crops_name_code = #{cropsNameCode};
 		]]>
+		<where>
+			s.crops_name_code = #{cropsNameCode}
+			<choose>
+				<when test="urbanKitCode !=null and urbanKitCode != ''">
+					AND l.urban_kit_code = #{urbanKitCode};				
+				</when>
+				<otherwise>
+					AND l.urban_kit_code IS NULL;
+				</otherwise>
+			</choose>
+		</where>
+		
 	</insert>
 	
 	<select id="getFarmingLargeCateByCode" parameterType="String" resultMap="farmingPlanLargeCateResultMap">
