@@ -7,34 +7,105 @@
 	const validCheck = element => {
 		let data = $(element).val();
 		let eleId = $(element).attr('id');
-				
-		if(typeof data == 'undefined' || data == null || data == '' ){
 			
-			let cate = $(`label[for="${eleId}"]`).text();
-			alert(`[${cate}] 필수 입력항목입니다.`);
-			$(element).focus();	
-			return false;
-		}
-		return true;
+		if(typeof data == 'undefined' || data == null || data == ''){
+				if(requestEtc == true) {
+					return true;
+				} else {
+					
+					let cate = $(`label[for="${eleId}"]`).text();
+					alert(`[${cate}] 필수 입력항목입니다.`);
+					$(element).focus();	
+					return false;
+					
+				}
+				
+			}
+			return true;
+			
+		
 				
 	}
 
 	$('#addUserAddrBtn').click(function(){
-		const validateEle = $('#addUserAddrForm select,input');   
+		const validateEle = $('#addUserAddrForm input');
+		let isSubmit = false;
+		let $phoneSize = $('#urbanfarmerAddressPhone').size
 		
 		validateEle.each((idx, item) => {    				
 			isSubmit = validCheck(item);
 			return isSubmit;
 		})
-		if(isSubmit) $('#addUserAddrForm').submit();
+		if(isSubmit) {
+			
+			let msg = '계정생성을 성공하셨습니다.';
+				
+				if(verifyName()) {
+					
+					if(verifyAddress()) {
+						
+						if($('#urbanfarmerAddressPhone').val().length == 9) {
+							
+							if(verifyDelivery()) {
+								$('#addUserAddrForm').submit();
+							} else {
+								msg = '요청사항을 골라주세요';
+							}
+						} else {
+							msg = '전화번호를 제대로 입력해주세요';
+						}
+						
+					} else {
+						msg = '배송지 주소를 입력해주세요';					
+					}
+			} else {
+				msg = '배송지의 이름을 입력해주세요';
+			}
+			
+			alert(msg);
+		}
 	})
 		
     	
-		const autoHyphen2 = (target) => {
-			 target.value = target.value
-			   .replace(/[^0-9]/g, '')
-			  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
-			}
+	const autoHyphen2 = (target) => {
+		 target.value = target.value
+		   .replace(/[^0-9]/g, '')
+		  .replace(/^(\d{0,4})(\d{0,4})$/g, "$1-$2").replace(/(\-{1,2})$/g, "");
+		}
+    	
+    	requestEtc = function() {
+    		var etcVal = $('#addressDeliveryRequestEtc').val();
+    		if(etcVal == null) {
+	    		return true;
+    		}
+    		return false;
+    	}
+  	
+  	verifyAddress = function() {
+  		var addressVal = $('#urbanfarmerAddress').val();
+  		if(addressVal != null) {
+  			return true;
+  		} else {
+  			return false;
+  		}
+  	}
+  	verifyName = function() {
+  		var nameVal = $('#urbanfarmerAddressName').val();
+  		if(nameVal != null) {
+  			return true;
+  		} else {
+  			return false;
+  		}
+  	}
+  	
+	verifyDelivery = function() {
+		var deliveryVal = $("#addressDeliveryRequestCode option:selected").val();
+		if(deliveryVal != '') {
+			return true
+		} else {
+			false;
+		}
+	}    	
     	
     </script>
 </th:block>      
@@ -58,23 +129,26 @@
 						  </div>
 						</div>
 						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressPhone" name="urbanfarmerAddressPhone" placeholder="배송지 전화번호를 입력해주세요"
-						    oninput="autoHyphen2(this)" maxlength="13">
-						  	<label for="urbanfarmerAddressPhone">배송지 전화번호</label>
+						  <div class="form-floating col-11">
+						  	<div class="row pt-1 mb-1">
+						  	<select class="form-control col-2"> <option value="010" disabled="disabled" selected="selected"> 010 </option> </select>
+						    <input type="text" class="form-control col-8" id="urbanfarmerAddressPhone" placeholder="전화번호를 작성해주세요" oninput="autoHyphen2(this)"
+						    maxlength="9" name="urbanfarmerAddressPhone">
+						  	</div>
+						  	<label for="urbanfarmerAddressPhone">휴대번호</label>						    
 						  </div>
-						</div>						
-						<div class="input-group mb-3">
+						</div>												
+						<div class="input-gr	oup mb-3">
 						  <div class="form-floating col-9">
 						  	<select id="addressDeliveryRequestCode" name="addressDeliveryRequestCode" class="form-select px-5 py-2">
-						  		<option class="request" value="">===선택 사항을 골라주세요===</option>
+						  		<option class="request" value="">===요청 사항을 골라주세요===</option>
 						  <th:block th:unless="${#lists.isEmpty(addressDeliveryRequestList)}"
 						  			th:each="l : ${addressDeliveryRequestList}">
 						  		<option class="request" th:value="${l.addressDeliveryRequestCode}">[[${l.addressDeliveryRequestContent}]]</option>
 						  	
 						  </th:block>
 						  <th:block th:if="${#lists.isEmpty(addressDeliveryRequestList)}">
-									<option th:value="">등록된 선택사항이 없습니다</option>
+									<option th:value="">등록된 요청사항이 없습니다</option>
 						  </th:block>
 						  	</select>
 						  	<p>
@@ -84,7 +158,7 @@
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" placeholder="-는 생략">
+						    <input type="text" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" placeholder="-는 생략가능">
 						  	<label for="addressDeliveryRequestEtc">배송지 추가 요청사항</label>						    
 						  </div>
 						</div>
@@ -93,7 +167,7 @@
                     </div>
                 </form>
             </div>
-        </div>z
+        </div>
     </section>
 </th:block>
 

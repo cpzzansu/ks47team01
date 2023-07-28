@@ -21,48 +21,50 @@
                     </div>
                     <div class="x_content">
                         <br/>
-                        <form id="demo-form2" th:action="@{/adminLogin/adminLogin}" class="form-horizontal form-label-left" method="post">
+                        <form id="demo-form2" th:action="@{/adminAdd/adminAddForm}"  class="form-horizontal form-label-left" method="post">
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">아이디</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminId">
+                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminId"
+                                     placeholder="영문으로 시작하는 6~20자 아이디를 작성해주세요">
                                 </div>
-                                
+                                    <button type="button" class="btn btn-primary" id="idCheck"> 중복체크 </button>
+                                	<input type="hidden" name="checkId" value="n">
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPw">비밀번호</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminPw" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPw">
+                                    <input type="text" id="urbanfarmAdminPw" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPw"
+                                    placeholder="영문, 숫자, 특수문자를 최소 한가지씩 포함하는 8~16자 비밀번호를 작성해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminName">이름</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminName" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminName">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="staffTableType">회원타입</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="staffTableType" class="form-control col-md-7 col-xs-12" name="staffTableType">
+                                    <input type="text" id="urbanfarmAdminName" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminName"
+                                    placeholder="이름을 입력해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPhone">휴대전화</label>
-                                <select class="control-label col-md-1 col-sm-1 col-xs-1"> <option disabled="disabled" selected="selected">010</option> </select>
+                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12"> <option disabled="disabled" selected="selected">010</option> </select>
+                                </div>
                                 <div class="col-md-5 col-sm-5 col-xs-6">
-                                    <input type="text" id="urbanfarmAdminPhone" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPhone">
+                                    <input type="text" id="urbanfarmAdminPhone" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPhone"
+                                    oninput="autoHyphen2(this)" maxlength="9" placeholder="전화번호를 작성해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminEmail">이메일</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminEmail">
+                                    <input type="text" id="urbanfarmAdminEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminEmail"
+                                    placeholder="이메일형식에 맞춰 작성해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button type="submit" class="btn btn-success submitBtn" id="loginBtn" style="float:right;">회원가입</button>
+                                    <button type="button" class="btn btn-success submitBtn" id="addAdminBtn" style="float:right;">회원가입</button>
                                 </div>
                             </div>
                         </form>
@@ -98,10 +100,10 @@
 	// 회원아이디 변경 시 이벤트 처리
 	
 	// 회원 가입 버튼 시 이벤트
-	$('#addUserBtn').click(function(){
-		const validateEle = $('#addUserForm input');
+	$('#addAdminBtn').click(function(){
+		const validateEle = $('#demo-form2 input');
 		let isSubmit = false;
-		let $phoneSize = $('#urbanfarmerPhone').size
+		let $phoneSize = $('#urbanfarmAdminPhone').size
 		
 		validateEle.each((idx, item) => {    				
 			isSubmit = validCheck(item);
@@ -109,59 +111,89 @@
 		})
 		if(isSubmit) {
 			
-			let error = '전화번호를 입력해주세요';
-
-			
-			if($('#urbanfarmerPhone').val().length == 9) {
+			let msg = '계정생성을 성공하셨습니다.';
+			if($("input[name=checkId]").val() == 'y') {
 				
-				error = null;
+				if(verifyId()) {
+						
+						if(verifyPw()) {
+							
+							if(verifyName()) {
+								
+								if($('#urbanfarmHubCrewPhone').val().length == 9) {
+									
+									if(verifyEmail()) {
+										
+										$('#demo-form2').submit();
+										
+									} else {
+										msg = '이메일을 정확히 입력해주세요';
+									}
+									
+								} else {
+									msg = '전화번호를 제대로 입력해주세요';
+								}
+								
+							} else {
+								msg = '이름을 정확히 작성해주세요';
+							}
+							
+						} else {
+							msg = '비밀번호를 제대로 입력해주세요';
+						}
+					
+					} else {
+						msg = '아이디를 정확히 입력해주세요';
+					}
+					
+				} else {
+					msg = '아이디 중복체크를 해주세요';
+				}
 				
-			$('#addUserForm').submit();
-			
+				alert(msg);
 			}
-			
-			if(error != null) alert(error);
-				
-			
-		}
-		
 			
 	});
 	
 	// 입력 취소 버튼 클릭시 이벤트 처리
-	$('#resetBtn').click(function(e){
+	/* $('#resetBtn').click(function(e){
 		// 태그가 가지고 있는 기본 이벤트 동작 방지
 		e.preventDefault();
-		$('#addUserForm input').not('#urbanfarmerId').val('');
-	});
+		$('#demo-form2 input').not('#urbanfarmAdminId').val('');
+	}); */ //
 	
 	// 아이디중복버튼 이벤트
 	$('#idCheck').click(function(){
-		const $urbanfarmerId = $('#urbanfarmerId');
-		let urbanfarmerId = $urbanfarmerId.val();
+		const $urbanfarmAdminId = $('#urbanfarmAdminId');
+		let urbanfarmAdminId = $urbanfarmAdminId.val();
 		
 		// 유효성검사
-		let valid = validCheck($urbanfarmerId);
+		let valid = validCheck($urbanfarmAdminId);
 		if(!valid) return false;
+		
+		$('#urbanfarmHubCrewId').change(function(){
+			$("input[name=checkId]").val('n');
+		})
 		
 		// ajax 호출
 		const request = $.ajax({
-			url: '/userAdd/userIdCheck',
+			url: '/adminAdd/adminIdCheck',
 			method: 'POST',
-			data: { 'urbanfarmerId' : urbanfarmerId },
+			data: { 'urbanfarmAdminId' : urbanfarmAdminId },
 			dataType: 'text'
 			});
 			 
 			request.done(function( response ) {
 				if(response == 'true'){
 					alert('이미 등록된 아이디입니다.');
-					$urbanfarmerId.val('');
-					$urbanfarmerId.focus();
+					$urbanfarmAdminId.val('');
+					$urbanfarmAdminId.focus();
 					
    				return false;
 				}else{
-					$('#addUserForm button').prop('disabled', false);
+					$('#demo-form2 button').prop('disabled', false);
 					alert('사용 가능한 아이디입니다.');
+					$("input[name=checkId]").val('y');
 				}
 			//console.log(response);
 			});
@@ -178,11 +210,47 @@
 		   .replace(/[^0-9]/g, '')
 		  .replace(/^(\d{0,4})(\d{0,4})$/g, "$1-$2").replace(/(\-{1,2})$/g, "");
 		}
-	    
+
+	verifyEmail = function() {
+		  var emailVal = $('#urbanfarmAdminEmail').val();
+		  var emailExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		  if (emailVal.match(emailExp) != null) {
+		    return true;
+		  }
+		  else {
+		    return false;
+		  }
+		};
     
-    
-    
-    
+	verifyId = function() {
+		var idVal = $('#urbanfarmAdminId').val();
+		var idExp = /^[a-z]+[a-z0-9]{5,19}$/g;
+		if(idVal.match(idExp) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	verifyPw = function() {
+		var pwVal = $('#urbanfarmAdminPw').val();
+		var pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+		if(pwVal.match(pwExp) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	verifyName = function() {
+		var nameVal = $('#urbanfarmAdminName').val();
+		var nameExp = /[ㄱ-힣]/;
+		if(nameVal.match(nameExp) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+		
     </script>
 </th:block>
 </html>

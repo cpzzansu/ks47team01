@@ -58,6 +58,18 @@ public class UrbanfarmAdminService {
 		return EmailList;
 		
 	}
+	
+	public boolean idCheck(String urbanfarmAdminId) {
+		
+		UrbanfarmAdmin urbanfarmInfo = urbanfarmAdminMapper.getUrbanfarmAdminInfoById(urbanfarmAdminId);
+		boolean isValid = false;
+		if(urbanfarmInfo != null) {
+			isValid = true;
+			return isValid;
+		}
+		return isValid;
+		
+	}
 
 	
 }

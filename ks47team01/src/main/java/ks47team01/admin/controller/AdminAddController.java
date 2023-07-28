@@ -14,6 +14,8 @@ import ks47team01.admin.service.RegisterMail;
 import ks47team01.admin.service.UrbanfarmAdminService;
 import ks47team01.admin.service.UrbanfarmHubCrewService;
 import ks47team01.common.dto.UrbanfarmAdmin;
+import ks47team01.common.dto.UrbanfarmHub;
+import ks47team01.common.dto.UrbanfarmHubCrew;
 import lombok.AllArgsConstructor;
 
 @Controller
@@ -44,6 +46,20 @@ public class AdminAddController {
 		
 		return "admin_add/admin_add_form";
 	}
+	
+	@PostMapping("/adminAdd/adminAddForm")
+	public String adminAddAction(UrbanfarmAdmin urbanfarmAdmin) {
+		
+		String Phone = "010-" + urbanfarmAdmin.getUrbanfarmAdminPhone();
+		urbanfarmAdmin.setUrbanfarmAdminPhone(Phone);
+		
+		urbanfarmAdminService.addUrbanfarmAdmin(urbanfarmAdmin);
+		
+		return "redirect:/admin";
+		
+	}
+	
+	
 	/** 허브크루 회원가입 화면(폼)								"								
 	 * 
 	 * @return 
@@ -51,9 +67,25 @@ public class AdminAddController {
 	@GetMapping("/hubCrewAdd/hubcrewAddForm")
 	public String hubAddForm(Model model) {
 		
+		List<UrbanfarmHub> hubList = urbanfarmHubCrewService.getUrbanfarmHubList();
+		
+		model.addAttribute("hubList", hubList);
 		model.addAttribute("title", "urbanfarm");
 		
 		return "admin_add/hubcrew_add_form";
+	}
+	
+	@PostMapping("/hubCrewAdd/hubcrewAddForm")
+	public String hubCrewAddAction(UrbanfarmHubCrew urbanfarmHubCrew) {
+		
+		String Phone = "010-" + urbanfarmHubCrew.getUrbanfarmHubCrewPhone();
+		urbanfarmHubCrew.setUrbanfarmHubCrewPhone(Phone);
+		
+		urbanfarmHubCrewService.addUrbanfarmHubCrew(urbanfarmHubCrew);
+		
+		
+		return "redirect:/admin";
+		
 	}
 	
 	// 이메일 인증
@@ -158,6 +190,25 @@ public class AdminAddController {
 	    
 //	    return null;
 	    
+	}
+	@ResponseBody
+	@PostMapping("/adminAdd/adminIdCheck")
+	public boolean adminIdCheck(@RequestParam(value = "urbanfarmAdminId") String urbanfarmAdminId) {
+		
+		boolean result = urbanfarmAdminService.idCheck(urbanfarmAdminId);
+		
+		return result;
+		
+	}
+	
+	@ResponseBody
+	@PostMapping("/hubCrewAdd/hubCrewIdCheck")
+	public boolean hubCrewIdCheck(@RequestParam(value = "urbanfarmHubCrewId") String urbanfarmHubCrewId) {
+		
+		boolean result = urbanfarmHubCrewService.urbanfarmHubCrewIdCheck(urbanfarmHubCrewId);
+		
+		return result;
+		
 	}
 	
 

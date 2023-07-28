@@ -46,5 +46,42 @@
 	
 	</select>
 	
+	<insert id="addUrbanfarmHubCrew" parameterType="UrbanfarmHubCrew">
+	
+	INSERT INTO urbanfarm_hub_crew
+		(	urbanfarm_hub_crew_id
+		,	urbanfarm_hub_code
+		,	urbanfarm_hub_crew_pw
+		,	urbanfarm_hub_crew_name
+		,	staff_table_type
+		,	urbanfarm_hub_crew_position
+		,	urbanfarm_hub_crew_phone 
+		,	urbanfarm_hub_crew_email
+		,	urbanfarm_hub_crew_reg_date)
+	VALUES
+		(	#{urbanfarmHubCrewId}
+		,	#{urbanfarmHubCode}
+		,	#{urbanfarmHubCrewPw}
+		,	#{urbanfarmHubCrewName}
+		,	'urbanfarm_hub_crew'
+		,	'직원'
+		,	#{urbanfarmHubCrewPhone}
+		,	#{urbanfarmHubCrewEmail}
+		,	CURDATE()
+		);
+	
+	</insert>
+	
+	<select id="getUrbanfarmHubList" resultType="UrbanfarmHub">
+	
+	SELECT 
+		urbanfarm_hub_name as urbanfarmHubName
+	,	urbanfarm_hub_code as urbanfarmHubCode
+	FROM
+		urbanfarm_hub;
+	
+	
+	</select>
+	
 	
 </mapper>
