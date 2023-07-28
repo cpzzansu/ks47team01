@@ -28,16 +28,16 @@ public class RegisterMail{
 		MimeMessage message = emailsender.createMimeMessage();
 
 		message.addRecipients(RecipientType.TO, to);// 보내는 대상
-		message.setSubject("GoodJob 회원가입 이메일 인증");// 제목
+		message.setSubject("Urbanfarm 회원가입 이메일 인증");// 제목
 
 		String msgg = "";
 		msgg += "<div style='margin:100px;'>";
 		msgg += "<h1> 안녕하세요</h1>";
-		msgg += "<h1> 통합 취업 정보 포탈 GoodJob 입니다</h1>";
+		msgg += "<h1> 어반팜 입니다</h1>";
 		msgg += "<br>";
-		msgg += "<p>아래 코드를 회원가입 창으로 돌아가 입력해주세요<p>";
+		msgg += "<p>아래 코드를입력해주세요<p>";
 		msgg += "<br>";
-		msgg += "<p>항상 당신의 꿈을 응원합니다. 감사합니다!<p>";
+		msgg += "<p>항상 어반팜은 당신을 응원합니다. 감사합니다!<p>";
 		msgg += "<br>";
 		msgg += "<div align='center' style='border:1px solid black; font-family:verdana';>";
 		msgg += "<h3 style='color:blue;'>회원가입 인증 코드입니다.</h3>";

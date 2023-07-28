@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{admin/layout/default_admin}">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <th:block layout:fragment="customJs">
 <script type="text/javascript">
 // 이메일 인증번호
@@ -48,20 +47,24 @@ $("#checkEmail").click(function() {
 </script>
 </th:block>
 <body>
+
+
 <th:block layout:fragment="customContents">
 			<!-- <span>이메일 </span> -->
-							<div class="form-group last mb-4 email_input">
-								<label for="memail" id="mailTxt">이메일을 입력해주세요</label> 
-								<input type="text" class="form-control" name="memail" id="memail">
-							</div>
-							<!-- <span>이메일 인증번호</span> -->
-							<button class="btn btn-outline-primary" type="button" id="checkEmail">인증번호</button>
-
-
-							<div class="form-group last mb-4 check_input">
-								<label for="memailconfirm" id="memailconfirmTxt">인증번호를 입력해주세요</label> 
-								<input type="text" class="form-control" id="memailconfirm">
-							</div>
+				<div th:fragment="sendFragment">
+					<div class="form-group last mb-4 email_input">
+						<label for="memail" id="mailTxt">이메일을 입력해주세요</label> 
+						<input type="text" class="form-control" name="memail" id="memail">
+					</div>
+								<!-- <span>이메일 인증번호</span> -->
+						<button class="btn btn-outline-primary" type="button" id="checkEmail">인증번호</button>
+	
+	
+					<div class="form-group last mb-4 check_input">
+						<label for="memailconfirm" id="memailconfirmTxt">인증번호를 입력해주세요</label> 
+						<input type="text" class="form-control" id="memailconfirm">
+					</div>
+				</div>
 </th:block>
 </body>
 </html>
