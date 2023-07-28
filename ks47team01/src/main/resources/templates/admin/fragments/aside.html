@@ -11,18 +11,21 @@
 
 			<div class="clearfix"></div>
 
-			<!-- menu profile quick info -->
-			<div class="profile clearfix">
-				<div class="profile_pic">
-					<img th:src="@{/admin/production/images/img.jpg}" alt="profile-img" class="img-circle profile_img">
-				</div>
-				<div class="profile_info">
-					<span>환영합니다,</span>
-					<h2>신짱구님</h2>
-				</div>
-			</div>
-			<!-- /menu profile quick info -->
-
+          <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img th:src="@{/admin/production/images/img.jpg}" alt="profile-img" class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>환영합니다,</span>
+              <h2>
+				<label th:if="${session.HC_name} != null" th:text="${session.HC_name}"> </label>
+				<label th:if="${session.UA_name} != null" th:text="${session.UA_name}"> </label>
+				<label th:if="${session.UA_name} == null and ${session.HC_name} == null"> 비회원 </label>
+              </h2>
+            </div>
+          </div>
+          <!-- /menu profile quick info -->
 			<br>
 
 			<!-- sidebar menu -->
