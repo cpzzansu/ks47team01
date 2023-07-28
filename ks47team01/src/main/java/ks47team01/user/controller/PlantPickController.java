@@ -94,6 +94,14 @@ public class PlantPickController {
 		return "user_plantpick/follow_list";
 	}
 	
+	/**
+	 * 팔로우 리스트 화면
+	 * @param uploadfile
+	 * @param userId
+	 * @param plantpickYn
+	 * @param session
+	 * @return
+	 */
 	@PostMapping("/userPlantPick/followList")
 	public String plantpickFollowListAction(@RequestParam MultipartFile[] uploadfile,
 											@RequestParam String userId,

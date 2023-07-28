@@ -5,7 +5,7 @@
 
 	<body>
 		
-			<div class="col-md-3 left_col plant_pic_sidebar">
+			<div class="col-md-3 left_col plant_pic_sidebar" style="z-index: 2";>
 			<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
 				<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
 				<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
@@ -18,16 +18,17 @@
 	<body>
 	
 	
-	<select>
-		<option value="urbanfarmerId">회원 아이디 </option>
-		<option value="">회원 이름</option>
-	</select>
-	
 	<section class="ftco-section ftco-cart">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 ftco-animate">
 					<div>
+			<div style="z-index:3";>
+				<select >
+					<option value="urbanfarmerId">회원 아이디 </option>
+					<option value="">회원 이름</option>
+				</select>
+			</div>			
 						<table class="table" style="padding: 12=0px;">
 							<thead class="thead-primary">
 							<tr class="text-center">

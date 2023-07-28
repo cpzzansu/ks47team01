@@ -1,36 +1,67 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
+	  layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
 
-	<body>
-		
-			<div class="col-md-3 left_col plant_pic_sidebar">
-			<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
-				<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
-				<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
-				<li><a th:href="@{/userPlantPick/searchPlantPick}"><img width="30px;" src="/user/images/plant_pic_find.png"></a>검색</li>
-				<li><a th:href="@{/userPlantpick/profile}"><img width="30px;" src="/user/images/plant_pic_compass.png"></a>프로필 </li>
-				<li><a th:href="@{/userPlantPick/addPostPlantPick}"><img width="30px;" src="/user/images/plant_pic_more.png"></a>포스팅</li>
-			</ul>
-		</div>
-		
-	
-	
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-6 order-md-last d-flex">
-	
-		
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="userId" name="userId" placeholder="UserId">
-						    <label for="userId">검색 id</label>
-						  </div>
+
+
+	<div class="col-md-3 left_col plant_pic_sidebar" style="z-index: 2";>
+		<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
+			<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
+			<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
+			<li><a th:href="@{/userPlantPick/searchPlantPick}"><img width="30px;" src="/user/images/plant_pic_find.png"></a>검색</li>
+			<li><a th:href="@{/userPlantpick/profile}"><img width="30px;" src="/user/images/plant_pic_compass.png"></a>프로필 </li>
+			<li><a th:href="@{/userPlantPick/addPostPlantPick}"><img width="30px;" src="/user/images/plant_pic_more.png"></a>포스팅</li>
+		</ul>
+	</div>
+
+	<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+		<div class="container py-6">
+			<div class="row d-flex justify-content-center py-5">
+				<div class="col-md-6 d-flex align-items-center">
+					<form action="#" class="subscribe-form">
+						<div class="form-group d-flex">
+							<input type="text" class="form-control input-border-not-right" placeholder="ID, 이름으로 검색하세요" readonly>
+							<input type="submit" value="검색하기" class="submit px-3" id="searchModalBtn">
 						</div>
-		
+					</form>
+				</div>
+			</div>
 		</div>
+	</section>
+
+<!--  아이디 이름 검색 선택 모달창 -->
+	<div class="modal" id="plantpickSearchModal" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">아이디 이름을 검색하세요</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<select id="plantpicksearch" class="#">
+						<option value="">아이디</option>
+						<option value="">이름</option>
+					</select>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
 		</div>
-		</section>
-	</body>
+	</div>
+
+
+
+</th:block>
+<th:block layout:fragment="customJs">
+	<script>
+		$('#searchModalBtn').click(function (){
+			$('#plantpickSearchModal').modal('show');
+		})
+	</script>
 </th:block>
 </html>
