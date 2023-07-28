@@ -2,94 +2,74 @@
 <html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{user_layout/default}">
 
-
-
-			<!-- 내용 -->
-	<th:block layout:fragment="customContents">
+<!-- 내용 -->
+<th:block layout:fragment="customContents">
     <section class="ftco-section contact-section bg-light">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
-              
-                <form th:action="@{/#}" th:object="${urbanfarmer}" method="post"
-                      class="bg-white p-5 contact-form">
-                      
-						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-							
-							
-								<div>
-									<form action="/file/upload" method="post" enctype="multipart/form-data">
-						   		<div>
-								    <label for="userId">
-								    	<div><a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"></a></div>
-								    	<div><a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a></div>
-										
-										  &nbsp;
-								    </label>
-						   		</div>
-						   		<br>
-								        <input type="file" name="uploadfile" multiple="multiple"/>
-								      <div>사진과 동영상을 여기에 끌어 넣으세요
-								        <button type="submit">업로드</button>
-								      </div>
-								</div>
-								<div>
-								    <input type="text"  style="border:solid 2px #A5A19A; width:400px; heigh:500px;" class="form-control" id="userId" name="userId" placeholder="문구입력....">
-								
-								</div>
-						    
-						  </div> 
-						</div>
-			
-			
-			
-			
-		    	<div class="input-group mb-3">
-						<label for="plantpickYn">게시물 공개 여부</label>
-						  <div class="form-floating col-9">
-						    <input type="radio" name="emailCheck" value="y"> 예
-						    <input type="radio" name="emailCheck" value="n"> 아니오
-						  </div>
-						</div>
-				
-					<div class="form-group" style="text-align:right">
-                    		<button class="plantpickBtn">
-                    			<a href:href="@{/userPlantPick/plantPickMain}"   class="btn btn-info py-3 px-5" id="alertInsert">포스팅</a>
-                    		</button>
-                    		 
-                    </div>		
-				</form>
-								
-						
-				
-			</div>
-		</div>
-	</section>
-	
+
+                <form th:action="@{/userPlantPick/addPostPlantPick}" th:object="${post}" method="post"
+                      class="bg-white p-5 contact-form" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="uploadfile">
+                            <div><a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"
+                                                 style="width: 50px; height: 50px; border-radius: 50%;"></a></div>
+                                                 
+                            <div><a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a></div>
+                            &nbsp;
+                        </label>
+                        <br>
+                        <input type="file" name="uploadfile" id="uploadfile" accept="image/*" required/>
+                        <div>사진을 선택하세요</div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" id="postContent" name="postContent" rows="5"
+                                  placeholder="문구입력...." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postPublic">게시물 공개 여부</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="postPublic" id="postPublicY" value="Y"
+                                   checked>
+                            <label class="form-check-label" for="postPublicY">예</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="postPublic" id="postPublicN" value="N">
+                            <label class="form-check-label" for="postPublicN">아니오</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="text-align: right">
+                        <button type="submit" class="btn btn-info py-3 px-5" id="postBtn">포스팅</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </th:block>
 
 <th:block layout:fragment="customJs">
-<script type="text/javascript" th:inline="javascript">
-	const $plantpickBtn = document.querySelector('#plantpickBtn');
-	let isSubmit = true;
-	$plantpickBtn.addEventListener('click',function(){
-		const $plantpickupload = document.querySelector('#plantpickupload');
-		let value = $plantpickupload.value;
-		if(value == ''){
-			let test = $(`label[for="${$plantpickupload.id}"]`).text();
-			alert(`${test}은 필수 입력항목입니다.`);
-			//$plantpickupload.focus();
-			isSubmit = false;
-		}
-	
-	});
-	
-	
-	
-	
-	
-</script>
+    <script type="text/javascript" th:inline="javascript">
+        const $postBtn = document.querySelector('#postBtn');
+        $postBtn.addEventListener('click', function () {
+            const $uploadfile = document.querySelector('#uploadfile');
+            const $postContent = document.querySelector('#postContent');
+            
+            if ($uploadfile.files.length === 0) {
+                alert("사진을 선택하세요.");
+                $uploadfile.focus();
+                event.preventDefault();
+            } else if ($postContent.value.trim() === '') {
+                alert("문구를 입력하세요.");
+                $postContent.focus();
+                event.preventDefault();
+            }
+            
+			
+        });
+    </script>
 </th:block>
-
-
 </html>

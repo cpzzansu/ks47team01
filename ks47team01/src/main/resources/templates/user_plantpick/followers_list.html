@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+
+	<body>
+		
+			<div class="col-md-3 left_col plant_pic_sidebar" style="z-index: 2";>
+			<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
+				<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
+				<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
+				<li><a th:href="@{/userPlantPick/searchPlantPick}"><img width="30px;" src="/user/images/plant_pic_find.png"></a>검색</li>
+				<li><a th:href="@{/userPlantpick/profile}"><img width="30px;" src="/user/images/plant_pic_compass.png"></a>프로필 </li>
+				<li><a th:href="@{/userPlantPick/addPostPlantPick}"><img width="30px;" src="/user/images/plant_pic_more.png"></a>포스팅</li>
+			</ul>
+		</div>
+		
+	<body>
+	
+	
+	<section class="ftco-section ftco-cart">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 ftco-animate">
+					<div>
+			<div style="z-index:3";>
+				<select >
+					<option value="urbanfarmerId">회원 아이디 </option>
+					<option value="">회원 이름</option>
+				</select>
+			</div>			
+						<table class="table" style="padding: 12=0px;">
+							<thead class="thead-primary">
+							<tr class="text-center">
+							
+							<th>&nbsp;</th>
+							<th>팔로잉</th>
+							<th>&nbsp;</th>
+							<th>&nbsp;</th>
+							
+							</tr>
+							<tr class="text-center">
+						
+							
+								<th>사람</th>
+								<th>&nbsp;</th>
+								<th>상태</th>
+								<th>&nbsp;</th>
+							
+							</tr>
+							</thead>
+							<tbody>
+							<tr class="text-center">
+								
+								<td class="image-prod">
+									<div>
+										<a href="/userPlantPick/plantPickYouMain" class="img-prod"><img class="thumb"
+                                                              src="/user/images/product-2.jpg" >
+									<div>
+								</td>
+
+								<td class="product-name">
+									<h3><a th:href="@{/userPlantPick/plantPickYouMain}">user03</h3>
+									<p><a th:href="@{/userPlantPick/plantPickYouMain}">이원영</p>
+									<td><button class="btn btn-primary"  px="30px" >팔로잉</button></tr>
+								</td>
+
+									</div>
+						
+							</tr><!-- END TR-->
+
+								<tr class="text-center">
+								
+								<td class="image-prod">
+									<div>
+										<a href="/userPlantPick/plantPickYouMain" class="img-prod"><img class="thumb"
+                                                              src="/user/images/product-2.jpg" >
+									<div>
+								</td>
+
+								<td class="product-name">
+									<h3><a th:href="@{/userPlantPick/plantPickYouMain}">user04</h3>
+									<p><a th:href="@{/userPlantPick/plantPickYouMain}">박지성</p>
+									<td><button class="btn btn-primary"  px="30px" >팔로잉</button></tr>
+								</td>
+
+									</div>
+									
+									<tr class="text-center">
+								
+								<td class="image-prod">
+									<div>
+										<a href="/userPlantPick/plantPickYouMain" class="img-prod"><img class="thumb"
+                                                              src="/user/images/product-2.jpg" >
+									<div>
+								</td>
+
+								<td class="product-name">
+									<h3><a th:href="@{/userPlantPick/plantPickYouMain}">user05</h3>
+									<p><a th:href="@{/userPlantPick/plantPickYouMain}">김상원</p>
+									<td><button class="btn btn-primary"  px="30px" >팔로잉</button></tr>
+								</td>
+
+									</div>
+									
+									<tr class="text-center">
+								
+								<td class="image-prod">
+									<div>
+										<a href="/userPlantPick/plantPickYouMain" class="img-prod"><img class="thumb"
+                                                              src="/user/images/product-2.jpg" >
+									<div>
+								</td>
+
+								<td class="product-name">
+									<h3><a th:href="@{/userPlantPick/plantPickYouMain}">user06</h3>
+									<p><a th:href="@{/userPlantPick/plantPickYouMain}">이동훈</p>
+									<td><button class="btn btn-primary"  px="30px" >팔로잉</button></tr>
+								</td>
+		
+									</div>
+					<!--화면이동 -->
+					<a th:href="@{/userPlantPick/followBanList}">차단목록화면 이동</a>
+
+
+							<!-- END TR-->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	</body>
+</th:block>
+
+</html>

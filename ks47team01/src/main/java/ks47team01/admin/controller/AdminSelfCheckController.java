@@ -2,21 +2,19 @@ package ks47team01.admin.controller;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.admin.service.AdminSelfCheckCropsGradeService;
-import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.SelfCheckCropsGrade;
+import ks47team01.common.dto.UrbanKit;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Log4j2
 @Controller
 @AllArgsConstructor
 @RequestMapping("/adminSelfCheck")
@@ -35,6 +33,42 @@ public class AdminSelfCheckController {
         model.addAttribute("title", "자가검증 질문 등록");
 
         return "admin_self_check_question/add_verification_question";
+    }
+
+    /**
+     *
+     * @param searchData
+     * @return
+     */
+    @ResponseBody
+    @PostMapping("/question/kitSearch")
+    public List<UrbanKit> searchKitList(@RequestBody Map<String, Object> searchData){
+
+        log.info(searchData);
+
+        String searchColumn = (String) searchData.get("kitSearchColumn");
+        String searchValue = (String) searchData.get("kitSearchValue");
+        searchValue = "%" + searchValue + "%";
+
+        log.info(searchColumn);
+        log.info(searchValue);
+
+        List<UrbanKit> kitList = adminSelfCheckCropsGradeService.searchKitList(searchColumn, searchValue);
+
+        return kitList;
+    }
+
+    /**
+     * 전체 키트 리스트 반환하는 메서드
+     * @return 전체 키트 리스트
+     */
+    @GetMapping("/question/listKit")
+    @ResponseBody
+    public List<UrbanKit> kitList(){
+
+        List<UrbanKit> kitList = adminSelfCheckCropsGradeService.getKitList();
+
+        return kitList;
     }
 
     /**
@@ -145,17 +179,24 @@ public class AdminSelfCheckController {
         return dataProductGrade;
     }
 
-    /**
-     * 관리자 - 자가검증 상품등급 수정화면 이동
-     * @param model
-     * @return admin_self_check_product_grade/modify_verification_product_grade
-     */
-    @GetMapping("/productGrade/modifyVerificationProductGrade")
-    public String moveModifyProductGrade(Model model){
+    @ResponseBody
+    @PostMapping("/productGrade/modifyProductGradeData")
+    public SelfCheckCropsGrade modifyProductGradeModal(@RequestBody String selfCheckCropsGrade){
+        log.info("selfCheckCropsGrade: {}", selfCheckCropsGrade);
 
-        model.addAttribute("title","자가검증 상품등급 수정");
+        String selfCheckCropsGradeCode = selfCheckCropsGrade;
+        SelfCheckCropsGrade result = adminSelfCheckCropsGradeService.getProductGradeByCode(selfCheckCropsGradeCode);
 
-        return "admin_self_check_product_grade/modify_verification_product_grade";
+        return result;
+    }
+
+
+    @ResponseBody
+    @PostMapping("/productGrade/modifyUpdateProductGrade")
+    public void modifyUpdateProductGradeModal(@RequestBody SelfCheckCropsGrade selfCheckCropsGrade){
+
+        adminSelfCheckCropsGradeService.updateProductGrade(selfCheckCropsGrade);
+
     }
 
     /**
@@ -163,11 +204,11 @@ public class AdminSelfCheckController {
      * @param model
      * @return redirect!
      */
-    @GetMapping("/productGrade/removeVerificationProductGrade")
-    public String removeProductGrade(Model model){
+    @PostMapping("/productGrade/removeProductGrade")
+    @ResponseBody
+    public void deleteProductGrade(@RequestBody List<String> deleteList){
+        log.info("deleteProductGrade Controller {}", deleteList);
 
-        model.addAttribute("title","자가검증 상품등급 삭제");
-
-        return "admin_self_check_product_grade/list_verification_product_grade";
+        adminSelfCheckCropsGradeService.deleteProductGrade(deleteList);
     }
 }

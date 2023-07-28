@@ -14,11 +14,12 @@
 		<result column="crops_name" property="cropsName"/>
 		<result column="crops_growing_info_code" property="cropsGrowingInfoCode"/>
 		<result column="urban_kit_code" property="urbanKitCode"/>
+		<result column="urban_kit_name" property="urbanKitName"/>
 		<result column="farmer_farming_plan_reg_date" property="farmerFarmingPlanRegDate"/>
 		<result column="farmer_farming_plan_start_date" property="farmerFarmingPlanStartDate"/>
 		<result column="farmer_farming_plan_end_date" property="farmerFarmingPlanEndDate"/>
 		<result column="farmer_farming_plan_status" property="farmerFarmingPlanStatus"/>
-		<result column="urban_kit_name" property="urbanKitName"/>
+		<result column="few_days" property="fewDays"/>
 	</resultMap>
 	
 	<resultMap type="FarmingPlanLargeCate" id="farmingPlanLargeCateResultMap">
@@ -55,6 +56,126 @@
 		<result column="farming_plan_small_cate_content" property="farmerFarmingDetailPlanContent"/>	
 		<result column="farming_plan_small_cate_sortation" property="farmerFarmingDetailPlanSortation"/>	
 	</resultMap>
+	
+	<update id="updateCrops" parameterType="FarmingPlan">
+		/* 작물수정 */
+		UPDATE farmer_farming_plan
+			<set>
+				<if test="cropsNameCode != null">
+					crops_name_code=#{cropsNameCode},				
+				</if>
+				<if test="farmerFarmingPlanNickname !=null">
+					farmer_farming_plan_nickname=#{farmerFarmingPlanNickname},
+				</if>
+				<if test="cropsName !=null">
+					crops_name=#{cropsName},		
+				</if>
+				<if test="urbanKitCode !=null">
+					urban_kit_code=#{urbanKitCode}
+				</if>
+			</set>
+			WHERE farmer_farming_plan_code= #{farmerFarmingPlanCode}
+	</update>
+	
+	
+	<select id="getFarmingPlanSmallCateListByLargeCateCode" parameterType="Map" resultMap="farmingDetailPlanResultMap">
+		/* farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList */
+		SELECT
+			farmer_farming_detail_plan_code,
+			farmer_farming_detail_plan_title,
+			farmer_farming_detail_plan_content,
+			farmer_farming_detail_plan_sortation,
+			farmer_farming_detail_plan_status
+		FROM
+			farmer_farming_detail_plan
+		WHERE
+			farming_plan_large_cate_code = #{farmingPlanLargeCateCode}
+			AND 
+			farmer_farming_plan_code = #{farmerFarmingPlanCode}
+		ORDER BY
+			farmer_farming_detail_plan_sortation
+	</select>
+	
+	<delete id="deleteFarmingDetailPlanActionByPlanCode" parameterType="String">
+		/* farmerFarmingPlanCode별 FarmingDetailPlanAction 삭제 */
+		DELETE
+		FROM
+			farming_detail_plan_action
+		WHERE
+			farmer_farming_plan_code = #{farmerFarmingPlanCode};
+	</delete>
+	
+	<delete id="deleteFarmerFarmingDetailPlanByPlanCode" parameterType="String">
+		/* farmerFarmingPlanCode별 FarmerFarmingDetailPlan 삭제 */
+		DELETE
+		FROM
+			farmer_farming_detail_plan
+		WHERE
+			farmer_farming_plan_code = #{farmerFarmingPlanCode};
+	</delete>
+	
+	<delete id="deleteFarmerSaleReservationToHubByPlanCode" parameterType="String">
+		/* farmerFarmingPlanCode별 deleteFarmerSaleReservationToHub 삭제 */
+		DELETE
+		FROM
+			famer_sale_reservation_to_hub
+		WHERE
+			farmer_farming_plan_code = #{farmerFarmingPlanCode};
+	</delete>
+	
+	<delete id="deleteFarmerFarmingPlanByPlanCode" parameterType="String">
+		/* farmerFarmingPlanCode별 FarmerFarmingPlan 삭제 */
+		DELETE
+		FROM
+			farmer_farming_plan
+		WHERE
+			farmer_farming_plan_code = #{farmerFarmingPlanCode};
+	</delete>
+	
+	<update id="startPlan" parameterType="map">
+		/* 농사 시작 */
+		<selectKey keyColumn="crops_name_code" keyProperty="cropsNameCode" resultType="String" order="BEFORE">
+			SELECT
+				crops_name_code
+			FROM
+				farmer_farming_plan
+			WHERE
+				farmer_farming_plan_code = #{farmerFarmingPlanCode};
+		</selectKey>
+		
+		UPDATE farmer_farming_plan
+			SET
+				farmer_farming_plan_start_date=NOW(),
+				farmer_farming_plan_end_date=DATE_ADD(NOW(),INTERVAL(
+																		SELECT
+																			crops_growing_date
+																		FROM
+																			crops_growing_info
+																		WHERE
+																			crops_name_code = #{cropsNameCode}
+																	) DAY),
+				farmer_farming_plan_status='진행중'
+			WHERE farmer_farming_plan_code=#{farmerFarmingPlanCode};
+	</update>
+	
+	<select id="getCropsInfo" parameterType="Map" resultType="Map">
+		/* 작물하나 정보 */
+		SELECT
+			p.crops_name AS cropsName,
+			p.farmer_farming_plan_nickname AS farmerFarmingPlanNickname,
+			k.urban_kit_name AS urbanKitName,
+			i.crops_growing_date AS cropsGrowingDate
+		FROM
+			farmer_farming_plan AS p
+			LEFT JOIN
+			urban_kit AS k
+			ON p.urban_kit_code = k.urban_kit_code
+			INNER JOIN
+			crops_growing_info AS i
+			ON p.crops_name_code = i.crops_name_code
+		WHERE
+			p.farmer_farming_plan_code = #{farmerFarmingPlanCode}
+	</select>
 	
 	<select id="autoIncreaseCode" resultType="String" parameterType="String">
 		<![CDATA[
@@ -136,27 +257,29 @@
 	</insert>
 	
 	<select id="getFarmingLargeCateByCode" parameterType="String" resultMap="farmingPlanLargeCateResultMap">
-		/* 농사 계획코드별 대분류 가져오기 */
+		/* 농사 계획코드별 대분류 가져오기 */	
 		SELECT
-			c.farming_plan_large_cate_code,
-			c.farming_plan_large_cate_title,
-			c.farming_plan_large_cate_content
+			p.farming_plan_large_cate_code,
+			l.farming_plan_large_cate_title,
+			l.farming_plan_large_cate_content
 		FROM
-			farmer_farming_plan AS p
-			INNER JOIN 
-			farming_plan_large_cate AS c
-		USING(crops_name_code)
+			farmer_farming_detail_plan AS p
+			INNER JOIN
+			farming_plan_large_cate AS l
+			USING(farming_plan_large_cate_code)
 		WHERE
-			farmer_farming_plan_code= #{farmerFarmingPlanCode}
+			p.farmer_farming_plan_code = #{farmerFarmingPlanCode}
+		GROUP BY 
+			p.farming_plan_large_cate_code
 		ORDER BY 
-			c.farming_plan_large_cate_sortation;
+			l.farming_plan_large_cate_sortation
 	</select>
 	
 	<select id="getFarmingPlanByCode" parameterType="String" resultMap="farmingPlanResultMap">
 		/* 코드별 작농계획 */
 		SELECT
 			p.*,
-			c.urban_kit_name
+			c.urban_kit_name 
 		FROM
 			farmer_farming_plan AS p
 			LEFT JOIN
@@ -185,11 +308,15 @@
 	<select id="getFarmingPlanListById" resultMap="farmingPlanResultMap" parameterType="String">
 		/* 사용자별 계획 리스트 */
 		SELECT
-			*
+			p.*,
+			DATEDIFF(NOW(),p.farmer_farming_plan_start_date) + 1 AS few_days
 		FROM
-			farmer_farming_plan
+			farmer_farming_plan AS p
+			INNER JOIN
+			crops_growing_info AS i
+			ON p.crops_name_code = i.crops_name_code
 		WHERE
-			urbanfarmer_id=#{userId}
+			p.urbanfarmer_id = #{userId};
 	</select>
 	
 	<insert id="addCrops" parameterType="Map">

@@ -21,6 +21,19 @@ import java.util.Map;
 public class AdminShopController {
 
     private final AdminShopService adminShopService;
+    @PostMapping("adminShop/adminShopUpdate")
+    @ResponseBody
+    public GoodsKit admin_shop_update_obj(@RequestParam("checkedData") String checkedData){
+        String finalCheckedData = checkedData;
+
+        System.out.println(finalCheckedData);
+
+        GoodsKit goodsKitObj = adminShopService.getGoodsKitObj(finalCheckedData);
+
+        System.out.println(goodsKitObj);
+
+        return goodsKitObj;
+    }
 
     @GetMapping("adminShop/adminShopReload")
     @ResponseBody
@@ -74,7 +87,7 @@ public class AdminShopController {
         return "admin_shop/admin_shop_add";
     }
 
-    @GetMapping("adminShop/adminShopModify")
+    @GetMapping ("adminShop/adminShopModify")
     public String admin_shop_modify(Model model) {
 
         model.addAttribute("title", "urbanfarm");

@@ -19,9 +19,21 @@
 </resultMap>
 
 <select id="getUrbanKitList" resultMap="urbanKitResultMap">
-SELECT
-*
-FROM
-	urban_kit
+	SELECT
+	*
+	FROM
+		urban_kit
 </select>
+
+<select id="getUrbanKitListByCode" parameterType="String" resultMap="urbanKitResultMap">
+	/* 작물명 코드별 키트리스트 */
+	SELECT
+		urban_kit_code,
+		urban_kit_name
+	FROM
+		urban_kit
+	WHERE
+		crops_name_code = #{cropsNameCode}
+</select>
+
 </mapper>
