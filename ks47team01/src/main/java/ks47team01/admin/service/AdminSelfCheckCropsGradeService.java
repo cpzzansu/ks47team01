@@ -1,6 +1,8 @@
 package ks47team01.admin.service;
 
 import ks47team01.admin.mapper.SelfCheckCropsGradeMapper;
+import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.CropsSelfCheck;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import ks47team01.common.dto.UrbanKit;
 import lombok.AllArgsConstructor;
@@ -100,6 +102,45 @@ public class AdminSelfCheckCropsGradeService {
         List<UrbanKit> searchKitList = selfCheckCropsGradeMapper.searchKitList(searchColumn, searchValue);
 
         return searchKitList;
+    }
+
+    /**
+     * 전체 작물 이름 리스트 가져오기
+     * @return 전체 작물 이름 리스트
+     */
+    public List<CropsName> getCropsNameList(){
+
+        List<CropsName> cropsNameList = selfCheckCropsGradeMapper.getCropsNameList();
+
+        return cropsNameList;
+    }
+
+    /**
+     * 검색한 작물 이름 리스트 가져오기
+     * @param searchColumn 작물 컬럼명
+     * @param searchValue 작물 검색 데이터
+     * @return 검색한 작물 이름 리스트
+     */
+    public List<CropsName> searchCropsList(String searchColumn, String searchValue){
+
+        List<CropsName> searchCropsList = selfCheckCropsGradeMapper.searchCropsList(searchColumn, searchValue);
+
+        return searchCropsList;
+    }
+
+    /**
+     * 자가검증 질문 등록 처리
+     * @param cropsSelfCheck 질문등록 data
+     */
+    public void insertQuestion(CropsSelfCheck cropsSelfCheck){
+
+        // 기본키 생성
+        String cropsSelfCheckCode = selfCheckCropsGradeMapper.autoIncreaseCode("crops_self_check");
+
+        // 기본키 세팅
+        cropsSelfCheck.setCropsSelfCheckCode(cropsSelfCheckCode);
+
+        selfCheckCropsGradeMapper.insertQuestion(cropsSelfCheck);
     }
 
 

@@ -7,31 +7,25 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>상품등급 목록<small>자가검증 상품등급 목록입니다.</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
+                    <h2>자가검증 질문 등록<small>자가검증 질문을 입력하세요.</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_panel">
+                    <div class="row">
+                        <h1>
+                            [[${cropsSelfCheck.getCropsName()}]] <small>자가검증 질문 등록</small>
+                        </h1>
+                        <h3>
+                            <small>자가검증 질문 코드:  </small>[[${cropsSelfCheck.getCropsSelfCheckCode()}]]
+                        </h3>
+                        <div class="ajs-h-blank-50"></div>
+                    </div>
                     <div id="questionBody" >
                         <table class="table">
                             <tbody>
                             <tr>
                                 <td></td>
-                                <td colspan="2" class="ajs-font-30 questionNum">#<span>1</span></td>
+                                <td colspan="2" class="ajs-font-30 questionNum"><span>1</span>번 질문</td>
                             </tr>
                             <tr>
                                 <td class="text-right ajs-table-label col-md-3">

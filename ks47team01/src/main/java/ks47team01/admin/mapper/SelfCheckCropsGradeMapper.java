@@ -1,5 +1,7 @@
 package ks47team01.admin.mapper;
 
+import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.CropsSelfCheck;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import ks47team01.common.dto.UrbanKit;
 import org.apache.ibatis.annotations.Mapper;
@@ -63,5 +65,23 @@ public interface SelfCheckCropsGradeMapper {
      */
     public List<UrbanKit> searchKitList(String searchColumn, String searchValue);
 
+    /**
+     * 전체 작물 이름 리스트 가져오는 메서드
+     * @return 전체 작물 이름 리스트
+     */
+    public List<CropsName> getCropsNameList();
 
+    /**
+     * 검색한 작물 이름 리스트 가져오기
+     * @param searchColumn 검색할 column
+     * @param searchValue 검색할 value
+     * @return 검색한 작물 이름 리스트
+     */
+    public List<CropsName> searchCropsList(String searchColumn, String searchValue);
+
+    /**
+     * 자가검증 질문 등록 처리
+     * @param cropsSelfCheck 질문등록 data
+     */
+    public void insertQuestion(CropsSelfCheck cropsSelfCheck);
 }
