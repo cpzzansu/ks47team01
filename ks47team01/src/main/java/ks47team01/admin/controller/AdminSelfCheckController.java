@@ -136,10 +136,10 @@ public class AdminSelfCheckController {
     @GetMapping("/question/addVerificationQuestionDetail")
     public String moveQuestionDetail(Model model){
         // 등록 처리 메서드에서 세션에 넣은 객체 model 객체에 담기
-        if(model.containsAttribute("cropsSelfCheck")){
-            CropsSelfCheck cropsSelfCheck = (CropsSelfCheck) model.asMap().get("cropsSelfCheck");
-            model.addAttribute("cropsSelfCheck", cropsSelfCheck);
-        }
+//        if(model.containsAttribute("cropsSelfCheck")){
+//            CropsSelfCheck cropsSelfCheck = (CropsSelfCheck) model.asMap().get("cropsSelfCheck");
+//            model.addAttribute("cropsSelfCheck", cropsSelfCheck);
+//        }
         model.addAttribute("title", "상세화면");
 
         return "admin_self_check_question/add_verification_question_detail";

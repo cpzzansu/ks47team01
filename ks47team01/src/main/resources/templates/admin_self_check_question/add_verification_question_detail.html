@@ -11,63 +11,69 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_panel">
+
                     <div class="row">
                         <h1>
-                            [[${cropsSelfCheck.getCropsName()}]] <small>자가검증 질문 등록</small>
+                            <!--/*[[${cropsSelfCheck.getCropsName()}]] <small>자가검증 질문 등록</small>*/-->
                         </h1>
                         <h3>
-                            <small>자가검증 질문 코드:  </small>[[${cropsSelfCheck.getCropsSelfCheckCode()}]]
+                           <!--/*<small>자가검증 질문 코드:  </small>[[${cropsSelfCheck.getCropsSelfCheckCode()}]]*/-->
                         </h3>
                         <div class="ajs-h-blank-50"></div>
                     </div>
+
+
                     <div id="questionBody" >
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="form-group row">
+                                <label class="ajs-text-title control-label col-md-3 col-sm-3 col-xs-12" for="questionNum">#
+                                </label>
+                                <div id="questionNum" class="ajs-text-title">1</div>
+
+                            </div>
+                            <div class="form-group" style="display:none;">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="selfCheckQuestionCode" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="selfCheckQuestionTitleContent">질문 제목<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="selfCheckQuestionTitleContent" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="selfCheckQuestionPremiumCheck">특급 질문<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="selfCheckQuestionPremiumCheck" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="selfCheckQuestionSuperiorCheck">상급 질문<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="selfCheckQuestionSuperiorCheck" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="selfCheckQuestionRegularCheck">일반 질문<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="selfCheckQuestionRegularCheck" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                        </form>
+
                         <table class="table">
                             <tbody>
                             <tr>
                                 <td></td>
                                 <td colspan="2" class="ajs-font-30 questionNum"><span>1</span>번 질문</td>
                             </tr>
-                            <tr>
-                                <td class="text-right ajs-table-label col-md-3">
-                                    자가검증 항목 내역
-                                </td>
-                                <td class="col-md-6">
-                                    <input type="hidden" name="cropsSelfCheckCode">
-                                    <div class="form-group">
-                                        <input class="form-control" id="selfCheckQuestionContent">
-                                    </div>
-                                </td>
-                                <td class="col-md-3">
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-right ajs-table-label col-md-3">
-                                    자가검증 질문의 순서
-                                </td>
-                                <td class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="selfCheckQuestionOrder">
-                                    </div>
-                                </td>
-                                <td class="col-md-3">
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-right ajs-table-label col-md-3">
-                                    자가검증 질문 점수
-                                </td>
-                                <td class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="selfCheckQuestionScore">
-                                    </div>
-                                </td>
-                                <td class="col-md-3">
-
-                                </td>
-                            </tr>
-                            <tr>
                                 <td colspan="2" class="text-right">
                                     <button type="button" class="btn btn-success questionAddBtn">추가</button>
                                 </td>
