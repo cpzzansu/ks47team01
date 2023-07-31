@@ -34,16 +34,32 @@
 	<insert id="addUrbanfarmAdmin" parameterType="UrbanfarmAdmin">
 	
 		/* 회원가입 */
-		INSERT INTO urbanfarm_admin AS ua
-			(ua.urbanfarm_admin_id, ua.urbanfarm_admin_pw, ua.urbanfarm_admin_name
-			,ua.staff_table_type, ua.urbanfarm_admin_phone, ua.urbanfarm_admin_email
-			,ua.urbanfarm_admin_reg_date)
+		INSERT INTO urbanfarm_admin
+			(urbanfarm_admin_id, urbanfarm_admin_pw, urbanfarm_admin_name
+			,staff_table_type, urbanfarm_admin_phone, urbanfarm_admin_email
+			,urbanfarm_admin_reg_date)
 		VALUES
 			(#{urbanfarmAdminId}, #{urbanfarmAdminPw}, #{urbanfarmAdminName},
-			#{staffTableType}, #{urbanfarmAdminPhone}, #{urbanfarmAdminEmail},
+			'urbanfarm_admin', #{urbanfarmAdminPhone}, #{urbanfarmAdminEmail},
 			CURDATE());	
 	
 	</insert>
+	
+	<select id="getUrbanfarmAdminEmail" parameterType="UrbanfarmAdmin">
+		SELECT
+			urbanfarm_admin_id as urbanfarmAdminId
+		,	urbanfarm_admin_pw as urbanfarmAdminPw
+		,	urbanfarm_admin_name as urbanfarmAdminName
+		,	staff_table_type as staffTableType
+		,	urbanfarm_admin_phone as urbanfarmAdminPhone
+		,	urbanfarm_admin_email as urbanfarmAdminEmail
+		,	urbanfarm_admin_reg_date as urbanfarmAdminRegDate
+		FROM
+			urbanfarm_admin 
+		WHERE
+			urbanfarm_admin_email = #{urbanfarmAdminEmail}
+	
+	</select>
 	
 	
 </mapper>

@@ -1,18 +1,118 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{admin/layout/default_admin}">
+      layout:decorate="~{admin/layout/default_admin_popup}">
 <th:block layout:fragment="customContents">
-  <h1 th:text="${contents}">[[${contents}]]</h1>
-  <div>
-    <button class="btn-addr-find" id="payment_addr_find">검색하기</button>
-  </div>
-</th:block>
+    <div class="col-md-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h4 style="display: inline-block;">상점상품라벨수정</h4>
+                <span class="right-text" id="pop-up-today"></span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br>
+                <form class="form-horizontal form-label-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">상품 라벨 코드</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" id="idGoodsLabelCode" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">관리자 직원 아이디</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" id="idUrbanfarmAdminId" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">라벨 제목</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" id="idGoodsLabelName" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">라벨 내용</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" id="idGoodsLabelHtmlCode" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 등록일</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control kit-price" id="idGoodsLabelRegDate" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3 pop-up-submit-center">
+                            <br>
+                            <button type="submit" class="btn btn-success">저장</button>
+                            <button type="reset" class="btn btn-primary">리셋</button>
+                            <button type="button" class="btn btn-primary windowClose">취소</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+</th:block>
 <th:block layout:fragment="customJs">
-  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script th:inline="javascript">
+
+        // 시계
+        $(document).ready(function() {
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000);
+        });
+
+        function updateCurrentTime() {
+            let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+            $('#pop-up-today').text(currentTime);
+        }
+
+        // 팝업창 닫기
+        if($('.windowClose').length > 0){
+            function closePopUp() {
+                console.log('창닫기');
+                window.close();
+            }
+            $('.windowClose').on('click', closePopUp);
+        }
+
+            function extractValueFromUrl(urlString) {
+                const url = new URL(urlString);
+                const searchParams = new URLSearchParams(url.search);
+
+                let extractedValue = "";
+                for (let value of searchParams.values()) {
+                    extractedValue = value;
+                    break;
+                }
+
+                return extractedValue;
+            }
+
+            const urlString = window.location.href;
+            const checkedData = extractValueFromUrl(urlString);
+            console.log('checkedData ->', checkedData);
+
+            $.ajax({
+                url: "adminShopLabelUpdate",
+                data: {checkedData: checkedData},
+                type: "POST",
+                success: function(response) {
+                    console.log('response ->', response);
+                    $('#idGoodsLabelCode').val(response.goodsLabelCode);
+                    $('#idUrbanfarmAdminId').val(response.urbanfarmAdminId);
+                    $('#idGoodsLabelName').val(response.goodsLabelName);
+                    $('#idGoodsLabelHtmlCode').val(response.goodsLabelHtmlCode);
+                    $('#idGoodsLabelRegDate').val(response.goodsLabelRegDate);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                }
+            });
+    </script>
 </th:block>
 </html>
-
-<!-- 이 상태에서 검색하기 버튼 클릭 후 정상 작동되면 레이아웃의 css와 js가 잘 연결된 것이니
-customJS의 스크립트와 customContents의 div 및 button을 삭제해주세요 -->

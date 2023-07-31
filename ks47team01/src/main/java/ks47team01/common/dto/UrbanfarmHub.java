@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class UrbanfarmHub {
 	
-	private String urbanfarmHubId;
+	private String urbanfarmHubCode;
 	private String urbanfarmAdminId;
 	private String urbanfarmHubName;
 	private String hubLargeCateCode;

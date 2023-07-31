@@ -1,13 +1,42 @@
 package ks47team01.admin.controller;
 
+import ks47team01.admin.service.AdminOrderService;
+import ks47team01.common.dto.GoodsInventory;
+import ks47team01.common.dto.Order;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller("adminOrderController")
+@AllArgsConstructor
+@Slf4j
 public class AdminOrderController {
 
-    @GetMapping("adminOrder/adminOrderManage")
+    private final AdminOrderService adminOrderService;
+
+    /**
+     * 상품재고 리스트 불러오기
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/adminOrder/adminOrderManageData")
+    public List<Order> admin_order_data() {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        List<Order> orderList = adminOrderService.adminOrderData(paramMap);
+
+        paramMap.put("data", orderList);
+
+        return orderList;
+    }
+
+    @GetMapping("/adminOrder/adminOrderManage")
     public String admin_order_main(Model model) {
 
         model.addAttribute("title", "urbanfarm");
