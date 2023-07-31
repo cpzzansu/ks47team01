@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import ks47team01.admin.mapper.UrbanfarmAdminMapper;
 import ks47team01.common.dto.UrbanfarmAdmin;
 import ks47team01.common.dto.Urbanfarmer;
+import ks47team01.user.mapper.UrbanfarmerMapper;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -16,6 +17,7 @@ import lombok.AllArgsConstructor;
 public class UrbanfarmAdminService {
 	
 	private final UrbanfarmAdminMapper urbanfarmAdminMapper;
+	private final UrbanfarmerMapper urbanfarmerMapper;
 	
 	public Map<String, Object> isValidUser(String urbanfarmerAdminId, String urbanfarmAdminPw) {
 		
@@ -70,6 +72,37 @@ public class UrbanfarmAdminService {
 		return isValid;
 		
 	}
+	
+	public List<Urbanfarmer> getUserInfoList() {
+		
+		Map<String, Object> paramMap = null;
+		
+		List<Urbanfarmer> urbanfarmerList = urbanfarmerMapper.getUserInfoList(paramMap);
+		
+		return urbanfarmerList;
+		
+		
+	}
+	
+	public List<Urbanfarmer> getUrbanfarmerInfoList(Map<String, Object> paramMap) {
+		
+		
+		List<Urbanfarmer> urbanfarmerList = urbanfarmerMapper.getUrbanfarmerInfoList(paramMap);
+		
+		return urbanfarmerList;
+		
+		
+	}
+	
+	public Urbanfarmer getUrbanfarmerData(String finalCheckedData) {
+		
+		Urbanfarmer urbanfarmerInfo = urbanfarmerMapper.getUrbanfarmerData(finalCheckedData);
+		
+		return urbanfarmerInfo;
+		
+	}
+	
+		
 
 	
 }

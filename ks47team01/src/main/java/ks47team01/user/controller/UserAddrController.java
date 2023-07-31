@@ -69,6 +69,8 @@ public class UserAddrController {
 						,HttpSession session) {
 		
 		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressService.getAddressDeliveryRequestList();
+		String Phone = "010-" + urbanfarmerAddress.getUrbanfarmerAddressPhone();
+		urbanfarmerAddress.setUrbanfarmerAddressPhone(Phone);
 		
 		for(int i = 0; i < addressDeliveryRequestList.size(); i+=1) {
 			
@@ -98,6 +100,7 @@ public class UserAddrController {
 		
 		UrbanfarmerAddress urbanfarmerAddress = urbanfarmerAddressService.getUrbanfarmerAddressByCode(urbanfarmerAddressCode);
 		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressService.getAddressDeliveryRequestList();
+		String Phone = urbanfarmerAddress.getUrbanfarmerAddressPhone().substring(4, 13);
 		
 		model.addAttribute("title", "배송지 수정");
 		model.addAttribute("urbanfarmerAddress", urbanfarmerAddress);
@@ -127,6 +130,8 @@ public class UserAddrController {
 		
 		UrbanfarmerAddress urbanfarmerAddress = urbanfarmerAddressService.getUrbanfarmerAddressByCode(urbanfarmerAddressCode);
 		List<AddressDeliveryRequest> addressDeliveryRequestList = urbanfarmerAddressService.getAddressDeliveryRequestList();
+		String Phone = urbanfarmerAddress.getUrbanfarmerAddressPhone().substring(4, 13);
+		urbanfarmerAddress.setUrbanfarmerAddressPhone(Phone);
 		
 		model.addAttribute("title", "배송지 수정");
 		model.addAttribute("urbanfarmerAddress", urbanfarmerAddress);
@@ -160,6 +165,7 @@ public class UserAddrController {
 	public String deleteUserAddre(UrbanfarmerAddress urbanfarmerAddress) {
 		
 		String Code = urbanfarmerAddress.getUrbanfarmerAddressCode();
+		
 		
 		urbanfarmerAddressService.deleteForUrbanfarmerAddress(Code);
 		urbanfarmerAddressService.deleteUrbanfarmerAddress(Code);

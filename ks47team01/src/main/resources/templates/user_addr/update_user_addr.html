@@ -4,87 +4,104 @@
     <th:block layout:fragment="customJs">
     	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     	<script>
-    		/*
-    		const $idCheckBtn = document.querySelector('#idCheck');
-    		$idCheckBtn.addEventListener('click', e => {
-    			alert('test');
-    		});
-    		*/
-    		// 유효성검사 함수
- /*    		//const validCheck = element => {
-    			let data = $(element).val();
-    			let eleId = $(element).attr('id');
-    			if(typeof data == 'undefined' || data == null || data == '' ){
-    				let cate = $(`label[for="${eleId}"]`).text();
-    				alert(`${cate} 필수 입력항목입니다.`);
-    				$(element).focus();
-    				return false;
-    			}
+    	
+    	const validCheck = element => {
+    		let data = $(element).val();
+    		let eleId = $(element).attr('id');
+    		
+    		if(eleId == $('#addressDeliveryRequestEtc')) {
+    			
     			return true;
+    			
+    			if(typeof data == 'undefined' || data == null || data == ''){
+    				let cate = $(`label[for="${eleId}"]`).text();
+    				alert(`[${cate}] 필수 입력항목입니다.`);
+    				$(element).focus();
+    				return false; 
+    				
+    			}
+    			
     		}
     		
-    		// 회원아이디 변경 시 이벤트 처리
-    		
-    		// 회원 가입 버튼 시 이벤트
-    		$('#updateUserBtn').click(function(){
-    			const validateEle = $('#updateUserForm input');
-    			let isSubmit = false;
-    			validateEle.each((idx, item) => {    				
-	    			isSubmit = validCheck(item);
-	    			return isSubmit;
-    			})
-    			if(isSubmit) $('#updateUserForm').submit();
-    		});
-    		
-    		// 입력 취소 버튼 클릭시 이벤트 처리
-    		$('#resetBtn').click(function(e){
-    			// 태그가 가지고 있는 기본 이벤트 동작 방지
-    			e.preventDefault();
-    			$('#updateUserForm input').not('#urbanfarmerId').val('');
-    		});
-    		
-    		// 아이디중복버튼 이벤트
-    		$('#idCheck').click(function(){
-    			const $urbanfarmerId = $('#urbanfarmerId');
-    			let urbanfarmerId = $urbanfarmerId.val();
+    			return true;
     			
-    			// 유효성검사
-    			let valid = validCheck($urbanfarmerId);
-    			if(!valid) return false;
-    			
-    			// ajax 호출
-    			const request = $.ajax({
-					url: '/userAdd/userIdCheck',
-					method: 'POST',
-					data: { 'urbanfarmerId' : urbanfarmerId },
-					dataType: 'text'
-   				});
-   				 
-   				request.done(function( response ) {
-   					if(response == 'true'){
-   						alert('이미 등록된 아이디입니다.');
-   						$urbanfarmerId.val('');
-   						$urbanfarmerId.focus();
-   						
-   	    				return false;
-   					}else{
-   						$('#updateUserForm button').prop('disabled', false);
-   						alert('사용 가능한 아이디입니다.');
-   					}
-					//console.log(response);
-   				});
-   				 
-   				request.fail(function( jqXHR, textStatus ) {
-					alert( "Request failed: " + textStatus );
-   				});
-    			
-    		}); //*/
+    	}
+
+    	$('#updateUserAddrBtn').click(function(){
+    		const validateEle = $('#updateUserAddrForm input');
+    		let isSubmit = false;
+    		let $phoneSize = $('#urbanfarmerAddressPhone').size
     		
-    		const autoHyphen2 = (target) => {
-   			 target.value = target.value
-   			   .replace(/[^0-9]/g, '')
-   			  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
-   			}
+    		validateEle.each((idx, item) => {    				
+    			isSubmit = validCheck(item);
+    			return isSubmit;
+    		})
+    		if(isSubmit) {
+    			
+    			let msg = '주소수정을 성공하셨습니다.';
+    				
+    				if(verifyName()) {
+    					
+    					if(verifyAddress()) {
+    						
+    						if($('#urbanfarmerAddressPhone').val().length == 9) {
+    							
+    							if(verifyDelivery()) {
+    								$('#updateUserAddrForm').submit();
+    							} else {
+    								msg = '요청사항을 골라주세요';
+    							}
+    						} else {
+    							msg = '전화번호를 제대로 입력해주세요';
+    						}
+    						
+    					} else {
+    						msg = '배송지 주소를 입력해주세요';					
+    					}
+    			} else {
+    				msg = '배송지의 이름을 입력해주세요';
+    			}
+    			
+    			alert(msg);
+    		}
+    	})
+    		
+        	
+    	const autoHyphen2 = (target) => {
+    		 target.value = target.value
+    		   .replace(/[^0-9]/g, '')
+    		  .replace(/^(\d{0,4})(\d{0,4})$/g, "$1-$2").replace(/(\-{1,2})$/g, "");
+    		}
+        	
+        	requestEtc = function() {
+    			return true;    		
+        	}
+      	
+      	verifyAddress = function() {
+      		var addressVal = $('#urbanfarmerAddress').val();
+      		if(addressVal != null) {
+      			return true;
+      		} else {
+      			return false;
+      		}
+      	}
+      	verifyName = function() {
+      		var nameVal = $('#urbanfarmerAddressName').val();
+      		if(nameVal != null) {
+      			return true;
+      		} else {
+      			return false;
+      		}
+      	}
+      	
+    	verifyDelivery = function() {
+    		var deliveryVal = $("#addressDeliveryRequestCode option:selected").val();
+    		if(deliveryVal != '') {
+    			return true
+    		} else {
+    			false;
+    		}
+    	} 
     		
     	</script>
     </th:block>     
@@ -92,47 +109,46 @@
     <section class="ftco-section contact-section bg-light">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
-                <form id="updateUserForm" th:action="@{/user/updateUserAddr}" th:object="${urbanfarmerAddress}" method="post"
-                      class="bg-white p-5 contact-form" >
-                      	
-					<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressCode" name="urbanfarmerAddressCode" th:value="*{urbanfarmerAddressCode}" hidden="hidden">
-						  </div>
-						</div>                     	
-                      	
+                <form th:action="@{/user/updateUserAddr}" th:object="${urbanfarmerAddress}" method="post"
+                      id="updateUserAddrForm" class="bg-white p-5 contact-form">
+                      
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressName" name="urbanfarmerAddressName" th:value="*{urbanfarmerAddressName}">
-						    <label for="urbanfarmerAddressName">주소명</label>
+						  	<input type="text" id="urbanfarmerAddressCode" name="urbanfarmerAddressCode" th:value=*{urbanfarmerAddressCode} hidden="hidden">
+						    <input type="text" class="form-control" id="urbanfarmerAddressName" name="urbanfarmerAddressName" placeholder="배송지 이름을 입력해주세요"
+						    th:value="*{urbanfarmerAddressName}">
+						    <label for="urbanfarmerAddressName">배송지 이름</label>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddress" name="urbanfarmerAddress" th:value="*{urbanfarmerAddress}">
-						  	<label for="urbanfarmerAddress">주소</label>
+						    <input type="text" class="form-control" id="urbanfarmerAddress" name="urbanfarmerAddress" placeholder="배송지를 입력해주세요"
+						    th:value="*{urbanfarmerAddress}">
+						  	<label for="urbanfarmerAddress">배송지 주소</label>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressPhone" name="urbanfarmerAddressPhone" th:value="*{urbanfarmerAddressPhone}"
-						    oninput="autoHyphen2(this)" maxlength="13">
-						  	<label for="urbanfarmerAddressPhone">전화번호</label>
+						  <div class="form-floating col-11">
+						  	<div class="row pt-1 mb-1">
+						  	<select class="form-control col-2"> <option value="010" disabled="disabled" selected="selected"> 010 </option> </select>
+						    <input type="text" class="form-control col-8" id="urbanfarmerAddressPhone" placeholder="전화번호를 작성해주세요" oninput="autoHyphen2(this)"
+						    maxlength="9" name="urbanfarmerAddressPhone" th:value="*{urbanfarmerAddressPhone}">
+						  	</div>
+						  	<label for="urbanfarmerAddressPhone">휴대번호</label>						    
 						  </div>
-						</div>						
+						</div>												
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
 						  	<select id="addressDeliveryRequestCode" name="addressDeliveryRequestCode" class="form-select px-5 py-2">
-						  		<option class="request" value="">===선택 사항을 골라주세요===</option>
+						  		<option class="request" value="">===요청 사항을 골라주세요===</option>
 						  <th:block th:unless="${#lists.isEmpty(addressDeliveryRequestList)}"
 						  			th:each="l : ${addressDeliveryRequestList}">
 						  		<option class="request" th:value="${l.addressDeliveryRequestCode}"
-						  		th:selected="${l.addressDeliveryRequestCode} == *{addressDeliveryRequestCode}"
-						  		>[[${l.addressDeliveryRequestContent}]]</option>
+						  		th:selected="${l.addressDeliveryRequestCode} == *{addressDeliveryRequestCode}">[[${l.addressDeliveryRequestContent}]]</option>
 						  	
 						  </th:block>
 						  <th:block th:if="${#lists.isEmpty(addressDeliveryRequestList)}">
-									<option th:value="">등록된 선택사항이 없습니다</option>
+									<option th:value="">등록된 요청사항이 없습니다</option>
 						  </th:block>
 						  	</select>
 						  	<p>
@@ -142,14 +158,13 @@
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="tel" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" th:value="*{addressDeliveryRequestEtc}">
-						  	<label for="urbanfarmerPhone">추가 요청사항</label>						    
+						    <input type="text" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" placeholder="-는 생략가능"
+						    th:value="*{addressDeliveryRequestEtc}">
+						  	<label for="addressDeliveryRequestEtc">배송지 추가 요청사항</label>						    
 						  </div>
 						</div>
-						
 					<div class="form-group" style="text-align:right">
-                    		 <button id="updateUserBtn" type="submit" class="btn btn-info py-2 px-4"> 회원수정 </button>
-                    		 <button id="resetBtn" type="reset" class="btn btn-info py-2 px-4"> 입력취소 </button>
+                    		 <button id="updateUserAddrBtn" type="button" class="btn btn-info py-2 px-4">배송지 등록</button>
                     </div>
                 </form>
             </div>

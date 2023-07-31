@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import ks47team01.common.dto.AddressDeliveryRequest;
+import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.IssuedCoupon;
 import ks47team01.common.dto.Urbanfarmer;
 @Mapper
@@ -26,5 +27,9 @@ public interface UrbanfarmerMapper {
 	public IssuedCoupon getIssuedCouponInfoById(String issuedCouponId);
 	
 	public int getCouponInfoValidDays(String couponInformationCode);
+	
+	public List<Urbanfarmer> getUrbanfarmerInfoList(Map<String, Object> paramMap);
+	/* admin 수정 */
+	public Urbanfarmer getUrbanfarmerData(String finalCheckedData);
 
 }

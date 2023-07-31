@@ -95,44 +95,43 @@
                 <form id="updateUserForm" th:action="@{/user/removeUserAddr}" th:object="${urbanfarmerAddress}" method="post"
                       class="bg-white p-5 contact-form" >
                       	
-					<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressCode" name="urbanfarmerAddressCode" th:value="*{urbanfarmerAddressCode}" hidden="hidden">
-						  </div>
-						</div>                     	
-                      	
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressName" name="urbanfarmerAddressName" th:value="*{urbanfarmerAddressName}" disabled="disabled">
-						    <label for="urbanfarmerAddressName">주소명</label>
+						  	<input type="text" id="urbanfarmerAddressCode" name="urbanfarmerAddressCode" th:value=*{urbanfarmerAddressCode} hidden="hidden">
+						    <input type="text" class="form-control" id="urbanfarmerAddressName" name="urbanfarmerAddressName" placeholder="배송지 이름을 입력해주세요"
+						    th:value="*{urbanfarmerAddressName}" disabled="disabled">
+						    <label for="urbanfarmerAddressName">배송지 이름</label>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddress" name="urbanfarmerAddress" th:value="*{urbanfarmerAddress}" disabled="disabled">
-						  	<label for="urbanfarmerAddress">주소</label>
+						    <input type="text" class="form-control" id="urbanfarmerAddress" name="urbanfarmerAddress" placeholder="배송지를 입력해주세요"
+						    th:value="*{urbanfarmerAddress}" disabled="disabled">
+						  	<label for="urbanfarmerAddress">배송지 주소</label>
 						  </div>
 						</div>
 						<div class="input-group mb-3">
-						  <div class="form-floating col-9">
-						    <input type="text" class="form-control" id="urbanfarmerAddressPhone" name="urbanfarmerAddressPhone" th:value="*{urbanfarmerAddressPhone}" disabled="disabled"
-						    oninput="autoHyphen2(this)" maxlength="13">
-						  	<label for="urbanfarmerAddressPhone">전화번호</label>
+						  <div class="form-floating col-11">
+						  	<div class="row pt-1 mb-1">
+						  	<select class="form-control col-2"> <option value="010" disabled="disabled" selected="selected"> 010 </option> </select>
+						    <input type="text" class="form-control col-8" id="urbanfarmerAddressPhone" placeholder="전화번호를 작성해주세요" oninput="autoHyphen2(this)"
+						    maxlength="9" name="urbanfarmerAddressPhone" th:value="*{urbanfarmerAddressPhone}" disabled="disabled">
+						  	</div>
+						  	<label for="urbanfarmerAddressPhone">휴대번호</label>						    
 						  </div>
-						</div>						
+						</div>												
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						  	<select id="addressDeliveryRequestCode" name="addressDeliveryRequestCode" class="form-select px-5 py-2" disabled="disabled">
-						  		<option class="request" value="">===선택 사항을 골라주세요===</option>
+						  	<select id="addressDeliveryRequestCode" name="addressDeliveryRequestCode" class="form-select px-5 py-2">
+						  		<option class="request" value="">===요청 사항을 골라주세요===</option>
 						  <th:block th:unless="${#lists.isEmpty(addressDeliveryRequestList)}"
 						  			th:each="l : ${addressDeliveryRequestList}">
 						  		<option class="request" th:value="${l.addressDeliveryRequestCode}"
-						  		th:selected="${l.addressDeliveryRequestCode} == *{addressDeliveryRequestCode}"
-						  		>[[${l.addressDeliveryRequestContent}]]</option>
+						  		th:selected="${l.addressDeliveryRequestCode} == *{addressDeliveryRequestCode}" disabled="disabled">[[${l.addressDeliveryRequestContent}]]</option>
 						  	
 						  </th:block>
 						  <th:block th:if="${#lists.isEmpty(addressDeliveryRequestList)}">
-									<option th:value="">등록된 선택사항이 없습니다</option>
+									<option th:value="">등록된 요청사항이 없습니다</option>
 						  </th:block>
 						  	</select>
 						  	<p>
@@ -142,13 +141,13 @@
 						</div>
 						<div class="input-group mb-3">
 						  <div class="form-floating col-9">
-						    <input type="tel" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" th:value="*{addressDeliveryRequestEtc}" disabled="disabled">
-						  	<label for="urbanfarmerPhone">추가 요청사항</label>						    
+						    <input type="text" class="form-control" id="addressDeliveryRequestEtc" name="addressDeliveryRequestEtc" placeholder="-는 생략가능"
+						    th:value="*{addressDeliveryRequestEtc}" disabled="disabled">
+						  	<label for="addressDeliveryRequestEtc">배송지 추가 요청사항</label>						    
 						  </div>
 						</div>
-						
 					<div class="form-group" style="text-align:right">
-                    		 <button id="deleteBtn" type="submit" class="btn btn-info py-2 px-4"> 삭제 </button>
+                    		 <button id="addUserAddrBtn" type="button" class="btn btn-info py-2 px-4">배송지 등록</button>
                     </div>
                 </form>
             </div>

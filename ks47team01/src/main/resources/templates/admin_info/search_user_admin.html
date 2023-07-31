@@ -9,11 +9,11 @@
             <div class="x_panel">
                 <br>
                 <div class="x_title">
-                    <h2>상점상품관리<small>Shop</small></h2>
+                    <h2>회원관리<small>회원</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap loading-hide"
+                    <table id="datatable-responsive" class="table table-striped table-bordered   dt-responsive nowrap loading-hide"
                                cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -32,7 +32,6 @@
 
 <th:block layout:fragment="customJs">
     <script th:inline="javascript">
-
         // 오름차, 내림차순 정렬 숫자
             let $thead = $('#datatable-responsive thead tr');
             for(let i = 0; i < 12; i++) {
@@ -74,23 +73,23 @@
             // datatables 정의
             let table = $('#datatable-responsive').DataTable({
                 ajax: {
-                    url: '/adminShop/adminShopManageData', // 데이터를 가져올 URL
+                    url: '/adminInfo/adminInfoManageData', // 데이터를 가져올 URL
                     method: 'GET', // 사용할 HTTP 메서드, 예: 'GET' 또는 'POST' data: []
                     dataSrc: '',
                 },
                 columns: [
-                    { data: 'urbanKitName'},
-                    { data: 'goodsKitCode'},
-                    { data: 'urbanfarmAdminId'},
-                    { data: 'urbanKitCode'},
-                    { data: 'urbanKitName'},
-                    { data: 'goodsKitTitle'},
-                    { data: 'goodsKitContents'},
-                    { data: 'goodsKitPrice'},
-                    { data: 'goodsKitDeliveryDate'},
-                    { data: 'goodsKitRegDate'},
-                    { data: 'goodsKitPic'},
-                    { data: 'goodsKitDetail'}
+                	{ data: 'urbanfarmerName'},
+                    { data: 'urbanfarmerId'},
+                    { data: 'urbanfarmerPw'},
+                    { data: 'urbanfarmerName'},
+                    { data: 'urbanfarmerEmail'},
+                    { data: 'urbanfarmerPhone'},
+                    { data: 'urbanfarmerSmsCheck'},
+                    { data: 'urbanfarmerEmailCheck'},
+                    { data: 'urbanfarmerInsertRegDate'},
+                    { data: 'urbanfarmerUpdateRegDate'},
+                    { data: 'urbanfarmerDropRegDate'},
+                    { data: 'urbanfarmerDropClassification'}
                 ],
                 columnDefs: [
                     {type: "natural", "targets": [1, 3]}, // 정렬
@@ -101,20 +100,20 @@
                         'orderable': false,
                         'className': 'dt-body-center',
                         'render': function (data, type, full, meta){
-                            return `<input type="checkbox" class="chb-down admin-check-box-td" data-goods-kit-code="${full.goodsKitCode}">`;
+                            return `<input type="checkbox" class="chb-down admin-check-box-td" data-urbanfarmer-id="${full.urbanfarmerId}">`;
                         }
                     },
-                    {title: '상품키트코드', targets : 1 },
-                    {title: '관리자 직원 아이디', targets : 2 },
-                    {title: '키트 번호', targets : 3 },
-                    {title: '키트 이름', targets : 4 },
-                    {title: '키트 제목', targets : 5 },
-                    {title: '키트 내용', targets : 6 },
-                    {title: '키트 가격', targets : 7 },
-                    {title: '키트 배송가능일', targets : 8 },
-                    {title: '등록 시간', targets : 9 },
-                    {title: '제품 사진', targets : 10 },
-                    {title: '제품 상세', targets : 11 }
+                    {title: '회원 아이디', targets : 1 },
+                    {title: '회원 비밀번호', targets : 2 },
+                    {title: '회원 이름', targets : 3 },
+                    {title: '회원 이메일', targets : 4 },
+                    {title: '회원 전화번호', targets : 5 },
+                    {title: '회원 수신체크', targets : 6 },
+                    {title: '회원 이메일체크', targets : 7 },
+                    {title: '회원 가입시간', targets : 8 , className: 'none'},
+                    {title: '회원 정보수정시간', targets : 9 , className: 'none'},
+                    {title: '회원 탈퇴시간', targets : 10 , className: 'none'},
+                    {title: '회원 상태', targets : 11 }
                 ],
                 order: [
                     [2, "asc"]
@@ -212,20 +211,45 @@
         // 등록버튼 클릭시 팝업
         $('#shop-add').on('click', function(){
 
-            let width = 1000;
-            let height = 700;
+            let width = 800;
+            let height = 900;
 
             let left = Math.ceil(( window.screen.width - width )/2);
             let top = Math.ceil(( window.screen.height - height )/2);
 
             let windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
 
-            const url = "adminShopAdd";
+            const url = "adminUrbanfarmerAdd";
 
             window.open(url, "상점상품등록", windowStatus);
         });
 
         // 수정버튼 클릭시 팝업
+        $('#shop-modify').on('click', function() {
+            // 체크된 요소의 id값 가져옴
+            const checkedEle = $('.chb-down:checked');
+            if (checkedEle.length === 0) {
+                alert('수정할 항목을 선택해주세요.');
+                return;
+            } else if (checkedEle.length >= 2) {
+                alert('1개만 선택해주세요.')
+                checkedEle.prop('checked', false);
+                return;
+            }
+            const urbanfarmerId = checkedEle.data('urbanfarmerId');
+            console.log('urbanfarmerId ->', urbanfarmerId);
+
+            let width = 800;
+            let height = 900;
+
+            let left = Math.ceil((window.screen.width - width) / 2);
+            let top = Math.ceil((window.screen.height - height) / 2);
+
+            let windowStatus = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
+
+            const url = "adminUpdateInfo?urbanfarmerId=" + urbanfarmerId;
+            window.open(url, "회원정보수정", windowStatus);
+        });
 
 
         // 삭제하기 클릭시 팝업

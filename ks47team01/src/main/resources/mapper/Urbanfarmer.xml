@@ -47,7 +47,7 @@
 	
 	</insert>
 	
-	<select id="userInfoList">
+	<select id="userInfoList" resultMap="urbanfarmerResultMap">
 	/* 유저 전체 정보 가져오기 */
 	SELECT 
 		u.urbanfarmer_id
@@ -66,6 +66,24 @@
 	WHERE
 		u.urbanfarmer_drop_classification = '정상'
 	
+	</select>
+	
+		<select id="getUrbanfarmerInfoList" resultMap="urbanfarmerResultMap">
+	/* 유저 전체 정보 가져오기 */
+	SELECT 
+		u.urbanfarmer_id
+	,	u.urbanfarmer_pw
+	,	u.urbanfarmer_name
+	,	u.urbanfarmer_email
+	,	u.urbanfarmer_phone
+	,	u.urbanfarmer_sms_check
+	,	u.urbanfarmer_email_check
+	,	u.urbanfarmer_insert_reg_date
+	,	u.urbanfarmer_update_reg_date
+	,	u.urbanfarmer_drop_reg_date
+	,	u.urbanfarmer_drop_classification
+	FROM
+		urbanfarmer as u
 	</select>
 	
 	<update id="updateUserInfo" parameterType="Urbanfarmer">
@@ -143,5 +161,24 @@
 		ci.coupon_information_code = #{couponInformationCode}
 	</select>
 	
+	<select id="getUrbanfarmerData" parameterType="String" resultMap="urbanfarmerResultMap">
 	
+		SELECT 
+		u.urbanfarmer_id
+	,	u.urbanfarmer_pw
+	,	u.urbanfarmer_name
+	,	u.urbanfarmer_email
+	,	u.urbanfarmer_phone
+	,	u.urbanfarmer_sms_check
+	,	u.urbanfarmer_email_check
+	,	u.urbanfarmer_insert_reg_date
+	,	u.urbanfarmer_update_reg_date
+	,	u.urbanfarmer_drop_reg_date
+	,	u.urbanfarmer_drop_classification
+	FROM
+		urbanfarmer as u
+	WHERE 
+		urbanfarmer_id = #{finalCheckedData};
+	
+	</select>
 </mapper>

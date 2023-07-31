@@ -1,35 +1,246 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/default_admin_popup}">
 <th:block layout:fragment="customContents">
+    <div class="col-md-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h4 style="display: inline-block;">회원정보수정</h4>
+                <span class="right-text" id="pop-up-today"></span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br>
+                <form class="form-horizontal form-label-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 아이디</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" id="idUrbanfarmerId" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 비밀번호</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" id="idUrbanfarmerPw" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 이름</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled"
+                                   id="idUrbanfarmerName" placeholder="선택된 상품 키트 코드의 키트 코드 자동으로 들어와야 함" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 전화번호</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control"
+                                   id="idUrbanfarmerPhone" placeholder="선택된 상품 키트 코드의 키트 이름 자동으로 들어와야 함" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 문자 수신동의</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" id="idUrbanfarmerSmsCheck" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 이메일 수신동의</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control kit-price" id="idUrbanfarmerEmailCheck" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 가입날짜</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control kit-price"
+                                   id="idUrbanfarmerInsertRegDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">회원 상태</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control kit-price" id="idUrbanfarmerDropClassification" disabled="disabled">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="x_content">
+                        <textarea id="summernote"></textarea>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3 pop-up-submit-center">
+                            <button type="submit" class="btn btn-success">저장</button>
+                            <button type="reset" class="btn btn-primary">리셋</button>
+                            <button type="button" class="btn btn-primary windowClose">취소</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-	<section class="ftco-section contact-section bg-light">
-		<div class="container">
-		</div>
-		<div class="row no-gutters slider-text align-items-center justify-content-center">
-			<div class="col-md-6 order-md-last d-flex">
-				<form action="<%= request.getContextPath() %>/Mfind/member_find_pw_update_form.urbanfarm_m"
-					method="post" class="bg-white p-5 contact-form">
-					<div class="form-group">
-						E-MAIL<input type="text" id="find_email" class="form-control" name="find_email"
-							placeholder="E-MAIL을 입력하세요.">
-					</div>
-					<div class="form-group" style="text-align:right">
-						<a href="<%= request.getContextPath() %>/Mfind/member_find_id_pw_action.urbanfarm_m"
-							class="btn btn-primary py-3 px-5" id="email-send-btn">승인번호 전송</a>
-					</div>
-					<div class="form-group">
-						승인번호<input type="text" class="form-control" id="verificationCode" name="pw"
-							placeholder="입력받은 승인번호 6자리를 입력하세요.">
-					</div>
-					<div class="form-group" style="text-align:right">
-						<input type="submit" value="확인" class="btn btn-primary py-3 px-5" id="member-id-pw-find-btn"
-							disabled>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
 </th:block>
+<th:block layout:fragment="customJs">
+    <script th:inline="javascript">
 
+        // 정규표현식을 이용한 키트가격 입력 input에 입력한 문자 감지 및 삭제
+        $(document).ready(function() {
+            $(".kit-price").keyup(function() {
+                let input_val = $(this).val();
+                let nonNumberPattern = /[^-0-9]/g;
+
+                if(nonNumberPattern.test(input_val)) {
+                    alert('숫자만 입력해주세요');
+                    let replace_text = input_val.replace(nonNumberPattern, '');
+                    $(this).val(replace_text);
+                }
+            });
+        });
+
+        // 시계
+        $(document).ready(function() {
+            updateCurrentTime();
+            setInterval(updateCurrentTime, 1000);
+        });
+
+        function updateCurrentTime() {
+            let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+            $('#pop-up-today').text(currentTime);
+        }
+
+        // 팝업창 닫기
+        if($('.windowClose').length > 0){
+            function closePopUp() {
+                console.log('창닫기');
+                window.close();
+            }
+            $('.windowClose').on('click', closePopUp);
+        }
+
+        // 업로드한 파일 이름, 사진 썸네일 표시
+        $("#file").on('change',function(){
+            let fileName = $("#file").val();
+            $(".upload-name").val(fileName);
+            $('#upload-img-thumb').find('img').remove();
+            const fileObj = new FileReader();
+
+            fileObj.onload = e => {
+                console.log(e.target.result)
+                const $img = $('<img />', {src: e.target.result}).css({width: 200, height: 200});
+                $('#upload-img-thumb').append($img);
+            }
+            fileObj.readAsDataURL(this.files[0]);
+        });
+
+        // Summernote 로딩
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+                    ['color', ['forecolor','color']],
+                    ['table', ['table']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['insert',['picture','link','video']],
+                    ['view', ['fullscreen', 'help']]
+                ],
+                fontNames: ['Pretendard-Regular',
+                    '맑은 고딕',
+                    '궁서',
+                    '굴림체',
+                    '굴림',
+                    '돋움체',
+                    '바탕체',
+                    'Nanum Gothic',
+                    'Malgun Gothic',
+                    'Noto Sans KR',
+                    'Arial',
+                    'Arial Black',
+                    'sans-serif',
+                    'Times New Roman',
+                    'Verdana',
+                ],
+                fontNamesIgnoreCheck: ['Arial',
+                    'Arial Black',
+                    'Comic Sans MS',
+                    'Courier New',
+                    'Helvetica Neue',
+                    'Helvetica',
+                    'Impact',
+                    'Lucida Grande',
+                    'Tahoma',
+                    'Times New Roman',
+                    'Verdana',
+                    'Nanum Gothic',
+                    'Malgun Gothic',
+                    'Noto Sans KR',
+                    'Apple SD Gothic Neo',
+                    'Pretendard-Regular'],
+                fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+                height: 500,                 // 에디터 높이
+                minHeight: null,             // 최소 높이
+                maxHeight: null,             // 최대 높이
+                focus: false,                  // 에디터 로딩후 포커스를 맞출지 여부
+                lang: "ko-KR",					// 한글 설정
+            });
+            function extractValueFromUrl(urlString) {
+                const url = new URL(urlString);
+                const searchParams = new URLSearchParams(url.search);
+
+                // 첫 번째 값을 가져옵니다. 만약 여러 값이 있는 경우에는 이 부분을 수정해야 합니다.
+                let extractedValue = "";
+                for (let value of searchParams.values()) {
+                    extractedValue = value;
+                    break;
+                }
+
+                return extractedValue;
+            }
+
+            // 예제
+            const urlString = window.location.href;  // 현재 페이지의 URL
+            const checkedData = extractValueFromUrl(urlString);
+            console.log('checkedData ->', checkedData); // 쿼리 파라미터의 첫 번째 값을 출력
+
+            $.ajax({
+                url: "adminInfoUpdate",
+                data: {checkedData: checkedData},
+                type: "POST",
+                success: function(response) {
+                    console.log('response ->', response);
+                    $('#idUrbanfarmerId').val(response.urbanfarmerId);
+                    $('#idUrbanfarmerPw').val(response.urbanfarmerPw);
+                    $('#idUrbanfarmerName').val(response.urbanfarmerName);
+                    $('#idUrbanfarmerEmail').val(response.urbanfarmerEmail);
+                    $('#idUrbanfarmerPhone').val(response.urbanfarmerPhone);
+                    $('#idUrbanfarmerSmsCheck').val(response.urbanfarmerSmsCheck);
+                    $('#idUrbanfarmerEmailCheck').val(response.urbanfarmerEmailCheck);
+                    $('#idUrbanfarmerInsertRegDate').val(response.urbanfarmerInsertRegDate);
+                    $('#idUrbanfarmerDropClassification').val(response.urbanfarmerDropClassification);
+
+                    $('#summernote').summernote('code', response.goodsKitDetail);
+
+                    $('#upload-img-thumb').html(response.goodsKitPic);
+
+                    let match = response.goodsKitPic.match(/src="([^"]+)"/);
+                    if (match && match[1]) {
+                        let imgUrl = match[1];
+                        // imgUrl을 idPic의 value로 설정
+                        $('#idPic').val(imgUrl);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                }
+            });
+
+
+        });
+    </script>
+</th:block>
 </html>
