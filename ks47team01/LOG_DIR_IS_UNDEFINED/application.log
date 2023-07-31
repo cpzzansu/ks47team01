@@ -16601,3 +16601,4 @@ Caused by: java.lang.Error: Unresolved compilation problem:
 16:41:46.357 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - CLIENT IP		::::::		0:0:0:0:0:0:0:1
 16:41:46.357 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - Parameter		::::::		
 16:41:46.357 [http-nio-80-exec-7] INFO  k.c.interceptor.CommonInterceptor - ACCESS INFO======================================================
+17:29:26.782 [RMI TCP Connection(102)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
