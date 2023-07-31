@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.FarmingDetailPlan;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
 import ks47team01.common.dto.FarmingPlanSmallCate;
@@ -269,15 +270,23 @@ public class PlanController {
 	@GetMapping("/cropsPlanProceed")
 	public String cropsPlanProceed(@RequestParam(value="farmerFarmingPlanCode")String farmerFarmingPlanCode , 
 							Model model){
+		// 계획 코드별 작물 계획
 		FarmingPlan farmingPlan = farmingPlanService.getFarmingPlanByCode(farmerFarmingPlanCode);
 		
+		// 계획 코드별 농사 대분류
 		List<FarmingPlanLargeCate> farmingPlanLargeCateList = farmingPlanService.getFarmingLargeCateByCode(farmerFarmingPlanCode);
+		
+		int fewDays = farmingPlan.getFewDays();
+		FarmingDetailPlan todayPlan = farmingPlanService.getTodayPlan(farmerFarmingPlanCode, fewDays);
 		
 		model.addAttribute("title", "진행중 작물 상세보기");
 		model.addAttribute("farmingPlan", farmingPlan);
 		model.addAttribute("farmingPlanLargeCateList", farmingPlanLargeCateList);
+		model.addAttribute("todayPlan", todayPlan);
 		return "user_plan/crops_plan_proceed";
 	}
+	
+	
 	/**
 	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
 	 * @param paramMap
@@ -288,5 +297,18 @@ public class PlanController {
 	public List<FarmingPlanSmallCate> getSmallCateList(@RequestBody Map paramMap){
 		List<FarmingPlanSmallCate> smallCateList = farmingPlanService.getFarmingPlanSmallCateListByLargeCateCode(paramMap);
 		return smallCateList;
+	}
+	
+	/**
+	 * 계획 실행
+	 */
+	@PostMapping("/ajax/planAction")
+	@ResponseBody
+	public void planAction(@RequestBody List<Map> planList ) {
+		
+		for(Map<String,Object> map : planList) {
+			System.out.println(map.get("actionContent")+"테스트");
+		}
+
 	}
 }

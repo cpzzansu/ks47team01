@@ -28,6 +28,18 @@ public class FarmingPlanService {
 	private final FarmingPlanMapper farmingPlanMapper;
 	private final CropsGrowingInfoMapper cropsGrowingInfoMapper;
 	
+	
+	
+	public FarmingDetailPlan getTodayPlan(String farmingPlanCode, int fewDays) {
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("farmingPlanCode", farmingPlanCode);
+		paramMap.put("fewDays", fewDays);
+		
+		FarmingDetailPlan  todayPlan = farmingPlanMapper.getTodayPlan(paramMap);
+		return todayPlan;
+	}
+	
+	
 	/**
 	 * 작물 수정
 	 * @param farmingPlan

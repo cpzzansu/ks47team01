@@ -6,7 +6,7 @@
 	<section>
 		<div class="container">
 			<!-- Modal -->
-			<div class="modal fade" id="staticBackdrop" data-backdrop="static"
+			<div class="modal fade" id="planStartModal" data-backdrop="static"
 				data-keyboard="false" tabindex="-1"
 				aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
@@ -154,7 +154,7 @@
 										$modalStratBtn.href = `/userPlan/startPlan?farmerFarmingPlanCode=${farmerFarmingPlanCode}`;
 
 										//모달창 열기
-										$('#staticBackdrop').modal('show');
+										$('#planStartModal').modal('show');
 									});
 
 							request.fail(function(jqXHR, textStatus) {

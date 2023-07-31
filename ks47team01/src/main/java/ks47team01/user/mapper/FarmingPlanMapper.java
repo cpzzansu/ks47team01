@@ -14,6 +14,14 @@ import ks47team01.common.dto.FarmingPlanSmallCate;
 public interface FarmingPlanMapper {
 	
 	/**
+	 * 오늘의 계획
+	 * @param farmingPlanCode
+	 * @param fewDays
+	 * @return
+	 */
+	public FarmingDetailPlan getTodayPlan(Map<String, Object> paramMap);
+	
+	/**
 	 * 작물 변경
 	 * @param farmingPlan
 	 */
