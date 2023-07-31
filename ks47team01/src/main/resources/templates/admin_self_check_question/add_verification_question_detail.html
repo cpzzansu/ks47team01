@@ -99,8 +99,8 @@
             const $divLastClone = $divLast.clone();
 
             // 마지막 input div의 마지막 div에 있는 버튼의 클래스를 삭제 버튼 클래스로 변환
-            $divLast.last().find('.col-md-6').find('button').removeClass('questionAddBtn').removeClass('btn-success')
-                    .addClass('btn-danger').addClass('questionRemoveBtn').text('삭제');
+            $divLast.last().find('.col-md-6').find('button').removeClass('questionAddBtn btn-success')
+                    .addClass('questionRemoveBtn btn-danger').text('삭제');
 
             // 복사한 div의 값을 초기화
             $divLastClone.find('input').val('');

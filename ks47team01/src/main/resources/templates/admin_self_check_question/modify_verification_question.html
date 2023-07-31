@@ -343,7 +343,12 @@
 
         // 상세 질문 보기
         $('#showDetailQuestion').click(function (){
+
             $('#selfCheckQuestionForm').toggle();
+            let isHidden = $('#selfCheckQuestionForm').is(':hidden');
+            alert(isHidden);
+
+
         })
     </script>
 </th:block>
