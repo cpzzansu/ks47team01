@@ -64,7 +64,7 @@ public class AdminSelfCheckQuestionService {
 
     /**
      * 수정할 자가검증 질문 정보 가져오기
-     * @param code 수정할 자가검증 질문 코드
+     * @param cropsSelfCheckCode 수정할 자가검증 질문 코드
      * @return 수정할 자가검증 질문 DB data
      */
     public CropsSelfCheck getUpdateCropsSelfCheck(String cropsSelfCheckCode){
@@ -72,6 +72,18 @@ public class AdminSelfCheckQuestionService {
         CropsSelfCheck cropsSelfCheck = adminSelfCheckQuestionMapper.getUpdateCropsSelfCheck(cropsSelfCheckCode);
 
         return cropsSelfCheck;
+    }
+
+    /**
+     * 수정할 상세 질문 리스트 가져오기
+     * @param cropsSelfCheckCode FK 자가 검증 질문 코드
+     * @return 수정할 상세 질문 리스트
+     */
+    public List<SelfCheckQuestion> getQuestionDetailList(String cropsSelfCheckCode){
+
+        List<SelfCheckQuestion> selfCheckQuestionList = adminSelfCheckQuestionMapper.getQuestionDetailList(cropsSelfCheckCode);
+
+        return selfCheckQuestionList;
     }
 
 }

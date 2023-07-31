@@ -145,21 +145,10 @@
         <div class="col-md-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>자가검증 질문 등록<small>자가검증 질문을 입력하세요.</small></h2>
+                    <h2>상세 질문 수정</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_panel">
-                    <div class="row">
-                        <h1>
-                            [[${cropsSelfCheck.getCropsName()}]] <small>자가검증 질문 등록</small>
-                        </h1>
-                        <div class="ln_solid"></div>
-                        <h3>
-                            <small>자가검증 질문 코드:  </small>[[${cropsSelfCheck.getCropsSelfCheckCode()}]]
-                        </h3>
-                        <div class="ln_solid"></div>
-                        <div class="ajs-h-blank-50"></div>
-                    </div>
                     <div id="questionBody" >
                         <form id="questionAddForm" data-parsley-validate class="form-horizontal form-label-left">
                             <div class="questionAddInput">
@@ -343,11 +332,48 @@
 
         // 상세 질문 보기
         $('#showDetailQuestion').click(function (){
+            let cropsSelfCheckCode = $('#cropsSelfCheckCode').val();
+            let isHidden = $('#selfCheckQuestionForm').is(':hidden');
+            if(isHidden){
+                $.ajax({
+                    url: "/adminSelfCheck/question/getQuestionDetailList",
+                    type: 'POST',
+                    contentType: 'text/plain',
+                    data: cropsSelfCheckCode,
+                    dataType: 'json',
+                    success: function(response){
+
+                        response.forEach(function (item, idx){
+                            console.log(item);
+                            console.log(item.selfCheckQuestionTitleContent);
+                            // 현재 div의 가장 마지막 요소를 선택
+                            const $lastDiv = $('.questionAddInput').last();
+                            // 마지막 요소를 복사
+                            const $lastDivClone = $lastDiv.clone();
+                            // 마지막 div의 input에 db의 값을 넣어줌
+                            $lastDiv.find('input[name="selfCheckQuestionTitleContent"]').val(item.selfCheckQuestionTitleContent);
+                            $lastDiv.find('input[name="selfCheckQuestionPremiumCheck"]').val(item.selfCheckQuestionPremiumCheck);
+                            $lastDiv.find('input[name="selfCheckQuestionSuperiorCheck"]').val(item.selfCheckQuestionSuperiorCheck);
+                            $lastDiv.find('input[name="selfCheckQuestionRegularCheck"]').val(item.selfCheckQuestionRegularCheck);
+                            // 마지막 div에 숫자를 넣어줌
+                            $lastDiv.find('.questionNum').text(idx + 1);
+                            // 반복문의 마지막 전에는 삭제버튼 클래스를 넣고, 복사한 요소를 추가하고 마지막에는 그냥 끝냄
+                            if(idx < response.length - 1){
+                                $lastDiv.find('button').removeClass('questionAddBtn btn-success')
+                                        .addClass('questionRemoveBtn btn-danger').text('삭제');
+
+                                $lastDivClone.appendTo('#questionAddForm');
+                            }
+                        })
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown){
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            }
+
 
             $('#selfCheckQuestionForm').toggle();
-            let isHidden = $('#selfCheckQuestionForm').is(':hidden');
-            alert(isHidden);
-
 
         })
     </script>

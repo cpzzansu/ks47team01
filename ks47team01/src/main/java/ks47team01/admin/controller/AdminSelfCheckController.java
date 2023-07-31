@@ -177,6 +177,20 @@ public class AdminSelfCheckController {
     }
 
     /**
+     * 수정할 상세 질문 리스트 가져오기
+     * @param cropsSelfCheckCode FK 자가 검증 질문 코드
+     * @return 수정할 상세 질문 리스트
+     */
+    @ResponseBody
+    @PostMapping("/question/getQuestionDetailList")
+    public List<SelfCheckQuestion> getQuestionDetailList(@RequestBody String cropsSelfCheckCode){
+
+        List<SelfCheckQuestion> selfCheckQuestionList = adminSelfCheckQuestionService.getQuestionDetailList(cropsSelfCheckCode);
+
+        return selfCheckQuestionList;
+    }
+
+    /**
      * 관리자 - 자가검증 질문 삭제 처리 메서드
      * @param model title=화면제목
      * @return redirect!

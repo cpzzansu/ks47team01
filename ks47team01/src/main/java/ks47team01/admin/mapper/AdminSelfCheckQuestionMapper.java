@@ -29,9 +29,16 @@ public interface AdminSelfCheckQuestionMapper {
 
     /**
      * 수정할 자가검증 질문 DB data 가져오기
-     * @param code 수정할 자가검증 질문 code
+     * @param cropsSelfCheckCode 수정할 자가검증 질문 code
      * @return 수정할 자가검증 질문 DB data
      */
     public CropsSelfCheck getUpdateCropsSelfCheck(String cropsSelfCheckCode);
+
+    /**
+     * 수정할 상세 질문 리스트 가져오기
+     * @param cropsSelfCheckCode FK 자가 검증 질문
+     * @return 수정할 상세 질문 리스트
+     */
+    public List<SelfCheckQuestion> getQuestionDetailList(String cropsSelfCheckCode);
 
 }

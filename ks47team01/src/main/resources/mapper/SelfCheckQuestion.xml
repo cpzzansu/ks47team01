@@ -87,5 +87,29 @@
 
     </select>
 
+    <select id="getQuestionDetailList" parameterType="String" resultMap="selfCheckQuestionResultMap">
+        /* 수정할 상세 질문 리스트 가져오기 */
+        SELECT
+            self_check_question_code,
+            urbanfarm_admin_id,
+            crops_self_check_code,
+            crops_name_code,
+            crops_name,
+            self_check_question_title_content,
+            self_check_question_premium_check,
+            self_check_question_superior_check,
+            self_check_question_regular_check,
+            self_check_question_order,
+            self_check_question_reg_date
+        FROM
+            self_check_question
+        WHERE
+            crops_self_check_code = #{cropsSelfCheckCode}
+        ORDER BY
+        self_check_question_order
+
+
+    </select>
+
 
 </mapper>
