@@ -12,7 +12,7 @@
 
         </div>
         <div class="clearfix"></div>
-        <div class="row">
+        <div class="x_panel row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
@@ -21,107 +21,20 @@
                     </div>
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" action="/adminSelfCheck/question/addVerificationQuestionDetail" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="addQuestionForm" action="/adminSelfCheck/question/insertQuestion" method="post" data-parsley-validate class="form-horizontal form-label-left">
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">작성자 아이디</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" value="admin111" readonly>
+                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminId" th:value="${urbanfarmAdminId}" readonly>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kitCode">키트코드</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="kitCode" class="form-control col-md-7 col-xs-12" readonly>
-                                </div>
-                                <!-- 키트 선택 모달 트리거 버튼 -->
-                                <button id="kitModalBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#kitChooseModal">
-                                    키트선택
-                                </button>
-                            </div>
-
-
-                            <!-- 키트 선택 모달창 -->
-                            <div class="modal fade" id="kitChooseModal" tabindex="-1" role="dialog" aria-labelledby="kitChooseModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="kitChooseModalLabel">키트 선택</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <div id="kitSearchForm">
-                                                    <div class="col-md-4 col-sm-4">
-                                                        <select id="kitSearchColumn" class="form-control">
-                                                            <option value="urban_kit_code">키트 코드</option>
-                                                            <option value="urban_kit_name">키트 이름</option>
-                                                            <option value="crops_name">작물 이름</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="">
-                                                        <div class="input-group">
-                                                            <input id="kitSearchValue" type="text" class="form-control">
-                                                            <span class="input-group-btn">
-                                                            <button id="kitSearchBtn" type="button" class="btn btn-primary">검색</button>
-                                                        </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="x_panel">
-                                                        <div class="x_title">
-                                                            <h2>키트목록</h2>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                        <div class="x_content">
-
-                                                            <table class="table">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>#</th>
-                                                                    <th>키트코드</th>
-                                                                    <th>키트이름</th>
-                                                                    <th>작물명</th>
-                                                                    <th></th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody id="kitTable">
-                                                                <tr>
-                                                                    <th scope="row"></th>
-                                                                    <td class="urbanKitCode"></td>
-                                                                    <td class="urbanKitName"></td>
-                                                                    <td class="cropsName"></td>
-                                                                    <td class="cropsNameCode" style="display: none"></td>
-                                                                    <td class="text-right">
-                                                                        <button type="button" class="btn btn-success kitSelectBtn">선택</button>
-                                                                    </td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" id="kitChooseCloseBtn" data-dismiss="modal">Close</button>
-                                            <button type="button" id="noKitBtn" class="btn btn-warning">키트 선택 안함</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 키트 선택 모달 끝 -->
 
                             <!-- 작물 이름 input -->
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cropName">작물이름</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cropsName">작물이름</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="cropName" class="form-control col-md-7 col-xs-12" readonly>
-                                    <input type="hidden" id="cropsNameCode">
+                                    <input type="text" id="cropsName" name="cropsName" class="form-control col-md-7 col-xs-12" readonly>
+                                    <input type="hidden" id="cropsNameCode" name="cropsNameCode">
                                 </div>
                                 <!-- 작물 선택 모달 트리거 버튼 -->
                                 <button type="button" class="btn btn-primary" id="cropChooseBtn" data-toggle="modal" data-target="#cropChooseModal">
@@ -142,16 +55,16 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <div class="col-md-4 col-sm-4">
-                                                    <select class="form-control">
-                                                        <option>작물 코드</option>
-                                                        <option>작물 이름</option>
+                                                    <select id="cropsSearchColumn" class="form-control">
+                                                        <option value="crops_name_code">작물 코드</option>
+                                                        <option value="crops_name">작물 이름</option>
                                                     </select>
                                                 </div>
                                                 <div class="">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control">
+                                                        <input id="cropsSearchValue" type="text" class="form-control">
                                                         <span class="input-group-btn">
-                                                            <button type="button" class="btn btn-primary">검색</button>
+                                                            <button id="cropsSearchBtn" type="button" class="btn btn-primary">검색</button>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -174,29 +87,13 @@
                                                                     <th></th>
                                                                 </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                <tbody id="cropsTable">
                                                                 <tr>
-                                                                    <th scope="row">1</th>
-                                                                    <td class="kitCode">crops_name_1</td>
-                                                                    <td class="cropName">상추</td>
+                                                                    <th scope="row"></th>
+                                                                    <td class="cropsNameCode"></td>
+                                                                    <td class="cropsName"></td>
                                                                     <td class="text-right">
-                                                                        <button type="button" class="btn btn-success cropSelectBtn">선택</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">2</th>
-                                                                    <td class="kitCode">crops_name_2</td>
-                                                                    <td class="cropName">쪽파</td>
-                                                                    <td class="text-right">
-                                                                        <button type="button" class="btn btn-success cropSelectBtn">선택</button>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">3</th>
-                                                                    <td class="kitCode">crops_name_3</td>
-                                                                    <td class="cropName">피망</td>
-                                                                    <td class="text-right">
-                                                                        <button type="button" class="btn btn-success cropSelectBtn">선택</button>
+                                                                        <button type="button" class="btn btn-success cropsSelectBtn">작물 선택</button>
                                                                     </td>
                                                                 </tr>
                                                                 </tbody>
@@ -213,15 +110,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button class="btn btn-primary" type="button">돌아가기</button>
-                                    <button class="btn btn-primary" type="reset">다시쓰기</button>
-                                    <button type="submit" class="btn btn-success submitBtn">등록하기</button>
-                                </div>
-                            </div>
+                            <div class="ajs-h-blank-50"></div>
                         </form>
                     </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3 align-items-center">
+                    <button type="button" class="btn btn-success pull-right submitBtn">등록하기</button>
+                    <button class="btn btn-primary pull-right" type="reset">다시쓰기</button>
+                    <div class="ajs-h-blank-50"></div>
                 </div>
             </div>
         </div>
@@ -231,37 +129,48 @@
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
 
-        const $cloneTr = $('#kitTable').find('tr').last().clone();
+
+        const $cloneCropsTr = $('#cropsTable').find('tr').last().clone();
         // 유효성검사 함수
         const validCheck = element => {
             let data = $(element).val();
             let eleId = $(element).attr('id');
+            console.log(eleId);
 
             if(typeof data == 'undefined' || data == null || data == '' ){
-                alert('검색어는 필수입력 항목입니다.')
+                if(eleId === 'cropsName'){
+
+                    let cate = $(`label[for="${eleId}"]`).text();
+                    alert(`[${cate}] 필수 입력항목입니다.`);
+                    $(element).focus();
+
+                    return false;
+                }
+
+                alert('검색어는 필수입력 항목입니다.');
 
                 return false;
             }
             return true;
         }
 
-        $('#kitChooseModal').on('show.bs.modal', function(){
+        // 작물 선택 버튼 클릭시 ajax로 작물 리스트 가져오기
+
+        $('#cropChooseModal').on('show.bs.modal', function (){
             $.ajax({
-                url: '/adminSelfCheck/question/listKit',
+                url: '/adminSelfCheck/question/listCrops',
                 type: 'GET',
                 contentType: 'application/json',
                 success: function(response){
                     console.log(response);
                     response.forEach(function(item, index){
-                        const $lastTr = $('#kitTable').find('tr').last();
+                        const $lastTr = $('#cropsTable').find('tr').last();
                         $lastTr.find('th').text(index + 1);
-                        $lastTr.find('td.urbanKitCode').text(item.urbanKitCode);
-                        $lastTr.find('td.urbanKitName').text(item.urbanKitName);
                         $lastTr.find('td.cropsName').text(item.cropsName);
                         $lastTr.find('td.cropsNameCode').text(item.cropsNameCode);
                         if(index < response.length - 1){
                             const $cloneTr = $lastTr.clone();
-                            $('#kitTable').append($cloneTr);
+                            $('#cropsTable').append($cloneTr);
                         }
                     })
                 },
@@ -269,43 +178,42 @@
                     alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
                 }
             })
-        });
+        })
 
-        $('#kitSearchBtn').on('click', function (){
+        // 작물 모달 검색버튼 클릭시 검색어에 따라 리스트 가져오기
+        $('#cropsSearchBtn').on('click', function (){
             const validateEle = []
-            validateEle.push($('#kitSearchColumn'));
-            validateEle.push($('#kitSearchValue'));
+            validateEle.push($('#cropsSearchColumn'));
+            validateEle.push($('#cropsSearchValue'));
             console.log(validateEle);
             let isSubmit = false;
             const searchData = {}
 
             $(validateEle).each((idx, item) => {
                 isSubmit = validCheck(item);
-                        let id = $(item).attr('id');
-                        searchData[id] = $(item).val();
-                        return isSubmit;
-                    })
+                let id = $(item).attr('id');
+                searchData[id] = $(item).val();
+                return isSubmit;
+            })
             console.log(searchData);
             if(isSubmit){
                 $.ajax({
-                    url: '/adminSelfCheck/question/kitSearch',
+                    url: '/adminSelfCheck/question/cropsSearch',
                     type: 'POST',
                     data: JSON.stringify(searchData),
                     contentType: 'application/json',
                     success: function (response){
 
-                        $('#kitTable').empty();
-                        $('#kitTable').append($cloneTr);
+                        $('#cropsTable').empty();
+                        $('#cropsTable').append($cloneCropsTr);
                         response.forEach(function(item, index){
-                            const $lastTr = $('#kitTable').find('tr').last();
+                            const $lastTr = $('#cropsTable').find('tr').last();
                             $lastTr.find('th').text(index + 1);
-                            $lastTr.find('td.urbanKitCode').text(item.urbanKitCode);
-                            $lastTr.find('td.urbanKitName').text(item.urbanKitName);
                             $lastTr.find('td.cropsName').text(item.cropsName);
                             $lastTr.find('td.cropsNameCode').text(item.cropsNameCode);
                             if(index < response.length - 1){
                                 const $cloneTr = $lastTr.clone();
-                                $('#kitTable').append($cloneTr);
+                                $('#cropsTable').append($cloneTr);
                             }
                         })
                     },
@@ -316,57 +224,30 @@
             }
         })
 
-        //키트 선택 버튼 클릭시
+        //모달에서 작물 선택 버튼 클릭시
 
-        $(document).on('click', '.kitSelectBtn', function (){
+        $(document).on('click', '.cropsSelectBtn', function (){
             const $thisTr = $(this).closest('tr')
-            let $kitCodeVal = $thisTr.find('td.urbanKitCode').text();
-            let $cropsNameVal = $thisTr.find('td.cropsName').text();
             let $cropsNameCodeVal = $thisTr.find('td.cropsNameCode').text();
+            let $cropsNameVal = $thisTr.find('td.cropsName').text();
 
-            $('#kitCode').val($kitCodeVal);
-            $('#cropName').val($cropsNameVal);
+            $('#cropsName').val($cropsNameVal);
             $('#cropsNameCode').val($cropsNameCodeVal);
-            let test = $('#cropsNameCode').val();
-            console.log(test);
 
-            $('#kitChooseModal').modal('hide');
+            $('#cropChooseModal').modal('hide');
         })
 
-        // 키트 선택 안함 버튼 클릭시
+        //서브밋 버튼 클릭 유효성 검사
 
-        $('#noKitBtn').click(function (){
-
-            $('#kitCode').val(null).attr('placeholder', '키트 선택 안함');
-
-            $('#kitChooseModal').modal('hide');
+        $('.submitBtn').click(function (){
+            let $cropsNameVal = $('#cropsName');
+            let isSubmit = validCheck($cropsNameVal);
+            if(isSubmit){
+                $('#addQuestionForm').submit();
+            }
         })
 
-        // let selectKit;
-        // let selectCropName;
-        // $('#kitChooseModal .kitSelectBtn').click(function() {
-        //     selectKit = $(this).closest('tr').find('.kitCode').text();
-        //     selectCropName = $(this).closest('tr').find('.cropName').text();
-        //     $('#kitChooseModal').modal('hide');
-        // });
-        // $('#cropChooseModal .cropSelectBtn').click(function(){
-        //    selectCropName = $(this).closest('tr').find('.cropName').text();
-        //    $('#cropChooseModal').modal('hide');
-        // });
-        // $(document).on('hidden.bs.modal', function(){
-        //     $('#kitCode').val(selectKit);
-        //     $('#cropName').val(selectCropName);
-        //     if(selectKit != null){
-        //         $('#cropChooseBtn').css('display', 'none');
-        //     } else {
-        //         $('#cropChooseBtn').css('display', '');
-        //     }
-        // });
-        // $('#noKitBtn').click(function(){
-        //     selectKit = null;
-        //     selectCropName = null;
-        //     $('#kitChooseModal').modal('hide');
-        // })
+
     </script>
 </th:block>
 </html>

@@ -1,6 +1,7 @@
 package ks47team01.admin.service;
 
-import ks47team01.admin.mapper.SelfCheckCropsGradeMapper;
+import ks47team01.admin.mapper.AdminSelfCheckCropsGradeMapper;
+import ks47team01.common.dto.CropsName;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import ks47team01.common.dto.UrbanKit;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 public class AdminSelfCheckCropsGradeService {
 
-    private SelfCheckCropsGradeMapper selfCheckCropsGradeMapper;
+    private AdminSelfCheckCropsGradeMapper adminSelfCheckCropsGradeMapper;
 
     /**
      * 관리자 - 자가검증 상품 등급 등록 실행 메서드
@@ -25,13 +26,13 @@ public class AdminSelfCheckCropsGradeService {
     public void addCropsGrade(SelfCheckCropsGrade selfCheckCropsGrade){
 
         // 기본키 생성
-        String selfCheckCropsGradeCode = selfCheckCropsGradeMapper.autoIncreaseCode("self_check_crops_grade");
+        String selfCheckCropsGradeCode = adminSelfCheckCropsGradeMapper.autoIncreaseCode("self_check_crops_grade");
 
         // 기본키 세팅
         selfCheckCropsGrade.setSelfCheckCropsGradeCode(selfCheckCropsGradeCode);
 
         // 등록 메서드 호출
-        selfCheckCropsGradeMapper.addCropsGrade(selfCheckCropsGrade);
+        adminSelfCheckCropsGradeMapper.addCropsGrade(selfCheckCropsGrade);
 
     }
 
@@ -42,7 +43,7 @@ public class AdminSelfCheckCropsGradeService {
     public List<SelfCheckCropsGrade> dataProductGrade(){
 
         // 상품 등급 목록 리스트
-        List<SelfCheckCropsGrade> dataProductGrade = selfCheckCropsGradeMapper.dataProductGrade();
+        List<SelfCheckCropsGrade> dataProductGrade = adminSelfCheckCropsGradeMapper.dataProductGrade();
 
         return dataProductGrade;
     }
@@ -54,7 +55,7 @@ public class AdminSelfCheckCropsGradeService {
      */
     public SelfCheckCropsGrade getProductGradeByCode(String selfCheckCropsGradeCode) {
 
-        SelfCheckCropsGrade selfCheckCropsGrade = selfCheckCropsGradeMapper.getProductGradeByCode(selfCheckCropsGradeCode);
+        SelfCheckCropsGrade selfCheckCropsGrade = adminSelfCheckCropsGradeMapper.getProductGradeByCode(selfCheckCropsGradeCode);
 
         return selfCheckCropsGrade;
     }
@@ -65,7 +66,7 @@ public class AdminSelfCheckCropsGradeService {
      */
     public void updateProductGrade(SelfCheckCropsGrade selfCheckCropsGrade){
 
-        selfCheckCropsGradeMapper.updateProductGrade(selfCheckCropsGrade);
+        adminSelfCheckCropsGradeMapper.updateProductGrade(selfCheckCropsGrade);
 
     }
 
@@ -75,7 +76,7 @@ public class AdminSelfCheckCropsGradeService {
      */
     public void deleteProductGrade(List<String> deleteCodeList){
 
-        selfCheckCropsGradeMapper.deleteProductGrade(deleteCodeList);
+        adminSelfCheckCropsGradeMapper.deleteProductGrade(deleteCodeList);
     }
 
     /**
@@ -84,7 +85,7 @@ public class AdminSelfCheckCropsGradeService {
      */
     public List<UrbanKit> getKitList(){
 
-        List<UrbanKit> kitList = selfCheckCropsGradeMapper.getKitList();
+        List<UrbanKit> kitList = adminSelfCheckCropsGradeMapper.getKitList();
 
         return kitList;
     }
@@ -97,9 +98,33 @@ public class AdminSelfCheckCropsGradeService {
      */
     public List<UrbanKit> searchKitList(String searchColumn, String searchValue){
 
-        List<UrbanKit> searchKitList = selfCheckCropsGradeMapper.searchKitList(searchColumn, searchValue);
+        List<UrbanKit> searchKitList = adminSelfCheckCropsGradeMapper.searchKitList(searchColumn, searchValue);
 
         return searchKitList;
+    }
+
+    /**
+     * 전체 작물 이름 리스트 가져오기
+     * @return 전체 작물 이름 리스트
+     */
+    public List<CropsName> getCropsNameList(){
+
+        List<CropsName> cropsNameList = adminSelfCheckCropsGradeMapper.getCropsNameList();
+
+        return cropsNameList;
+    }
+
+    /**
+     * 검색한 작물 이름 리스트 가져오기
+     * @param searchColumn 작물 컬럼명
+     * @param searchValue 작물 검색 데이터
+     * @return 검색한 작물 이름 리스트
+     */
+    public List<CropsName> searchCropsList(String searchColumn, String searchValue){
+
+        List<CropsName> searchCropsList = adminSelfCheckCropsGradeMapper.searchCropsList(searchColumn, searchValue);
+
+        return searchCropsList;
     }
 
 
