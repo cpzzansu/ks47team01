@@ -17,12 +17,17 @@
 		</div>
 	</section>
 
-	<a th:href="@{'/userVendingMachine/vmSpaceCheck'}">자판기 결제 확인 및 예약 확인 화면</a>
+	<a th:href="@{'/userVendingMachine/vmSpaceCheck'}">✨이곳을 눌러 결제완료 페이지로 이동하기✨</a>
 </th:block>
 <th:block layout:fragment="customJs">
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
 	<script th:src="@{/user/js/urbanApi_vm.js}"></script>
+	<script> 
+			$(document).on('click', '.click-to-home', function () {
+				location.href = '/userVendingMachine/vmMain';
+			});
+	</script>
 </th:block>
 
 </html>

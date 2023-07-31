@@ -1,12 +1,20 @@
 package ks47team01.admin.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import ks47team01.admin.service.AdminVmService;
+import ks47team01.common.dto.VendingMachine;
 
 @Controller
 public class AdminVendingMachineController {
 
+	private final AdminVmService adminVmService = null;
+	
 	// 관리자 자판기 메인
 	@GetMapping("/adminVendingMachine/vmMain")
 	public String adminVmMain(Model model) {
@@ -55,8 +63,10 @@ public class AdminVendingMachineController {
 	
 	// 자판기 리스트 페이지
 	@GetMapping("/adminVendingMachine/vmList")
-	public String adminVmList(Model model) {
-		model.addAttribute("title","자판기 상태 삭제");
+	public String adminVmList(Model model,
+							@RequestParam(value = "vendingMachineCode")String vendingMachineCode) {
+			List<VendingMachine> getVmList = adminVmService.getVmList(vendingMachineCode); 
+			model.addAttribute("title","자판기 리스트");
 		return "admin_vending_machine/list_vm";
 	}
 }
