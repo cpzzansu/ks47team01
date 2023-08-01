@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
+<html layout:decorate="~{admin/layout/default_admin}"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{admin/layout/default_admin}">
+      xmlns:th="http://www.thymeleaf.org">
 <th:block layout:fragment="customContents">
     <div class="row">
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>상품등급 목록<small>자가검증 상품등급 목록입니다.</small></h2>
+                    <h2>자가검증 질문 목록<small>자가검증 질문 목록입니다.</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"><i class="fa fa-wrench"></i></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Settings 1</a>
                                 </li>
@@ -26,74 +26,345 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-
-                    <table class="table">
+                    <table class="table table-striped table-bordered dt-responsive nowrap loading-hide" id="selfCheckQuestionTable">
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>질문 코드</th>
-                            <th>키트 코드</th>
-                            <th>작물 이름</th>
-                            <th>작성자 아이디</th>
-                            <th>등록일자</th>
-                            <th></th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>crops_self_check_1</td>
-                            <td></td>
-                            <td>상추</td>
-                            <td>admin111</td>
-                            <td>2023. 5. 1 오전 10:30:00</td>
-                            <td>
-                                <button type="button" class="btn btn-warning modifyBtn">수정</button>
-                                <button type="button" class="btn btn-danger removeBtn">삭제</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>crops_self_check_2</td>
-                            <td>urban_kit_2</td>
-                            <td>쪽파</td>
-                            <td>admin111</td>
-                            <td>2023. 5. 1 오전 10:30:00</td>
-                            <td>
-                                <button type="button" class="btn btn-warning modifyBtn">수정</button>
-                                <button type="button" class="btn btn-danger removeBtn">삭제</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>crops_self_check_3</td>
-                            <td></td>
-                            <td>피망</td>
-                            <td>admin111</td>
-                            <td>2023. 5. 1 오전 10:30:00</td>
-                            <td>
-                                <button type="button" class="btn btn-warning modifyBtn">수정</button>
-                                <button type="button" class="btn btn-danger removeBtn">삭제</button>
-                            </td>
-                        </tr>
-                        </tbody>
                     </table>
-
+                    <button class="btn-outline loading-hide chb-up" type="button">전체선택</button>
+                    <button class="btn-outline loading-hide" id="removeBtn" type="button">삭제</button>
                 </div>
             </div>
         </div>
     </div>
+
+
 </th:block>
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
-        const $modifyBtns = document.querySelectorAll('.modifyBtn');
 
-        $modifyBtns.forEach(function(btn){
-            btn.addEventListener('click', function(){
-                window.location.href = '/adminSelfCheck/question/modifyVerificationQuestion'
-            })
+        // 오름차, 내림차순 정렬 숫자
+        let $thead = $('#selfCheckQuestionTable thead tr');
+        for(let i = 0; i < 6; i++) {
+            $thead.append('<th></th>');
+        }
+        function naturalSort(a, b) {
+            let re = /(\d+)/g;
+            a = String(a).split(re);
+            b = String(b).split(re);
+            let anum, bnum;
+
+            while (a.length && b.length) {
+                anum = a.shift();
+                bnum = b.shift();
+                if (isNaN(anum) || isNaN(bnum)) {
+                    if (anum !== bnum) return anum > bnum ? 1 : -1;
+                } else {
+                    anum = Number(anum);
+                    bnum = Number(bnum);
+                    if (anum !== bnum) return anum > bnum ? 1 : -1;
+                }
+            }
+            return a.length - b.length;
+        }
+
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "natural-asc": function (a, b) {
+                return naturalSort(a, b);
+            },
+
+            "natural-desc": function (a, b) {
+                return naturalSort(a, b) * -1;
+            }
+        });
+
+        if ($.fn.dataTable.isDataTable('#selfCheckQuestionTable')) {
+            $('#selfCheckQuestionTableselfCheckQuestionTable').DataTable().destroy();
+        }
+
+        // datatables 정의
+        let table = $('#selfCheckQuestionTable').DataTable({
+            ajax: {
+                url: '/adminSelfCheck/question/getQuestionList', // 데이터를 가져올 URL
+                method: 'GET', // 사용할 HTTP 메서드, 예: 'GET' 또는 'POST' data: []
+                dataSrc: '',
+            },
+            columns: [
+                { data: null, defaultContent: ""},
+                { data: 'cropsSelfCheckCode'},
+                { data: 'urbanfarmAdminId'},
+                { data: 'cropsNameCode'},
+                { data: 'cropsName'},
+                { data: 'corpsSelfCheckRegDate'}
+            ],
+            columnDefs: [
+                { "className": "modifyPopUp ajs-pointer", "targets": [1,2,3,4,5] },
+                {type: "natural", targets: [1]}, // 정렬
+                {
+                    targets: 0,
+                    title: '체크',
+                    data: null,
+                    searchable: false,
+                    orderable: false,
+                    className: 'dt-body-center',
+                    render: function (data, type, full, meta){
+                        return `<input type="checkbox" class="chb-down admin-check-box-td" data-crops-self-check-code="${full.cropsSelfCheckCode}">`;
+                    }
+                },
+                {title: '자가검증질문코드', targets : 1 },
+                {title: '관리자 직원 아이디', targets : 2 },
+                {title: '작물이름코드', targets : 3 },
+                {title: '작물이름', targets : 4 },
+                {title: '등록일자', targets : 5 }
+            ],
+            order: [
+                [2, "asc"]
+            ],
+            colReorder: true,
+            responsive: true,
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'copy',
+                    text: '복사',
+                    titleAttr: '데이터 복사',
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                },
+                {
+                    extend: 'csv',
+                    text: 'CSV',
+                    titleAttr: 'CSV로 저장',
+                    bom: true,
+                    charset: 'UTF-8',
+                    customize: function(csv) {
+                        return "\uFEFF" + csv;
+                    },
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: 'EXCEL',
+                    titleAttr: 'EXCEL로 저장',
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'PDF',
+                    titleAttr: 'PDF로 저장',
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: 'PRINT',
+                    titleAttr: '프린트하기',
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                },
+                {
+                    extend: 'colvis',
+                    text: '행선택정렬',
+                    titleAttr: '행선택정렬',
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                },
+                {
+                    extend: 'pageLength',
+                    text: '데이터량',
+                    titleAttr: '데이터 갯수',
+                    exportOptions: {
+                        columns: ':not(:first-child)'
+                    }
+                }
+            ]
+        });
+
+        // 로딩중 테이블 표시 X
+        $('#selfCheckQuestionTable').removeClass('loading-hide');
+        $('button').removeClass('loading-hide');
+
+        // 체크박스 일괄체크
+        $(".chb-up").on('click', function(){
+            let isChecked = $(".chb-down").first().prop("checked");
+
+            if(isChecked) {
+                $(this).text("전체선택");
+                $(".chb-down").prop("checked", false);
+            } else {
+                $(this).text("선택해제");
+                $(".chb-down").prop("checked", true);
+            }
+        });
+
+        // 체크박스 클릭 시 row details 확장 방지
+        $('#selfCheckQuestionTable tbody').on('click', 'input[type="checkbox"]', function(e){
+            e.stopPropagation();
+        });
+
+        // 수정 팝업6485
+
+        $(document).on('click', '.modifyPopUp', function() {
+            // 체크된 요소의 id값 가져옴
+
+            const cropsSelfCheckCode = $(this).closest('tr').find('.chb-down').data('crops-self-check-code');
+            console.log('cropsSelfCheckCode ->', cropsSelfCheckCode);
+
+            let width = 800;
+            let height = 900;
+
+            let left = Math.ceil((window.screen.width - width) / 2);
+            let top = Math.ceil((window.screen.height - height) / 2);
+
+            let windowStatus = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
+
+            const url = "modifyQuestion?cropsSelfCheckCode=" + cropsSelfCheckCode;
+            window.open(url, "상점상품수정", windowStatus);
+        });
+
+
+        // 수정모달 다시쓰기 버튼 실행
+        $('#rollBackBtn').on('click', function(){
+            $('#urbanfarmAdminId').val(urbanfarmAdminId);
+            $('#productGrade').val(db_productGrade);
+            $('#productHighGrade').val(db_productHighGrade);
+            $('#productLowGrade').val(db_productLowGrade);
         })
+
+        // 수정모달 수정취소 버튼
+        $('#modifyCancleBtn').on('click', function(){
+            $('#modifyModal').modal('hide');
+        })
+
+        // 수정모달 수정하기 버튼
+        $(document).on('click', '#modifyBtn', function (){
+            let productGrade = $('#productGrade').val();
+            let productHighGrade = $('#productHighGrade').val();
+            let productLowGrade = $('#productLowGrade').val();
+
+            const data = {};
+
+            // 요소 중 값 변한 요소 있는지 체크 후 ajax 실행
+            if(productGrade != db_productGrade){
+                data.productGrade = productGrade;
+            };
+            if(productHighGrade != db_productHighGrade){
+                data.productHighGrade = productHighGrade;
+            }
+            if(productLowGrade != db_productLowGrade){
+                data.productLowGrade = productLowGrade;
+            }
+
+            data.selfCheckCropsGradeCode = selfCheckCropsGradeCode;
+
+            if(Object.keys(data).length > 1){
+                $.ajax({
+                    url: "/adminSelfCheck/productGrade/modifyUpdateProductGrade",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: 'application/json',
+                    success: function(response){
+                        alert('수정되었습니다.');
+
+                        table.ajax.reload();
+
+                        $('#modifyModal').modal('hide');
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            } else {
+                alert('변경된 내용이 없습니다.');
+            }
+        })
+
+        // 삭제버튼(removeBtn) 클릭시 콜백함수
+        $('#removeBtn').on('click', function (){
+            if(confirm('정말로 삭제하시겠습니까?')) {
+                const checkedEle = $('.chb-down:checked');
+                const codeArr = [];
+
+                checkedEle.each(function (idx, item) {
+                    console.log(item.dataset);
+                    const selfCheckCropsGradeCode = item.dataset.selfCheckCropsGradeCode;
+                    console.log(selfCheckCropsGradeCode);
+                    codeArr.push(selfCheckCropsGradeCode);
+                });
+
+                $.ajax({
+                    url: "/adminSelfCheck/productGrade/removeProductGrade",
+                    data:JSON.stringify(codeArr),
+                    type: "POST",
+                    contentType: 'application/json',
+                    success: function(response) {
+                        console.log(codeArr);
+                        alert('삭제되었습니다.');
+
+                        table.ajax.reload();
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            } else {
+                return false;
+            }
+        });
+
+
+        // 삭제하기 클릭시 팝업
+        $('#shop-remove').on('click', function (){
+
+            if(confirm('정말로 삭제하시겠습니까?')) {
+                const checkedEle = $('.chb-down:checked');
+                const codeArr = [];
+
+                checkedEle.each(function(idx, item){
+                    console.log(item.dataset);
+                    const goodsKitCode = item.find('tr')
+                    codeArr.push(goodsKitCode);
+                });
+
+                $.ajax({
+                    url: "/adminSelfCheck/productGrade/removeProductGrade",
+                    data:JSON.stringify({ checkedData: codeArr }),
+                    type: "POST",
+                    contentType: 'application/json',
+                    success: function(response) {
+                        console.log(codeArr);
+                        alert('삭제되었습니다.');
+
+                        table.ajax.reload();
+                    },
+                    fail: function(jqXHR, textStatus, errorThrown) {
+                        alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                    }
+                })
+            } else {
+                return false;
+            }
+        });
+
+        // 신청하기 버튼
+        // ks47team01\src\main\resources\templates\user_order\order_processing.html
+        if($('.orderProcessingSubmit').length > 0){
+            function orderProcessingSubmit() {
+                alert('신청이 완료되었습니다.');
+                window.close();
+            }
+            $('.orderProcessingSubmit').on('click', orderProcessingSubmit);
+        }
     </script>
 </th:block>
 </html>
