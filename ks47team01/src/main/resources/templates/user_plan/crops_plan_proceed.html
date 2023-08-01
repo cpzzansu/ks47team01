@@ -258,10 +258,10 @@
 		console.log(contentArr);
 		
 		let request = $.ajax({
-			  url: '/userPlan/ajax/planAction',
-			  method: "POST",
-			  data: JSON.stringify(contentArr),
-			  contentType : "application/json"
+				url: '/userPlan/ajax/planAction',
+				method: "POST",
+				data: JSON.stringify(contentArr),
+				contentType : "application/json"
 			});
 
 		request.done(function( response ) {
