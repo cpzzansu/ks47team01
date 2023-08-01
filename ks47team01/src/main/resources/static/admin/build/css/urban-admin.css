@@ -102,6 +102,17 @@ z-index: 1;
     font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
     color: #fff;
 }
-
+.dataTable {
+    color: black;
+}
+.x_title {
+    color: black;
+}
+.x_content button {
+    color: black;
+}
+.dt-button span {
+    color: black;
+}
 
 
