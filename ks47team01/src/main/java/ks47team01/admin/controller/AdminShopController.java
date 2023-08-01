@@ -5,16 +5,12 @@ import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.GoodsLabel;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.binding.MapperMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 @Controller("adminShopController")
 @AllArgsConstructor
@@ -23,24 +19,29 @@ public class AdminShopController {
 
     private final AdminShopService adminShopService;
 
+
+
     /**
      * 상점상품 수정화면에 수정할 상품 데이터 받아오기
      * @param checkedData
      * @return
      */
-    @PostMapping("adminShop/adminShopUpdate")
-    @ResponseBody
-    public GoodsKit admin_shop_update_obj(@RequestParam("checkedData") String checkedData){
+    /**
+    @GetMapping("adminShop/adminShopUpdate")
+    public String admin_shop_update_obj(@RequestParam("checkedData") String checkedData, Model model){
         String finalCheckedData = checkedData;
 
         System.out.println(finalCheckedData);
 
         GoodsKit goodsKitObj = adminShopService.getGoodsKitObj(finalCheckedData);
 
+        model.addAttribute("GoodsKit", goodsKitObj);
+
         System.out.println(goodsKitObj);
 
-        return goodsKitObj;
+        return "admin_shop/admin_shop_modify";
     }
+    */
 
     /**
      * 상점상품 삭제 후 Reload(안씀)
@@ -112,7 +113,7 @@ public class AdminShopController {
      * @return
      */
     @GetMapping("adminShop/adminShopManage")
-    public String admin_shop_main(Model model) {
+    public String adminShopMain(Model model) {
 
         model.addAttribute("title", "urbanfarm");
 
@@ -137,8 +138,16 @@ public class AdminShopController {
      * @param model
      * @return
      */
-    @GetMapping ("adminShop/adminShopModify")
-    public String admin_shop_modify(Model model) {
+    @GetMapping ("adminShop/adminShopUpdate")
+    public String admin_shop_modify(@RequestParam(value="goodsKitCode") String finalCheckedData, Model model) {
+
+        System.out.println(finalCheckedData);
+
+        GoodsKit goodsKitObj = adminShopService.getGoodsKitObj(finalCheckedData);
+
+        model.addAttribute("GoodsKit", goodsKitObj);
+
+        System.out.println(goodsKitObj);
 
         model.addAttribute("title", "urbanfarm");
 
