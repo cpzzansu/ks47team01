@@ -3,6 +3,7 @@ package ks47team01.admin.service;
 import ks47team01.admin.mapper.UrbanfarmAdminMapper;
 import ks47team01.admin.mapper.AdminShopMapper;
 import ks47team01.common.dto.GoodsKit;
+import ks47team01.common.dto.GoodsLabel;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,22 @@ import java.util.Map;
 public class AdminShopService {
 
     private final AdminShopMapper adminShopMapper;
+
+    public GoodsLabel getGoodsLabelObj(String finalCheckedData) {
+        GoodsLabel goodsLabelObj = adminShopMapper.getGoodsLabelObj(finalCheckedData);
+
+        return goodsLabelObj;
+    }
+
+    public void deleteGoodsLabelList(List<String> finalCheckedData) {
+        adminShopMapper.deleteGoodsLabelList(finalCheckedData);
+    }
+
+    public List<GoodsLabel> getGoodsLabelList(Map<String, Object> paramMap) {
+        List<GoodsLabel> goodsLabelList = adminShopMapper.getGoodsLabelList(paramMap);
+
+        return goodsLabelList;
+    }
 
     public GoodsKit getGoodsKitObj(String finalCheckedData) {
         GoodsKit goodsKitObj = adminShopMapper.getGoodsKitObj(finalCheckedData);
