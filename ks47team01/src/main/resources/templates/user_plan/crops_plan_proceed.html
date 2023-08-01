@@ -47,6 +47,9 @@
 		<h1 th:unless="${farmingPlan.farmerFarmingPlanNickname} == null"
 			th:text="${farmingPlan.farmerFarmingPlanNickname}"
 			class="text-center"></h1>
+		<h1 th:if="${farmingPlan.farmerFarmingPlanNickname} == null"
+			th:text="${farmingPlan.cropsName}"
+			class="text-center"></h1>
 		<h3 th:text="|${farmingPlan.fewDays}일차|" class="text-center mb-5"></h3>
 		<div class="container">
 			<div class="row justify-content-center">
@@ -250,8 +253,12 @@
 		const planBoxEles = document.querySelectorAll('.plan-content');
 		
 		const contentArr = [];
+		const detailPlanCode = [[${todayPlan.farmerFarmingDetailPlanCode}]];
+		contentArr.push(detailPlanCode);
+		console.log(detailPlanCode);
+		
 		planBoxEles.forEach(function(item,idx){
-			const actionContent = {actionContent :item.textContent};
+			const actionContent = item.textContent;
 			contentArr.push(actionContent);
 		})
 		
@@ -259,13 +266,14 @@
 		
 		let request = $.ajax({
 				url: '/userPlan/ajax/planAction',
-				method: "POST",
+				method: "POST",	
 				data: JSON.stringify(contentArr),
 				contentType : "application/json"
 			});
 
 		request.done(function( response ) {
 			console.log(response);
+			$('#todayPlanModal').modal('hide');
 		});
 		 
 		request.fail(function( jqXHR, textStatus ) {

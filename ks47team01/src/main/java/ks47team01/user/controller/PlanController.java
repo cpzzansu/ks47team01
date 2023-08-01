@@ -304,11 +304,10 @@ public class PlanController {
 	 */
 	@PostMapping("/ajax/planAction")
 	@ResponseBody
-	public void planAction(@RequestBody List<Map> planList ) {
+	public void planAction(@RequestBody List<String> planActionList ) {
 		
-		for(Map<String,Object> map : planList) {
-			System.out.println(map.get("actionContent")+"테스트");
-		}
-
+		//계획 실행기능
+		farmingPlanService.insertPlanAction(planActionList);
+		
 	}
 }

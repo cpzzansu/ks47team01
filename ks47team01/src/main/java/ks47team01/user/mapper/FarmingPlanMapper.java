@@ -6,12 +6,26 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import ks47team01.common.dto.FarmingDetailPlan;
+import ks47team01.common.dto.FarmingDetailPlanAction;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
 import ks47team01.common.dto.FarmingPlanSmallCate;
 
 @Mapper
 public interface FarmingPlanMapper {
+	
+	/**
+	 * 실행내용 등록
+	 * @param List<FarmingDetailPlanAction> farmingDetailPlanActionList
+	 */
+	public void insertPlanAction(List<FarmingDetailPlanAction> farmingDetailPlanActionList);
+	
+	/**
+	 * detailPlanCode로 정보 한줄 조회
+	 * @param farmerFarmingDetailPlanCode
+	 * @return FarmingDetailPlan
+	 */
+	public FarmingDetailPlan getDetailPlanByCode(String farmerFarmingDetailPlanCode);
 	
 	/**
 	 * 오늘의 계획
