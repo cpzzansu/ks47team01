@@ -1,59 +1,69 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeLeaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{user_layout/default}">
 <th:block layout:fragment="customContents">
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row no-gutters ftco-services">
-				
-				<th:block th:unless="${#lists.isEmpty(getVmList)}"
-								  th:each="l : ${getVmList}">
-					<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
-						<div class="mb-4 services">
-								<a th:href="@{/userVendingMachine/vmSpaceSelect(vendingMachineCode=${l.vendingMachineCode})}">
-											<img class="daya-img-icon" src="/user/images/v-ending-machine.png"></a>
-								
-							<div class="text-center">
-								<div>
-									<h3 id="urbanfarm_heading" th:text="|${l.vendingMachineName}자판기|" data-vm-code="${l.vendingMachineCode}"></h3>
-								</div>
-								<div>
-									<span class="urbanfarm_boding" th:text="|${l.vendingMachineName}에서 예약 할 자판기 칸 선택!|"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</th:block>
-				<div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
-					<div class="media block-6 services mb-md-0 mb-4 click-to-home">
-						<div>
-							<img id="urbanfarm_production_icons_ecoicon" src="/user/images/vending-machine.png">
-						</div>
-						<div class="media-body">
-							<h3 id="urbanfarm_heading">자판기 홈</h3>
-						</div>
-						<div>
-							<span class="urbanfarm_boding">자판기 홈으로 돌아가기!</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row no-gutters ftco-services">
 
+                <!-- 자판기 목록을 가져오기 위해 Ajax 요청 -->
+                <script>
+                    // jQuery를 사용하여 Ajax 요청
+                    $.ajax({
+                        url: "/userVendingMachine/getVmList", // 서버 API 엔드포인트 URL
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            // Ajax 요청이 성공하면 data에 자판기 목록이 담김
+                            // 이후 자판기 목록을 표시하는 코드 작성
+                            for (var i = 0; i < data.length; i++) {
+                                var vm = data[i];
+                                var vmItem = `
+                                    <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+                                        <div class="mb-4 services">
+                                            <a href="/userVendingMachine/vmSpaceSelect(vendingMachineCode=${vm.vendingMachineCode})">
+                                                <img class="daya-img-icon" src="/user/images/v-ending-machine.png">
+                                            </a>
+                                            <div class="text-center">
+                                                <div>
+                                                    <h3>${vm.vendingMachineName}자판기</h3>
+                                                </div>
+                                                <div>
+                                                    <span>${vm.vendingMachineName}에서 예약 할 자판기 칸 선택!</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                                $(".ftco-services").append(vmItem);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            // Ajax 요청이 실패하면 에러 처리
+                            console.log("에러 발생: " + error);
+                        }
+                    });
+                </script>
 
-
-	</section>
-
+                <div class="col-md-4 text-center d-flex align-self-stretch ftco-animate">
+                    <div class="media block-6 services mb-md-0 mb-4 click-to-home">
+                        <div>
+                            <img id="urbanfarm_production_icons_ecoicon" src="/user/images/vending-machine.png">
+                        </div>
+                        <div class="media-body">
+                            <h3 id="urbanfarm_heading">자판기 홈</h3>
+                        </div>
+                        <div>
+                            <span class="urbanfarm_boding">자판기 홈으로 돌아가기!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </th:block>
 
 <th:block layout:fragment="customJs">
-	<script>
-
-		$(document).on('click', '.click-to-home', function () {
-			location.href = '/userVendingMachine/vmMain';
-		});
-	</script>
-
+    <script>
+        $(document).on('click', '.click-to-home', function () {
+            location.href = '/userVendingMachine/vmMain';
+        });
+    </script>
 </th:block>
-
-</html>
