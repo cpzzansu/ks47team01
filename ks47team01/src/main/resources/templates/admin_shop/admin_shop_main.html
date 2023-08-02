@@ -131,7 +131,7 @@
                         titleAttr: '데이터 복사',
                         exportOptions: {
                             columns: ':not(:first-child)'
-                        }
+                        },
                     },
                     {
                         extend: 'csv',
@@ -250,7 +250,7 @@
 
             let windowStatus = 'width=' + width + ', height=' + height + ', left=' + left + ', top=' + top + ', scrollbars=no, status=no, resizable=no, titlebar=no, location=no, toolbar=no, menubar=no';
 
-            const url = "adminShopModify?goodsKitCode=" + goodsKitCode;
+            const url = "adminShopUpdate?goodsKitCode=" + goodsKitCode;
             window.open(url, "상점상품수정", windowStatus);
         });
 
