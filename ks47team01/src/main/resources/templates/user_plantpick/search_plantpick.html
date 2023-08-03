@@ -18,18 +18,13 @@
 		<div class="container py-6">
 			<div class="row d-flex justify-content-center py-5">
 				<div class="col-md-6 d-flex align-items-center">
-					<form action="#" class="subscribe-form">
+					<form th:action="@{/userPlantPick/search}" method="post" class="subscribe-form">
 						<div class="form-group d-flex">
-							<input type="text" class="form-control input-border-not-right" placeholder="ID, 이름으로 검색하세요" readonly>
-							<input type="submit" value="검색하기" class="submit px-3" id="searchModalBtn">
+							<input type="text" class="form-control input-border-not-right" placeholder="ID, 이름으로 검색하세요" id="searchModalBtn">
+							
 						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-
-<!--  아이디 이름 검색 선택 모달창 -->
+						
+						<!--  아이디 이름 검색 선택 모달창 -->
 	<div class="modal" id="plantpickSearchModal" tabindex="-1">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -40,18 +35,78 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<select id="plantpicksearch" class="#">
-						<option value="">아이디</option>
-						<option value="">이름</option>
-					</select>
+					<div class="form-group">
+					
+				 			<select id="plantpicksearch" class="#">
+								<option value="">아이디</option>
+								<option value="">이름</option>
+							</select>
+						</div>
+						<!--  모달 추가 내용 -->
+						<div class="">
+							<div class="input-group">
+								<input id="plantpickValue" type="text" class="form-control">
+								<span class="input-group_btn">
+								<button id="plantpicksearchBtn" type="button" class="btn btn-primary">검색</button>
+									</span>
+							</div>
+						</div>
+						
+					<div class="row">
+               <div class="col-md-12">
+                  <h2>회원목록</h2>
+                  <div class="">
+                     <table class="table table-bordered" style="width: 100%">
+                        <thead class="thead-primary">
+                           <tr class="text-center">
+												<th>#</th>
+												<th>아이디</th>
+												<th>이름</th>
+												<th></th>
+											</tr>
+											</thead>
+											
+											<tbody id="plantpicktable">
+												<tr>
+													<td scope="row">1</td>
+													<td class="urbanfarmerFollowerId"></td>
+													<td class="urbanfarmerName">3</td>
+													<td>4</td>
+													<td class="#">
+														<button type="button" class="btn btn-success plantpickBtn">선택</button>
+													</td>
+													
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" id="plantpickChoseBtn" data-dismiss="modal">close</button>
+						</div>
+					</div>
+					</div>
+				<!--  선택 모달 끝 -->
+	</div>
+				
+				<div calss="form-grop">
+					<div class="col-md-9 col-sm-xs-12 col-md-offset3">
+						<button class="btn btn-primary" type="button">돌아가기</button>				
+						<button class="btn btn-primary" type="reset">다시쓰기</button>
+						<button type="submit" class="btn btn-success sumbitBtn">등록하기</button>				
+					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					</form>
 				</div>
 			</div>
 		</div>
-	</div>
+		
+		
+	</section>
+
+
 
 
 
@@ -60,7 +115,39 @@
 	<script>
 		$('#searchModalBtn').click(function (){
 			$('#plantpickSearchModal').modal('show');
-		})
+		});
+		
+		
+		$('#plantpickSearchModal').on('show.bs.modal', function(){
+            $.ajax({
+                url: '/userPlantPick/search',
+                type: 'GET',
+                contentType: 'application/json',
+                success: function(response){
+                    console.log(response);
+                    response.forEach(function(item, index){
+                        const $lastTr = $('#plantpicktable').find('tr').last();
+                        $lastTr.find('th').text(index + 1);
+                        $lastTr.find('td.urbanfarmerFollowerId').text(item.urbanfarmerFollowerId);
+                        $lastTr.find('td.urbanfarmerName').text(item.urbanfarmerName);
+                      
+                        if(index < response.length - 1){
+                            const $cloneTr = $lastTr.clone();
+                            $('#kitTable').append($cloneTr);
+                        }
+                    })
+                },
+                fail:function(jqXHR, textStatus, errorThrown) {
+                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
+                }
+            })
+        });
+		
+		
+		
+		
+		
+		
 	</script>
 >>>>>>> refs/heads/develop
 </th:block>

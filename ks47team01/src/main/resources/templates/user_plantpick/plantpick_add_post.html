@@ -5,18 +5,34 @@
 <!-- 내용 -->
 <th:block layout:fragment="customContents">
     <section class="ftco-section contact-section bg-light">
+    
+    <!-- 사이드 메뉴 시작 -->
+			<div class="col-md-3 left_col plant_pic_sidebar">
+			<ul class="plant_pic_side_ul plnat_pic_side_ul_li_font">
+				<li><a><img width="200px;" src="/user/images/plant_pic_logo.png"></a></li>
+				<li><a th:href="@{/userPlantPick/plantPickMain}"><img width="30px;" src="/user/images/plant_pic_home.png"></a>홈</li>
+				<li><a th:href="@{/userPlantPick/searchPlantPick}"><img width="30px;" src="/user/images/plant_pic_find.png"></a>검색</li>
+				<li><a th:href="@{/userPlantpick/profile}"><img width="30px;" src="/user/images/plant_pic_compass.png"></a>프로필 </li>
+				<li><a th:href="@{/userPlantPick/addPostPlantPick}"><img width="30px;" src="/user/images/plant_pic_more.png"></a>포스팅</li>
+			</ul>
+		</div>
+     <!-- 사이드 메뉴 끝 -->
+     
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-6 order-md-last d-flex">
 
+
+<!--  폼테그  -->
                 <form th:action="@{/userPlantPick/addPostPlantPick}" th:object="${post}" method="post"
                       class="bg-white p-5 contact-form" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="uploadfile">
-                            <div><a href="#"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"
-                                                 style="width: 50px; height: 50px; border-radius: 50%;"></a></div>
+                            
+                            <div><a href="/userPlantPick/plantPickMyMain"><img src="/user/images/exam.jpg" id="plant_pic_contents_pic_user"
+                                                 style="width: 35px; height: 35px; border-radius: 50%; left:45px; top:35px;" ></a></div>
                                                  
-                            <div><a href="#"><span id="plant_pic_contents_name_user">jjang.gu</span></a></div>
+                            <div><a href="/userPlantPick/plantPickMyMain"><span id="plant_pic_contents_name_user" style="left:85px;top:35px;">jjang.gu</span></a></div>
                             &nbsp;
                         </label>
                         <br>
@@ -43,9 +59,12 @@
                     </div>
 
                     <div class="form-group" style="text-align: right">
-                        <button type="submit" class="btn btn-info py-3 px-5" id="postBtn">포스팅</button>
+                        <button type="submit" class="btn btn-info py-3 px-5" id="postBtn" value="전송">포스팅</button>
                     </div>
                 </form>
+                
+                
+                
             </div>
         </div>
     </section>
@@ -70,6 +89,58 @@
             
 			
         });
+        
+        
     </script>
+    
+    <!--  ajax 만들어본거 -->
+    <!-- 사이드 메뉴 뒤에 추가 -->
+	
+	<script type="text/javascript">
+	   const $postBtn1 = document.querySelector('#postByn');
+	
+	    $postBtn1.addEventListener('click', function (event) {
+	        event.preventDefault(); // 기본 폼 제출 동작을 막습니다.
+	
+	        const $uploadfile = document.querySelector('#uploadfile');
+	        const $postContent = document.querySelector('#postContent');
+	
+	        if ($uploadfile.files.length === 0) {
+	            alert("사진을 선택하세요.");
+	            $uploadfile.focus();
+	            return; // 함수 실행 종료
+	        } else if ($postContent.value.trim() === '') {
+	            alert("문구를 입력하세요.");
+	            $postContent.focus();
+	            return; // 함수 실행 종료
+	        }
+	
+	        // AJAX 요청 생성
+	        const formData = new FormData();
+	        formData.append('uploadfile', $uploadfile.files[0]);
+	        formData.append('postContent', $postContent.value);
+	
+	        const xhr = new XMLHttpRequest();
+	        xhr.open('POST', '/userPlantPick/addPostPlantPick'); // 요청할 URL 설정
+	
+	        // 요청이 완료되었을 때 처리할 함수 설정
+	        xhr.onreadystatechange = function () {
+	            if (xhr.readyState === XMLHttpRequest.DONE) {
+	                if (xhr.status === 200) {
+	                    // 성공적인 응답 처리
+	                    alert("포스팅이 성공적으로 완료되었습니다.");
+	                    // 페이지 새로고침 또는 필요한 업데이트 동작 수행
+	                } else {
+	                    // 오류 처리
+	                    alert("오류가 발생하였습니다. 다시 시도해주세요.");
+	                }
+	            }
+	        };
+	
+	        // AJAX 요청 전송
+	        xhr.send(formData);
+	    });
+	</script>
+    
 </th:block>
 </html>
