@@ -4,13 +4,20 @@ import ks47team01.admin.service.AdminShopService;
 import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.GoodsLabel;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller("adminShopController")
 @AllArgsConstructor
@@ -18,6 +25,29 @@ import java.util.Map;
 public class AdminShopController {
 
     private final AdminShopService adminShopService;
+    private static final String UPLOAD_DIR = "/static/admin/documentation/images/shop_insert_picture";
+    private static final String ACCESS_PATH = "/static/admin/documentation/images/shop_insert_picture";
+
+
+    @SneakyThrows
+    @PostMapping("/adminShop/adminShopInsert")
+    @ResponseBody
+    public void adminShopInsert(@RequestParam("picFile") MultipartFile picFile,
+                                @ModelAttribute GoodsKit shopInsertForm) {
+
+        Path rootLocation = Paths.get(UPLOAD_DIR);
+        if (!Files.isDirectory(rootLocation)) {
+            Files.createDirectory(rootLocation);
+        }
+        Path savedPath = rootLocation.resolve(picFile.getOriginalFilename());
+        picFile.transferTo(savedPath);
+
+        String imageUrl = ACCESS_PATH + "/" + picFile.getOriginalFilename();
+
+        shopInsertForm.setGoodsKitPic(imageUrl);
+
+        adminShopService.insertGoodsKit(shopInsertForm);
+    }
 
 
 
@@ -127,8 +157,11 @@ public class AdminShopController {
      */
     @GetMapping("adminShop/adminShopAdd")
     public String admin_shop_add(Model model) {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        List<GoodsKit> goodsKitList = adminShopService.getGoodsKitList(paramMap);
 
         model.addAttribute("title", "urbanfarm");
+        model.addAttribute("goodsKitList", goodsKitList);
 
         return "admin_shop/admin_shop_add";
     }

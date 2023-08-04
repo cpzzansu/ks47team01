@@ -73,8 +73,8 @@
             // datatables 정의
             let table = $('#datatable-responsive').DataTable({
                 ajax: {
-                    url: '/adminShop/adminShopManageData', // 데이터를 가져올 URL
-                    method: 'GET', // 사용할 HTTP 메서드, 예: 'GET' 또는 'POST' data: []
+                    url: '/adminShop/adminShopManageData',
+                    method: 'GET',
                     dataSrc: '',
                 },
                 columns: [
@@ -92,7 +92,7 @@
                     { data: 'goodsKitDetail'}
                 ],
                 columnDefs: [
-                    {type: "natural", "targets": [1, 3]}, // 정렬
+                    {type: "natural", "targets": [1, 3]},
                     {
                         'targets': 0,
                         'title': '체크',
@@ -119,7 +119,7 @@
                     emptyTable: "DB에 데이터가 존재하지 않습니다"
                 },
                 order: [
-                    [2, "asc"]
+                    [1, "asc"]
                 ],
                 colReorder: true,
                 responsive: true,
