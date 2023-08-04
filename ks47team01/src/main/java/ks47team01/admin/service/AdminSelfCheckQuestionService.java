@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 public class AdminSelfCheckQuestionService {
 
-    private AdminSelfCheckQuestionMapper adminSelfCheckQuestionMapper;
-    private AdminSelfCheckCropsGradeMapper adminSelfCheckCropsGradeMapper;
+    private final AdminSelfCheckQuestionMapper adminSelfCheckQuestionMapper;
+    private final AdminSelfCheckCropsGradeMapper adminSelfCheckCropsGradeMapper;
     /**
      * 자가검증 질문 등록 처리
      * @param cropsSelfCheck 질문등록 data

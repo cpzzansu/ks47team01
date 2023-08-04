@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class AdminSelfCheckCropsGradeService {
 
-    private AdminSelfCheckCropsGradeMapper adminSelfCheckCropsGradeMapper;
+    private final AdminSelfCheckCropsGradeMapper adminSelfCheckCropsGradeMapper;
 
     /**
      * 관리자 - 자가검증 상품 등급 등록 실행 메서드

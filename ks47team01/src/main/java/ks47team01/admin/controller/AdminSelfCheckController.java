@@ -1,22 +1,19 @@
 package ks47team01.admin.controller;
 
-import jakarta.servlet.ServletContext;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import ks47team01.admin.service.AdminSelfCheckCropsGradeService;
 import ks47team01.admin.service.AdminSelfCheckQuestionService;
-import ks47team01.common.dto.*;
+import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.CropsSelfCheck;
+import ks47team01.common.dto.SelfCheckCropsGrade;
+import ks47team01.common.dto.SelfCheckQuestion;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
-import org.thymeleaf.templatemode.TemplateMode;
 
 import java.util.List;
 import java.util.Map;
@@ -27,9 +24,8 @@ import java.util.Map;
 @RequestMapping("/adminSelfCheck")
 public class AdminSelfCheckController {
 
-    private AdminSelfCheckCropsGradeService adminSelfCheckCropsGradeService;
-    private AdminSelfCheckQuestionService adminSelfCheckQuestionService;
-    private SpringTemplateEngine templateEngine;
+    private final AdminSelfCheckCropsGradeService adminSelfCheckCropsGradeService;
+    private final AdminSelfCheckQuestionService adminSelfCheckQuestionService;
 
     /**
      * 관리자 - 자가검증 질문 등록 화면 이동
@@ -54,7 +50,7 @@ public class AdminSelfCheckController {
      */
     @GetMapping("/question/listCrops")
     @ResponseBody
-    public List<CropsName> cropsNameList(){
+    public List<CropsName> getCropsNameList(){
 
         List<CropsName> cropsNameList = adminSelfCheckCropsGradeService.getCropsNameList();
 
@@ -275,7 +271,10 @@ public class AdminSelfCheckController {
         return result;
     }
 
-
+    /**
+     * 상품등급 수정 모달 업데이트 처리
+     * @param selfCheckCropsGrade 수정할 상품등급 정보
+     */
     @ResponseBody
     @PostMapping("/productGrade/modifyUpdateProductGrade")
     public void modifyUpdateProductGradeModal(@RequestBody SelfCheckCropsGrade selfCheckCropsGrade){
