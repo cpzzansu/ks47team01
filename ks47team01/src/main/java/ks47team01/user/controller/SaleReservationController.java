@@ -59,6 +59,7 @@ public class SaleReservationController {
         return "user_sale_hub_reservation/sale_crop_to_hub_reservation_detail";
     }
 
+
     @GetMapping("/userSaleHubReservation/modifySaleReservation")
     public String moveModifyReservation(Model model){
         model.addAttribute("title","예약 수정 화면");

@@ -94,7 +94,6 @@
 
     <update id="updateProductGrade" parameterType="SelfCheckCropsGrade">
         /* 상품등급 수정 */
-        deleteProductGrade
         UPDATE self_check_crops_grade
         <trim prefix="SET" suffixOverrides=",">
             <if test="productGrade != null and productGrade != ''">
