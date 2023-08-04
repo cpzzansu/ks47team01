@@ -144,7 +144,7 @@ public class PlanController {
 	
 	
 	/**
-	 * ajax, 코드별 키트정보
+	 * ajax, 작물코드별 키트정보
 	 * @param urbanKitCode
 	 * @return
 	 */
@@ -176,7 +176,6 @@ public class PlanController {
 	@PostMapping("/ajax/getCropsInfo")
 	@ResponseBody
 	public Map getCropsInfo(@RequestBody Map<String, Object> farmerFarmingPlanCode) {
-		System.out.println("ddd"+farmerFarmingPlanCode);
 		Map<String, Object> cropsInfoMap = farmingPlanService.getCropsInfo(farmerFarmingPlanCode);
 		return cropsInfoMap;
 	}
@@ -288,6 +287,7 @@ public class PlanController {
 	
 	
 	/**
+	 * 대분류별 농사 계획
 	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
 	 * @param paramMap
 	 * @return

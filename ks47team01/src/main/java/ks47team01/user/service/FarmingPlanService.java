@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.servlet.http.HttpSession;
@@ -35,6 +36,7 @@ public class FarmingPlanService {
 	 * 실행한 계획List를 받아 insert
 	 * @param planActionList
 	 */
+	//@Transactional(isolation = Isolation.SERIALIZABLE)
 	public void insertPlanAction(List<String> planActionList) {
 		String detailPlanCode = null;
 		FarmingDetailPlan farmingDetailPlan= null;
@@ -70,6 +72,7 @@ public class FarmingPlanService {
 			}else {
 				String detailPlanActionCode = prefixCode+suffixNum;
 				suffixNum = suffixNum + 1;
+				
 				farmingDetailPlanAction = new FarmingDetailPlanAction();
 				farmingDetailPlanAction.setFarmingDetailPlanActionCode(detailPlanActionCode);
 				farmingDetailPlanAction.setUrbanfarmerId(urbanFarmerId);
@@ -219,9 +222,7 @@ public class FarmingPlanService {
 	 */
 	public List<FarmingPlan> getFarmingPlanListById(String userId){
 		List<FarmingPlan> farmingPlanList = farmingPlanMapper.getFarmingPlanListById(userId);
-		log.info(farmingPlanList);
-		String autoCode = farmingPlanMapper.autoIncreaseCode("farming_detail_plan_action");
-		System.out.println(autoCode);
+
 		return farmingPlanList;
 	}
 	

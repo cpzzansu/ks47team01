@@ -331,7 +331,6 @@
 				</otherwise>
 			</choose>
 		</where>
-		
 	</insert>
 	
 	<select id="getFarmingLargeCateByCode" parameterType="String" resultMap="farmingPlanLargeCateResultMap">
