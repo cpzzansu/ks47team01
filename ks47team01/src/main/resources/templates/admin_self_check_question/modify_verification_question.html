@@ -191,13 +191,14 @@
                             <div class="ln_solid"></div>
                         </form>
                     </div>
-                <div>
-                    <div class="col-md-3 col-sm-3 col-xs-12"></div>
-                    <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                        <button type="button" class="btn btn-success addQuestionBtn">질문등록하기</button>
+                    <div class="ajs-h-blank-50"></div>
+                    <div>
+                        <div class="col-md-3 col-sm-3 col-xs-12"></div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+                            <button type="button" class="btn btn-success addQuestionBtn">상세질문등록하기</button>
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                    <div class="col-md-3"></div>
-                </div>
                 </div>
             </div>
         </div>
@@ -205,6 +206,9 @@
 </th:block>
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
+
+        // 팝업 창이 열릴 때 작물 이름 코드 값을 가져옴(등록시 비교하여 같은 값이면 서버에 요청하지 않음)
+        let $cropCodeName;
 
         const $cloneCropsTr = $('#cropsTable').find('tr').last().clone();
         // 유효성검사 함수
@@ -244,6 +248,10 @@
                         $lastTr.find('th').text(index + 1);
                         $lastTr.find('td.cropsName').text(item.cropsName);
                         $lastTr.find('td.cropsNameCode').text(item.cropsNameCode);
+
+                        // 전역 변수에도 cropsNameCode의 값을 넣어주어서 값이 변했는지 알 수 있게 한다.
+                        $cropCodeName = item.cropsNameCode;
+
                         if(index < response.length - 1){
                             const $cloneTr = $lastTr.clone();
                             $('#cropsTable').append($cloneTr);
@@ -360,7 +368,7 @@
                             // 반복문의 마지막 전에는 삭제버튼 클래스를 넣고, 복사한 요소를 추가하고 마지막에는 그냥 끝냄
                             if(idx < response.length - 1){
                                 $lastDiv.find('button').removeClass('questionAddBtn btn-success')
-                                        .addClass('questionRemoveBtn btn-danger').text('삭제');
+                                    .addClass('questionRemoveBtn btn-danger').text('삭제');
 
                                 $lastDivClone.appendTo('#questionAddForm');
                             }
