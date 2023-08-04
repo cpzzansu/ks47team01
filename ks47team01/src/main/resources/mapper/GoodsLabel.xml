@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.admin.mapper.AdminShopMapper">
+	<resultMap type="GoodsLabel" id="GoodsLabelResultMap">
+		<id column="goods_badge_code" property="goodsLabelCode"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="goods_badge_name" property="goodsLabelName"/>
+		<result column="goods_badge_html_code" property="goodsLabelHtmlCode"/>
+		<result column="goods_badge_reg_date" property="goodsLabelRegDate"/>
+	</resultMap>
+
+	<select id="getGoodsLabelObj" resultMap="GoodsLabelResultMap" parameterType="String">
+		SELECT
+		*
+		FROM
+		goods_badge
+		WHERE
+		goods_badge_code = #{finalCheckedData}
+	</select>
+
+	<select id="getGoodsLabelList" resultMap="GoodsLabelResultMap">
+	SELECT
+	*
+	FROM
+		goods_badge
+	</select>
+
+	<delete id="deleteGoodsLabelList" parameterType="int">
+		DELETE
+		FROM
+		goods_badge
+		WHERE
+		goods_badge_code IN
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+</mapper>

@@ -6,12 +6,8 @@ import lombok.Data;
 public class CropsSelfCheck {
 	
 	private String cropsSelfCheckCode;
-	private String urbanfarmerId;
-	private String selfCheckQuestionCateCode;
-	private String urbanKitCode;
+	private String urbanfarmAdminId;
 	private String cropsNameCode;
 	private String cropsName;
-	private String oneSheetChecklistNumber;
 	private String corpsSelfCheckRegDate;
-
 }

@@ -21,56 +21,67 @@
                     </div>
                     <div class="x_content">
                         <br/>
-                        <form id="demo-form2" th:action="@{/adminLogin/adminLogin}" class="form-horizontal form-label-left" method="post">
+                        <form id="demo-form2" th:action="@{/hubCrewAdd/hubcrewAddForm}"  class="form-horizontal form-label-left" method="post">
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminId">아이디</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmHubCrewId">아이디</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminId" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminId">
+                                    <input type="text" id="urbanfarmHubCrewId" class="form-control col-md-7 col-xs-12" name="urbanfarmHubCrewId"
+                                     placeholder="영문으로 시작하는 6~20자 아이디를 작성해주세요">
+                                </div>
+                                    <button type="button" class="btn btn-primary" id="idCheck"> 중복체크 </button>
+                                    <input type="hidden" name="checkId" value="n">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmHubCode">허브코드</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                	<select id="urbanfarmHubCode" name="urbanfarmHubCode" class="form-control col-md-7 col-xs-12"
+                                		>
+                                		<option value=""> ===허브를 선택해주세요=== </option>
+	                                	<th:block th:unless="${#lists.isEmpty(hubList)}"
+	                                			  th:each="l : ${hubList}">
+	                                		<option class="request" th:value="${l.urbanfarmHubCode}">[[${l.urbanfarmHubName}]]</option>
+	                                	</th:block>
+			                            <th:block th:if="${#lists.isEmpty(hubList)}">
+											<option th:value="">등록된 허브가 없습니다.</option>
+										</th:block>
+                                	</select>
+                                </div>
+                            </div>                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmHubCrewPw">비밀번호</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="urbanfarmHubCrewPw" class="form-control col-md-7 col-xs-12" name="urbanfarmHubCrewPw"
+                                    placeholder="영문, 숫자, 특수문자를 최소 한가지씩 포함하는 8~16자 비밀번호를 작성해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPw">비밀번호</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmHubCrewName">이름</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminPw" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPw">
+                                    <input type="text" id="urbanfarmHubCrewName" class="form-control col-md-7 col-xs-12" name="urbanfarmHubCrewName"
+                                    placeholder="이름을 입력해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminName">이름</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminName" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminName">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmHubCrewPhone">휴대전화</label>
+                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                <select class="form-control col-md-7 col-xs-12"> <option value="" disabled="disabled" selected="selected">010</option> </select>
+                                </div>
+                                <div class="col-md-5 col-sm-5 col-xs-6">
+                                    <input type="text" id="urbanfarmHubCrewPhone" class="form-control col-md-7 col-xs-12" name="urbanfarmHubCrewPhone"
+                                    oninput="autoHyphen2(this)" maxlength="9" placeholder="전화번호를 작성해주세요">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="staffTableType">회원타입</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmHubCrewEmail">이메일</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="staffTableType" class="form-control col-md-7 col-xs-12" name="staffTableType">
+                                    <input type="text" id="urbanfarmHubCrewEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmHubCrewEmail"
+                                    placeholder="이메일형식에 맞춰 작성해주세요">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminPhone">휴대전화</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminPhone" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminPhone">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminEmail">이메일</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminEmail">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="urbanfarmAdminEmail">이메일</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="urbanfarmAdminEmail" class="form-control col-md-7 col-xs-12" name="urbanfarmAdminEmail">
-                                </div>
-                            </div>
-                                                                                                                                                
-                                                        
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <button class="btn btn-primary" type="button">아이디찾기</button>
-                                    <button class="btn btn-primary" type="button">비밀번호찾기</button>
-                                    <button type="submit" class="btn btn-success submitBtn" id="loginBtn" >로그인</button>
+                                    <button type="button" class="btn btn-success submitBtn" id="addAdminBtn" style="float:right;">회원가입</button>
                                 </div>
                             </div>
                         </form>
@@ -83,6 +94,195 @@
 
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
+	/*
+	const $idCheckBtn = document.querySelector('#idCheck');
+	$idCheckBtn.addEventListener('click', e => {
+		alert('test');
+	});
+	*/
+	// 유효성검사 함수
+	const validCheck = element => {
+		let data = $(element).val();
+		let eleId = $(element).attr('id');
+		
+		if(typeof data == 'undefined' || data == null || data == '' ){
+			let cate = $(`label[for="${eleId}"]`).text();
+			alert(`${cate} 필수 입력항목입니다.`);
+			$(element).focus();
+			return false;
+		}
+		return true;
+	}
+	
+	// 회원아이디 변경 시 이벤트 처리
+	
+	// 회원 가입 버튼 시 이벤트
+	$('#addAdminBtn').click(function(){
+		const validateEle = $('#demo-form2 input');
+		let isSubmit = false;
+		let $phoneSize = $('#urbanfarmHubCrewPhone').size
+		
+		validateEle.each((idx, item) => {    				
+			isSubmit = validCheck(item);
+			return isSubmit;
+		})
+		if(isSubmit) {
+			
+			let msg = '계정생성을 성공하셨습니다.';
+			if($("input[name=checkId]").val() == 'y') {
+				
+				if(verifyId()) {
+					
+					if(verifyHub()) {
+						
+						if(verifyPw()) {
+							
+							if(verifyName()) {
+								
+								if($('#urbanfarmHubCrewPhone').val().length == 9) {
+									
+									if(verifyEmail()) {
+										
+										$('#demo-form2').submit();
+										
+									} else {
+										msg = '이메일을 정확히 입력해주세요';
+									}
+									
+								} else {
+									msg = '전화번호를 제대로 입력해주세요';
+								}
+								
+							} else {
+								msg = '이름을 정확히 작성해주세요';
+							}
+							
+						} else {
+							msg = '비밀번호를 제대로 입력해주세요';
+						}
+						
+					} else {
+						msg = '허브를 선택해주세요';					
+					}
+					
+				} else {
+					msg = '아이디를 정확히 입력해주세요';
+				}
+				
+			} else {
+				msg = '아이디 중복체크를 해주세요';
+			}
+			
+			alert(msg);
+		}
+		
+			
+	});
+	
+	// 입력 취소 버튼 클릭시 이벤트 처리
+	/* $('#resetBtn').click(function(e){
+		// 태그가 가지고 있는 기본 이벤트 동작 방지
+		e.preventDefault();
+		$('#demo-form2 input').not('#urbanfarmAdminId').val('');
+	}); */ //
+	
+	// 아이디중복버튼 이벤트
+	$('#idCheck').click(function(){
+		const $urbanfarmHubCrewId = $('#urbanfarmHubCrewId');
+		let urbanfarmHubCrewId = $urbanfarmHubCrewId.val();
+		
+		// 유효성검사
+		let valid = validCheck($urbanfarmHubCrewId);
+		if(!valid) return false;
+		
+		$('#urbanfarmHubCrewId').change(function(){
+			$("input[name=checkId]").val('n');
+		});
+		
+		// ajax 호출
+		const request = $.ajax({
+			url: '/hubCrewAdd/hubCrewIdCheck',
+			method: 'POST',
+			data: { 'urbanfarmHubCrewId' : urbanfarmHubCrewId },
+			dataType: 'text'
+			});
+			 
+			request.done(function( response ) {
+				if(response == 'true'){
+					alert('이미 등록된 아이디입니다.');
+					$urbanfarmHubCrewId.val('');
+					$urbanfarmHubCrewId.focus();
+					
+   				return false;
+				}else{
+					$('#demo-form2 button').prop('disabled', false);
+					alert('사용 가능한 아이디입니다.');
+					$("input[name=checkId]").val('y');
+				}
+			//console.log(response);
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			alert( "Request failed: " + textStatus );
+			});
+		
+	});
+	
+	
+	const autoHyphen2 = (target) => {
+		 target.value = target.value
+		   .replace(/[^0-9]/g, '')
+		  .replace(/^(\d{0,4})(\d{0,4})$/g, "$1-$2").replace(/(\-{1,2})$/g, "");
+		}
+
+	verifyEmail = function() {
+		  var emailVal = $("#urbanfarmHubCrewEmail").val();
+		  var emailExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+		  if (emailVal.match(emailExp) != null) {
+		    return true;
+		  }
+		  else {
+		    return false;
+		  }
+		};
+    
+	verifyId = function() {
+		var idVal = $('#urbanfarmHubCrewId').val();
+		var idExp = /^[a-z]+[a-z0-9]{5,19}$/g;
+		if(idVal.match(idExp) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	verifyPw = function() {
+		var pwVal = $('#urbanfarmHubCrewPw').val();
+		var pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+		if(pwVal.match(pwExp) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	verifyName = function() {
+		var nameVal = $('#urbanfarmHubCrewName').val();
+		var nameExp = /[ㄱ-힣]/;
+		if(nameVal.match(nameExp) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	verifyHub = function() {
+		var hubVal = $("#urbanfarmHubCode option:selected").val();
+		if(hubVal != '') {
+			return true
+		} else {
+			false;
+		}
+	}
+		
     </script>
 </th:block>
 </html>

@@ -2,14 +2,18 @@ package ks47team01.admin.controller;
 
 import jakarta.servlet.http.HttpSession;
 import ks47team01.admin.service.AdminSelfCheckCropsGradeService;
+import ks47team01.admin.service.AdminSelfCheckQuestionService;
+import ks47team01.common.dto.CropsName;
+import ks47team01.common.dto.CropsSelfCheck;
 import ks47team01.common.dto.SelfCheckCropsGrade;
-import ks47team01.common.dto.UrbanKit;
+import ks47team01.common.dto.SelfCheckQuestion;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.thymeleaf.spring6.SpringTemplateEngine;
 
 import java.util.List;
 import java.util.Map;
@@ -20,7 +24,8 @@ import java.util.Map;
 @RequestMapping("/adminSelfCheck")
 public class AdminSelfCheckController {
 
-    private AdminSelfCheckCropsGradeService adminSelfCheckCropsGradeService;
+    private final AdminSelfCheckCropsGradeService adminSelfCheckCropsGradeService;
+    private final AdminSelfCheckQuestionService adminSelfCheckQuestionService;
 
     /**
      * 관리자 - 자가검증 질문 등록 화면 이동
@@ -28,47 +33,84 @@ public class AdminSelfCheckController {
      * @return admin_self_check_question/add_verification_question
      */
     @GetMapping("/question/addVerificationQuestion")
-    public String moveAddQuestion(Model model){
+    public String moveAddQuestion(Model model, HttpSession session){
+
+        String urbanfarmAdminId = (String) session.getAttribute("S_id");
 
         model.addAttribute("title", "자가검증 질문 등록");
+        model.addAttribute("urbanfarmAdminId", urbanfarmAdminId);
 
         return "admin_self_check_question/add_verification_question";
     }
 
+
     /**
-     *
-     * @param searchData
-     * @return
+     * 전체 작물 이름 테이블 리스트 가져오기
+     * @return 전체 작물 이름 테이블 리스트
+     */
+    @GetMapping("/question/listCrops")
+    @ResponseBody
+    public List<CropsName> getCropsNameList(){
+
+        List<CropsName> cropsNameList = adminSelfCheckCropsGradeService.getCropsNameList();
+
+        return cropsNameList;
+    }
+
+    /**
+     * 검색한 작물 이름 리스트 가져오기
+     * @param searchData 검색할 데이터
+     * @return 검색한 작물 이름 리스트
      */
     @ResponseBody
-    @PostMapping("/question/kitSearch")
-    public List<UrbanKit> searchKitList(@RequestBody Map<String, Object> searchData){
+    @PostMapping("/question/cropsSearch")
+    public List<CropsName> searchCropsList(@RequestBody Map<String, Object> searchData){
 
         log.info(searchData);
 
-        String searchColumn = (String) searchData.get("kitSearchColumn");
-        String searchValue = (String) searchData.get("kitSearchValue");
+        String searchColumn = (String) searchData.get("cropsSearchColumn");
+        String searchValue = (String) searchData.get("cropsSearchValue");
         searchValue = "%" + searchValue + "%";
 
         log.info(searchColumn);
         log.info(searchValue);
 
-        List<UrbanKit> kitList = adminSelfCheckCropsGradeService.searchKitList(searchColumn, searchValue);
+        List<CropsName> cropsList = adminSelfCheckCropsGradeService.searchCropsList(searchColumn, searchValue);
 
-        return kitList;
+        return cropsList;
     }
 
     /**
-     * 전체 키트 리스트 반환하는 메서드
-     * @return 전체 키트 리스트
+     * 자가검증 질문 등록 처리
+     * @param cropsSelfCheck 질문 등록 data
+     * @return 자가검증 질문 등록 상세화면 이동 리다이렉트 경로
      */
-    @GetMapping("/question/listKit")
+    @PostMapping("/question/insertQuestion")
+    public String insertQuestion(CropsSelfCheck cropsSelfCheck,
+                                 RedirectAttributes reAttr){
+
+        adminSelfCheckQuestionService.insertQuestion(cropsSelfCheck);
+        reAttr.addFlashAttribute("cropsSelfCheck", cropsSelfCheck);
+
+        return "redirect:/adminSelfCheck/question/addVerificationQuestionDetail";
+    }
+
+    /**
+     * 자가검증 질문 상세 등록 처리
+     * @param selfCheckQuestionList 자가검증 질문 상세 등록 data
+     * @return 자가검증 질문 목록으로 리다이렉트
+     */
     @ResponseBody
-    public List<UrbanKit> kitList(){
+    @PostMapping("/question/insertSelfCheckQuestion")
+    public void insertSelfCheckQuestion(@RequestBody List<SelfCheckQuestion> selfCheckQuestionList){
 
-        List<UrbanKit> kitList = adminSelfCheckCropsGradeService.getKitList();
+        // 받은 배열을 for문으로 전부 등록처리함.
+        for(SelfCheckQuestion selfCheckQuestion : selfCheckQuestionList){
 
-        return kitList;
+            adminSelfCheckQuestionService.insertSelfCheckQuestion(selfCheckQuestion);
+
+        }
+
     }
 
     /**
@@ -78,7 +120,11 @@ public class AdminSelfCheckController {
      */
     @GetMapping("/question/addVerificationQuestionDetail")
     public String moveQuestionDetail(Model model){
-
+        // 등록 처리 메서드에서 세션에 넣은 객체 model 객체에 담기
+        if(model.containsAttribute("cropsSelfCheck")){
+            CropsSelfCheck cropsSelfCheck = (CropsSelfCheck) model.asMap().get("cropsSelfCheck");
+            model.addAttribute("cropsSelfCheck", cropsSelfCheck);
+        }
         model.addAttribute("title", "상세화면");
 
         return "admin_self_check_question/add_verification_question_detail";
@@ -98,16 +144,46 @@ public class AdminSelfCheckController {
     }
 
     /**
+     * 자가검증 질문 목록 리스트 가져오기
+     * @return 자가검증 질문 목록
+     */
+    @ResponseBody
+    @GetMapping("/question/getQuestionList")
+    public List<CropsSelfCheck> getQuestionList(){
+
+        List<CropsSelfCheck> cropsSelfCheckList = adminSelfCheckQuestionService.getQuestionList();
+
+        return cropsSelfCheckList;
+    }
+
+    /**
      * 관리자 - 자가검증 질문 수정 화면 이동
      * @param model title=화면제목
      * @return admin_self_check_question/modify_verification_question
      */
-    @GetMapping("/question/modifyVerificationQuestion")
-    public String moveModifyQuestion(Model model){
+    @GetMapping("/question/modifyQuestion")
+    public String moveModifyQuestion(Model model,
+                                     @RequestParam(value = "cropsSelfCheckCode") String cropsSelfCheckCode){
 
-        model.addAttribute("title","자가검증 질문 수정");
+        CropsSelfCheck cropsSelfCheck = adminSelfCheckQuestionService.getUpdateCropsSelfCheck(cropsSelfCheckCode);
+
+        model.addAttribute("cropsSelfCheck", cropsSelfCheck);
 
         return "admin_self_check_question/modify_verification_question";
+    }
+
+    /**
+     * 수정할 상세 질문 리스트 가져오기
+     * @param cropsSelfCheckCode FK 자가 검증 질문 코드
+     * @return 수정할 상세 질문 리스트
+     */
+    @ResponseBody
+    @PostMapping("/question/getQuestionDetailList")
+    public List<SelfCheckQuestion> getQuestionDetailList(@RequestBody String cropsSelfCheckCode){
+
+        List<SelfCheckQuestion> selfCheckQuestionList = adminSelfCheckQuestionService.getQuestionDetailList(cropsSelfCheckCode);
+
+        return selfCheckQuestionList;
     }
 
     /**
@@ -179,6 +255,11 @@ public class AdminSelfCheckController {
         return dataProductGrade;
     }
 
+    /**
+     * 작물 등급 수정 화면 이동
+     * @param selfCheckCropsGrade 수정정보 코드
+     * @return 수정할 상품등급 정보
+     */
     @ResponseBody
     @PostMapping("/productGrade/modifyProductGradeData")
     public SelfCheckCropsGrade modifyProductGradeModal(@RequestBody String selfCheckCropsGrade){
@@ -190,7 +271,10 @@ public class AdminSelfCheckController {
         return result;
     }
 
-
+    /**
+     * 상품등급 수정 모달 업데이트 처리
+     * @param selfCheckCropsGrade 수정할 상품등급 정보
+     */
     @ResponseBody
     @PostMapping("/productGrade/modifyUpdateProductGrade")
     public void modifyUpdateProductGradeModal(@RequestBody SelfCheckCropsGrade selfCheckCropsGrade){

@@ -6,7 +6,7 @@ import lombok.Data;
 public class UrbanfarmHubCrew {
 	
 	private String urbanfarmHubCrewId;
-	private String urbanfarmerHubId;
+	private String urbanfarmHubCode;
 	private String urbanfarmHubCrewPw;
 	private String urbanfarmHubCrewName;
 	private String staffTableType;

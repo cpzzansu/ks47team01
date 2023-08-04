@@ -11,18 +11,21 @@
 
 			<div class="clearfix"></div>
 
-			<!-- menu profile quick info -->
-			<div class="profile clearfix">
-				<div class="profile_pic">
-					<img th:src="@{/admin/production/images/img.jpg}" alt="profile-img" class="img-circle profile_img">
-				</div>
-				<div class="profile_info">
-					<span>환영합니다,</span>
-					<h2>신짱구님</h2>
-				</div>
-			</div>
-			<!-- /menu profile quick info -->
-
+          <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img th:src="@{/admin/production/images/img.jpg}" alt="profile-img" class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>환영합니다,</span>
+              <h2>
+				<label th:if="${session.HC_name} != null" th:text="${session.HC_name}"> </label>
+				<label th:if="${session.UA_name} != null" th:text="${session.UA_name}"> </label>
+				<label th:if="${session.UA_name} == null and ${session.HC_name} == null"> 비회원 </label>
+              </h2>
+            </div>
+          </div>
+          <!-- /menu profile quick info -->
 			<br>
 
 			<!-- sidebar menu -->
@@ -30,107 +33,28 @@
 				<div class="menu_section">
 					<h3>메뉴</h3>
 					<ul class="nav side-menu">
-						<li><a><i class="fa fa-shopping-cart"></i> !상점관리(이원영) <span
+						<li><a><i class="fa fa-shopping-cart"></i> #상점관리(이원영) <span
 								class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
-								<li><a> 상점상품관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminShop/adminShopManage}">!상점상품관리메인</a></li>
-										<li><a th:href="@{/adminShop/adminShopAdd}">!상품등록</a></li>
-										<li><a th:href="@{/adminShop/adminShopModify}">!상품수정</a></li>
-										<li><a th:href="@{/adminShop/adminShopRemove}">!상품삭제</a></li>
-									</ul>
-								</li>
-								<li><a> !상품라벨관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminShop/adminShopLabelManage}">!상품라벨관리메인</a></li>
-										<li><a th:href="@{/adminShop/adminShopLabelAdd}">!상품라벨등록</a></li>
-										<li><a th:href="@{/adminShop/adminShopLabelModify}">!상품라벨수정</a></li>
-										<li><a th:href="@{/adminShop/adminShopLabelRemove}">!상품라벨삭제</a></li>
-									</ul>
-								</li>
-							</ul>
+                                <li><a th:href="@{/adminShop/adminShopManage}">#상점상품관리</a></li>
+                                <li><a th:href="@{/adminShop/adminShopLabelManage}">#상품라벨관리</a></li>
+                            </ul>
 						</li>
-						<li><a><i class="fa fa-shopping-basket"></i> !상품관리(이원영) <span
+						<li><a><i class="fa fa-shopping-basket"></i> #상품관리(이원영) <span
 								class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
-								<li><a> !상품재고관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminGoods/adminGoodsManage}">!상품재고관리메인</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsCheck}">!상품재고조회</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsAdd}">!상품재고등록(입고)</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsModify}">!상품재고수정</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsRemove}">!상품재고삭제</a></li>
-									</ul>
-								</li>
-								<li><a> !상품불량재고관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminGoods/adminGoodsFailureManage}">!상품불량재고관리메인</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureCheck}">!상품불량재고조회</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureAdd}">!상품불량재고등록</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureModify}">!상품불량재고수정</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureRemove}">!상품불량재고삭제</a></li>
-
-									</ul>
-								</li>
-								<li><a> !상품불량기준관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardManage}">!상품불량기준관리메인</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardCheck}">!상품불량기준조회</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardAdd}">!상품불량기준등록</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardModify}">!상품불량기준수정</a></li>
-										<li><a th:href="@{/adminGoods/adminGoodsFailureStandardRemove}">!상품불량기준삭제</a></li>
-									</ul>
-								</li>
+                                <li><a th:href="@{/adminGoods/adminGoodsManage}">#상품재고관리</a></li>
+                                <li><a th:href="@{/adminGoods/adminGoodsFailureManage}">#상품불량재고관리</a></li>
+                                <li><a th:href="@{/adminGoods/adminGoodsFailureStandardManage}">#상품불량기준관리</a></li>
 							</ul>
 						</li>
-						<li><a><i class="fa fa-file-text-o"></i> !주문관리(이원영) <span class="fa fa-chevron-down"></span></a>
+						<li><a><i class="fa fa-file-text-o"></i> #주문관리(이원영) <span class="fa fa-chevron-down"></span></a>
 							<ul class="nav child_menu">
-								<li><a> !주문관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminOrder/adminOrderManage}">!주문관리메인</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderCheck}">!주문조회</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderAdd}">!주문등록</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderModify}">!주문수정</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderRemove}">!주문삭제</a></li>
-									</ul>
-								</li>
-								<li><a> !주문취소관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminOrder/adminOrderCancelManage}">!주문취소메인</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderCancelCheck}">!주문취소조회</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderCancelAdd}">!주문취소등록</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderCancelModify}">!주문취소수정</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderCancelRemove}">!주문취소삭제</a></li>
-									</ul>
-								</li>
-								<li><a> !주문반품관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminOrder/adminOrderReturnManage}">!주문반품메인</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderReturnCheck}">!주문반품조회</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderReturnAdd}">!주문반품등록</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderReturnModify}">!주문반품수정</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderReturnRemove}">!주문반품삭제</a></li>
-									</ul>
-								</li>
-								<li><a> !주문교환관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminOrder/adminOrderExchangeManage}">!주문교환메인</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderExchangeCheck}">!주문교환조회</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderExchangeAdd}">!주문교환등록</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderExchangeModify}">!주문교환수정</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderExchangeRemove}">!주문교환삭제</a></li>
-									</ul>
-								</li>
-								<li><a> !주문환불관리 <span class="fa fa-chevron-down"></span></a>
-									<ul class="nav child_menu">
-										<li><a th:href="@{/adminOrder/adminOrderRefundManage}">!주문환불메인</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderRefundCheck}">!주문환불조회</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderRefundAdd}">!주문환불등록</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderRefundModify}">!주문환불수정</a></li>
-										<li><a th:href="@{/adminOrder/adminOrderRefundRemove}">!주문환불삭제</a></li>
-									</ul>
-								</li>
+                                <li><a th:href="@{/adminOrder/adminOrderManage}">#주문관리메인</a></li>
+                                <li><a th:href="@{/adminOrder/adminOrderCancelManage}">!주문취소메인</a></li>
+                                <li><a th:href="@{/adminOrder/adminOrderReturnManage}">!주문반품메인</a></li>
+                                <li><a th:href="@{/adminOrder/adminOrderExchangeManage}">!주문교환메인</a></li>
+                                <li><a th:href="@{/adminOrder/adminOrderRefundManage}">!주문환불메인</a></li>
 							</ul>
 						</li>
 						<li><a><i class="fa fa-times-circle"></i> #이동훈 <span class="fa fa-chevron-down"></span></a>

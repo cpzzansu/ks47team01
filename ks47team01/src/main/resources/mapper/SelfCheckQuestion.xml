@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ks47team01.admin.mapper.AdminSelfCheckQuestionMapper">
+    <!--  SelfCheckQuestion DTO  -->
+    <resultMap id="selfCheckQuestionResultMap" type="SelfCheckQuestion">
+        <id column="self_check_question_code" property="selfCheckQuestionCode"/>
+        <result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+        <result column="crops_self_check_code" property="cropsSelfCheckCode"/>
+        <result column="crops_name_code" property="cropsNameCode"/>
+        <result column="crops_name" property="cropsName"/>
+        <result column="self_check_question_title_content" property="selfCheckQuestionTitleContent"/>
+        <result column="self_check_question_premium_check" property="selfCheckQuestionPremiumCheck"/>
+        <result column="self_check_question_superior_check" property="selfCheckQuestionSuperiorCheck"/>
+        <result column="self_check_question_regular_check" property="selfCheckQuestionRegularCheck"/>
+        <result column="self_check_question_order" property="selfCheckQuestionOrder"/>
+        <result column="self_check_question_reg_date" property="selfCheckQuestionRegDate"/>
+    </resultMap>
+    <!--  CropsSelfCheck DTO  -->
+    <resultMap id="cropsSelfCheckResultMap" type="CropsSelfCheck">
+        <id column="crops_self_check_code" property="cropsSelfCheckCode"/>
+        <result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+        <result column="crops_name_code" property="cropsNameCode"/>
+        <result column="crops_name" property="cropsName"/>
+        <result column="corps_self_check_reg_date" property="corpsSelfCheckRegDate"/>
+    </resultMap>
+
+    <insert id="insertQuestion" parameterType="CropsSelfCheck">
+        /* 자가검증 질문 등록 처리 */
+        INSERT INTO crops_self_check
+            (crops_self_check_code,
+             urbanfarm_admin_id,
+             crops_name_code,
+             crops_name,
+             corps_self_check_reg_date)
+        VALUES
+            (#{cropsSelfCheckCode}, #{urbanfarmAdminId},
+             #{cropsNameCode}, #{cropsName}, now());
+    </insert>
+
+    <insert id="insertSelfCheckQuestion" parameterType="SelfCheckQuestion">
+        /* 자가검증 질문 상세 등록 처리 */
+        INSERT INTO self_check_question
+           (self_check_question_code,
+            urbanfarm_admin_id,
+            crops_self_check_code,
+            crops_name_code, crops_name,
+            self_check_question_title_content,
+            self_check_question_premium_check,
+            self_check_question_superior_check,
+            self_check_question_regular_check,
+            self_check_question_order,
+            self_check_question_reg_date)
+        VALUES
+           (#{selfCheckQuestionCode}, #{urbanfarmAdminId}, #{cropsSelfCheckCode},
+            #{cropsNameCode}, #{cropsName}, #{selfCheckQuestionTitleContent},
+            #{selfCheckQuestionPremiumCheck}, #{selfCheckQuestionSuperiorCheck}, #{selfCheckQuestionRegularCheck},
+            #{selfCheckQuestionOrder}, now())
+    </insert>
+
+    <select id="getQuestionList" resultMap="cropsSelfCheckResultMap">
+        /* 자가검증 질문 전체 list */
+        SELECT
+            crops_self_check_code,
+            urbanfarm_admin_id,
+            crops_name_code,
+            crops_name,
+            corps_self_check_reg_date
+        FROM
+            crops_self_check
+    </select>
+
+    <select id="getUpdateCropsSelfCheck" parameterType="String" resultMap="cropsSelfCheckResultMap">
+        /* 수정할 자가검증 질문 DB data 가져오기 */
+        SELECT
+            crops_self_check_code,
+            urbanfarm_admin_id,
+            crops_name_code,
+            crops_name,
+            corps_self_check_reg_date
+        FROM
+            crops_self_check
+        WHERE
+            crops_self_check_code = #{cropsSelfCheckCode}
+
+    </select>
+
+    <select id="getQuestionDetailList" parameterType="String" resultMap="selfCheckQuestionResultMap">
+        /* 수정할 상세 질문 리스트 가져오기 */
+        SELECT
+            self_check_question_code,
+            urbanfarm_admin_id,
+            crops_self_check_code,
+            crops_name_code,
+            crops_name,
+            self_check_question_title_content,
+            self_check_question_premium_check,
+            self_check_question_superior_check,
+            self_check_question_regular_check,
+            self_check_question_order,
+            self_check_question_reg_date
+        FROM
+            self_check_question
+        WHERE
+            crops_self_check_code = #{cropsSelfCheckCode}
+        ORDER BY
+        self_check_question_order
+
+
+    </select>
+
+
+</mapper>

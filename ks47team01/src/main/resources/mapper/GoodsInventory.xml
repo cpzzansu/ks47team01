@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ks47team01.admin.mapper.AdminGoodsMapper">
+	<resultMap type="GoodsInventory" id="GoodsInventoryResultMap">
+		<id column="goods_kit_inventory_code" property="goodsKitInventoryCode"/>
+		<result column="goods_kit_code" property="goodsKitCode"/>
+		<result column="urban_kit_name" property="urbanKitName"/>
+		<result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+		<result column="goods_kit_inventory_total_amount" property="goodsKitInventoryTotalAmount"/>
+		<result column="goods_kit_inventory_reg_date" property="goodsKitInventoryRegDate"/>
+	</resultMap>
+
+	<select id="getGoodsList" resultMap="GoodsInventoryResultMap">
+	SELECT
+	*
+	FROM
+		goods_kit_inventory
+	</select>
+
+</mapper>

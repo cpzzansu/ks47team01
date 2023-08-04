@@ -52,4 +52,67 @@ z-index: 1;
     margin: 100px auto 20px;
 }
 
+/* 상점상품라벨 관리 체크박스 tr 크기 조절 */
+.goods-label-tr-width {
+    width: 14px;
+}
+
+.goods-label-td-codeid-width {
+    width: 50px;
+}
+
+/* 상점상품라벨 관리페이지 라벨내용 양식 */
+.oval-obj {
+    cursor: default;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+}
+.oval-obj.oval-obj-yellow {
+    background: #f1c40f;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 14px;
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    color: #fff;
+}
+.oval-obj.oval-obj-red {
+    background: #e74c3c;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 14px;
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    color: #fff;
+}
+.oval-obj.oval-obj-green {
+    background: #2ecc71;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 14px;
+    font-family: Pretendard-Regular, "Poppins", Arial, sans-serif;
+    color: #fff;
+}
+.dataTable {
+    color: black;
+}
+.x_title {
+    color: black;
+}
+.x_content button {
+    color: black;
+}
+.dt-button span {
+    color: black;
+}
+
 

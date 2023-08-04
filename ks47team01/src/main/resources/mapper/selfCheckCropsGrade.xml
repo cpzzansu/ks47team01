@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ks47team01.admin.mapper.SelfCheckCropsGradeMapper">
+<mapper namespace="ks47team01.admin.mapper.AdminSelfCheckCropsGradeMapper">
     <!--  SelfCheckCropsGrade DTO ResultMap  -->
     <resultMap id="selfCheckCropsGradeResultMap" type="SelfCheckCropsGrade">
         <id column="self_check_crops_grade_code" property="selfCheckCropsGradeCode"/>
@@ -28,6 +28,13 @@
         <result column="urban_kit_pic" property="urbanKitPic"/>
         <result column="urban_kit_reg_date" property="urbanKitRegDate"/>
         <result column="crops_name" property="cropsName"/>
+    </resultMap>
+    <!-- CropsName DTO ResultMap -->
+    <resultMap type="CropsName" id="cropsNameResultMap">
+        <id column="crops_name_code" property="cropsNameCode"/>
+        <result column="urbanfarm_admin_id" property="urbanfarmAdminId"/>
+        <result column="crops_name" property="cropsName"/>
+        <result column="crops_name_reg_date" property="cropsNameRegDate"/>
     </resultMap>
 
     <select id="autoIncreaseCode" resultType="String" parameterType="String">
@@ -87,7 +94,6 @@
 
     <update id="updateProductGrade" parameterType="SelfCheckCropsGrade">
         /* 상품등급 수정 */
-        deleteProductGrade
         UPDATE self_check_crops_grade
         <trim prefix="SET" suffixOverrides=",">
             <if test="productGrade != null and productGrade != ''">
@@ -115,49 +121,35 @@
         </foreach>
     </delete>
 
-    <select id="getKitList" resultMap="urbanKitResultMap">
-        /* 키트 리스트 + 작물 이름 */
+
+    <select id="getCropsNameList" resultMap="cropsNameResultMap">
+        /* 전체 작물이름 리스트 */
         SELECT
-            uk.urban_kit_code,
-            uk.urban_kit_name,
-            uk.crops_name_code,
-            cn.crops_name
+            crops_name_code,
+            crops_name
         FROM
-            urban_kit as uk
-            LEFT JOIN
-            crops_name as cn
-            on
-            uk.crops_name_code = cn.crops_name_code
+            crops_name
         ORDER BY
-            CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
+            CONVERT(SUBSTRING_INDEX(crops_name_code, '_', -1), UNSIGNED)
     </select>
 
-    <select id="searchKitList" resultMap="urbanKitResultMap">
-        /* 검색 키트 리스트 */
+    <select id="searchCropsList" resultMap="cropsNameResultMap">
+        /* 검색 작물 이름 리스트 */
         SELECT
-            uk.urban_kit_code,
-            uk.urban_kit_name,
-            uk.crops_name_code,
-            cn.crops_name
+            crops_name_code,
+            crops_name
         FROM
-            urban_kit as uk
-        LEFT JOIN
-            crops_name as cn
-        ON
-            uk.crops_name_code = cn.crops_name_code
+            crops_name
         <where>
-            <if test="searchColumn == 'urban_kit_code'">
-                uk.urban_kit_code LIKE #{searchValue}
-            </if>
-            <if test="searchColumn == 'urban_kit_name'">
-                uk.urban_kit_name LIKE #{searchValue}
+            <if test="searchColumn == 'crops_name_code'">
+                crops_name_code LIKE #{searchValue}
             </if>
             <if test="searchColumn == 'crops_name'">
-                cn.crops_name LIKE #{searchValue}
+                crops_name LIKE #{searchValue}
             </if>
         </where>
         ORDER BY
-            CONVERT(SUBSTRING_INDEX(urban_kit_code, '_', -1), UNSIGNED)
+        CONVERT(SUBSTRING_INDEX(crops_name_code, '_', -1), UNSIGNED)
     </select>
 
 </mapper>

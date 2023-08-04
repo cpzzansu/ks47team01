@@ -1,11 +1,71 @@
 package ks47team01.admin.controller;
 
+import ks47team01.admin.service.AdminGoodsService;
+import ks47team01.common.dto.GoodsBadStock;
+import ks47team01.common.dto.GoodsBadStockCategory;
+import ks47team01.common.dto.GoodsInventory;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller("adminGoodsController")
+@AllArgsConstructor
+@Slf4j
 public class AdminGoodsController {
+
+    private final AdminGoodsService adminGoodsService;
+
+    /**
+     * 불량상품재고기준 리스트 불러오기
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/adminGoods/adminGoodsBadStockCategoryData")
+    public List<GoodsBadStockCategory> admin_goods_bad_stock_category_data() {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        List<GoodsBadStockCategory> goodsBadStockCategoryList = adminGoodsService.adminGoodsBadStockCategoryData(paramMap);
+
+        paramMap.put("data", goodsBadStockCategoryList);
+
+        return goodsBadStockCategoryList;
+    }
+
+    /**
+     * 불량상품재고 리스트 불러오기
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/adminGoods/adminGoodsBadStockData")
+    public List<GoodsBadStock> admin_goods_bad_stock_data() {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        List<GoodsBadStock> goodsBadStockList = adminGoodsService.adminGoodsBadStockData(paramMap);
+
+        paramMap.put("data", goodsBadStockList);
+
+        return goodsBadStockList;
+    }
+
+    /**
+     * 상품재고 리스트 불러오기
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/adminGoods/adminGoodsManageData")
+    public List<GoodsInventory> admin_goods_data() {
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        List<GoodsInventory> goodsList = adminGoodsService.adminGoodsData(paramMap);
+
+        paramMap.put("data", goodsList);
+
+        return goodsList;
+    }
 
     @GetMapping("adminGoods/adminGoodsManage")
     public String admin_goods_main(Model model) {
