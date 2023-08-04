@@ -16,52 +16,51 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">상품 키트 코드</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" disabled="disabled" id="idGoodsKitCode" maxlength="50">
+                            <input type="text" class="form-control" disabled="disabled" id="idGoodsKitCode" maxlength="50" th:value="${GoodsKit.goodsKitCode}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">관리자 직원 아이디</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" disabled="disabled" id="idUrbanfarmAdminId" maxlength="50">
+                            <input type="text" class="form-control" disabled="disabled" id="idUrbanfarmAdminId" maxlength="50" th:value="${GoodsKit.urbanfarmAdminId}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 코드</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <input type="text" class="form-control" disabled="disabled"
-                                   id="idUrbanKitCode" placeholder="선택된 상품 키트 코드의 키트 코드 자동으로 들어와야 함" maxlength="50">
+                                   id="idUrbanKitCode" maxlength="50" th:value="${GoodsKit.urbanKitCode}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 이름</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <input type="text" class="form-control"
-                                   id="idUrbanKitName" placeholder="선택된 상품 키트 코드의 키트 이름 자동으로 들어와야 함" maxlength="50">
+                                   id="idUrbanKitName" maxlength="50" th:value="${GoodsKit.urbanKitName}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 내용</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" id="idGoodsKitContents" maxlength="50">
+                            <input type="text" class="form-control" id="idGoodsKitContents" maxlength="50" th:value="${GoodsKit.goodsKitContents}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 가격</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control kit-price" id="idGoodsKitPrice" maxlength="50">
+                            <input type="text" class="form-control kit-price" id="idGoodsKitPrice" maxlength="50" th:value="${GoodsKit.GoodsKitPrice}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 배송 가능일</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control kit-price"
-                                   id="idGoodsKitDeliveryDate">
+                            <input type="text" class="form-control kit-price" id="idGoodsKitDeliveryDate" th:value="${GoodsKit.goodsKitDeliveryDate}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 등록일</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control kit-price" id="idGoodsKitRegDate" disabled="disabled">
+                            <input type="text" class="form-control kit-price" id="idGoodsKitRegDate" disabled="disabled" th:value="${GoodsKit.goodsKitRegDate}">
                         </div>
                     </div>
                     <div class="form-group filebox">
@@ -69,24 +68,22 @@
                         <div class="col-md-9 col-sm-9 col-xs-12">
                             <input class="upload-name" id="idPic" readonly>
                             <label for="file" class="file-up-popup">사진첨부</label>
-                            <input type="file" id="file" accept="image/gif, image/jpeg, image/png, image/jpg">
+                            <input type="file" id="file" accept="image/gif, image/jpeg, image/png, image/jpg" th:value="${GoodsKit.goodsKitPic}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">사진 썸네일</label>
-                        <div class="col-md-9 col-sm-9 col-xs-12" id="upload-img-thumb">
-                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12" id="upload-img-thumb"></div>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">키트 제목</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control"
-                                   id="idGoodsKitTitle" maxlength="50">
+                            <input type="text" class="form-control" id="idGoodsKitTitle" maxlength="50" th:value="${GoodsKit.goodsKitTitle}">
                         </div>
                     </div>
                     <div class="x_content">
-                        <textarea id="summernote"></textarea>
+                        <textarea id="summernote" th:text="${GoodsKit.goodsKitDetail}"></textarea>
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group">
@@ -104,6 +101,16 @@
 </th:block>
 <th:block layout:fragment="customJs">
     <script th:inline="javascript">
+        /*<![CDATA[*/
+        let goodsKitPic = [[${GoodsKit.goodsKitPic}]];
+        $('#upload-img-thumb').html(goodsKitPic);
+
+        let match = goodsKitPic.match(/src="([^"]+)"/);
+        if (match && match[1]) {
+            let imgUrl = match[1];
+            $('#idPic').val(imgUrl);
+        }
+        /*]]>*/
 
         // 정규표현식을 이용한 키트가격 입력 input에 입력한 문자 감지 및 삭제
         $(document).ready(function() {
@@ -140,8 +147,8 @@
         }
 
         // 업로드한 파일 이름, 사진 썸네일 표시
-        $("#file").on('change',function(){
-            let fileName = $("#file").val();
+        $("#file").on('change', function(){
+            let fileName = $("#file").val().replace('C:\\fakepath\\', '');
             $(".upload-name").val(fileName);
             $('#upload-img-thumb').find('img').remove();
             const fileObj = new FileReader();
@@ -153,6 +160,7 @@
             }
             fileObj.readAsDataURL(this.files[0]);
         });
+
 
         // Summernote 로딩
         $(document).ready(function() {
@@ -208,58 +216,6 @@
                 focus: false,                  // 에디터 로딩후 포커스를 맞출지 여부
                 lang: "ko-KR",					// 한글 설정
             });
-            function extractValueFromUrl(urlString) {
-                const url = new URL(urlString);
-                const searchParams = new URLSearchParams(url.search);
-
-                // 첫 번째 값을 가져옵니다. 만약 여러 값이 있는 경우에는 이 부분을 수정해야 합니다.
-                let extractedValue = "";
-                for (let value of searchParams.values()) {
-                    extractedValue = value;
-                    break;
-                }
-
-                return extractedValue;
-            }
-
-            // 예제
-            const urlString = window.location.href;  // 현재 페이지의 URL
-            const checkedData = extractValueFromUrl(urlString);
-            console.log('checkedData ->', checkedData); // 쿼리 파라미터의 첫 번째 값을 출력
-
-            $.ajax({
-                url: "adminShopUpdate",
-                data: {checkedData: checkedData},
-                type: "POST",
-                success: function(response) {
-                    console.log('response ->', response);
-                    $('#idGoodsKitCode').val(response.goodsKitCode);
-                    $('#idUrbanfarmAdminId').val(response.urbanfarmAdminId);
-                    $('#idUrbanKitCode').val(response.urbanKitCode);
-                    $('#idUrbanKitName').val(response.urbanKitName);
-                    $('#idGoodsKitTitle').val(response.goodsKitTitle);
-                    $('#idGoodsKitContents').val(response.goodsKitContents);
-                    $('#idGoodsKitPrice').val(response.goodsKitPrice);
-                    $('#idGoodsKitDeliveryDate').val(response.goodsKitDeliveryDate);
-                    $('#idGoodsKitRegDate').val(response.goodsKitRegDate);
-
-                    $('#summernote').summernote('code', response.goodsKitDetail);
-
-                    $('#upload-img-thumb').html(response.goodsKitPic);
-
-                    let match = response.goodsKitPic.match(/src="([^"]+)"/);
-                    if (match && match[1]) {
-                        let imgUrl = match[1];
-                        // imgUrl을 idPic의 value로 설정
-                        $('#idPic').val(imgUrl);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
-                }
-            });
-
-
         });
     </script>
 </th:block>
