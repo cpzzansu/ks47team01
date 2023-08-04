@@ -3,12 +3,13 @@ package ks47team01.admin.mapper;
 import ks47team01.common.dto.GoodsKit;
 import ks47team01.common.dto.GoodsLabel;
 import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 import java.util.Map;
 
 @Mapper
 public interface AdminShopMapper {
+
+    public void insertGoodsKit(GoodsKit shopInsertForm);
 
     // 상품라벨관리 체크된 상품라벨 객체 조회
     public GoodsLabel getGoodsLabelObj(String finalCheckedData);
