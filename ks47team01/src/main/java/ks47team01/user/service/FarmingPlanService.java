@@ -1,15 +1,17 @@
 package ks47team01.user.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.servlet.http.HttpSession;
-import ks47team01.common.dto.CropsGrowingInfo;
 import ks47team01.common.dto.FarmingDetailPlan;
+import ks47team01.common.dto.FarmingDetailPlanAction;
 import ks47team01.common.dto.FarmingPlan;
 import ks47team01.common.dto.FarmingPlanLargeCate;
 import ks47team01.common.dto.FarmingPlanSmallCate;
@@ -27,6 +29,83 @@ public class FarmingPlanService {
 	private final CropsNameMapper cropsNameMapper;
 	private final FarmingPlanMapper farmingPlanMapper;
 	private final CropsGrowingInfoMapper cropsGrowingInfoMapper;
+	
+	
+	/**
+	 * 계획 실행
+	 * 실행한 계획List를 받아 insert
+	 * @param planActionList
+	 */
+	//@Transactional(isolation = Isolation.SERIALIZABLE)
+	public void insertPlanAction(List<String> planActionList) {
+		String detailPlanCode = null;
+		FarmingDetailPlan farmingDetailPlan= null;
+		FarmingDetailPlanAction farmingDetailPlanAction = null;
+		List<FarmingDetailPlanAction> farmingDetailPlanActionList = new ArrayList<>();
+		boolean isFirst = true;
+		String urbanFarmerId = null;
+		String farmerFarmingPlanCode = null;
+		String farmerFarmingDetailPlanCode = null;
+		String cropsGrowingInfoCode = null;
+		String farmingPlanLargeCateCode = null;
+		
+		
+		//insert할 테이블의 자동증가코드
+		String increaseCode = farmingPlanMapper.autoIncreaseCode("farming_detail_plan_action");
+		System.out.println(increaseCode+"테스트트");
+		int subIndex = increaseCode.lastIndexOf("_");
+		String prefixCode = increaseCode.substring(0,subIndex+1);
+		int suffixNum = Integer.parseInt(increaseCode.substring(subIndex+1,increaseCode.length()));
+		
+		for(String planAction : planActionList) {
+			System.out.println(planAction+"테스트");
+			if(isFirst) {
+				detailPlanCode = planAction;
+				//detailPlanCode 한줄 조회
+				farmingDetailPlan = farmingPlanMapper.getDetailPlanByCode(detailPlanCode);
+				isFirst = false;
+				urbanFarmerId = farmingDetailPlan.getUrbanfamerId();
+				farmerFarmingPlanCode = farmingDetailPlan.getFarmerFarmingPlanCode();
+				farmerFarmingDetailPlanCode = farmingDetailPlan.getFarmerFarmingDetailPlanCode();
+				cropsGrowingInfoCode = farmingDetailPlan.getCropsGrowingInfoCode();
+				farmingPlanLargeCateCode = farmingDetailPlan.getFarmingPlanLargeCateCode();
+			}else {
+				String detailPlanActionCode = prefixCode+suffixNum;
+				suffixNum = suffixNum + 1;
+				
+				farmingDetailPlanAction = new FarmingDetailPlanAction();
+				farmingDetailPlanAction.setFarmingDetailPlanActionCode(detailPlanActionCode);
+				farmingDetailPlanAction.setUrbanfarmerId(urbanFarmerId);
+				farmingDetailPlanAction.setFarmerFarmingPlanCode(farmerFarmingPlanCode);
+				farmingDetailPlanAction.setFarmerFarmingDetailPlanCode(farmerFarmingDetailPlanCode);
+				farmingDetailPlanAction.setFarmingDetailPlanActionContent(planAction);
+				farmingDetailPlanAction.setCropsGrowingInfoCode(cropsGrowingInfoCode);
+				farmingDetailPlanAction.setFarmingPlanLargeCateCode(farmingPlanLargeCateCode);
+				
+				farmingDetailPlanActionList.add(farmingDetailPlanAction);
+			}
+		}
+		
+		System.out.println(farmingDetailPlanActionList+"테스트");
+		farmingPlanMapper.insertPlanAction(farmingDetailPlanActionList);
+		
+	};
+	
+	/**
+	 * 오늘의 계획
+	 * @param farmingPlanCode
+	 * @param fewDays
+	 * @return
+	 */
+	public FarmingDetailPlan getTodayPlan(String farmingPlanCode, int fewDays) {
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("farmingPlanCode", farmingPlanCode);
+		paramMap.put("fewDays", fewDays);
+		
+		FarmingDetailPlan todayPlan = farmingPlanMapper.getTodayPlan(paramMap);
+		return todayPlan;
+	}
+	
 	
 	/**
 	 * 작물 수정
@@ -63,6 +142,7 @@ public class FarmingPlanService {
 	}
 	
 	/**
+	 * 대분류별 농사계획
 	 * farmerFarmingPlanCode,farmingPlanLargeCateCode별 smallCateList
 	 * @param farmingPlanLargeCateCode
 	 * @return List<FarmingPlanSmallCate>
@@ -142,9 +222,7 @@ public class FarmingPlanService {
 	 */
 	public List<FarmingPlan> getFarmingPlanListById(String userId){
 		List<FarmingPlan> farmingPlanList = farmingPlanMapper.getFarmingPlanListById(userId);
-		log.info(farmingPlanList);
-		String autoCode = farmingPlanMapper.autoIncreaseCode("farming_detail_plan_action");
-		System.out.println(autoCode);
+
 		return farmingPlanList;
 	}
 	

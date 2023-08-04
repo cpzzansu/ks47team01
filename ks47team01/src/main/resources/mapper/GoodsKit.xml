@@ -17,6 +17,43 @@
 		<result column="goods_kit_reg_date" property="goodsKitRegDate"/>
 	</resultMap>
 
+	<insert id="insertGoodsKit">
+		INSERT INTO goods_kit (urbanfarm_admin_id,
+							   urban_kit_code,
+		 					   urban_kit_name,
+							   goods_kit_title,
+							   goods_kit_contents,
+							   goods_kit_price,
+							   goods_kit_pic,
+							   goods_kit_detail,
+							   goods_kit_delivery_date,
+							   goods_kit_reg_date)
+		VALUES (#{urbanfarmAdminId},
+				#{urbanKitCode},
+				#{urbanKitName},
+				#{goodsKitTitle},
+				#{goodsKitContents},
+				#{goodsKitPrice},
+				#{goodsKitPic},
+				#{goodsKitDetail},
+				#{goodsKitRegDate},
+				NOW())
+	</insert>
+
+	<select id="autoIncreaseCode" resultType="String" parameterType="String">
+		<![CDATA[
+		SELECT
+			CASE
+				WHEN COUNT(1) < 1
+				THEN '${tableName}_1'
+			ELSE
+				CONCAT('${tableName}_',MAX(CAST(SUBSTRING_INDEX(${tableName}_code,'_',-1) AS UNSIGNED))+1)
+			END AS increase_code
+		FROM
+			${tableName}
+		]]>
+	</select>
+
 	<select id="getGoodsKitObj" resultMap="GoodsKitResultMap" parameterType="String">
 		SELECT
 			*

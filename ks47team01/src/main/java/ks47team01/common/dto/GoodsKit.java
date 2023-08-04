@@ -13,8 +13,6 @@ public class GoodsKit {
     private int goodsKitPrice;
     private String goodsKitPic;
     private String goodsKitDetail;
-    private String goodsKitDeliveryDate;
+    private int goodsKitDeliveryDate;
     private String goodsKitRegDate;
-
-
 }
