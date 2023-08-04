@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{user_layout/default}">
+<th:block layout:fragment="customContents">
+<!-- Modal -->
+			<div class="modal fade" id="todayPlanModal" data-backdrop="static"
+				data-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="staticBackdropLabel">오늘 계획</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div id="planAction">
+								<div class="row mb-2 border-bottom plan-box">
+									<div th:text="${todayPlan.farmerFarmingDetailPlanContent}" class="col-8 plan-content"></div>
+									<div class="col-4 text-right pb-2"><button class="btn btn-danger planRemove" type="button">삭제</button></div>														
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<input type="radio" name="addPlanAction" id="planOne" value="물주기" checked="checked"/><label for="planOne">물주기</label>
+								<input type="radio" name="addPlanAction" id="planTwo" value="잡초제거"/><label for="planTwo">잡초제거</label>
+								<input type="radio" name="addPlanAction" id="planThree" value="거름주기"/><label for="planThree">거름주기</label>
+								<input type="radio" name="addPlanAction" id="planEtc" value=""/><label for="planEtc">기타</label><br>
+								<input class="form-control" type="text" id="etcText" disabled="disabled" placeholder="기타 내용을 작성해주세요"/>
+								<div class="text-right">
+									<button id="addPlan" class="btn btn-success mt-3" type="button">추가</button>
+								</div>
+							</div>
+						</div>	
+						<div class="modal-footer">
+							<button type="button" id="planActionBtn" class="btn btn-primary">실행완료</button>
+							<button type="button" class="btn btn-secondary"
+								data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	<section class="ftco-section">
+		<h1 th:unless="${farmingPlan.farmerFarmingPlanNickname} == null"
+			th:text="${farmingPlan.farmerFarmingPlanNickname}"
+			class="text-center"></h1>
+		<h1 th:if="${farmingPlan.farmerFarmingPlanNickname} == null"
+			th:text="${farmingPlan.cropsName}"
+			class="text-center"></h1>
+		<h3 th:text="|${farmingPlan.fewDays}일차|" class="text-center mb-5"></h3>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-9 ftco-animate">
+					<div class="row align-items-end">
+						<div class="col-md-12">
+								<label for="crops">작물</label>
+								<h2 th:text="${farmingPlan.cropsName}"
+									class="border-top border-bottom"></h2>
+						</div>
+						<div class="col-md-12">
+								<label>키트</label>
+								<h2 th:if="${farmingPlan.urbanKitCode}==null"
+									class="border-top border-bottom">등록된 키트가 없습니다</h2>
+								<h2 th:unless="${farmingPlan.urbanKitCode}==null"
+									th:text="${farmingPlan.urbanKitName}"
+									class="border-top border-bottom"></h2>
+						</div>
+						<div class="col-md-12 today-plan">
+								<label>오늘 할 일</label>
+								<div class="row border-top border-bottom">
+									<h2 th:unless="${todayPlan.farmerFarmingDetailPlanContent}==null" th:text="${todayPlan.farmerFarmingDetailPlanContent}" class="col-9"></h2>
+									<h2 th:if="${todayPlan.farmerFarmingDetailPlanContent}==null" class="col-9">계획이 없습니다.</h2>
+									<div class="col-3 text-right">
+										<button th:id="${todayPlan.farmerFarmingDetailPlanCode}" class="mt-2 btn btn-primary today-plan-btn" type="button">실행완료</button>															
+									</div>
+								</div>
+						</div>
+					</div>
+					<br>
+					<div class="total-plan">
+					<th:block th:unless="${#lists.isEmpty(farmingPlanLargeCateList)}">
+						<lable>농사계획</lable>
+						<th:block th:each="largeCate : ${farmingPlanLargeCateList}">
+							
+							<div class="row mb-2 border-top">
+							<label class="col-11" th:for="${largeCate.farmingPlanLargeCateCode}">
+								<h2 th:text="${largeCate.farmingPlanLargeCateTitle}"></h2>
+								</label>
+								<div class="col-1 text-center mt-2">
+									<button th:id="${largeCate.farmingPlanLargeCateCode}" 
+											class="btn btn-primary ion-ios-arrow-down" type="button"
+											th:data-target="|#${largeCate.farmingPlanLargeCateCode}Card|"
+											aria-expanded="true"
+											th:aria-controls="${largeCate.farmingPlanLargeCateCode}"></button>
+								</div>
+							</div>
+							<div>
+								<div th:id="|${largeCate.farmingPlanLargeCateCode}Card|"
+									class="collapse multi-collapse mb-3">
+									<div class="mb-2 card card-body">
+										<div>계획이 없습니다</div>
+									</div>
+								</div>
+							</div>
+							
+						</th:block>
+					</th:block>
+					</div>
+					<div class="mt-4 text-right">
+						<a th:href="@{/userPlan/modifyPlan(farmerFarmingPlanCode=${farmingPlan.farmerFarmingPlanCode})}" class="mr-2 btn btn-warning">계획 수정하기</a>
+						<a th:href="@{/userPlan/planMain}" class="btn btn-primary"
+							type="submit">목록으로</a>
+					</div>
+					<!-- END -->
+				</div>
+			</div>
+		</div>
+	</section>
+</th:block>
+<th:block layout:fragment="customJs">
+<script type="text/javascript" th:inline="javascript">
+
+	//버튼 누르면 해당 카테고리 일자별 계획
+	$('.total-plan button').click(function(e){
+		let target = e.currentTarget;
+		let categoryCode = target.id;
+		
+		const $card = document.querySelector(`#${categoryCode}Card`);
+		let $cardBody = $card.firstElementChild.cloneNode();
+		
+		console.log($($cardBody).attr('class'));
+		//처음 눌렀을때만 통신후 값 삽입
+		if(!$($cardBody).is('.card-body-input')){
+			let planCode = [[${farmingPlan.farmerFarmingPlanCode}]];
+			$(target).attr("data-toggle","collapse");
+			let request = $.ajax({
+				  url: '/userPlan/ajax/getSmallCate',
+				  method: "POST",
+				  data: JSON.stringify({'farmingPlanLargeCateCode': categoryCode, 'farmerFarmingPlanCode': planCode}),
+				  dataType: "JSON",
+				  contentType : "application/json"
+				});
+
+			request.done(function( response ) {
+				if(response.length > 0){
+					$card.firstElementChild.remove();
+					
+					response.forEach(function(item,idx){
+						clonecardBody = $cardBody.cloneNode();
+						clonecardBody.setAttribute('class','card card-body card-body-input');
+						const day = document.createElement('h4');
+						const title = document.createElement('h4');
+						const content = document.createElement('div');
+						
+						day.textContent = `${item.farmerFarmingDetailPlanSortation}일차`;
+						title.textContent = '계획없음';
+						
+						if(item.farmerFarmingDetailPlanTitle){
+							title.textContent = item.farmerFarmingDetailPlanTitle;
+						}
+						content.textContent = '';
+						if(item.farmerFarmingDetailPlanContent){
+							content.textContent = item.farmerFarmingDetailPlanContent;
+						}
+						
+						clonecardBody.append(day);
+						clonecardBody.append(title);
+						clonecardBody.append(content);
+						
+						$card.append(clonecardBody);
+						
+					})	
+				}	
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+		}
+	})
+	
+	//실행완료 버튼 누르면 modal창 열기
+	const $todayPlanBtn = document.querySelector('.today-plan-btn');
+	$todayPlanBtn.addEventListener('click',function(){
+		$('#todayPlanModal').modal('show');
+	})
+	
+	//modal에서 기타 누르면 text활성화 아니면 비활성화
+	const $etcText = $('#etcText');
+	$('input[name="addPlanAction"]').on('change',function(e){
+		const curTarget = e.currentTarget;
+		const targetVal = curTarget.value;
+		
+		if(targetVal==''){
+			$etcText.attr('disabled',false);
+			$etcText.focus();
+		}else{
+			$etcText.attr('disabled',true);
+		}
+	})
+	
+	//추가버튼 누르면 계획 추가
+	const $addPlan = document.querySelector('#addPlan')
+	const planAction = document.querySelector('#planAction');
+	
+	$addPlan.addEventListener('click',function(){
+		let $clone = $(planAction).children().first().clone();	
+		const checkRadio = $('input[name="addPlanAction"]:checked');
+		const radioId = checkRadio.attr('id');
+		
+		//기타일때 text값 추가
+		if(radioId=='planEtc'){
+			$clone.find('.plan-content').text($etcText.val());
+		}else{
+			$clone.find('.plan-content').text(checkRadio.val());
+		}
+		
+		if($clone.find('.plan-content').text()==''){
+			alert('내용을 입력해주세요');
+			return;
+		}
+		$(planAction).append($clone);
+		
+		$etcText.val('');
+		console.log($('#planOne'));
+		$('input[name="addPlanAction"]').prop('checked',false);
+		$('#planOne').prop('checked', true);
+	})
+	
+	//삭제버튼 누르면 계획 삭제
+	$('#planAction').on('click',function(e){
+		const node = e.target.nodeName;
+		if(node=='BUTTON'){
+			const planBoxEles = document.querySelectorAll('.plan-box');
+			if(planBoxEles.length>1){
+				const target = e.target;
+				const planBox = target.closest('.plan-box');
+				console.log(target);
+				console.log(planBox);
+				planBox.remove();
+			}else{
+				alert('계획을 모두 삭제할 수 없습니다.');
+			}
+		}
+	})
+	
+	//실행완료 버튼 누르면 실행완료처리
+	const planActionBtn = document.querySelector('#planActionBtn');
+	planActionBtn.addEventListener('click',function(){
+		const planBoxEles = document.querySelectorAll('.plan-content');
+		
+		const contentArr = [];
+		const detailPlanCode = [[${todayPlan.farmerFarmingDetailPlanCode}]];
+		contentArr.push(detailPlanCode);
+		console.log(detailPlanCode);
+		
+		planBoxEles.forEach(function(item,idx){
+			const actionContent = item.textContent;
+			contentArr.push(actionContent);
+		})
+		
+		console.log(contentArr);
+		
+		let request = $.ajax({
+				url: '/userPlan/ajax/planAction',
+				method: "POST",	
+				data: JSON.stringify(contentArr),
+				contentType : "application/json"
+			});
+
+		request.done(function( response ) {
+			console.log(response);
+			$('#todayPlanModal').modal('hide');
+		});
+		 
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( "Request failed: " + textStatus );
+		});
+	})
+</script>
+</th:block>
+</html>
