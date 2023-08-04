@@ -6,7 +6,7 @@
 	<section>
 		<div class="container">
 			<!-- Modal -->
-			<div class="modal fade" id="staticBackdrop" data-backdrop="static"
+			<div class="modal fade" id="planStartModal" data-backdrop="static"
 				data-keyboard="false" tabindex="-1"
 				aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
@@ -43,14 +43,14 @@
 											<h2>
 												<th:block th:if="${list.farmerFarmingPlanNickname}==null">
 													<a th:text="${list.cropsName}"
-														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														th:href="@{/userPlan/cropsPlanProceed(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
 														class="text-danger"></a>
 												</th:block>
 
 												<th:blcok
 													th:unless="${list.farmerFarmingPlanNickname}==null">
 													<a th:text="${list.farmerFarmingPlanNickname}"
-														th:href="@{/userPlan/cropsPlan(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
+														th:href="@{/userPlan/cropsPlanProceed(farmerFarmingPlanCode=${list.farmerFarmingPlanCode})}"
 														class="text-danger"></a>
 												</th:blcok>
 
@@ -117,24 +117,33 @@
 	<script type="text/javascript" th:inline="javascript">
 		//농사 시작버튼 누르면 ajax로 정보받아와 모달창 띄우기
 		const $planStartBtn = document.querySelectorAll('.planStartBtn');
-		$($planStartBtn).click(function(e) {
+		$($planStartBtn)
+				.click(
+						function(e) {
 							const target = e.currentTarget;
-							const farmerFarmingPlanCode = $(target).closest('div').attr('id');
+							const farmerFarmingPlanCode = $(target).closest(
+									'div').attr('id');
 							console.log(farmerFarmingPlanCode);
 							const url = `/userPlan/ajax/getCropsInfo`;
 
 							console.log(url);
 							const menuId = $("ul.nav").first().attr("id");
-							const request = $.ajax({
+							const request = $
+									.ajax({
 										url : `${url}`,
 										method : "POST",
-										data : JSON.stringify({'farmerFarmingPlanCode' : farmerFarmingPlanCode}),
+										data : JSON
+												.stringify({
+													'farmerFarmingPlanCode' : farmerFarmingPlanCode
+												}),
 										contentType : "application/json"
 									});
-							
+
 							//성공시 모달에 정보 입력
-							request.done(function(response) {
-										const $modalBody = document.querySelector('.modal-body');
+							request
+									.done(function(response) {
+										const $modalBody = document
+												.querySelector('.modal-body');
 										let cropsNickname = '별명없음';
 										let cropsName = response.cropsName;
 										let kitName = '키트없음';
@@ -150,11 +159,12 @@
 										$modalBody.innerHTML = `작물명 : ${cropsName} <br>별명 : ${cropsNickname} <br>키트 : ${kitName} <br>예상 소요기간 : ${growingDate}일`;
 
 										//모달창 시작버튼 주소
-										const $modalStratBtn = document.querySelector('#modalStratBtn');
+										const $modalStratBtn = document
+												.querySelector('#modalStratBtn');
 										$modalStratBtn.href = `/userPlan/startPlan?farmerFarmingPlanCode=${farmerFarmingPlanCode}`;
 
 										//모달창 열기
-										$('#staticBackdrop').modal('show');
+										$('#planStartModal').modal('show');
 									});
 
 							request.fail(function(jqXHR, textStatus) {
