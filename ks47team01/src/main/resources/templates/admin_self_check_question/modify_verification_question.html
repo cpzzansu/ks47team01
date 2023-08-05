@@ -210,6 +210,34 @@
         // 팝업 창이 열릴 때 작물 이름 코드 값을 가져옴(등록시 비교하여 같은 값이면 서버에 요청하지 않음)
         let $cropCodeName;
 
+        // DataBase selfCheckQuestion 객체 배열
+        const $selfCheckQuestionArr = [];
+
+        // form input value 객체 배열
+        const $formSelfCheckQuestionArr = [];
+
+        // 객체가 배열안에 있을 때 배열이 같은 값을 가진 객체로 이루어져있는지 체크하는 함수
+        function isNotChangedValue(arr1, arr2){
+
+            for(let i = 0; i < arr1.length; i++){
+                let obj1 = arr1[i];
+                let obj2 = arr2[i];
+
+                for(let key in obj1){
+                    if(obj1.hasOwnProperty(key) !== obj2.hasOwnProperty(key)){
+                        return false;
+                    } else if(typeof obj1[key] !== typeof  obj2[key]){
+                        return false;
+                    }
+
+                    if(obj1[key] !== obj2[key]){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         const $cloneCropsTr = $('#cropsTable').find('tr').last().clone();
         // 유효성검사 함수
         const validCheck = element => {
@@ -352,7 +380,9 @@
                     success: function(response){
 
                         response.forEach(function (item, idx){
-                            console.log(item);
+
+                            $selfCheckQuestionArr.push(item)
+
                             console.log(item.selfCheckQuestionTitleContent);
                             // 현재 div의 가장 마지막 요소를 선택
                             const $lastDiv = $('.questionAddInput').last();
@@ -380,10 +410,38 @@
                 })
             }
 
-
+            // 상세 질문 수정 form의 hidden 속성을 toggle
             $('#selfCheckQuestionForm').toggle();
 
         })
+
+        $('.addQuestionBtn').click(function (){
+
+            $('.questionAddInput').each(function(idx, item){
+
+                let $selfCheckQuestionTitleContentValue = $(item).find('input[name="selfCheckQuestionTitleContent"]').val();
+                let $selfCheckQuestionPremiumCheckValue = $(item).find('input[name="selfCheckQuestionPremiumCheck"]').val();
+                let $selfCheckQuestionSuperiorCheckValue = $(item).find('input[name="selfCheckQuestionSuperiorCheck"]').val();
+                let $selfCheckQuestionRegularCheckValue = $(item).find('input[name="selfCheckQuestionRegularCheck"]').val();
+
+                const valueObject = {
+                    selfCheckQuestionTitleContent: $selfCheckQuestionTitleContentValue,
+                    selfCheckQuestionPremiumCheck: $selfCheckQuestionPremiumCheckValue,
+                    selfCheckQuestionSuperiorCheck: $selfCheckQuestionSuperiorCheckValue,
+                    selfCheckQuestionRegularCheck: $selfCheckQuestionRegularCheckValue
+                };
+
+                $formSelfCheckQuestionArr.push(valueObject);
+            })
+            
+            console.log($formSelfCheckQuestionArr);
+            console.log($selfCheckQuestionArr);
+
+            let result1 = areObjectArrayEqual($formSelfCheckQuestionArr, $selfCheckQuestionArr);
+            console.log(result1);
+        })
+
+
     </script>
 </th:block>
 </html>
