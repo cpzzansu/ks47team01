@@ -106,7 +106,7 @@
         WHERE
             crops_self_check_code = #{cropsSelfCheckCode}
         ORDER BY
-        self_check_question_order
+            CONVERT(self_check_question_order, UNSIGNED)
 
 
     </select>
