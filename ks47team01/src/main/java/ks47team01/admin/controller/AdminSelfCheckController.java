@@ -8,6 +8,7 @@ import ks47team01.common.dto.CropsSelfCheck;
 import ks47team01.common.dto.SelfCheckCropsGrade;
 import ks47team01.common.dto.SelfCheckQuestion;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -186,6 +187,20 @@ public class AdminSelfCheckController {
         return selfCheckQuestionList;
     }
 
+    @ResponseBody
+    @PostMapping("/question/updateQuestionDetail")
+    public void updateQuestion(@RequestBody UpdateData updateData){
+        List<SelfCheckQuestion> insertList = updateData.getInsertList();
+        List<SelfCheckQuestion> updateList = updateData.getUpdateList();
+        List<SelfCheckQuestion> deleteList = updateData.getDeleteList();
+        log.info("insertList: {}",insertList);
+        log.info("updateList: {}",updateList);
+        log.info("deleteList: {}",deleteList);
+        if(updateList.size() > 0){
+            adminSelfCheckQuestionService.updateDetailQuestion(updateList);
+        }
+    }
+
     /**
      * 관리자 - 자가검증 질문 삭제 처리 메서드
      * @param model title=화면제목
@@ -294,5 +309,12 @@ public class AdminSelfCheckController {
         log.info("deleteProductGrade Controller {}", deleteList);
 
         adminSelfCheckCropsGradeService.deleteProductGrade(deleteList);
+    }
+
+    @Data
+    public static class UpdateData{
+        private List<SelfCheckQuestion> insertList;
+        private List<SelfCheckQuestion> updateList;
+        private List<SelfCheckQuestion> deleteList;
     }
 }

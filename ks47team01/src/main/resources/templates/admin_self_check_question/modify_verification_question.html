@@ -333,11 +333,17 @@
             for(let key in item){
                 let data = item[key];
                 if(typeof data == 'undefined' || data == null || data == '' ){
-                    let labelValue = inputName(key);
-                    alert(labelValue);
-                    
+                    let inputNameValue = inputName(key);
+                    let questionNum = item.selfCheckQuestionOrder;
+                    let message = questionNum + '번 질문의 \'' + inputNameValue + '\'이 잘못 입력되었습니다.';
+
+                    alert(message);
+                    // false값을 반환해서 유효성 검사를 통과 못하면 함수를 멈추게 함
+                    return false;
                 }
             }
+            // true값을 반환해서 유효성 검사를 통과하면 계속 진행하게 함
+            return true;
         }
 
         // input 태그의 라벨 명을 반환하는 함수
@@ -348,7 +354,6 @@
                 selfCheckQuestionSuperiorCheck: '상급 질문',
                 selfCheckQuestionRegularCheck: '일반 질문',
             }
-
             return inputNameObj[key];
         }
 
@@ -481,10 +486,6 @@
                             }
                             updateDataArr.push(codeObj);
 
-
-
-
-
                             // 현재 div의 가장 마지막 요소를 선택
                             $lastDiv = $('.questionAddInput').last();
                             // 마지막 요소를 복사
@@ -525,9 +526,12 @@
         })
 
         $(document).on('click', '.modifyDetailQuestionBtn',function (){
-            // form안의 input 값 배열 초기화
+            // 배열 초기화
             $formSelfCheckQuestionArr = [];
             deleteQuestionArr = [];
+            overQuestionArr = [];
+
+            let isValid = true;
 
             $('.questionAddInput').each(function(idx, item){
 
@@ -544,11 +548,17 @@
                     selfCheckQuestionRegularCheck: $selfCheckQuestionRegularCheckValue,
                     selfCheckQuestionOrder: $selfCheckQuestionOrderValue
                 };
-
+                // 유효성 검사
+                isValid = detailQuestionValidCheck(valueObject);
+                // input에 있는 값을 배열에 담음.
                 $formSelfCheckQuestionArr.push(valueObject);
-
             })
-
+            console.log(isValid);
+            // 유효성 검사 실패시 함수 종료
+            if(!isValid){
+                return;
+            }
+            
             // 만약 수정하려는 질문의 숫자가 DB에서의 숫자보다 많다면 넘는 질문을 초과 질문 배열에 담음.
             if($formSelfCheckQuestionArr.length > $selfCheckQuestionArr.length){
                 for(let i = $selfCheckQuestionArr.length; i < $formSelfCheckQuestionArr.length; i += 1){
@@ -573,9 +583,9 @@
 
             // 현재 form안의 값이 바뀌었는지 check
             let isChanged = changedValueCheck($formSelfCheckQuestionArr, $selfCheckQuestionArr);
-            
+            console.log(isChanged);
             // 바뀌었으면 바뀐 값을 서버로 전송하는 조건문
-            if(isChanged){
+            if(isChanged || overQuestionArr.length > 0 || deleteQuestionArr.length > 0){
                 // 바뀐 값들의 배열을 순회하며 배열 안 객체의 코드와 같은 서버 정보 객체에 바뀐 값을 세팅함
                 changedValueArr.forEach(function (item, index){
                     for(let key in item){
@@ -594,6 +604,27 @@
                 for(let i = spliceIdxArr.length - 1; i >= 0; i -= 1){
                     updateDataArr.splice(spliceIdxArr[i],1);
                 }
+
+                console.log('hi');
+                // 서버로 데이터를 보냄
+                $.ajax({
+                    url: '/adminSelfCheck/question/updateQuestionDetail',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        insertList: overQuestionArr,
+                        updateList: updateDataArr,
+                        deleteList: deleteQuestionArr
+                    }),
+                    success: function(response){
+
+                    },
+                    error: function(error){
+
+                    }
+                });
+
+
 
             }
 

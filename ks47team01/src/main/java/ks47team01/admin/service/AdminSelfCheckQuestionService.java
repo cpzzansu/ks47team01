@@ -86,4 +86,12 @@ public class AdminSelfCheckQuestionService {
         return selfCheckQuestionList;
     }
 
+    /**
+     * 상세 질문 수정 처리
+     * @param updateList 수정할 data 리스트
+     */
+    public void updateDetailQuestion(List<SelfCheckQuestion> updateList){
+        adminSelfCheckQuestionMapper.updateDetailQuestion(updateList);
+    }
+
 }

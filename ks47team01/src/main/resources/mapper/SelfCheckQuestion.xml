@@ -107,8 +107,6 @@
             crops_self_check_code = #{cropsSelfCheckCode}
         ORDER BY
             CONVERT(self_check_question_order, UNSIGNED)
-
-
     </select>
 
 
