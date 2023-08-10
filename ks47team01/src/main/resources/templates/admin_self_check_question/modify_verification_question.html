@@ -553,11 +553,8 @@
             // 현재 form안의 값이 바뀌었는지 check
             let isChanged = changedValueCheck($formSelfCheckQuestionArr, $selfCheckQuestionArr);
             
-            console.log(isChanged);
-
             // 바뀌었으면 바뀐 값을 서버로 전송하는 조건문
             if(isChanged){
-                console.log(updateDataArr);
                 // 바뀐 값들의 배열을 순회하며 배열 안 객체의 코드와 같은 서버 정보 객체에 바뀐 값을 세팅함
                 changedValueArr.forEach(function (item, index){
                     for(let key in item){
@@ -565,7 +562,6 @@
                     };
                 });
 
-                console.log(updateDataArr);
                 // 바뀌지 않은 객체를 제거하기 위한 제거할 객체의 index번호를 담는 배열
                 let spliceIdxArr = [];
 
@@ -573,12 +569,11 @@
                 updateDataArr.forEach(function (item, index){
                     if(Object.keys(item).length === 1) spliceIdxArr.push(index);
                 });
-                console.log(spliceIdxArr);
                 // 값이 바뀌지 않은 객체를 서버로 보낼 data 배열에서 제거함
                 for(let i = spliceIdxArr.length - 1; i >= 0; i -= 1){
                     updateDataArr.splice(spliceIdxArr[i],1);
                 }
-                console.log(updateDataArr);
+
             }
 
         })
