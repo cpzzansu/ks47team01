@@ -217,10 +217,13 @@
         let $selfCheckQuestionArr = [];
 
         // form input value 객체 배열
-        const $formSelfCheckQuestionArr = [];
+        let $formSelfCheckQuestionArr = [];
 
         // form input value의 늘어난 질문을 담는 배열
-        const overQuestionArr = [];
+        let overQuestionArr = [];
+
+        // 삭제할 질문을 담는 배열
+        let deleteQuestionArr = [];
 
         // 바뀐 값을 담는 배열
         const changedValueArr = [];
@@ -522,6 +525,10 @@
         })
 
         $(document).on('click', '.modifyDetailQuestionBtn',function (){
+            // form안의 input 값 배열 초기화
+            $formSelfCheckQuestionArr = [];
+            deleteQuestionArr = [];
+
             $('.questionAddInput').each(function(idx, item){
 
                 let $selfCheckQuestionTitleContentValue = $(item).find('input[name="selfCheckQuestionTitleContent"]').val();
@@ -539,17 +546,31 @@
                 };
 
                 $formSelfCheckQuestionArr.push(valueObject);
+
             })
 
             // 만약 수정하려는 질문의 숫자가 DB에서의 숫자보다 많다면 넘는 질문을 초과 질문 배열에 담음.
             if($formSelfCheckQuestionArr.length > $selfCheckQuestionArr.length){
                 for(let i = $selfCheckQuestionArr.length; i < $formSelfCheckQuestionArr.length; i += 1){
-                    
+
                     let overQuestion = $formSelfCheckQuestionArr.splice(i);
-                    
+
                     overQuestionArr.push(overQuestion);
                 }
             }
+
+            // 수정하려는 질문의 숫자가 DB에서의 숫자보다 작다면 삭제할 코드와 조건문 변수를 true로 반환
+            // 삭제할 게 있는지 조건문 변수
+            let isDelete = false;
+            // 삭제할 요소 수
+            const deleteCount = $selfCheckQuestionArr.length - $formSelfCheckQuestionArr.length;
+            // 삭제할 요소 배열에 담기, 삭제 조건문 변수 true로 값 대입
+            if(deleteCount > 0){
+                deleteQuestionArr = $selfCheckQuestionArr.slice(-deleteCount);
+                isDelete = true;
+            }
+
+
             // 현재 form안의 값이 바뀌었는지 check
             let isChanged = changedValueCheck($formSelfCheckQuestionArr, $selfCheckQuestionArr);
             
