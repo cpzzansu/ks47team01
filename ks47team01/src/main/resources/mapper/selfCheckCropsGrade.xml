@@ -149,7 +149,7 @@
             </if>
         </where>
         ORDER BY
-        CONVERT(SUBSTRING_INDEX(crops_name_code, '_', -1), UNSIGNED)
+            CONVERT(SUBSTRING_INDEX(crops_name_code, '_', -1), UNSIGNED)
     </select>
 
 </mapper>
