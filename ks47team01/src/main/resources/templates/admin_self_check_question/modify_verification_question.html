@@ -195,10 +195,11 @@
                     <div>
                         <div class="col-md-3 col-sm-3 col-xs-12"></div>
                         <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                            <button type="button" class="btn btn-success addQuestionBtn">상세질문등록하기</button>
+                            <button type="button" class="btn btn-success modifyDetailQuestionBtn">상세질문등록하기</button>
                         </div>
                         <div class="col-md-3"></div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -207,23 +208,28 @@
 <th:block layout:fragment="customJs">
     <script type="text/javascript">
 
+        let $lastDiv;
+
         // 팝업 창이 열릴 때 작물 이름 코드 값을 가져옴(등록시 비교하여 같은 값이면 서버에 요청하지 않음)
         let $cropCodeName;
 
         // DataBase selfCheckQuestion 객체 배열
-        const $selfCheckQuestionArr = [];
+        let $selfCheckQuestionArr = [];
 
         // form input value 객체 배열
-        const $formSelfCheckQuestionArr = [];
+        let $formSelfCheckQuestionArr = [];
 
         // form input value의 늘어난 질문을 담는 배열
-        const overQuestionArr = [];
+        let overQuestionArr = [];
+
+        // 삭제할 질문을 담는 배열
+        let deleteQuestionArr = [];
 
         // 바뀐 값을 담는 배열
         const changedValueArr = [];
 
         // 서버로 전송할 객체 배열
-        const updateDataArr = [];
+        let updateDataArr = [];
 
         // 객체와 키를 받아서 서버로 전송할 객체 배열에 키와 값을 세팅
         function addUpdateValue(key, item){
@@ -320,6 +326,30 @@
                 return false;
             }
             return true;
+        }
+
+        // 유효성 검사 - 상세질문
+        function detailQuestionValidCheck(item) {
+            for(let key in item){
+                let data = item[key];
+                if(typeof data == 'undefined' || data == null || data == '' ){
+                    let labelValue = inputName(key);
+                    alert(labelValue);
+                    
+                }
+            }
+        }
+
+        // input 태그의 라벨 명을 반환하는 함수
+        function inputName(key){
+            const inputNameObj = {
+                selfCheckQuestionTitleContent: '질문 제목',
+                selfCheckQuestionPremiumCheck: '특급 질문',
+                selfCheckQuestionSuperiorCheck: '상급 질문',
+                selfCheckQuestionRegularCheck: '일반 질문',
+            }
+
+            return inputNameObj[key];
         }
 
         // 작물 선택 버튼 클릭시 ajax로 작물 리스트 가져오기
@@ -438,21 +468,25 @@
                     data: cropsSelfCheckCode,
                     dataType: 'json',
                     success: function(response){
-
+                        updateDataArr = [];
+                        $selfCheckQuestionArr = [];
                         response.forEach(function (item, idx){
 
                             // DB에서 보내온 객체를 배열에 담음
                             $selfCheckQuestionArr.push(item);
 
-                            // 값이 변했을 때 DB에 보낼 객체 배열을 만듬
-                            const updateDataObject = {
-                                selfCheckQuestionCode: item.selfCheckQuestionCode
-                            }
-                            updateDataArr.push(updateDataObject);
 
-                            console.log(item.selfCheckQuestionTitleContent);
+                            let codeObj = {
+                                'selfCheckQuestionCode': item.selfCheckQuestionCode
+                            }
+                            updateDataArr.push(codeObj);
+
+
+
+
+
                             // 현재 div의 가장 마지막 요소를 선택
-                            const $lastDiv = $('.questionAddInput').last();
+                            $lastDiv = $('.questionAddInput').last();
                             // 마지막 요소를 복사
                             const $lastDivClone = $lastDiv.clone();
                             // 마지막 div의 input에 db의 값을 넣어줌
@@ -469,7 +503,10 @@
 
                                 $lastDivClone.appendTo('#questionAddForm');
                             }
+
                         })
+                        // 상세 질문 수정 form의 hidden 속성을 toggle
+                        $('#selfCheckQuestionForm').toggle();
                     },
                     fail: function(jqXHR, textStatus, errorThrown){
                         alert('오류가 발생했습니다. ' + textStatus + ': ' + errorThrown);
@@ -477,12 +514,20 @@
                 })
             }
 
-            // 상세 질문 수정 form의 hidden 속성을 toggle
-            $('#selfCheckQuestionForm').toggle();
+            if(!isHidden){
+                // 상세 질문 수정 form의 hidden 속성을 toggle
+                $('#selfCheckQuestionForm').toggle();
+
+                $('.questionAddInput').remove();
+                $lastDiv.appendTo('#questionAddForm');
+            }
 
         })
 
-        $('.addQuestionBtn').click(function (){
+        $(document).on('click', '.modifyDetailQuestionBtn',function (){
+            // form안의 input 값 배열 초기화
+            $formSelfCheckQuestionArr = [];
+            deleteQuestionArr = [];
 
             $('.questionAddInput').each(function(idx, item){
 
@@ -501,36 +546,55 @@
                 };
 
                 $formSelfCheckQuestionArr.push(valueObject);
+
             })
 
             // 만약 수정하려는 질문의 숫자가 DB에서의 숫자보다 많다면 넘는 질문을 초과 질문 배열에 담음.
             if($formSelfCheckQuestionArr.length > $selfCheckQuestionArr.length){
                 for(let i = $selfCheckQuestionArr.length; i < $formSelfCheckQuestionArr.length; i += 1){
-                    
+
                     let overQuestion = $formSelfCheckQuestionArr.splice(i);
-                    
+
                     overQuestionArr.push(overQuestion);
                 }
             }
+
+            // 수정하려는 질문의 숫자가 DB에서의 숫자보다 작다면 삭제할 코드와 조건문 변수를 true로 반환
+            // 삭제할 게 있는지 조건문 변수
+            let isDelete = false;
+            // 삭제할 요소 수
+            const deleteCount = $selfCheckQuestionArr.length - $formSelfCheckQuestionArr.length;
+            // 삭제할 요소 배열에 담기, 삭제 조건문 변수 true로 값 대입
+            if(deleteCount > 0){
+                deleteQuestionArr = $selfCheckQuestionArr.slice(-deleteCount);
+                isDelete = true;
+            }
+
+
             // 현재 form안의 값이 바뀌었는지 check
             let isChanged = changedValueCheck($formSelfCheckQuestionArr, $selfCheckQuestionArr);
+            
             // 바뀌었으면 바뀐 값을 서버로 전송하는 조건문
             if(isChanged){
+                // 바뀐 값들의 배열을 순회하며 배열 안 객체의 코드와 같은 서버 정보 객체에 바뀐 값을 세팅함
                 changedValueArr.forEach(function (item, index){
                     for(let key in item){
                         if(key !== 'selfCheckQuestionCode') addUpdateValue(key, item);
                     };
                 });
 
+                // 바뀌지 않은 객체를 제거하기 위한 제거할 객체의 index번호를 담는 배열
                 let spliceIdxArr = [];
 
+                // 수정할 정보를 담은 객체 배열을 순회하면 길이가 1인 객체를 위에 선언한 배열에 담음
                 updateDataArr.forEach(function (item, index){
                     if(Object.keys(item).length === 1) spliceIdxArr.push(index);
                 });
+                // 값이 바뀌지 않은 객체를 서버로 보낼 data 배열에서 제거함
+                for(let i = spliceIdxArr.length - 1; i >= 0; i -= 1){
+                    updateDataArr.splice(spliceIdxArr[i],1);
+                }
 
-                spliceIdxArr.forEach(function(item){
-                    updateDataArr.splice(item);
-                });
             }
 
         })
